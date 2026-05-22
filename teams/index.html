@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milano Racing — Team</title>
+    <meta name="description" content="Meet the Milano Racing team across engineering, data, strategy, and communications.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #080808;
+            --surface: rgba(17, 17, 17, 0.82);
+            --surface2: #1a1a1a;
+            --accent: #e8002d;
+            --text-1: #f5f5f5;
+            --text-2: #8f8f8f;
+            --text-3: #4d4d4d;
+            --line: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text-1);
+            font-family: 'DM Mono', monospace;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                linear-gradient(180deg, rgba(8, 8, 8, 0.42), rgba(8, 8, 8, 0.96)),
+                url("../frames/hero/frame_0128.jpg") center / cover no-repeat;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.045;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E');
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px clamp(20px, 5vw, 64px);
+            border-bottom: 1px solid var(--accent);
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(12px);
+        }
+
+        .brand,
+        .nav-link {
+            color: var(--text-1);
+            text-decoration: none;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 23px;
+            letter-spacing: 0.15em;
+        }
+
+        .brand-mark {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-link {
+            color: var(--text-2);
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .nav-link:hover {
+            color: var(--text-1);
+        }
+
+        main {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 72px 0 80px;
+        }
+
+        .page-head {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+            gap: 36px;
+            align-items: end;
+            margin-bottom: 42px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(5rem, 15vw, 12rem);
+            line-height: 0.82;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        .intro {
+            color: var(--text-2);
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 440px;
+        }
+
+        .rule {
+            width: 140px;
+            height: 2px;
+            margin-top: 22px;
+            background: var(--accent);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .member-card {
+            min-height: 248px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 2px solid var(--accent);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+            backdrop-filter: blur(10px);
+        }
+
+        .member-card::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 160ms ease, opacity 160ms ease;
+        }
+
+        .member-card:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        .avatar {
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            background: var(--surface2);
+            color: var(--accent);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 21px;
+        }
+
+        .name {
+            margin-top: 18px;
+            font-size: 14px;
+            color: var(--text-1);
+        }
+
+        .role {
+            margin-top: 6px;
+            color: var(--accent);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .bio {
+            margin-top: 16px;
+            color: var(--text-2);
+            font-size: 12px;
+            line-height: 1.75;
+        }
+
+        .dept-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 28px 0 34px;
+        }
+
+        .dept {
+            border: 1px solid var(--line);
+            background: rgba(8, 8, 8, 0.62);
+            color: var(--text-2);
+            padding: 9px 12px;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        footer {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 28px 0 36px;
+            border-top: 1px solid var(--line);
+            color: var(--text-3);
+            font-size: 11px;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .page-head {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+                gap: 12px;
+            }
+
+            main {
+                width: min(100% - 28px, 1180px);
+                padding-top: 52px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html" class="brand"><span class="brand-mark"></span>MILANO RACING</a>
+        <div class="nav-links">
+            <a href="../index.html#about" class="nav-link">About</a>
+            <a href="../index.html#sponsors" class="nav-link">Sponsors</a>
+            <a href="../index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-head">
+            <div>
+                <h1>THE TEAM</h1>
+                <div class="rule"></div>
+            </div>
+            <p class="intro">A focused group of builders, analysts, and storytellers turning classroom theory into track-ready decisions.</p>
+        </section>
+
+        <div class="dept-strip" aria-label="Team departments">
+            <span class="dept">Engineering</span>
+            <span class="dept">Aerodynamics</span>
+            <span class="dept">Powertrain</span>
+            <span class="dept">Electronics</span>
+            <span class="dept">Strategy</span>
+            <span class="dept">Comms</span>
+        </div>
+
+        <section class="team-grid" aria-label="Milano Racing team members">
+            <article class="member-card">
+                <div class="avatar">LF</div>
+                <h2 class="name">Luca Ferretti</h2>
+                <div class="role">Lead Engineer</div>
+                <p class="bio">Owns the full vehicle picture, turning every subsystem into one coherent race package.</p>
+            </article>
+            <article class="member-card">
+                <div class="avatar">SG</div>
+                <h2 class="name">Sofia Gallo</h2>
+                <div class="role">Aerodynamics</div>
+                <p class="bio">Shapes airflow, validates surfaces, and chases drag until the numbers start behaving.</p>
+            </article>
+            <article class="member-card">
+                <div class="avatar">MV</div>
+                <h2 class="name">Marco Vitale</h2>
+                <div class="role">Powertrain</div>
+                <p class="bio">Tunes response, torque delivery, and reliability so every launch has intent behind it.</p>
+            </article>
+            <article class="member-card">
+                <div class="avatar">ER</div>
+                <h2 class="name">Elena Ricci</h2>
+                <div class="role">Electronics & Data</div>
+                <p class="bio">Builds the telemetry loop that turns testing into evidence and evidence into iteration.</p>
+            </article>
+            <article class="member-card">
+                <div class="avatar">DM</div>
+                <h2 class="name">Davide Moro</h2>
+                <div class="role">Race Strategy</div>
+                <p class="bio">Reads lap data, constraints, and timing windows to keep the team thinking ahead.</p>
+            </article>
+            <article class="member-card">
+                <div class="avatar">CB</div>
+                <h2 class="name">Chiara Bruno</h2>
+                <div class="role">Marketing & Comms</div>
+                <p class="bio">Turns the work behind the car into a clear identity for partners, judges, and supporters.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>© 2025 MILANO RACING · TEAM PAGE · STATIC GITHUB PAGES READY</footer>
+</body>
+
+</html>
