@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNav = document.getElementById('mobile-nav');
   const drawerOverlay = document.getElementById('drawer-overlay');
   const mobileItems = document.querySelectorAll('.mobile-nav-item');
+  const sectionOrder = ['hero', 'about', 'showcase', 'timeline', 'team', 'sponsorship', 'socials', 'contact'];
 
   function setMenu(open) {
     if (!hamburgerBtn || !mobileNav || !drawerOverlay) return;
@@ -12,6 +13,56 @@ document.addEventListener('DOMContentLoaded', () => {
     drawerOverlay.classList.toggle('active', open);
     document.body.style.overflow = open ? 'hidden' : '';
   }
+
+  function isTypingTarget(target) {
+    return Boolean(target && target.closest('input, textarea, select, button, [contenteditable="true"]'));
+  }
+
+  function goToSection(direction) {
+    const sections = sectionOrder
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    const midpoint = window.scrollY + window.innerHeight * 0.4;
+    let currentIndex = sections.findIndex(section => {
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+      return midpoint >= top && midpoint < bottom;
+    });
+
+    if (currentIndex === -1) {
+      currentIndex = sections.findIndex(section => section.getBoundingClientRect().top > 0);
+      if (currentIndex === -1) currentIndex = sections.length - 1;
+    }
+
+    const nextIndex = Math.max(0, Math.min(sections.length - 1, currentIndex + direction));
+    const targetSection = sections[nextIndex];
+
+    if (targetSection) {
+      setMenu(false);
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', `#${targetSection.id}`);
+    }
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
+    if (isTypingTarget(event.target)) return;
+
+    const key = event.key.toLowerCase();
+    const direction = key === 'arrowdown' || key === 's' || key === 'arrowright' || key === 'd'
+      ? 1
+      : key === 'arrowup' || key === 'w' || key === 'arrowleft' || key === 'a'
+        ? -1
+        : 0;
+
+    if (!direction) return;
+
+    event.preventDefault();
+    goToSection(direction);
+  });
 
   hamburgerBtn?.addEventListener('click', () => {
     setMenu(hamburgerBtn.getAttribute('aria-expanded') !== 'true');
