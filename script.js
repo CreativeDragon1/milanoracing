@@ -96,8 +96,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const formFeedback = document.getElementById('form-feedback');
   contactForm?.addEventListener('submit', event => {
     event.preventDefault();
+
+    const name = document.getElementById('form-name')?.value.trim() || 'Unknown sender';
+    const organisation = document.getElementById('form-org')?.value.trim() || 'Not provided';
+    const email = document.getElementById('form-email')?.value.trim() || 'Not provided';
+    const tier = document.getElementById('form-tier')?.selectedOptions?.[0]?.textContent?.trim() || 'General Enquiry';
+    const message = document.getElementById('form-message')?.value.trim() || 'No message provided';
+
+    const subject = encodeURIComponent(`Milano Racing enquiry: ${tier}`);
+    const body = encodeURIComponent([
+      `Name: ${name}`,
+      `Organisation: ${organisation}`,
+      `Email: ${email}`,
+      `Partnership Tier: ${tier}`,
+      '',
+      'Message:',
+      message,
+    ].join('\n'));
+
+    window.location.href = `mailto:milanoracing10@gmail.com?subject=${subject}&body=${body}`;
+
     if (formFeedback) {
-      formFeedback.textContent = 'Thanks. Your enquiry is ready to send to milanoracing10@gmail.com';
+      formFeedback.textContent = 'Opening your email app with a draft to milanoracing10@gmail.com.';
     }
   });
 });
