@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title desc">
+  <title id="title">Milano Racing</title>
+  <desc id="desc">A temporary Milano Racing wordmark with a racing stripe.</desc>
+  <rect width="520" height="120" rx="14" fill="#ffffff"/>
+  <path d="M22 88 L70 30 H122 L77 88 Z" fill="#ff6a00"/>
+  <path d="M73 88 L121 30 H145 L97 88 Z" fill="#111111" opacity=".9"/>
+  <text x="160" y="63" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="900" letter-spacing="2" fill="#111111">MILANO</text>
+  <text x="162" y="91" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="8" fill="#ff6a00">RACING</text>
+</svg>

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Milano Racing | STEM Racing Singapore 2026</title>
+<!-- SEO Meta Tags -->
+<meta content="Official platform of Milano Racing. Six student innovators representing GIIS Punggol Smart Campus, breaking physical limits in STEM Racing Singapore 2026." name="description"/>
+<meta content="Milano Racing, STEM Racing, GIIS Punggol, F1 in Schools, Singapore, Student Engineering" name="keywords"/>
+<meta content="Milano Racing Team" name="author"/>
+<!-- Google Fonts (F.I.R.E Theme: Inter & Playfair Display) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<!-- FontAwesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Custom Styles -->
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body class="grain-overlay">
+<!-- Custom Cursor Elements -->
+<div class="custom-cursor-dot" id="cursor-dot"></div>
+<div class="custom-cursor-circle" id="cursor-circle"></div>
+<!-- Navigation Bar -->
+<header class="navbar-container">
+<div class="navbar-wrapper">
+<a class="logo-link" href="#" id="nav-logo-link">
+<div class="logo-badge">
+<img alt="Milano Racing Logo" class="team-logo" src="assets/images/milano-racing-logo.png"/>
+</div>
+</a>
+<!-- Desktop Menu -->
+<nav aria-label="Main Navigation" class="desktop-menu">
+<ul class="nav-list">
+<li><a class="nav-item" href="#about">About</a></li>
+<li><a class="nav-item" href="#showcase">The Machine</a></li>
+<li><a class="nav-item" href="#timeline">Timeline</a></li>
+<li><a class="nav-item" href="#team">The Team</a></li>
+<li><a class="nav-item" href="#sponsorship">Sponsors</a></li>
+<li><a class="nav-item" href="#socials">Socials</a></li>
+<li><a class="nav-item" href="#contact">Contact</a></li>
+</ul>
+</nav>
+<!-- CTA Button -->
+<div class="nav-cta-wrapper">
+<a class="cta-primary btn-nav" href="#sponsorship">Partner with Us</a>
+</div>
+<!-- Hamburger Menu Button -->
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle Navigation Menu" class="hamburger-btn">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
+</div>
+</header>
+<!-- Mobile Drawer Menu -->
+<nav aria-hidden="true" class="mobile-nav-drawer" id="mobile-nav">
+<div class="drawer-header">
+<div class="logo-badge">
+<img alt="Milano Racing Logo" class="team-logo-drawer" src="assets/images/milano-racing-logo.png"/>
+</div>
+</div>
+<ul class="mobile-nav-list">
+<li><a class="mobile-nav-item" href="#about">About</a></li>
+<li><a class="mobile-nav-item" href="#showcase">The Machine</a></li>
+<li><a class="mobile-nav-item" href="#timeline">Timeline</a></li>
+<li><a class="mobile-nav-item" href="#team">The Team</a></li>
+<li><a class="mobile-nav-item" href="#sponsorship">Sponsors</a></li>
+<li><a class="mobile-nav-item" href="#socials">Socials</a></li>
+<li><a class="mobile-nav-item" href="#contact">Contact</a></li>
+</ul>
+<div class="drawer-footer">
+<a class="cta-primary w-full" href="#sponsorship">Partner with Us</a>
+</div>
+</nav>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<!-- Hero Section -->
+<section class="hero-section" id="hero">
+<div class="hero-background-wrapper">
+<div class="grid-overlay"></div>
+<div class="radial-glow"></div>
+</div>
+<div class="hero-grid-layout">
+<!-- Left Hero Details -->
+<div class="hero-content">
+<div class="badge-wrapper reveal-fade">
+<span class="badge"><i class="fa-solid fa-flag-checkered"></i> STEM RACING 2026 SINGAPORE</span>
+</div>
+<h1 class="hero-title reveal-slide-up font-display text-gradient-accent">
+          MILANO RACING
+        </h1>
+<p class="hero-subtitle reveal-slide-up delay-100">
+          We are a student led racing team from GIIS Punggol Smart Campus, working together to design and build a high performance miniature F1 car for STEM Racing Singapore.
+        </p>
+<div class="hero-actions reveal-slide-up delay-200">
+<a class="cta-primary" href="#about">Explore Our Journey <i class="fa-solid fa-arrow-right"></i></a>
+<a class="cta-outline" href="#sponsorship">Sponsorship Proposal</a>
+</div>
+<!-- Quick Telemetry Stats -->
+<div class="hero-telemetry reveal-fade delay-300">
+<div class="telemetry-item">
+<span class="telemetry-label">Aerodynamics</span>
+<span class="telemetry-value">0.14 <span class="unit">Cd</span></span>
+</div>
+<div class="telemetry-item">
+<span class="telemetry-label">Weight Class</span>
+<span class="telemetry-value">Miniature <span class="unit">F1</span></span>
+</div>
+<div class="telemetry-item">
+<span class="telemetry-label">Simulation Level</span>
+<span class="telemetry-value">100% <span class="unit">CFD</span></span>
+</div>
+</div>
+</div>
+<!-- Right Blank/Blueprint Spacer for STEM Racing Car placeholder -->
+<div class="hero-graphic-panel reveal-fade delay-200">
+<div class="hero-blueprint-frame">
+<div class="blueprint-lines"></div>
+<div class="blueprint-crosshair top-left"></div>
+<div class="blueprint-crosshair top-right"></div>
+<div class="blueprint-crosshair bottom-left"></div>
+<div class="blueprint-crosshair bottom-right"></div>
+<div class="blueprint-badge">MILANO TECHNICAL PROFILE</div>
+<!-- Abstract SVG Silhouette of F1/STEM car -->
+<svg class="car-silhouette" fill="none" viewbox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+<!-- Ground grid line -->
+<line stroke="#2e2e2e" stroke-dasharray="4 4" stroke-width="2" x1="20" x2="480" y1="160" y2="160"></line>
+<!-- Silhouette path -->
+<path d="M 50 160 C 80 160, 90 140, 110 140 C 130 140, 150 120, 180 120 C 220 120, 240 100, 290 100 C 330 100, 360 80, 400 80 C 430 80, 440 120, 455 120 C 465 120, 470 160, 450 160 Z" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2"></path>
+<path d="M 60 160 C 80 158, 95 135, 115 135 C 135 135, 160 115, 190 115 C 230 115, 250 95, 295 95 C 335 95, 365 75, 405 75 C 435 75, 445 115, 460 115 C 465 115, 470 160, 440 160 Z" stroke="rgba(255, 255, 255, 0.15)" stroke-dasharray="10 5" stroke-width="1.5"></path>
+<!-- Wheels outlines -->
+<circle cx="120" cy="150" r="28" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"></circle>
+<circle cx="120" cy="150" r="12" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"></circle>
+<circle cx="380" cy="150" r="30" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"></circle>
+<circle cx="380" cy="150" r="14" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"></circle>
+<!-- Laser targets -->
+<circle cx="295" cy="95" fill="#ff6a00" r="4"></circle>
+<line stroke="rgba(255, 106, 0, 0.3)" stroke-width="1" x1="295" x2="295" y1="20" y2="95"></line>
+<circle cx="120" cy="150" fill="#00e5ff" r="4"></circle>
+</svg>
+<span class="blueprint-label">Stem Racing Car Space. CAD Render Upload Ready.</span>
+</div>
+</div>
+</div>
+<div class="scroll-indicator">
+<div class="mouse">
+<div class="wheel"></div>
+</div>
+<span class="scroll-text">Scroll to Accelerate</span>
+</div>
+</section>
+<!-- Scene Divider -->
+<div class="scene-divider"></div>
+<!-- About Team Section (F.I.R.E. styling & Paraphrased copy) -->
+<section class="about-section" id="about">
+<div class="section-container">
+<div class="section-header reveal-fade">
+<span class="section-tag">Identity</span>
+<h2 class="section-title font-display text-gradient-accent">THE MILANO OUTLOOK</h2>
+<p class="section-desc">We do not copy templates; we draft new principles of student engineering and design efficiency.</p>
+</div>
+<div class="about-grid">
+<!-- Card 1: Who We Are -->
+<div class="about-card glass-card reveal-slide-up">
+<div class="about-card-icon">
+<i class="fa-solid fa-compass-drafting"></i>
+</div>
+<h3 class="font-display">The Outfit</h3>
+<p>
+            Milano Racing is an elite engineering outfit composed of six student innovators representing the <strong>GIIS Punggol Smart Campus in Singapore</strong>. Taking cues from the <em>Milano</em>, the legendary starship engineered to break interstellar speed barriers, we are dedicated to building a miniature F1 machine that moves faster than physically expected.
+          </p>
+</div>
+<!-- Card 2: What We Do -->
+<div class="about-card glass-card reveal-slide-up delay-100">
+<div class="about-card-icon">
+<i class="fa-solid fa-microchip"></i>
+</div>
+<h3 class="font-display">The Methodology</h3>
+<p>
+            We translate mathematical theories into racetrack dominance. Using advanced computational fluid dynamics (CFD), parametric CAD modelling and industrial CNC manufacturing, our goal is absolute track speed. Beyond fabrication, we operate as a cohesive corporate structure, managing marketing, design and financing with technical precision.
+          </p>
+</div>
+<!-- Card 3: Our Vision -->
+<div class="about-card glass-card reveal-slide-up delay-200">
+<div class="about-card-icon">
+<i class="fa-solid fa-rocket"></i>
+</div>
+<h3 class="font-display">The Mission</h3>
+<p>
+            To forge the next generation of engineers, leaders and scientific innovators. Milano Racing is a testing ground for growth, discipline and scientific inquiry. We don't just compete on the track; we build relationships and integrations that shape sustainable high-performance design.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene Divider -->
+<div class="scene-divider"></div>
+<!-- Race Car Showcase Section -->
+<section class="showcase-section" id="showcase">
+<div class="section-container">
+<div class="section-header reveal-fade">
+<span class="section-tag">Specifications</span>
+<h2 class="section-title font-display text-gradient-accent">THE SCHEMATICS</h2>
+<p class="section-desc">Designed in parametric solid models, validated in fluid solvers and milled for absolute stability.</p>
+</div>
+<div class="showcase-wrapper">
+<!-- Interactive Specs Tab Buttons -->
+<div class="specs-nav reveal-fade" role="tablist">
+<button aria-controls="cad-blueprint" aria-selected="true" class="spec-tab-btn active" id="tab-cad" role="tab">
+<i class="fa-solid fa-cube"></i> CAD Model View
+          </button>
+<button aria-controls="spec-aero" aria-selected="false" class="spec-tab-btn" id="tab-aero" role="tab">
+<i class="fa-solid fa-wind"></i> Aerodynamics
+          </button>
+<button aria-controls="spec-chassis" aria-selected="false" class="spec-tab-btn" id="tab-chassis" role="tab">
+<i class="fa-solid fa-microchip"></i> Drivetrain &amp; Body
+          </button>
+</div>
+<div class="specs-content-wrapper">
+<!-- CAD Blueprint Tab Panel (Left Clean for User Uploads) -->
+<div aria-labelledby="tab-cad" class="spec-panel active reveal-fade" id="cad-blueprint" role="tabpanel">
+<div class="blueprint-card glass-card">
+<div class="blueprint-grid-lines"></div>
+<div class="blueprint-frame">
+<div class="blueprint-crosshair top-left"></div>
+<div class="blueprint-crosshair top-right"></div>
+<div class="blueprint-crosshair bottom-left"></div>
+<div class="blueprint-crosshair bottom-right"></div>
+<div class="blueprint-placeholder-content">
+<div class="pulsing-radar">
+<i class="fa-solid fa-drafting-compass"></i>
+</div>
+<h3 class="font-display">OFFICIAL CAD UPLOADS</h3>
+<p class="blueprint-text">
+                    This section is intentionally reserved for Milano Racing's official 3D CAD screenshots and technical assembly models.
+                  </p>
+<div class="blueprint-dimensions-label">
+<span>L 210mm</span>
+<span>W 85mm</span>
+<span>H 50mm</span>
+</div>
+<span class="blueprint-filename">assets/images/cad_render.png</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Aerodynamics Tab Panel -->
+<div aria-labelledby="tab-aero" class="spec-panel reveal-fade" hidden="" id="spec-aero" role="tabpanel">
+<div class="specs-details-grid">
+<div class="spec-card glass-card">
+<h4 class="font-display">CFD Drag Optimization</h4>
+<p>Virtual wind tunnel simulations optimised the frontal nosecone to redirect high-pressure airflow underneath the venturi body tunnels.</p>
+<div class="spec-val">0.14 Coefficient of Drag</div>
+</div>
+<div class="spec-card glass-card">
+<h4 class="font-display">Venturi Downforce</h4>
+<p>Curved undertray profiles generate a low-pressure zone, pinning the wheels to the track without adding excess weight.</p>
+<div class="spec-val">Venturi Tunnels &amp; Rear Diffuser</div>
+</div>
+<div class="spec-card glass-card">
+<h4 class="font-display">Front Wing Endplates</h4>
+<p>Aggressive side deflections push turbulent wheel wakes away from the car sidepods, maintaining laminar flow.</p>
+<div class="spec-val">Vortex Deflection Panels</div>
+</div>
+</div>
+</div>
+<!-- Drivetrain & Body Tab Panel -->
+<div aria-labelledby="tab-chassis" class="spec-panel reveal-fade" hidden="" id="spec-chassis" role="tabpanel">
+<div class="specs-details-grid">
+<div class="spec-card glass-card">
+<h4 class="font-display">Polyurethane Foam Body</h4>
+<p>Precision CNC-milled density polyurethane foam provides high structural rigidity with near-zero weight profiles.</p>
+<div class="spec-val">High-Density Hybrid Foam</div>
+</div>
+<div class="spec-card glass-card">
+<h4 class="font-display">Wheel &amp; Axle Assembly</h4>
+<p>Ultra-low friction ceramic ball bearings seated inside carbon fiber axles minimize mechanical energy loss.</p>
+<div class="spec-val">Ceramic Bearings / Carbon Axles</div>
+</div>
+<div class="spec-card glass-card">
+<h4 class="font-display">CO2 Cartridge Casing</h4>
+<p>Engineered puncture casing designed to contain and direct gas expansion forces along the centerline.</p>
+<div class="spec-val">Carbon-fiber Reinforced Sleeve</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene Divider -->
+<div class="scene-divider"></div>
+<!-- Engineering Process Timeline Section -->
+<section class="timeline-section" id="timeline">
+<div class="section-container">
+<div class="section-header reveal-fade">
+<span class="section-tag">Sequence</span>
+<h2 class="section-title font-display text-gradient-accent">THE ENGINEERING TIMELINE</h2>
+<p class="section-desc">From initial flow dynamics calculations to victory on the 20-meter sprint track.</p>
+</div>
+<div class="timeline-wrapper">
+<div class="timeline-track"></div>
+<!-- Step 1 -->
+<div class="timeline-item reveal-slide-up">
+<div class="timeline-dot font-display">I</div>
+<div class="timeline-content glass-card">
+<span class="timeline-step-tag">Stage 01</span>
+<h3 class="font-display">Aerodynamic Profiling</h3>
+<p>Analyzing flow dynamics, studying lift forces and drafting initial nosecone and wing profiles based on physics formulas.</p>
+<div class="timeline-icon-box"><i class="fa-solid fa-wind"></i></div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="timeline-item reveal-slide-up delay-100">
+<div class="timeline-dot font-display">II</div>
+<div class="timeline-content glass-card">
+<span class="timeline-step-tag">Stage 02</span>
+<h3 class="font-display">CAD Modeling &amp; Assembly</h3>
+<p>Creating exact parametric 3D models of wheels, bodies, wings and bearings inside modern CAD software ensuring exact assembly tolerances.</p>
+<div class="timeline-icon-box"><i class="fa-solid fa-desktop"></i></div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="timeline-item reveal-slide-up delay-200">
+<div class="timeline-dot font-display">III</div>
+<div class="timeline-content glass-card">
+<span class="timeline-step-tag">Stage 03</span>
+<h3 class="font-display">Computational Fluid Dynamics</h3>
+<p>Running high-precision fluid dynamics simulations on virtual wind tunnels. We analyze turbulence, drag coefficients and downforce distribution.</p>
+<div class="timeline-icon-box"><i class="fa-solid fa-network-wired"></i></div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="timeline-item reveal-slide-up">
+<div class="timeline-dot font-display">IV</div>
+<div class="timeline-content glass-card">
+<span class="timeline-step-tag">Stage 04</span>
+<h3 class="font-display">CNC Manufacturing</h3>
+<p>Precision manufacturing using CNC milling machines, carving the car out of lightweight substrates. 3D printing custom front/rear wings.</p>
+<div class="timeline-icon-box"><i class="fa-solid fa-gears"></i></div>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="timeline-item reveal-slide-up delay-100">
+<div class="timeline-dot font-display">V</div>
+<div class="timeline-content glass-card">
+<span class="timeline-step-tag">Stage 05</span>
+<h3 class="font-display">Testing &amp; Verification</h3>
+<p>Deploying the physical car on a 20-meter test track. Analyzing gate speeds, laser timing and structure wear for final modifications.</p>
+<div class="timeline-icon-box"><i class="fa-solid fa-stopwatch"></i></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene Divider -->
+<div class="scene-divider"></div>
+<!-- The Team Section -->
+<section class="team-section" id="team">
+<div class="section-container">
+<div class="section-header reveal-fade">
+<span class="section-tag">Personnel</span>
+<h2 class="section-title font-display text-gradient-accent">THE PIT CREW</h2>
+<p class="section-desc">Six specialists collaborating to design the future of miniature motorsport speed.</p>
+</div>
+<div class="team-grid">
+<!-- Member 1: Ashmitha Pitani -->
+<div class="team-card glass-card reveal-slide-up">
+<div class="member-image-placeholder"><div class="member-photo-frame"><img alt="Ashmitha Pitani" class="member-photo" src="assets/images/team/ashmitha.png"/></div></div>
+<div class="member-info">
+<span class="member-role">Team Leader</span>
+<h3 class="font-display">Ashmitha Pitani</h3>
+<p class="member-bio">Leads the team, keeps projects moving and makes sure our engineering, presentation and sponsor work stay aligned.</p>
+<div class="member-socials">
+<a aria-label="LinkedIn Profile" href="https://www.linkedin.com/in/milano-racing-471021415/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+<a aria-label="Contact Email" href="mailto:milanoracing10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</div>
+</div>
+<!-- Member 2: Gayatri Pandkar -->
+<div class="team-card glass-card reveal-slide-up delay-100">
+<div class="member-image-placeholder"><div class="member-photo-frame"><img alt="Gayatri Pandkar" class="member-photo" src="assets/images/team/gayatri.png"/></div></div>
+<div class="member-info">
+<span class="member-role">Design Engineer</span>
+<h3 class="font-display">Gayatri Pandkar</h3>
+<p class="member-bio">Develops the car design, refines the structure and helps turn ideas into accurate and practical models.</p>
+<div class="member-socials">
+<a aria-label="LinkedIn Profile" href="https://www.linkedin.com/in/milano-racing-471021415/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+<a aria-label="Contact Email" href="mailto:milanoracing10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</div>
+</div>
+<!-- Member 3: Raahi Chheda -->
+<div class="team-card glass-card reveal-slide-up delay-200">
+<div class="member-image-placeholder"><div class="member-photo-frame"><img alt="Raahi Chheda" class="member-photo" src="assets/images/team/raahi.png"/></div></div>
+<div class="member-info">
+<span class="member-role">Lead Engineer</span>
+<h3 class="font-display">Raahi Chheda</h3>
+<p class="member-bio">Supports the technical build, oversees key engineering decisions and helps bring the final car together with precision.</p>
+<div class="member-socials">
+<a aria-label="LinkedIn Profile" href="https://www.linkedin.com/in/milano-racing-471021415/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+<a aria-label="Contact Email" href="mailto:milanoracing10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</div>
+</div>
+<!-- Member 4: Advika Yadav -->
+<div class="team-card glass-card reveal-slide-up">
+<div class="member-image-placeholder"><div class="member-photo-frame"><img alt="Advika Yadav" class="member-photo" src="assets/images/team/advika.png"/></div></div>
+<div class="member-info">
+<span class="member-role">Marketing Manager</span>
+<h3 class="font-display">Advika Yadav</h3>
+<p class="member-bio">Shapes our public presence, manages outreach and helps communicate the story of Milano Racing clearly and confidently.</p>
+<div class="member-socials">
+<a aria-label="LinkedIn Profile" href="https://www.linkedin.com/in/milano-racing-471021415/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+<a aria-label="Contact Email" href="mailto:milanoracing10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</div>
+</div>
+<!-- Member 5: Ajinkya Velukar -->
+<div class="team-card glass-card reveal-slide-up delay-100">
+<div class="member-image-placeholder"><div class="member-photo-frame"><img alt="Ajinkya Velukar" class="member-photo" src="assets/images/team/ajinkya.png"/></div></div>
+<div class="member-info">
+<span class="member-role">Aerodynamic Engineer</span>
+<h3 class="font-display">Ajinkya Velukar</h3>
+<p class="member-bio">Works on airflow, drag reduction and car performance to help the team create a faster and more stable design.</p>
+<div class="member-socials">
+<a aria-label="LinkedIn Profile" href="https://www.linkedin.com/in/milano-racing-471021415/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+<a aria-label="Contact Email" href="mailto:milanoracing10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</div>
+</div>
+<!-- Member 6: Niteesh Kumar -->
+<div class="team-card glass-card reveal-slide-up delay-200">
+<div class="member-image-placeholder"><div class="member-photo-frame"><img alt="Niteesh Kumar" class="member-photo" src="assets/images/team/niteesh.png"/></div></div>
+<div class="member-info">
+<span class="member-role">Finance Manager</span>
+<h3 class="font-display">Niteesh Kumar</h3>
+<p class="member-bio">Manages budgeting, funding and resource planning so the team can stay organised and make the most of every opportunity.</p>
+<div class="member-socials">
+<a aria-label="LinkedIn Profile" href="https://www.linkedin.com/in/milano-racing-471021415/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+<a aria-label="Contact Email" href="mailto:milanoracing10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene Divider -->
+<div class="scene-divider"></div>
+<!-- Achievements/Stats Section -->
+<section class="stats-section">
+<div class="section-container">
+<div class="stats-grid">
+<div class="stat-item glass-card reveal-fade">
+<div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
+<span class="stat-number font-display" data-target="80">0</span>
+<span class="stat-label">Projected Km/h Speed</span>
+</div>
+<div class="stat-item glass-card reveal-fade delay-100">
+<div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div>
+<span class="stat-number font-display" data-target="014">0.00</span>
+<span class="stat-label">Optimized Drag (Cd)</span>
+</div>
+<div class="stat-item glass-card reveal-fade delay-200">
+<div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+<span class="stat-number font-display" data-target="100">0</span>
+<span class="stat-label">% CFD Validated</span>
+</div>
+<div class="stat-item glass-card reveal-fade delay-300">
+<div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+<span class="stat-number font-display" data-target="6">0</span>
+<span class="stat-label">GIIS Student Engineers</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene Divider -->
+<div class="scene-divider"></div>
+<!-- Sponsorship Tiers Section -->
+<section class="sponsorship-section" id="sponsorship">
+<div class="section-container">
+<div class="section-header reveal-fade">
+<span class="section-tag">Partnership</span>
+<h2 class="section-title font-display text-gradient-accent">SPONSOR MILANO RACING</h2>
+<p class="section-desc">Invest in student innovation. Explore our structured partnership tiers and help us secure our spot on the track.</p>
+</div>
+<!-- Sponsorship Tiers Grid -->
+<div class="tiers-grid">
+<!-- Tier 1: Essence -->
+<div class="tier-card glass-card reveal-slide-up">
+<div class="tier-badge">ESSENCE</div>
+<h3 class="tier-price font-display">$100 - $500</h3>
+<ul class="tier-perks">
+<li><i class="fa-solid fa-check text-cyan"></i> Logo on team website</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Digital portfolio placement</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Instagram feature post</li>
+</ul>
+<a class="cta-outline btn-tier" href="#contact">Choose Essence</a>
+</div>
+<!-- Tier 2: Signature -->
+<div class="tier-card glass-card reveal-slide-up delay-100 featured">
+<div class="featured-tag">RECOMMENDED</div>
+<div class="tier-badge">SIGNATURE</div>
+<h3 class="tier-price font-display">$500 - $1,000</h3>
+<ul class="tier-perks">
+<li><i class="fa-solid fa-check text-cyan"></i> Everything in Essence</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Logo on competition uniforms</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Printed prospectus placement</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Monthly social media shoutouts</li>
+</ul>
+<a class="cta-primary btn-tier" href="#contact">Choose Signature</a>
+</div>
+<!-- Tier 3: Prestige -->
+<div class="tier-card glass-card reveal-slide-up delay-200">
+<div class="tier-badge">PRESTIGE</div>
+<h3 class="tier-price font-display">$1,000 - $1,500</h3>
+<ul class="tier-perks">
+<li><i class="fa-solid fa-check text-cyan"></i> Everything in Signature</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Prominent race car logo</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Highlighted on pit displays</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Competition photo coverage</li>
+</ul>
+<a class="cta-outline btn-tier" href="#contact">Choose Prestige</a>
+</div>
+<!-- Tier 4: Legacy -->
+<div class="tier-card glass-card reveal-slide-up">
+<div class="tier-badge">LEGACY</div>
+<h3 class="tier-price font-display">$1,500+</h3>
+<ul class="tier-perks">
+<li><i class="fa-solid fa-check text-cyan"></i> Everything in Prestige</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Title Sponsor naming rights</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Maximum size logo</li>
+<li><i class="fa-solid fa-check text-cyan"></i> End of season report</li>
+</ul>
+<a class="cta-outline btn-tier" href="#contact">Choose Legacy</a>
+</div>
+<!-- Tier 5: Aurum -->
+<div class="tier-card glass-card reveal-slide-up delay-100">
+<div class="tier-badge">AURUM</div>
+<h3 class="tier-price font-display">In Kind</h3>
+<ul class="tier-perks">
+<li><i class="fa-solid fa-check text-cyan"></i> Material contributions</li>
+<li><i class="fa-solid fa-check text-cyan"></i> CNC manufacturing access</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Software licenses &amp; tools</li>
+<li><i class="fa-solid fa-check text-cyan"></i> Custom partnership package</li>
+</ul>
+<a class="cta-outline btn-tier" href="#contact">Enquire In Kind</a>
+</div>
+</div>
+<!-- Sponsor Logos Placeholder (Professional styling) -->
+<div class="sponsor-logos-wrapper reveal-fade">
+<h4 class="sponsor-subheading">CURRENT PARTNERS &amp; SPONSOR LOGOS</h4>
+<div class="sponsors-logo-grid">
+<div class="logo-box glass-card"><span>PARTNER 01</span></div>
+<div class="logo-box glass-card"><span>PARTNER 02</span></div>
+<div class="logo-box glass-card"><span>PARTNER 03</span></div>
+<div class="logo-box glass-card"><span>PARTNER 04</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene Divider -->
+<div class="scene-divider"></div>
+<!-- Social Media Section -->
+<section class="socials-section" id="socials">
+<div class="section-container">
+<div class="section-header reveal-fade">
+<span class="section-tag">Connect</span>
+<h2 class="section-title font-display text-gradient-accent">FOLLOW MILANO RACING</h2>
+<p class="section-desc">Follow our progress, see behind the scenes updates and stay connected with the team throughout our STEM Racing journey.</p>
+</div>
+<div class="socials-grid">
+<a class="social-link-card glass-card reveal-slide-up" href="https://www.milanoracing.team/" rel="noopener noreferrer" target="_blank">
+<i class="fa-solid fa-globe"></i>
+<span class="social-link-name">Website</span>
+<span class="social-link-handle">milanoracing.team</span>
+</a>
+<a class="social-link-card glass-card reveal-slide-up delay-100" href="https://www.instagram.com/milanoracing_/" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+<span class="social-link-name">Instagram</span>
+<span class="social-link-handle">milanoracing_</span>
+</a>
+<a class="social-link-card glass-card reveal-slide-up delay-200" href="https://www.linkedin.com/in/milano-racing-471021415/" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-linkedin-in"></i>
+<span class="social-link-name">LinkedIn</span>
+<span class="social-link-handle">Milano Racing</span>
+</a>
+<a class="social-link-card glass-card reveal-slide-up" href="https://www.youtube.com/@MilanoRacing" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-youtube"></i>
+<span class="social-link-name">YouTube</span>
+<span class="social-link-handle">Milano Racing</span>
+</a>
+<a class="social-link-card glass-card reveal-slide-up delay-100" href="mailto:milanoracing10@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+<span class="social-link-name">Email</span>
+<span class="social-link-handle">milanoracing10@gmail.com</span>
+</a>
+<a class="social-link-card glass-card reveal-slide-up delay-200" href="https://hcb.hackclub.com/milano-racing" rel="noopener noreferrer" target="_blank">
+<i class="fa-solid fa-heart"></i>
+<span class="social-link-name">HCB</span>
+<span class="social-link-handle">Milano Racing</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Scene Divider -->
+<div class="scene-divider"></div>
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+<div class="section-container">
+<div class="contact-grid">
+<!-- Contact Information -->
+<div class="contact-info-panel reveal-slide-up">
+<span class="section-tag">Enquiries</span>
+<h2 class="section-title font-display text-gradient-accent">JOIN THE MISSION</h2>
+<p class="contact-intro-text">
+            Ready to partner with Milano Racing or have questions about our engineering cycle? Fill out the transmission form or reach out directly.
+          </p>
+<div class="contact-methods">
+<a class="method-card glass-card" href="mailto:milanoracing10@gmail.com">
+<div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
+<div class="method-details">
+<span class="method-title">Email Direct Link</span>
+<span class="method-val">milanoracing10@gmail.com</span>
+</div>
+</a>
+<a class="method-card glass-card" href="https://hcb.hackclub.com/milano-racing" target="_blank">
+<div class="method-icon"><i class="fa-solid fa-heart"></i></div>
+<div class="method-details">
+<span class="method-title">Sponsorship Ledger (HCB)</span>
+<span class="method-val">hcb.hackclub.com/milano-racing</span>
+</div>
+</a>
+</div>
+<div class="contact-social-icons">
+<a aria-label="Instagram" href="https://www.instagram.com/milanoracing_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/milano-racing-471021415/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+<a aria-label="YouTube" href="https://www.youtube.com/@MilanoRacing" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+</div>
+</div>
+<!-- Contact Form -->
+<div class="contact-form-panel glass-card reveal-slide-up delay-100">
+<form class="racing-contact-form" id="contact-form">
+<div class="form-row">
+<div class="form-group">
+<label for="form-name">Your Name</label>
+<input id="form-name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="form-org">Organisation</label>
+<input id="form-org" placeholder="Acme Inc" type="text"/>
+</div>
+</div>
+<div class="form-group">
+<label for="form-email">Email Address</label>
+<input id="form-email" placeholder="john@company.com" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="form-tier">Partnership Tier</label>
+<select id="form-tier">
+<option value="none">General Enquiry</option>
+<option value="essence">Essence Tier ($100-$500)</option>
+<option value="signature">Signature Tier ($500-$1,000)</option>
+<option value="prestige">Prestige Tier ($1,000-$1,500)</option>
+<option value="legacy">Legacy Tier ($1,500+)</option>
+<option value="aurum">Aurum Tier (In Kind)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="form-message">Transmission Message</label>
+<textarea id="form-message" placeholder="Let's build something fast together..." required="" rows="5"></textarea>
+</div>
+<button class="cta-primary btn-submit" type="submit">
+<span class="btn-text">Transmit Transmission</span> <i class="fa-solid fa-paper-plane"></i>
+</button>
+<div aria-live="polite" class="form-feedback" id="form-feedback"></div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene Divider -->
+<div class="scene-divider"></div>
+<!-- Footer -->
+<footer class="footer-container">
+<div class="footer-top">
+<div class="footer-brand">
+<div class="logo-badge">
+<img alt="Milano Racing Logo" class="footer-logo" src="assets/images/milano-racing-logo.png"/>
+</div>
+<p>Representing GIIS Punggol Smart Campus in the Singapore National STEM Racing Finals 2026.</p>
+</div>
+<div class="footer-links">
+<h4 class="font-display">Navigation</h4>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#showcase">The Machine</a></li>
+<li><a href="#timeline">Timeline</a></li>
+<li><a href="#team">The Team</a></li>
+<li><a href="#socials">Socials</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4 class="font-display">Partnership</h4>
+<ul>
+<li><a href="#sponsorship">Sponsorship Tiers</a></li>
+<li><a href="https://hcb.hackclub.com/milano-racing" target="_blank">HCB Ledger</a></li>
+<li><a href="#contact">Contact Form</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="copyright">© 2026 Milano Racing. All Rights Reserved. Built for STEM Racing Singapore.</p>
+<div class="footer-utility">
+<a class="back-to-top" href="#hero"><i class="fa-solid fa-chevron-up"></i> Top</a>
+</div>
+</div>
+</footer>
+<!-- Custom Scripts -->
+<script src="script.js"></script>
+</body>
+</html>
