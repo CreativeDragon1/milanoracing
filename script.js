@@ -94,30 +94,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const contactForm = document.getElementById('contact-form');
   const formFeedback = document.getElementById('form-feedback');
+  const submitButton = contactForm?.querySelector('.btn-submit');
+  const submitLabel = contactForm?.querySelector('.btn-text');
   contactForm?.addEventListener('submit', event => {
     event.preventDefault();
 
-    const name = document.getElementById('form-name')?.value.trim() || 'Unknown sender';
-    const organisation = document.getElementById('form-org')?.value.trim() || 'Not provided';
-    const email = document.getElementById('form-email')?.value.trim() || 'Not provided';
-    const tier = document.getElementById('form-tier')?.selectedOptions?.[0]?.textContent?.trim() || 'General Enquiry';
-    const message = document.getElementById('form-message')?.value.trim() || 'No message provided';
+    if (contactForm.dataset.state === 'sending') return;
 
-    const subject = encodeURIComponent(`Milano Racing enquiry: ${tier}`);
-    const body = encodeURIComponent([
-      `Name: ${name}`,
-      `Organisation: ${organisation}`,
-      `Email: ${email}`,
-      `Partnership Tier: ${tier}`,
-      '',
-      'Message:',
-      message,
-    ].join('\n'));
-
-    window.location.href = `mailto:milanoracing10@gmail.com?subject=${subject}&body=${body}`;
+    contactForm.dataset.state = 'sending';
+    contactForm.classList.add('is-sending');
+    submitButton?.classList.add('is-sending');
+    if (submitButton) submitButton.disabled = true;
+    if (submitLabel) submitLabel.textContent = 'Sending...';
 
     if (formFeedback) {
-      formFeedback.textContent = 'Opening your email app with a draft to milanoracing10@gmail.com.';
+      formFeedback.className = 'form-feedback is-visible';
+      formFeedback.textContent = 'Sending transmission...';
     }
+
+    window.setTimeout(() => {
+      contactForm.submit();
+      contactForm.classList.remove('is-sending');
+      contactForm.classList.add('is-sent');
+      submitButton?.classList.remove('is-sending');
+      submitButton?.classList.add('is-sent');
+      if (submitLabel) submitLabel.textContent = 'Sent';
+      if (formFeedback) {
+        formFeedback.className = 'form-feedback is-visible is-sent';
+        formFeedback.textContent = 'Transmission sent to milanoracing10@gmail.com';
+      }
+    }, 750);
+
+    window.setTimeout(() => {
+      contactForm.dataset.state = 'idle';
+      contactForm.classList.remove('is-sent');
+      submitButton?.classList.remove('is-sent');
+      if (submitButton) submitButton.disabled = false;
+      if (submitLabel) submitLabel.textContent = 'Transmit Transmission';
+      if (formFeedback) {
+        formFeedback.className = 'form-feedback';
+      }
+    }, 3200);
   });
 });

@@ -335,7 +335,30 @@ section { padding: 72px 24px; }
 .form-group label { text-transform:uppercase; font-weight:900; font-size:.75rem; letter-spacing:.08em; }
 .form-group input, .form-group select, .form-group textarea { width:100%; border:var(--border); border-radius:10px; padding:12px; background:var(--cream); color:var(--ink); outline:none; box-shadow:3px 3px 0 var(--ink); }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { background:var(--lime); }
-.form-feedback { margin-top:14px; font-weight:800; }
+.racing-contact-form { transition: transform .35s ease, filter .35s ease, opacity .35s ease; }
+.racing-contact-form.is-sending { filter: saturate(1.1); }
+.racing-contact-form.is-sent { transform: translateY(-2px); }
+.btn-submit { position:relative; overflow:hidden; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+.btn-submit.is-sending { background:var(--pink); animation: buttonPop .75s ease; }
+.btn-submit.is-sending i { animation: planeLaunch .75s ease forwards; }
+.btn-submit.is-sent { background:var(--lime); }
+.form-feedback { margin-top:14px; font-weight:800; min-height:1.5em; opacity:0; transform:translateY(8px); transition: opacity .25s ease, transform .25s ease; }
+.form-feedback.is-visible { opacity:1; transform:translateY(0); }
+.form-feedback.is-sent { padding:12px 14px; border:var(--border); border-radius:12px; background:var(--lime); box-shadow:3px 3px 0 var(--ink); }
+.form-target-frame { display:none; }
+
+@keyframes buttonPop {
+  0% { transform: scale(1); }
+  35% { transform: scale(.96) rotate(-1deg); }
+  70% { transform: scale(1.03) rotate(1deg); }
+  100% { transform: scale(1); }
+}
+
+@keyframes planeLaunch {
+  0% { transform: translateX(0) translateY(0) rotate(0deg); opacity:1; }
+  60% { transform: translateX(10px) translateY(-10px) rotate(18deg); opacity:1; }
+  100% { transform: translateX(26px) translateY(-22px) rotate(26deg); opacity:0; }
+}
 
 .footer-container { background:var(--cream); border-top:var(--border); padding:36px 24px 22px; }
 .footer-top { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:24px; }

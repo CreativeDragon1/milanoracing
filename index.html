@@ -603,24 +603,27 @@
 </div>
 <!-- Contact Form -->
 <div class="contact-form-panel glass-card reveal-slide-up delay-100">
-<form class="racing-contact-form" id="contact-form">
+<form action="https://formsubmit.co/milanoracing10@gmail.com" class="racing-contact-form" id="contact-form" method="POST" target="mail-target">
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_subject" type="hidden" value="Milano Racing enquiry"/>
 <div class="form-row">
 <div class="form-group">
 <label for="form-name">Your Name</label>
-<input id="form-name" placeholder="John Doe" required="" type="text"/>
+<input id="form-name" name="name" placeholder="John Doe" required="" type="text"/>
 </div>
 <div class="form-group">
 <label for="form-org">Organisation</label>
-<input id="form-org" placeholder="Acme Inc" type="text"/>
+<input id="form-org" name="organisation" placeholder="Acme Inc" type="text"/>
 </div>
 </div>
 <div class="form-group">
 <label for="form-email">Email Address</label>
-<input id="form-email" placeholder="john@company.com" required="" type="email"/>
+<input id="form-email" name="email" placeholder="john@company.com" required="" type="email"/>
 </div>
 <div class="form-group">
 <label for="form-tier">Partnership Tier</label>
-<select id="form-tier">
+<select id="form-tier" name="tier">
 <option value="none">General Enquiry</option>
 <option value="essence">Essence Tier ($100-$500)</option>
 <option value="signature">Signature Tier ($500-$1,000)</option>
@@ -631,13 +634,14 @@
 </div>
 <div class="form-group">
 <label for="form-message">Transmission Message</label>
-<textarea id="form-message" placeholder="Let's build something fast together..." required="" rows="5"></textarea>
+<textarea id="form-message" name="message" placeholder="Let's build something fast together..." required="" rows="5"></textarea>
 </div>
 <button class="cta-primary btn-submit" type="submit">
 <span class="btn-text">Transmit Transmission</span> <i class="fa-solid fa-paper-plane"></i>
 </button>
 <div aria-live="polite" class="form-feedback" id="form-feedback"></div>
 </form>
+<iframe class="form-target-frame" name="mail-target" title="Mail submission target"></iframe>
 </div>
 </div>
 </div>
