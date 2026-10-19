@@ -13,14 +13,14 @@ export default function JerseyViewer() {
   const [ready,setReady]=useState(false),[failed,setFailed]=useState(false);
   const [angle,setAngle]=useState(10),[zoom,setZoom]=useState(100),[full,setFull]=useState(false);
   const [side,setSide]=useState<'front'|'back'>('front');
-  const [snapshot,setSnapshot]=useState<{url:string;format:'png'|'gif'}|null>(null);
-  const [exporting,setExporting]=useState<'png'|'gif'|null>(null),[progress,setProgress]=useState(0),[exportError,setExportError]=useState('');
+  const [snapshot,setSnapshot]=useState<{url:string;format:'png'|'gif'|'mp4'}|null>(null);
+  const [exporting,setExporting]=useState<'png'|'gif'|'mp4'|null>(null),[progress,setProgress]=useState(0),[exportError,setExportError]=useState('');
   const exportAbort=useRef<AbortController|null>(null);
   const [draftName,setDraftName]=useState(''),[draftNumber,setDraftNumber]=useState('');
   const [personal,setPersonal]=useState({name:'',number:''});
   useEffect(()=>()=>{exportAbort.current?.abort();},[]);
   useEffect(()=>()=>{if(snapshot)URL.revokeObjectURL(snapshot.url);},[snapshot]);
-  async function downloadKit(format:'png'|'gif'){
+  async function downloadKit(format:'png'|'gif'|'mp4'){
     if(!scene.current||exportAbort.current)return;
     const controller=new AbortController();exportAbort.current=controller;
     setExporting(format);setProgress(0);setExportError('');setSnapshot(null);
@@ -116,11 +116,12 @@ export default function JerseyViewer() {
       <p>A studio backdrop. Your kit. The Milano signature.</p>
       <div className="kit-downloads">
         <button className="kit-save" disabled={!ready||!!exporting} onClick={()=>downloadKit('png')}><Download size={14}/>Create PNG<span>2400 × 3000</span></button>
-        <button className="kit-save" disabled={!ready||!!exporting} onClick={()=>downloadKit('gif')}><RotateCcw size={14}/>Create rotating GIF<span>960 × 1200 · 360°</span></button>
+        <button className="kit-save" disabled={!ready||!!exporting} onClick={()=>downloadKit('gif')}><RotateCcw size={14}/>Create rotating GIF<span>960 × 1200 · 50 fps</span></button>
+        <button className="kit-save kit-video-save" disabled={!ready||!!exporting} onClick={()=>downloadKit('mp4')}><Download size={14}/>Create 60 fps video<span>960 × 1200 · MP4</span></button>
       </div>
-      {exporting&&<div className="kit-export-progress"><p role="status">{exporting==='gif'?'Creating your rotation':'Preparing your image'}… {progress}%</p><progress value={progress} max={100} aria-label="Download preparation"/><button type="button" className="text-link" onClick={()=>exportAbort.current?.abort()}>Cancel</button></div>}
+      {exporting&&<div className="kit-export-progress"><p role="status">{exporting!=='png'?'Creating your rotation':'Preparing your image'}… {progress}%</p><progress value={progress} max={100} aria-label="Download preparation"/><button type="button" className="text-link" onClick={()=>exportAbort.current?.abort()}>Cancel</button></div>}
       {exportError&&<p role="alert" className="kit-export-error">{exportError}</p>}
-      {snapshot&&<div className="kit-export-result"><img src={snapshot.url} alt={`Your personalised Milano kit ${snapshot.format==='gif'?'rotating showcase':'poster'}`}/><a className="kit-save" href={snapshot.url} download={`milano-kit${personal.name?'-'+personal.name.replace(/[^A-Z0-9]+/g,'-'):''}.${snapshot.format}`}>Download {snapshot.format.toUpperCase()} <Download size={14}/></a></div>}
+      {snapshot&&<div className="kit-export-result">{snapshot.format==='mp4'?<video src={snapshot.url} controls loop muted playsInline preload="metadata" aria-label="Your personalised Milano kit at 60 frames per second"/>:<img src={snapshot.url} alt={`Your personalised Milano kit ${snapshot.format==='gif'?'rotating showcase':'poster'}`}/>}<a className="kit-save" href={snapshot.url} download={`milano-kit${personal.name?'-'+personal.name.replace(/[^A-Z0-9]+/g,'-'):''}.${snapshot.format}`}>Download {snapshot.format.toUpperCase()} <Download size={14}/></a></div>}
     </div>
     </div></div>
   </div>;

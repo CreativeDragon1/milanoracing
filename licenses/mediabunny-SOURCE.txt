@@ -1,0 +1,5 @@
+Mediabunny 1.61.6 is distributed unmodified under the Mozilla Public License 2.0.
+License: mediabunny-LICENSE.txt
+Corresponding source (src/ directory in this package):
+https://registry.npmjs.org/mediabunny/-/mediabunny-1.61.6.tgz
+Project: https://github.com/Vanilagy/mediabunny

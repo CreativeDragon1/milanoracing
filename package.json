@@ -12,6 +12,7 @@
   "dependencies": {
     "gifenc": "^1.0.3",
     "lucide-react": "^0.468.0",
+    "mediabunny": "^1.61.6",
     "motion": "^12.23.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

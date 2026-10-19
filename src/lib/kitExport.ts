@@ -4,7 +4,7 @@ import GifWorker from './kitGif.worker.ts?worker&inline';
 
 const loadImage=(src:string)=>new Promise<HTMLImageElement>((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(new Error('Could not load export artwork. Please try again.'));image.src=src;});
 const nextPaint=()=>new Promise<void>(resolve=>setTimeout(resolve,0));
-export async function exportKit(scene:JerseyScene,format:'png'|'gif',signal:AbortSignal,onProgress:(value:number)=>void):Promise<Blob>{
+export async function exportKit(scene:JerseyScene,format:'png'|'gif'|'mp4',signal:AbortSignal,onProgress:(value:number)=>void):Promise<Blob>{
   const check=()=>signal.throwIfAborted();check();
   const [logo,dragon]=await Promise.all([loadImage(asset('milano-official.png')),loadImage(asset('kit-dragon-original.png')),document.fonts.ready]);check();
   const width=format==='png'?2400:960,height=width*1.25;
@@ -30,6 +30,7 @@ export async function exportKit(scene:JerseyScene,format:'png'|'gif',signal:Abor
   try{
     const draw=(angle?:number)=>{check();ctx.drawImage(background,0,0);ctx.drawImage(output.render(angle),0,height*.065);};
     if(format==='png'){draw();onProgress(95);return await new Promise<Blob>((resolve,reject)=>canvas.toBlob(blob=>{if(signal.aborted)reject(signal.reason);else if(blob)resolve(blob);else reject(new Error('Image export failed'));},'image/png'));}
+    if(format==='mp4'){const {exportKitVideo}=await import('./kitVideo');check();return await exportKitVideo(canvas,draw,signal,onProgress);}
     worker=new GifWorker();
     const send=(data:object,transfer:Transferable[]=[])=>new Promise<{bytes?:Uint8Array}>((resolve,reject)=>{
       const cancelled=()=>{cleanup();reject(signal.reason);};
@@ -38,11 +39,11 @@ export async function exportKit(scene:JerseyScene,format:'png'|'gif',signal:Abor
       worker!.onerror=()=>{cleanup();reject(new Error('Could not create GIF. Try the PNG download.'));};
       signal.addEventListener('abort',cancelled,{once:true});worker!.postMessage(data,transfer);
     });
-    const frames=180;
+    const frames=360;
     for(let i=0;i<frames;i++){
       check();draw(Math.PI+i/frames*Math.PI*2);
       const rgba=ctx.getImageData(0,0,width,height).data;
-      await send({rgba,width,height,delay:40},[rgba.buffer]);
+      await send({rgba,width,height,delay:20},[rgba.buffer]);
       onProgress(Math.round((i+1)/frames*95));await nextPaint();
     }
     check();const result=await send({finish:true});check();

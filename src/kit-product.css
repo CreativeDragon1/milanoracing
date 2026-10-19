@@ -54,6 +54,8 @@
 .kit-export-error { color: #a52b12; font-size: 13px; }
 .kit-export-result { margin-top: 20px; }
 .kit-export-result img { display: block; width: 100%; max-height: 390px; object-fit: contain; border-radius: 14px; margin-bottom: 12px; background: #080c20; }
+.kit-export-result video { display: block; width: 100%; max-height: 390px; border-radius: 14px; margin-bottom: 12px; background: #080c20; }
+.kit-export-panel .kit-video-save { grid-column: 1 / -1; background: #0019ff; color: #fff; }
 @media(max-width:360px) { .kit-export-panel .kit-downloads { grid-template-columns: 1fr; } }
 
 /* A quiet studio setting, behind the interactive garment and its controls. */

@@ -1,0 +1,22 @@
+{
+  "gif": {
+    "width": 960,
+    "height": 1200,
+    "frames": 360,
+    "frameDelaysMs": [
+      20
+    ],
+    "durationMs": 7200,
+    "loop": 0
+  },
+  "mp4": {
+    "codec_name": "h264",
+    "width": 960,
+    "height": 1200,
+    "r_frame_rate": "60/1",
+    "avg_frame_rate": "60/1",
+    "duration": "7.200000",
+    "nb_read_frames": "432"
+  },
+  "cancel": "MP4 cancelled at 1 percent in browser; viewer and export controls restored."
+}

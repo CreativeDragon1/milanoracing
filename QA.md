@@ -165,3 +165,7 @@ Studio branding refinement: restored a large responsive MILANO wordmark behind t
 
 ## Cloth realism refinement — 20 October 2026
 Enhanced the cloth normal texture, added subtle roughness variation and two anti-aliased rows of hem stitching. Retuned key, fill and rim lighting; enabled self-shadowing with separate inner/hem shadow rules to avoid coincident-surface artifacts. Neck binding uses a cloth-like physical material. Original mesh, printed artwork, sleeve logo placement and studio background remain intact. Front, side and back reviewed in-browser. PNG creation completed at 2400 x 3000 during visual iteration; final rotating GIF decoded at 960 x 1200, 180 frames, 40ms per frame (25fps), 7200ms duration, infinite loop. Viewer and exports share lighting, materials and shadow settings. Production and standalone builds passed. Physical fabric simulation is not implemented; the existing garment geometry is preserved.
+
+
+## High-frame-rate kit exports — 20 October 2026
+Downloaded and decoded the actual browser exports: GIF 960 x 1200, 360 frames, all delays 20ms (50fps), 7200ms, infinite loop. MP4 H.264 960 x 1200, 432 decoded frames, both reported rates 60/1, duration 7.200000 seconds. MP4 cancellation at 1 percent restored the viewer and export controls. Production and standalone builds passed; embedded script syntax and asset integrity checked. Browser playback cadence depends on the device; file frame rates were verified directly. Evidence: qa/kit-framerate-export.json.
