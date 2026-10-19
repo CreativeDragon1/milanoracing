@@ -1,3 +1,4 @@
+import KitShortcut from "../components/KitShortcut";
 import LiveryPreview from "../components/LiveryPreview";
 import CompetitionCountdown from "../components/CompetitionCountdown";
 import SponsorLogo from "../components/SponsorLogo";
@@ -95,7 +96,7 @@ export default function Home() {
         </div>
       </Reveal>
       <Reveal as="section" className="kit-signature">
-        <div className="kit-signature-art" aria-hidden="true"><img src={asset("kit-dragon-original.png")} alt=""/><span>THE MILANO<br/>SIGNATURE.</span><i/><b/></div>
+        <Link to="/team#team-kit" className="kit-signature-link" aria-label="Explore and personalise the Milano team kit"><KitShortcut/></Link>
         <div className="kit-signature-copy"><h2>Made to stand<br/>for something.</h2><p>From the workshop to competition day, our kit brings the team together. Explore the details and make it your own.</p><ArrowLink to="/team#team-kit">Explore & personalise the kit</ArrowLink></div>
       </Reveal>
       <section className="section journal-preview">
@@ -115,7 +116,7 @@ export default function Home() {
               key={post.id}
             >
               <div className={`story-image ${post.id}`}>
-                {post.id === "livery" ? <LiveryPreview compact /> : <img
+                {post.id === "livery" ? <LiveryPreview compact /> : post.id === "jersey" ? <KitShortcut/> : <img
                   src={asset(post.image!)}
                   loading="lazy"
                   alt={post.caption}

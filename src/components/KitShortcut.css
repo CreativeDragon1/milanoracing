@@ -1,0 +1,11 @@
+.kit-shortcut-preview { position: relative; width: 100%; height: 100%; min-height: inherit; overflow: hidden; isolation: isolate; background: radial-gradient(ellipse at 50% 8%,#363b47 0%,#1a1e28 48%,#0c1018 100%); }
+.kit-shortcut-preview .kit-shortcut-wordmark { position:absolute; top:10%; left:0; width:100%; text-align:center; color:#c1c5cf38; font-family:Michroma,sans-serif; font-size:clamp(24px,4vw,56px); letter-spacing:-.06em; pointer-events:none; }
+.kit-shortcut-preview .kit-shortcut-fallback { position:absolute; inset:6%; width:88%; height:88%; object-fit:contain; transition:opacity .25s; }
+.kit-shortcut-preview.is-ready .kit-shortcut-fallback { opacity:0; }
+.kit-shortcut-scene { position:absolute; inset:0; pointer-events:none; }
+.kit-shortcut-scene canvas { display:block; position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.kit-signature-link { display:block; min-width:0; border-radius:4px 60px 4px 4px; overflow:hidden; }
+.kit-signature-link:focus-visible { outline:3px solid #0019ff; outline-offset:5px; }
+.kit-signature-link .kit-shortcut-preview { min-height:350px; }
+@media(max-width:700px) { .kit-signature-link .kit-shortcut-preview { min-height:300px; } }
+@media(prefers-reduced-motion:reduce) { .kit-shortcut-preview .kit-shortcut-fallback { transition:none; } }

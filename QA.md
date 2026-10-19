@@ -173,3 +173,7 @@ Downloaded and decoded the actual browser exports: GIF 960 x 1200, 360 frames, a
 
 ## Team role layout — 20 October 2026
 Swapped Ajinkya and Raahi: desktop top row is Lead Engineer, Team Leader, Aerodynamicist; second row is Designer, Resource Lead, Outreach Lead. Equal cards preserve full 4:5 introduction artwork, with aligned role/name/link spacing. Reading order is shared by visual and keyboard navigation, flowing to two columns on tablet and one on phones. Browser layout checks at 320, 390, 768 and 1280px passed without horizontal overflow, broken loaded images or empty links. Desktop and phone appearance reviewed. Production and standalone builds passed. Evidence: qa/team-layout-results.json.
+
+
+## Kit shortcut rotation — 20 October 2026
+Added lazy 3D previews to the homepage kit shortcut and Home/Journal jersey cards. Mouse entry and keyboard focus start a time-based rotation; exit/blur returns to the initial front angle. Preview controls cannot intercept links or touch scrolling. Rotation stops outside the viewport or in a hidden document; reduced-motion preferences suppress the turn. Keyboard-driven browser verification observed angle changes from 9 to 342 degrees and a return to 10 degrees on blur; pointer event wiring inspected. Homepage shortcut navigation reaches /team#team-kit. Both routes passed layout checks at 320, 768 and 1280px. Production and standalone builds passed, including embedded asset verification. Evidence: qa/kit-shortcut-results.json.

@@ -1,3 +1,4 @@
+import KitShortcut from "../components/KitShortcut";
 import LiveryPreview from "../components/LiveryPreview";
 import { EngineeringChartPreview } from "../components/EngineeringCharts";
 import { useState } from "react";
@@ -42,7 +43,7 @@ export default function Journal() {
           <Reveal key={post.id} delay={(index % 3) * .055}>
             <Link className="story-link" to={`/journal/${post.id}`}>
               <div className={`story-image ${post.id}`}>
-                {post.id === "livery" ? <LiveryPreview compact /> : post.id === "drag-log" ? <EngineeringChartPreview/> : <img src={asset(post.image)} alt={post.caption} loading="lazy" />}
+                {post.id === "livery" ? <LiveryPreview compact /> : post.id === "drag-log" ? <EngineeringChartPreview/> : post.id === "jersey" ? <KitShortcut/> : <img src={asset(post.image)} alt={post.caption} loading="lazy" />}
                 <span className="round-arrow">
                   <ArrowUpRight />
                 </span>

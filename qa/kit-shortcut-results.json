@@ -1,0 +1,79 @@
+{
+  "layouts": [
+    {
+      "route": "/",
+      "width": 320,
+      "scrollWidth": 305,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "Small car.Big thinking.",
+      "carFrames": [],
+      "comparisonCards": [],
+      "links": 0
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "scrollWidth": 753,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "Small car.Big thinking.",
+      "carFrames": [],
+      "comparisonCards": [],
+      "links": 0
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "scrollWidth": 1265,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "Small car.Big thinking.",
+      "carFrames": [],
+      "comparisonCards": [],
+      "links": 0
+    },
+    {
+      "route": "/journal",
+      "width": 320,
+      "scrollWidth": 305,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "The work in progress.",
+      "carFrames": [],
+      "comparisonCards": [],
+      "links": 0
+    },
+    {
+      "route": "/journal",
+      "width": 768,
+      "scrollWidth": 753,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "The work in progress.",
+      "carFrames": [],
+      "comparisonCards": [],
+      "links": 0
+    },
+    {
+      "route": "/journal",
+      "width": 1280,
+      "scrollWidth": 1265,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "The work in progress.",
+      "carFrames": [],
+      "comparisonCards": [],
+      "links": 0
+    }
+  ],
+  "focusRotation": {
+    "startAngle": 9,
+    "laterAngle": 342,
+    "blurSpinning": false,
+    "returnedAngle": 10
+  },
+  "homepageFocusSpinning": true,
+  "shortcutDestination": "/team#team-kit",
+  "pointerHover": "Event wiring inspected; rotation exercised with keyboard focus."
+}

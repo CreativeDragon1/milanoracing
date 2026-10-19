@@ -8,8 +8,8 @@ import { createKitArtwork, type KitPersonalisation } from './jerseyArtwork';
 import { addSleeveDecals } from './jerseyDecals';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 export type JerseyExport = { render:(angle?:number)=>HTMLCanvasElement; dispose:()=>void };
-export type JerseyScene = { preset:(side:'front'|'back')=>void; zoom:(step:number)=>void; reset:()=>void; rotate:(x:number,y:number)=>void; createExport:(width:number,height:number)=>JerseyExport; personalise:(value:KitPersonalisation)=>void; dispose:()=>void };
-export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChange:(angle:number,zoom:number)=>void):Promise<JerseyScene>{
+export type JerseyScene = { preset:(side:'front'|'back')=>void; zoom:(step:number)=>void; reset:()=>void; rotate:(x:number,y:number)=>void; spin:(active:boolean)=>void; createExport:(width:number,height:number)=>JerseyExport; personalise:(value:KitPersonalisation)=>void; dispose:()=>void };
+export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChange:(angle:number,zoom:number)=>void,preview=false):Promise<JerseyScene>{
   const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.75));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
@@ -23,7 +23,8 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
   let baseDistance=6.1;
   camera.position.set(1.1,.2,baseDistance);
   const controls=new OrbitControls(camera,renderer.domElement);
-  controls.enablePan=false;controls.enableZoom=false;controls.enableDamping=!reduced;controls.dampingFactor=.10;
+  controls.enabled=!preview;controls.autoRotateSpeed=2;
+  controls.enablePan=false;controls.enableZoom=false;controls.enableDamping=!reduced&&!preview;controls.dampingFactor=.10;
   controls.rotateSpeed=.65;controls.minPolarAngle=.22*Math.PI;controls.maxPolarAngle=.78*Math.PI;
   renderer.domElement.style.touchAction='pan-y';
   controls.target.set(0,-.03,0);controls.update();
@@ -145,11 +146,18 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
     animation=animate(0,1,{...(reduced?{duration:0}:physics.gentle),onUpdate:p=>{const a=startTheta+delta*p,d=THREE.MathUtils.lerp(fromDist,distance,p),phi=THREE.MathUtils.lerp(fromPolar,polar,p);camera.position.set(Math.sin(a)*Math.sin(phi)*d,Math.cos(phi)*d,Math.cos(a)*Math.sin(phi)*d).add(controls.target);controls.update();render();},onComplete:updateStatus});
     void target;
   }
-  let dampingFrame=0,dragging=false;
-  const tick=()=>{dampingFrame=0;if(disposed)return;const changed=controls.update();render();if(dragging||changed)dampingFrame=requestAnimationFrame(tick);else updateStatus();};
+  let dampingFrame=0,dragging=false,lastFrame=0;
+  const tick=(time:number)=>{dampingFrame=0;if(disposed)return;const dt=lastFrame?Math.min((time-lastFrame)/1000,.05):1/60;lastFrame=time;const changed=controls.update(dt);render();if(controls.autoRotate)updateStatus();if(dragging||changed||controls.autoRotate)dampingFrame=requestAnimationFrame(tick);else {lastFrame=0;updateStatus();}};
   const cancel=()=>{animation?.stop();dragging=true;if(!dampingFrame)dampingFrame=requestAnimationFrame(tick);};
   controls.addEventListener('start',cancel);controls.addEventListener('end',()=>{dragging=false;});
   return {
+    spin:active=>{
+      const spinning=active&&!reduced;
+      if(controls.autoRotate===spinning)return;
+      controls.autoRotate=spinning;
+      if(spinning){animation?.stop();lastFrame=0;if(!dampingFrame)dampingFrame=requestAnimationFrame(tick);}
+      else {cancelAnimationFrame(dampingFrame);dampingFrame=0;lastFrame=0;move(.18,baseDistance,Math.PI/2-.035);}
+    },
     personalise:value=>{updateArtwork?.(value);render();},
     preset:side=>move(side==='front'?0:Math.PI,camera.position.distanceTo(controls.target),Math.PI/2),
     zoom:step=>move(Math.atan2(camera.position.x,camera.position.z),THREE.MathUtils.clamp(camera.position.distanceTo(controls.target)-step*baseDistance*.105,baseDistance*.62,baseDistance*1.2)),
