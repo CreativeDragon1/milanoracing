@@ -5,6 +5,7 @@ import { posts } from "../content";
 import { asset, nav, ArrowLink, Eyebrow, Heading } from "../components/site";
 import NotFound from "./NotFound";
 import JerseyViewer from "../components/JerseyViewer";
+import EngineeringCharts from "../components/EngineeringCharts";
 export default function Article() {
   const { pathname } = useLocation();
   const post = posts.find((p) => pathname === `/journal/${p.id}`);
@@ -25,7 +26,7 @@ export default function Article() {
         title={post.title}
         description={post.excerpt}
       />
-      {post.id === "jersey" ? <JerseyViewer /> : post.image && (
+      {post.id === "jersey" ? <JerseyViewer /> : post.id === "drag-log" ? <EngineeringCharts initialChart="convergence"/> : post.image && (
         <img
           className={`article-image ${post.id}`}
           src={asset(post.image)}
@@ -36,9 +37,6 @@ export default function Article() {
         {post.body.map((p) => (
           <p key={p}>{p}</p>
         ))}
-        <span className="source-note">
-          Source: {post.caption.toLowerCase()}.
-        </span>
         <div className="actions">
           <ArrowLink to={post.id === "jersey" ? "/team#team-kit" : "/evolution"}>
             {post.id === "jersey"

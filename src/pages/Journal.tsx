@@ -1,4 +1,5 @@
 import LiveryPreview from "../components/LiveryPreview";
+import { EngineeringChartPreview } from "../components/EngineeringCharts";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Plus } from "lucide-react";
@@ -41,7 +42,7 @@ export default function Journal() {
           <Reveal key={post.id}>
             <Link className="story-link" to={`/journal/${post.id}`}>
               <div className={`story-image ${post.id}`}>
-                {post.id === "livery" ? <LiveryPreview compact /> : <img src={asset(post.image)} alt={post.caption} loading="lazy" />}
+                {post.id === "livery" ? <LiveryPreview compact /> : post.id === "drag-log" ? <EngineeringChartPreview/> : <img src={asset(post.image)} alt={post.caption} loading="lazy" />}
                 <span className="round-arrow">
                   <ArrowUpRight />
                 </span>

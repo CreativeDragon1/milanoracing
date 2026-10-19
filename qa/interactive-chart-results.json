@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-20",
+  "charts": [
+    "Drag by version",
+    "Drag breakdown",
+    "Convergence",
+    "Wing angle",
+    "Pressure",
+    "Drag & mass"
+  ],
+  "sourceNumericalValuesMatchSuppliedZip": true,
+  "mk4ComponentSumN": 0.509,
+  "verifiedInteractions": [
+    "six chart selections",
+    "convergence keyboard Home",
+    "pressure keyboard End",
+    "hide MK 1 series",
+    "select Tail & cartridge: 0.017 N and 3.3%",
+    "expand data table"
+  ],
+  "csvDownload": {
+    "iterations": 101,
+    "exactDragValuesMatched": 404
+  },
+  "responsive": {
+    "cases": 36,
+    "failures": 0,
+    "smallestWidth": 320
+  },
+  "staticChartImagesReplaced": [
+    "evolution charts",
+    "engineering article",
+    "journal engineering preview"
+  ],
+  "sourceCreditRemoved": true
+}
