@@ -1,0 +1,25 @@
+<!doctype html><html><head><title>Dynamic motion QA</title><style>body{background:#151a24;color:white;font:14px Arial}iframe{width:1100px;height:760px;border:0}button{padding:14px}pre{white-space:pre-wrap}</style></head><body><button id="run">Check reversible scroll and ambient motion</button><iframe title="Motion preview" src="/"></iframe><pre id="result">Ready</pre><script>
+const f=document.querySelector('iframe'),out=document.querySelector('#result'),pause=ms=>new Promise(r=>setTimeout(r,ms));
+async function load(path){f.style.height='760px';await new Promise(r=>{f.onload=r;f.src=path});for(let i=0;i<80&&!f.contentDocument.querySelector('h1');i++)await pause(50);await f.contentDocument.fonts.ready;await pause(250);return f.contentDocument;}
+const style=el=>{const s=f.contentWindow.getComputedStyle(el);return {opacity:+s.opacity,transform:s.transform,state:el.dataset.revealState};};
+document.querySelector('#run').onclick=async()=>{out.dataset.complete='false';const result={};try{
+ let d=await load('/'),w=f.contentWindow,el=d.querySelector('.archive-preview');
+ const top=el.getBoundingClientRect().top+w.scrollY,height=el.offsetHeight,vh=w.innerHeight;
+ const positions=[.04,.1,.22,.5,.88,.96,.88,.5,.22,.1,.04];const samples=[];
+ for(const p of positions){w.scrollTo({top:top-vh+p*(height+vh),behavior:'instant'});await pause(160);samples.push({progress:p,scroll:w.scrollY,...style(el)});}
+ result.scroll=samples;result.reverses=samples.slice(0,5).every((s,i)=>Math.abs(s.opacity-samples[10-i].opacity)<.015);result.changes=samples[0].opacity<samples[3].opacity&&samples[5].opacity<samples[3].opacity;
+ const link=el.querySelector('a');link.focus({preventScroll:true});await pause(80);result.keyboardFocus=style(el);link.blur();
+ for(const [route,selector] of [['/journal/livery','.livery-reveal'],['/evolution','.mr-sealed']]){
+  d=await load(route);w=f.contentWindow;if(route==='/evolution'){d.querySelector('#tab-MR26')?.click();await pause(200);}
+  let panel=d.querySelector(selector);if(!panel&&route==='/evolution'){[...d.querySelectorAll('[role="tab"]')].find(b=>b.textContent.includes('MR 26'))?.click();await pause(200);panel=d.querySelector(selector);}
+  panel.scrollIntoView({block:'center',behavior:'instant'});await pause(4300);
+  const seq=panel.querySelector('.signature-sequence'),logo=panel.querySelector('.teaser-signature');
+  const first=style(logo);await pause(650);const second=style(logo);
+  const check={route,phase:seq.dataset.phase,running:seq.dataset.ambient,moves:first.transform!==second.transform,first,second};
+  const stop=panel.querySelector('.signature-pause');stop.click();await pause(80);const frozen=style(logo);await pause(250);check.paused=seq.dataset.ambient==='paused'&&frozen.transform===style(logo).transform;stop.click();await pause(80);check.resumed=seq.dataset.ambient==='running';
+  f.style.height='300px';await pause(100);w.scrollTo({top:d.documentElement.scrollHeight,behavior:'instant'});await pause(250);check.offscreenPaused=seq.dataset.ambient==='paused';result[route]=check;
+ }
+ d=await load('/qa/reduced-motion.html');result.reduced={reveals:[...d.querySelectorAll('.scroll-reveal')].every(e=>e.dataset.revealState==='static'),ambientLayers:d.querySelectorAll('.signature-ambient').length};
+ }catch(e){result.error=String(e)}out.textContent=JSON.stringify(result,null,2);out.dataset.complete='true';};
+</script></body></html>
+

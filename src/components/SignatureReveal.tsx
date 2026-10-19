@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, Pause, Play } from "lucide-react";
 import { useTheme } from "../theme";
 import { asset } from "../assets";
 import { Press, teaserMotion } from "../motion";
@@ -18,10 +18,18 @@ export default function SignatureReveal({ variant, replay = false }: { variant: 
   const logo=dark ? {href:asset("milano-dark.svg"),x:25,y:230,width:555,height:185} : {href:asset("milano-official.png"),width:648,height:648};
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: .4 });
+  const onScreen = useInView(ref, { amount: .05 });
   const reduced = useReducedMotion();
   const [playing, setPlaying] = useState(true);
   const [take, setTake] = useState(0);
   const [armed, setArmed] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [pageVisible, setPageVisible] = useState(!document.hidden);
+  useEffect(() => {
+    const update = () => setPageVisible(!document.hidden);
+    document.addEventListener('visibilitychange', update);
+    return () => document.removeEventListener('visibilitychange', update);
+  }, []);
   const maskId = useId().replace(/:/g, "");
   const active = inView && !reduced && armed;
   useEffect(() => {
@@ -30,7 +38,9 @@ export default function SignatureReveal({ variant, replay = false }: { variant: 
     return () => cancelAnimationFrame(frame);
   }, [inView, reduced, playing, take]);
   useEffect(() => { if (reduced) setPlaying(false); }, [reduced]);
-  return <div ref={ref} className={`signature-sequence signature-sequence-${variant}`} data-phase={reduced || !playing ? "sealed" : active ? "revealing" : "waiting"}>
+  const ambientRunning = !reduced && !playing && onScreen && pageVisible && !paused;
+  return <div ref={ref} className={`signature-sequence signature-sequence-${variant}`} data-ambient={ambientRunning ? "running" : "paused"} data-phase={reduced || !playing ? "sealed" : active ? "revealing" : "waiting"}>
+    {!reduced && <div className="signature-ambient" aria-hidden="true" style={{opacity:playing ? 0 : 1}}><i className="signature-halo"/><i className="signature-halo signature-halo-orange"/><i className="signature-ambient-sweep"/></div>}
     {!reduced && playing && <motion.div key={take} className="signature-curtain" aria-hidden="true"
       initial={{ opacity: 1 }} animate={active ? { opacity: [1, 1, 0] } : { opacity: 1 }}
       transition={{ duration: teaserMotion.duration, times: [0, .82, 1], ease: "easeInOut" }}
@@ -48,5 +58,6 @@ export default function SignatureReveal({ variant, replay = false }: { variant: 
       <motion.div className="signature-pass" initial={{ x: "-160%", opacity: 0 }} animate={active ? { x: "160%", opacity: [0,.65,0] } : { opacity: 0 }} transition={{ duration: 1.1, delay: 1.8, ease: teaserMotion.ease }}/>
     </motion.div>}
     {replay && !reduced && <Press className="signature-replay" disabled={playing} aria-label={`Replay ${variant === "car" ? "MR 26" : "livery"} reveal`} onClick={() => { setArmed(false); setTake(value => value + 1); setPlaying(true); }}><RotateCcw size={15} aria-hidden="true"/><span>Replay</span></Press>}
+    {replay && !reduced && !playing && <Press className="signature-pause" aria-label={paused ? "Resume ambient animation" : "Pause ambient animation"} aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? <Play size={15} aria-hidden="true"/> : <Pause size={15} aria-hidden="true"/>}</Press>}
   </div>;
 }

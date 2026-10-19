@@ -1,0 +1,126 @@
+{
+  "scroll": [
+    {
+      "progress": 0.04,
+      "scroll": 423.20001220703125,
+      "opacity": 0.377571,
+      "transform": "matrix(0.975103, 0, 0, 0.975103, 0, 34.856)",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.1,
+      "scroll": 488.79998779296875,
+      "opacity": 0.608622,
+      "transform": "matrix(0.984345, 0, 0, 0.984345, 0, 21.9172)",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.22,
+      "scroll": 620,
+      "opacity": 1,
+      "transform": "none",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.5,
+      "scroll": 926.4000244140625,
+      "opacity": 1,
+      "transform": "none",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.88,
+      "scroll": 1341.5999755859375,
+      "opacity": 0.233869,
+      "transform": "matrix(0.969355, 0, 0, 0.969355, 0, -42.9033)",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.96,
+      "scroll": 1429.5999755859375,
+      "opacity": 0,
+      "transform": "matrix(0.96, 0, 0, 0.96, 0, -56)",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.88,
+      "scroll": 1341.5999755859375,
+      "opacity": 0.233869,
+      "transform": "matrix(0.969355, 0, 0, 0.969355, 0, -42.9033)",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.5,
+      "scroll": 926.4000244140625,
+      "opacity": 1,
+      "transform": "none",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.22,
+      "scroll": 620,
+      "opacity": 1,
+      "transform": "none",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.1,
+      "scroll": 488.79998779296875,
+      "opacity": 0.608622,
+      "transform": "matrix(0.984345, 0, 0, 0.984345, 0, 21.9172)",
+      "state": "scroll-linked"
+    },
+    {
+      "progress": 0.04,
+      "scroll": 423.20001220703125,
+      "opacity": 0.377571,
+      "transform": "matrix(0.975103, 0, 0, 0.975103, 0, 34.856)",
+      "state": "scroll-linked"
+    }
+  ],
+  "reverses": true,
+  "changes": true,
+  "keyboardFocus": {
+    "opacity": 1,
+    "transform": "none",
+    "state": "static"
+  },
+  "/journal/livery": {
+    "route": "/journal/livery",
+    "phase": "sealed",
+    "running": "running",
+    "moves": true,
+    "first": {
+      "opacity": 1,
+      "transform": "matrix(1.00159, 0, 0, 1.00159, 0, -0.425308)"
+    },
+    "second": {
+      "opacity": 1,
+      "transform": "matrix(1.00476, 0, 0, 1.00476, 0, -1.26821)"
+    },
+    "paused": true,
+    "resumed": true,
+    "offscreenPaused": true
+  },
+  "/evolution": {
+    "route": "/evolution",
+    "phase": "sealed",
+    "running": "running",
+    "moves": true,
+    "first": {
+      "opacity": 1,
+      "transform": "matrix(1.00243, 0, 0, 1.00243, 0, -0.649143)"
+    },
+    "second": {
+      "opacity": 1,
+      "transform": "matrix(1.00607, 0, 0, 1.00607, 0, -1.61985)"
+    },
+    "paused": true,
+    "resumed": true,
+    "offscreenPaused": true
+  },
+  "reduced": {
+    "reveals": true,
+    "ambientLayers": 0
+  }
+}

@@ -25,3 +25,29 @@
  .signature-replay { right: 8px; top: 8px; }
 }
 @media(prefers-reduced-motion:reduce) { .signature-curtain, .signature-replay { display: none; } }
+
+/* A quiet living stage after the intro. Text stays still; only light, artwork
+   and the signature move. All loops pause outside the viewport or hidden tab. */
+.signature-ambient { position:absolute; inset:0; pointer-events:none; transition:opacity 1s ease; overflow:hidden; }
+.signature-halo { position:absolute; width:70%; height:100%; left:-20%; top:-30%; border-radius:50%; background:radial-gradient(ellipse,#334cff20,transparent 68%); animation:signature-drift 12s ease-in-out infinite alternate; }
+.signature-halo-orange { left:auto; right:-25%; top:30%; background:radial-gradient(ellipse,#ff7a0015,transparent 68%); animation-direction:alternate-reverse; animation-duration:15s; }
+.signature-ambient-sweep { position:absolute; inset:-40%; background:linear-gradient(110deg,transparent 43%,#ffffff07 49%,#ffffff0b 50%,transparent 57%); animation:signature-light-pass 11s ease-in-out infinite; }
+.signature-sequence-livery .signature-halo { animation-duration:14s; }
+.signature-sequence-livery .signature-ambient-sweep { animation-delay:-4s; }
+.signature-ambient i { animation-play-state:paused; }
+.signature-sequence[data-ambient="running"] .signature-ambient i { animation-play-state:running; }
+:is(.mr-sealed,.livery-reveal):has(.signature-sequence) .teaser-signature { animation:signature-breathe 8s ease-in-out infinite; animation-play-state:paused; transform-origin:center; }
+:is(.mr-sealed,.livery-reveal):has(.signature-sequence[data-ambient="running"]) .teaser-signature { animation-play-state:running; }
+:is(.mr-sealed,.livery-reveal):has(.signature-sequence) :is(.mr-sealed-pattern,.livery-reveal-dragon) { animation:signature-art-drift 18s ease-in-out infinite alternate; animation-play-state:paused; }
+:is(.mr-sealed,.livery-reveal):has(.signature-sequence[data-ambient="running"]) :is(.mr-sealed-pattern,.livery-reveal-dragon) { animation-play-state:running; }
+.signature-pause { pointer-events:auto; position:absolute; top:12px; right:112px; width:44px; height:44px; display:grid; place-items:center; border:1px solid #ffffff30; border-radius:9px; background:#08090dbb; color:#fff; cursor:pointer; }
+.signature-pause:focus-visible { outline:2px solid #ff7a00; outline-offset:-4px; }
+@keyframes signature-breathe { 0%,100% { transform:translateY(0) scale(1); } 50% { transform:translateY(-4px) scale(1.015); } }
+@keyframes signature-art-drift { from { transform:translate3d(-.5%,0,0) scale(1.02); } to { transform:translate3d(.5%,-1%,0) scale(1.04); } }
+@keyframes signature-drift { from { transform:translate3d(-4%,-3%,0); } to { transform:translate3d(18%,12%,0); } }
+@keyframes signature-light-pass { 0%,12% { transform:translateX(-75%); opacity:0; } 32%,60% { opacity:1; } 82%,100% { transform:translateX(75%); opacity:0; } }
+@media(max-width:700px) { .signature-pause { top:8px; right:106px; } }
+@media(prefers-reduced-motion:reduce) {
+ .signature-ambient,.signature-pause { display:none; }
+ :is(.mr-sealed,.livery-reveal):has(.signature-sequence) :is(.teaser-signature,.mr-sealed-pattern,.livery-reveal-dragon) { animation:none; transform:none; }
+}

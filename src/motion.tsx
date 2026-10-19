@@ -1,4 +1,4 @@
-import { motion, useInView, useReducedMotion } from "motion/react";
+import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 const MotionRouterLink = motion.create(Link);
@@ -32,9 +32,15 @@ export function Reveal({
 }) {
   const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "0px 0px -24px 0px", amount: "some" });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  // Position, rather than elapsed time, drives the effect in either direction.
+  // Keep the middle of the viewport still and readable; only its edges ease away.
+  const edge = .26 + Math.min(.025, Math.max(0, delay) * .15);
+  const opacity = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [56, 0, 0, -56]);
+  const scale = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [.96, 1, 1, .96]);
   const [focused, setFocused] = useState(false);
-  const visible = !!reduced || inView || focused;
+  const staticContent = !!reduced || focused;
   const Tag = as === "section" ? motion.section : as === "article" ? motion.article : motion.div;
   return (
     <Tag
@@ -43,11 +49,11 @@ export function Reveal({
       aria-labelledby={labelledBy}
       aria-label={label}
       className={`scroll-reveal ${className}`}
-      data-reveal-state={visible ? "visible" : "waiting"}
+      data-reveal-state={staticContent ? "static" : "scroll-linked"}
       onFocusCapture={() => setFocused(true)}
-      initial={reduced ? false : { opacity: 0, y: 12 }}
-      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-      transition={{ duration: reduced || focused ? 0 : .55, delay: reduced || focused ? 0 : Math.min(.16, Math.max(0, delay)), ease: [.22, 1, .36, 1] }}
+      onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false); }}
+      initial={false}
+      style={{ opacity: staticContent ? 1 : opacity, y: staticContent ? 0 : y, scale:staticContent ? 1 : scale }}
     >
       {children}
     </Tag>
