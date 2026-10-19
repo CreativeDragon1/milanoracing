@@ -129,3 +129,8 @@ Removed fixed hero minimum heights and tightened section/header spacing while pr
 ## Flag alignment and chart title cleanup
 
 Singapore and its flag are grouped in a nonbreaking inline layout on Team. Regenerated all six SVG charts without their embedded plot titles; data, axes, legends and illustrative-data labels remain. All six chart selectors were tested and their images loaded in the browser.
+
+
+## Competition identity copy
+
+Home, Team and Partners now explicitly describe Milano Racing as competing in STEM Racing. Team location is on a separate block line, with Singapore and the flag kept together. Verified the three descriptions in the rendered browser and visually checked the Team line break.

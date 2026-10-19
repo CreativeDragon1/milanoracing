@@ -11,7 +11,7 @@ export default function Team() {
     <>
       <Heading
         title="Different minds. One team."
-        description={<>Six people bringing design, engineering and communication together. Based in <span className="location-inline">Singapore <SingaporeFlag/></span>.</>}
+        description={<>Six people working together to compete in STEM Racing.<span className="team-location">Based in <span className="location-inline">Singapore <SingaporeFlag/></span>.</span></>}
       />
       <div className="team-grid">
         {people.map((person, i) => (

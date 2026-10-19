@@ -95,3 +95,5 @@
 
 .location-inline { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; vertical-align: baseline; }
 .location-inline .sg-flag { margin-left: 0; align-self: center; }
+
+.team-location { display: block; margin-top: 6px; }

@@ -101,7 +101,7 @@ export default function Partners() {
     <>
       <Heading
         title="Good work takes support."
-        description="The businesses supporting Milano Racing."
+        description="The businesses supporting Milano Racing as we compete in STEM Racing."
       />
       <section className="partners-equal-grid" aria-label="Our sponsors">
         {sponsors.map((s) => (

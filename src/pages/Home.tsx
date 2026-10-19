@@ -19,8 +19,7 @@ export default function Home() {
             <span className="orange period">.</span>
           </h1>
           <p>
-            We’re Milano Racing. A STEM Racing team turning curiosity
-            into a car, one considered detail at a time.
+            We’re Milano Racing, a team from Singapore competing in STEM Racing.
           </p>
           <div className="actions">
             <ArrowLink to="/evolution">Explore the car</ArrowLink>
@@ -50,9 +49,8 @@ export default function Home() {
         <Reveal className="intro-copy">
           <p className="large-copy">A miniature car. A whole team of ideas.</p>
           <p>
-            We’re Milano Racing, based in Singapore.
-            Design, aerodynamics, engineering, communication and planning all
-            meet in one small car.
+            We design and develop our car for STEM Racing, bringing together
+            aerodynamics, engineering, communication and planning.
           </p>
           <p>
             Our archive makes that process visible: the versions, the design process
