@@ -38,7 +38,7 @@ Version-specific CAD/renders and documented aerodynamic test conditions; persona
 - Replaced the flat extruded silhouette with a subdivided polo garment: rounded shoulders, open sleeves, curved neck binding, fabric thickness and subtle folds.
 - Confirmed the default back is blank; optional name/number personalisation and all six member presets work. Original sponsor logos are applied to the original PDF artwork.
 - Inspected front, side and back in the actual browser, including fullscreen; tested rotation, front/back presets and PNG capture.
-- Source type check and production build pass. The optional Three.js chunk is 168 KB gzip and the garment mesh is approximately 3 MB, loaded only for the viewer.
+- Source type check and production build pass. The optional Three.js chunk is 170 KB gzip and the garment mesh is approximately 3 MB, loaded only for the viewer.
 - This is a reference-based visual recreation, not a scanned or measured exact replica.
 
 Final recheck: 36 route/viewport combinations (320, 390, 768, 1280 px), no horizontal overflow or broken loaded images, one h1 per page. After the narrow-screen camera-fit adjustment, 320 px viewer visually checked with both sleeves in frame and 44 px touch controls. Production viewer rendered with no captured browser errors or warnings. Real mobile hardware and frame-rate benchmarking were not performed.
@@ -53,3 +53,14 @@ Final recheck: 36 route/viewport combinations (320, 390, 768, 1280 px), no horiz
 - Tested custom name/number, blank reset, member presets, front/back, rotation, zoom, fullscreen and PNG capture. Numbers preserve leading zeroes and reject non-digits.
 - The standalone HTML embeds assets, fonts and application code. Static validation checks script syntax, asset completeness and model resources. Direct local-file browser launch was blocked by browser tooling; the running app was inspected instead.
 - Real-device performance, sustained 60 FPS and screen-reader certification are not claimed.
+
+
+## Final sleeve, body and site cleanup
+
+- Replaced stretched sleeve projections with separate proportional decals conforming to the fabric; inspected both sides and the back in production.
+- Smoothed the torso and made orange side panels continuous around the sides. Removed the old normal-map download and refreshed both fallback posters.
+- Applied the original dragon motif across the site; removed school references, status dots and redundant provenance/sponsor labels from the UI. Singapore uses a local SVG flag.
+- Added researched descriptions and links for all five sponsors. Identity matches and source limitations are recorded in CONTENT-SOURCES.md.
+- Repeated the 36 responsive checks after these changes: all passed. Visually reviewed the 320 px garment view, homepage and partner page, plus the final production viewer.
+- Verified Niteesh's preset, blank reset, front/back and rotation after the final rebuild. Production browser console returned no errors or warnings.
+- Vite reports a size advisory for the optional Three.js viewer chunk (170 KB gzip); it remains dynamically imported and renders only on interaction/resize.

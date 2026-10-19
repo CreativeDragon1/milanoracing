@@ -5,6 +5,7 @@ import { physics } from '../motion';
 
 import { asset } from '../assets';
 import { createKitArtwork, type KitPersonalisation } from './jerseyArtwork';
+import { addSleeveDecals } from './jerseyDecals';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 export type JerseyScene = { preset:(side:'front'|'back')=>void; zoom:(step:number)=>void; reset:()=>void; rotate:(x:number,y:number)=>void; capture:()=>string; personalise:(value:KitPersonalisation)=>void; dispose:()=>void };
 export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChange:(angle:number,zoom:number)=>void):Promise<JerseyScene>{
@@ -38,10 +39,9 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
   const updateStatus=()=>{const angle=((Math.atan2(camera.position.x,camera.position.z)*180/Math.PI)%360+360)%360;onChange(Math.round(angle)%360,Math.round(baseDistance/camera.position.distanceTo(controls.target)*100));};
   controls.addEventListener('change',render);controls.addEventListener('end',updateStatus);
   try{
-    const [artwork,model,normal]=await Promise.all([createKitArtwork(),new GLTFLoader().loadAsync(asset('milano-garment.glb')),new THREE.TextureLoader().loadAsync(asset('kit-normal.webp'))]);
+    const [artwork,model]=await Promise.all([createKitArtwork(),new GLTFLoader().loadAsync(asset('milano-garment.glb'))]);
     const {textures,personalise}=artwork;updateArtwork=personalise;
-    ownedTextures.push(...textures,normal);
-    normal.flipY=false;normal.channel=0;
+    ownedTextures.push(...textures);
     textures.forEach(texture=>{texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());});
     model.scene.traverse(object=>{
       if(!(object instanceof THREE.Mesh))return;
@@ -49,8 +49,9 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
       if(old.name==='Buttons'||old.name==='Collar'){object.visible=false;}
       const collar=old.name==='Collar';
       const fabric=old.name==='Fabric'||old.name==='Hem';
-      const material=new THREE.MeshPhysicalMaterial({color:fabric?0xffffff:0x000000,roughness:.96,metalness:0,side:THREE.DoubleSide,normalMap:normal,normalScale:new THREE.Vector2(.24,.24),sheen:.2,sheenColor:new THREE.Color(0xdad8d0),sheenRoughness:1});
+      const material=new THREE.MeshPhysicalMaterial({color:fabric?0xffffff:0x000000,roughness:.96,metalness:0,side:THREE.DoubleSide,sheen:.2,sheenColor:new THREE.Color(0xdad8d0),sheenRoughness:1});
       if(fabric){
+        material.name="Milano cloth";
         material.onBeforeCompile=shader=>{
           shader.uniforms.kitFront={value:textures[0]};shader.uniforms.kitBack={value:textures[1]};
           shader.vertexShader='varying vec3 kitPosition;\n'+shader.vertexShader;
@@ -61,6 +62,11 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
             vec2 backUV=vec2((-kitPosition.x+1.7)/3.4,frontUV.y);
             vec4 ink=mix(texture2D(kitBack,backUV),texture2D(kitFront,frontUV),smoothstep(-.09,.09,kitPosition.z));
             diffuseColor*=ink;
+            // A single continuous side panel runs around each side of the torso.
+            float sideEdge=.625 + .09 * smoothstep(-.2,.38,kitPosition.y);
+            if(kitPosition.y < .38 && abs(kitPosition.x) > sideEdge && abs(kitPosition.x) < .89){
+              diffuseColor.rgb = kitPosition.y < -1.18 ? vec3(0.0) : vec3(1.0,.1946,0.0);
+            }
             float neckEdge = .95 + .31 * (1.0 - sqrt(max(0.0, 1.0 - pow(kitPosition.x / .465, 2.0))));
             if(kitPosition.z > .12 && abs(kitPosition.x) < .43 && kitPosition.y > neckEdge && kitPosition.y < neckEdge + .095) diffuseColor.rgb = vec3(0.0,.0097,1.0);
           `);
@@ -78,6 +84,7 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
       old.dispose();object.material=material;object.castShadow=true;object.receiveShadow=true;
     });
     garment.add(model.scene);
+    await addSleeveDecals(model.scene,garment);
     // Thin curved binding follows the original crew-neck and black side-collar design.
     const collarPosition:number[]=[],collarColours:number[]=[],collarIndices:number[]=[];
     const collarSteps=96;

@@ -7,6 +7,9 @@ import { Press, Reveal } from "../motion";
 
 import { asset } from "../assets";
 export { asset } from "../assets";
+export function SingaporeFlag(){
+  return <svg className="sg-flag" width="27" height="18" viewBox="0 0 60 40" role="img" aria-label="Singapore flag"><rect width="60" height="40" fill="#fff"/><path d="M0 0h60v20H0z" fill="#ef3340"/><circle cx="11" cy="10" r="7" fill="#fff"/><circle cx="14" cy="8.5" r="6.6" fill="#ef3340"/>{[[23,4.5],[27.5,8],[25.8,13.3],[20.2,13.3],[18.5,8]].map(([x,y])=><polygon key={x} transform={`translate(${x} ${y})`} fill="#fff" points="0,-2.1 .5,-.7 2,-.7 .8,.25 1.25,1.8 0,.85 -1.25,1.8 -.8,.25 -2,-.7 -.5,-.7"/>)}</svg>;
+}
 export const nav = [
   ["/", "Home"],
   ["/evolution", "Car Evolution"],
@@ -33,7 +36,6 @@ export function ArrowLink({
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="eyebrow">
-      <span className="tiny-square" />
       {children}
     </div>
   );
@@ -45,7 +47,7 @@ export function Heading({
 }: {
   label: string;
   title: string;
-  description: string;
+  description: React.ReactNode;
 }) {
   return (
     <Reveal className="page-heading">
@@ -126,11 +128,11 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <div>
-          <Eyebrow>Milano Racing / Singapore</Eyebrow>
+          <Eyebrow>Milano Racing / Singapore <SingaporeFlag/></Eyebrow>
           <h2>
-            Built by students.
+            Milano Racing.
             <br />
-            Driven by curiosity.
+            See you on the track.
           </h2>
           <a className="text-link" href={`mailto:${contact.email}`}>
             {contact.email}
@@ -162,7 +164,7 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Milano Racing</span>
-        <span>GIIS Punggol Smart Campus · STEM Racing</span>
+        <span>Singapore <SingaporeFlag/></span>
         <Link to={`${location.pathname}#top`}>Back to top ↑</Link>
       </div>
     </footer>

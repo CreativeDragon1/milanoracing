@@ -41,6 +41,7 @@ src/
 public/assets/            Actual supplied brand assets and verified member graphics
 index.html                Metadata and HTML entry point
 vite.config.ts            Build configuration
+.openai/hosting.json      Private Sites identity and output directory
 ```
 
 ## Edit content

@@ -2,14 +2,14 @@
 
 ## Garment geometry
 
-The garment topology and fabric normal map are adapted from **Polo t-shirt by Namuhekam**, released under **CC0** in the MakeHuman Community Shirts 01 pack.
+The garment topology is adapted from **Polo t-shirt by Namuhekam**, released under **CC0** in the MakeHuman Community Shirts 01 pack.
 
 - Official listing: https://static.makehumancommunity.org/assets/assetpacks/shirts01.html
 - Source: `namuhekam_male_polo_shirt/Polo_t-shirt.obj`, whose header identifies Namuhekam and CC0.
 - Download: https://files2.makehumancommunity.org/asset_packs/shirts01/shirts01_cc0.zip
 - License: https://creativecommons.org/publicdomain/zero/1.0/
 
-Adaptations include subdivision, scale normalization, cloth thickness, subtle asymmetric folds, a reshaped neckline, a separate curved neck binding and custom front/back artwork projection. The original polo collar/buttons are hidden. This is an interactive visual preview, not a measured digital twin or production pattern.
+Adaptations include subdivision, scale normalization, cloth thickness, a smooth tailored torso, restrained cloth folds, a reshaped neckline, a separate curved neck binding and custom front/back artwork projection. Sleeve logos use individual surface decals with preserved image proportions. The original polo collar/buttons are hidden. This is an interactive visual preview, not a measured digital twin or production pattern.
 
 ## Team artwork
 

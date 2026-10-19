@@ -3,13 +3,13 @@ import { ArrowUpRight, MoveUpRight } from "lucide-react";
 import { cars, posts, sponsors } from "../content";
 import { Reveal } from "../motion";
 
-import { asset, nav, ArrowLink, Eyebrow, Heading } from "../components/site";
+import { asset, nav, ArrowLink, Eyebrow, Heading, SingaporeFlag } from "../components/site";
 export default function Home() {
   return (
     <>
       <section className="hero">
         <Reveal className="hero-copy">
-          <Eyebrow>Student team. Engineering in motion.</Eyebrow>
+          <Eyebrow>MILANO RACING</Eyebrow>
           <h1>
             Small car.
             <br />
@@ -17,7 +17,7 @@ export default function Home() {
             <span className="orange period">.</span>
           </h1>
           <p>
-            We’re Milano Racing. A student STEM Racing team turning curiosity
+            We’re Milano Racing. A STEM Racing team turning curiosity
             into a car, one considered detail at a time.
           </p>
           <div className="actions">
@@ -27,8 +27,7 @@ export default function Home() {
             </ArrowLink>
           </div>
           <div className="hero-location">
-            <span className="status-dot" />
-            GIIS Punggol Smart Campus <span>Singapore</span>
+            Singapore <SingaporeFlag/>
           </div>
         </Reveal>
         <Reveal className="hero-visual">
@@ -45,10 +44,9 @@ export default function Home() {
           </div>
           <div className="render-caption">
             <span>
-              <span className="orange-dot" />
               Designed at miniature scale.
             </span>
-            <span>Team-supplied render</span>
+
           </div>
           <div className="visual-index" aria-hidden="true">
             01 / THE CAR
@@ -70,7 +68,7 @@ export default function Home() {
         <Reveal className="intro-copy">
           <p className="large-copy">A miniature car. A whole team of ideas.</p>
           <p>
-            We’re a student team from GIIS Punggol Smart Campus in Singapore.
+            We’re Milano Racing, based in Singapore.
             Design, aerodynamics, engineering, communication and planning all
             meet in one small car.
           </p>

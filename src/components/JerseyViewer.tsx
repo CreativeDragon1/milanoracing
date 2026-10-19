@@ -45,7 +45,7 @@ export default function JerseyViewer() {
     if(keys[e.key]){e.preventDefault();keys[e.key]();}
   }
   return <div className="kit-viewer raised" ref={section}>
-    <div className="kit-topline"><span className="small-label"><span className="status-dot"/> THE MILANO KIT</span><span className="kit-edition">ORIGINAL ARTWORK / 360°</span></div>
+    <div className="kit-topline"><span className="small-label">THE MILANO KIT</span><span className="kit-edition">360° VIEW</span></div>
     <div className="kit-product-layout"><div className="kit-display">
     <div className="kit-stage" ref={host} tabIndex={0} role="region" aria-label="Interactive Milano jersey. Drag to rotate. Arrow keys rotate and tilt, plus and minus zoom, R resets." onKeyDown={key}>
       {!ready&&!failed&&<div className="kit-loading" role="status">Preparing the team kit…</div>}
@@ -68,7 +68,7 @@ export default function JerseyViewer() {
       </div>
     </div>
     </div><div className="kit-custom-panel">
-    <div className="kit-product-title"><span className="small-label">MILANO RACING / TEAMWEAR</span><h3>The team edition.</h3><p>Our original dragon artwork. Every partner in place. Make this one yours.</p></div>
+    <div className="kit-product-title"><span className="small-label">MILANO RACING / TEAMWEAR</span><h3>The team edition.</h3><p>Rotate the kit, choose a name and number, and save your view.</p></div>
     <form className="kit-personalise" onSubmit={e=>{e.preventDefault();personalise(draftName,draftNumber);}}>
       <div className="kit-personalise-heading"><h4>Personalise your kit</h4><span>OPTIONAL</span></div>
       <div className="kit-fields">
@@ -80,8 +80,7 @@ export default function JerseyViewer() {
       <p className="kit-personal-status" role="status">{personal.name||personal.number?`Previewing ${[personal.name,personal.number].filter(Boolean).join(' · ')}`:'Standard team kit · no name or number'}<span>Preview only. Your details stay on this device.</span></p>
     </form>
     <div className="kit-downloads"><button className="kit-save" disabled={!ready} onClick={()=>{const url=scene.current?.capture();if(url)setSnapshot(url);}}><Download size={14}/>Save this view</button>{snapshot&&<a className="kit-save" href={snapshot} download="milano-personalised-kit.png">Download PNG <Download size={14}/></a>}</div>
-    <details className="kit-design-reference"><summary>See the original design sheet</summary><img src={asset('kit-design-sheet.jpg')} alt="Original front and back shirt artwork from the Milano Racing specification, including collar and sleeve details" loading="lazy"/></details>
-    <p className="kit-disclaimer">Original team artwork · Interactive garment preview</p>
+    <details className="kit-design-reference"><summary>Design sheet</summary><img src={asset('kit-design-sheet.jpg')} alt="Original front and back shirt artwork from the Milano Racing specification, including collar and sleeve details" loading="lazy"/></details>
     </div></div>
   </div>;
 }

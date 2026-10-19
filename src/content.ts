@@ -117,11 +117,11 @@ export const people: Person[] = [
   },
 ];
 export const sponsors = [
-  { name: "Hustle Hive", image: "hustle-hive.png" },
-  { name: "NPE Print Communications", image: "npe.png" },
-  { name: "Enermax Synergy (SEA)", image: "enermax.png" },
-  { name: "Brinda’s", image: "brindas.png" },
-  { name: "Axis", image: "axis.png" },
+  { name: "Hustle Hive", image: "hustle-hive.png", description: "Hustle Hive helps job seekers manage applications with AI tools and human supervision. Its service includes tailored resumes, application tracking and progress reports.", url: "https://hustlehive.ai/", linkLabel: "Visit Hustle Hive" },
+  { name: "NPE Print Communications", image: "npe.png", description: "A Singapore printing company producing commercial print, custom packaging and large-format graphics. NPE combines design, digital printing and production services.", url: "https://npeprint.com/", linkLabel: "Visit NPE" },
+  { name: "Enermax Synergy (SEA)", image: "enermax.png", description: "Based in Singapore, Enermax Synergy (SEA) works in engineering design and consultancy for energy management and clean-energy systems.", url: "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-", linkLabel: "Company profile" },
+  { name: "Brinda’s", image: "brindas.png", description: "Brinda’s is a restaurant and caterer in Bukit Merah, Singapore. It serves North and South Indian food and provides island-wide delivery and catering for events.", url: "https://www.brindas.com.sg/", linkLabel: "Visit Brinda’s" },
+  { name: "Axis", image: "axis.png", description: "Axis Container Lines connects businesses through land, sea and air freight. Its network includes Axis Logistics & Services in Singapore.", url: "https://www.axiscontainerlines.com/", linkLabel: "Visit Axis" },
 ];
 export const posts = [
   {
@@ -142,10 +142,10 @@ export const posts = [
     category: "Team",
     title: "Our identity, in the details.",
     image: "jersey-front-recreated.png",
-    caption: "Original team kit artwork",
-    excerpt: "Our original dragon artwork, electric-blue trim and orange side panels, with an interactive kit preview.",
+    caption: "Milano Racing team kit",
+    excerpt: "Explore our kit from every angle and personalise the back.",
     body: [
-      "Our jersey carries the Milano Racing identity alongside our partners’ branding. The interactive garment uses the original dragon artwork and brand colours from our shirt design specification.",
+      "Dragon artwork across the body, blue trim and orange side panels. Our partners’ marks sit on the chest and sleeves.",
       "The dragon graphic, contrasting side panels and team mark give the kit its own character. Rotate the garment in the team kit viewer to inspect its front, back and sleeve details.",
     ],
   },

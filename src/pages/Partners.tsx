@@ -101,22 +101,16 @@ export default function Partners() {
       <Heading
         label="The people who back the team"
         title="Good work takes support."
-        description="Our partners help make this student engineering project possible. Thank you for being part of Milano Racing."
+        description="The businesses supporting Milano Racing."
       />
       <section className="sponsor-feature raised">
         <div className="featured-logo">
           <img src={asset("hustle-hive.png")} alt="Hustle Hive" />
         </div>
         <div>
-          <Eyebrow>Team sponsor</Eyebrow>
           <h2>Hustle Hive</h2>
-          <p>
-            A confirmed Milano Racing sponsor, proudly featured on our team
-            jersey and car livery.
-          </p>
-          <span className="small-label">
-            Thank you for supporting our journey.
-          </span>
+          <p>{sponsors[0].description}</p>
+          <a className="text-link" href={sponsors[0].url} target="_blank" rel="noreferrer">{sponsors[0].linkLabel} ↗</a>
         </div>
       </section>
       <div className="sponsor-grid">
@@ -125,8 +119,9 @@ export default function Partners() {
             <div>
               <img src={asset(s.image)} alt={s.name} loading="lazy" />
             </div>
-            <span className="small-label">Team sponsor</span>
             <h3>{s.name}</h3>
+            <p>{s.description}</p>
+            <a className="text-link" href={s.url} target="_blank" rel="noreferrer">{s.linkLabel} ↗</a>
           </Reveal>
         ))}
       </div>

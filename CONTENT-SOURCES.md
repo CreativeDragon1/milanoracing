@@ -24,7 +24,7 @@ The names and roles are visibly printed on the public introduction graphics date
 
 https://www.milanoracing.team/
 
-Used for the school/campus and Singapore context. Its old team roster was removed after the user's correction. Unsubstantiated performance/material claims, the 0.14 drag coefficient and dated sponsorship pricing were not copied into the new site.
+Used for the Singapore context. School references have been removed as requested. Its old team roster was removed after the user's correction. Unsubstantiated performance/material claims, the 0.14 drag coefficient and dated sponsorship pricing were not copied into the new site.
 
 ## Deliberately missing
 
@@ -38,3 +38,14 @@ These are content gaps, represented with explicit editable placeholders. The sit
 ## Interactive kit
 
 The supplied jersey photographs were used as design references only. Public UI uses a 3D garment, original sponsor decals and the exact dragon artwork extracted from page 9 of the supplied shirt PDF. The back starts blank; optional name/number inputs and team presets are available. The supplied orange, blue, black and white are applied in the site theme. See `THIRD-PARTY-ASSETS.md` for the CC0 garment source.
+
+
+## Sponsor research
+
+Sponsorship status comes from the user. Business descriptions were researched separately from the logos; no claim is made about what a sponsor supplied to the team.
+
+- **Hustle Hive:** https://hustlehive.ai/ and https://hustlehive.ai/products/ai-job-copilot . Its official site displays the exact green bee/yellow hexagon logo supplied by the user. Description covers job applications, human supervision, resumes and progress tracking; numerical marketing claims were omitted.
+- **NPE Print Communications:** https://npeprint.com/ . Official services describe commercial print, packaging, digital printing and large-format work.
+- **Brinda's:** https://www.brindas.com.sg/ . Official restaurant site identifies Bukit Merah, North/South Indian food, delivery and catering.
+- **Axis:** https://www.axiscontainerlines.com/ and https://www.axiscontainerlines.com/contact-1 . The official office list includes Axis Logistics & Services Pte Ltd in Singapore. The supplied globe/ship/aircraft/truck logo matches the Axis Container Lines directory listing at https://freightcue.com/companies/india/ludhiana-axis-container-lines-ludhiana-head-office-dc6a16 . Identity was matched using that exact logo and corroborated against the official group's Singapore office listing; the current corporate website uses a different wordmark.
+- **Enermax Synergy (SEA):** the supplied logo spells out the legal entity. https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD- identifies UEN 201818407R and engineering design/consultancy for energy management and clean-energy systems, corroborated by https://sgpgrid.com/company-details/enermax-synergy-sea-pte-ltd . No official business website was located. The site links the company profile and does not confuse this company with the unrelated PC hardware brand.

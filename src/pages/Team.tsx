@@ -4,7 +4,7 @@ import { contact, people } from "../content";
 import { Press, Reveal } from "../motion";
 import JerseyViewer from "../components/JerseyViewer";
 
-import { asset, nav, ArrowLink, Eyebrow, Heading } from "../components/site";
+import { asset, nav, ArrowLink, Eyebrow, Heading, SingaporeFlag } from "../components/site";
 export default function Team() {
   const [expanded, setExpanded] = useState<string | null>(null);
   return (
@@ -12,7 +12,7 @@ export default function Team() {
       <Heading
         label="The people behind the project"
         title="Different minds. One team."
-        description="Students from GIIS Punggol Smart Campus, bringing design, engineering and communication together through STEM Racing."
+        description={<>Six people bringing design, engineering and communication together. Based in Singapore <SingaporeFlag/>.</>}
       />
       <div className="team-grid">
         {people.map((person, i) => (
@@ -24,7 +24,7 @@ export default function Team() {
             <div className="person-copy">
               <span className="small-label">{person.role}</span>
               <h2>{person.name}</h2>
-              {person.supplied ? <span className="source-note">Team-provided introduction</span> : <a
+              {person.supplied ? null : <a
                 className="text-link"
                 href={person.source}
                 target="_blank"
@@ -74,7 +74,6 @@ export default function Team() {
           </Reveal>
         ))}
       </div>
-      <p className="source-note">All six team members, confirmed through the team's introductions and shirt specification. Individual biographies and project contributions can be added in each profile.</p>
       <section className="jersey-section kit-section section" id="team-kit">
         <Reveal className="jersey-copy">
           <Eyebrow>Made to be seen up close</Eyebrow>

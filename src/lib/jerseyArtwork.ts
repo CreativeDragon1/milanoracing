@@ -7,9 +7,8 @@ async function load(name: string) {
 
 /** The textile is extracted unaltered from page 9 of the team's shirt specification. */
 export async function createKitArtwork() {
-  const [dragon, mr, hive, npe, axis, brindas, enermax, stem] = await Promise.all([
-    'kit-dragon-original.png', 'milano-official.png', 'hustle-hive.png', 'npe.png',
-    'axis.png', 'brindas.png', 'enermax.png', 'stem-racing.png',
+  const [dragon, mr, hive, stem] = await Promise.all([
+    'kit-dragon-original.png', 'milano-official.png', 'hustle-hive.png', 'stem-racing.png',
   ].map(load));
   await Promise.all([document.fonts.load('24px Michroma'), document.fonts.load('italic 500 100px "Kit Numbers"')]);
   const canvases = [false, true].map(back => {
@@ -25,11 +24,6 @@ export async function createKitArtwork() {
     ctx.drawImage(dragon,x(-.85),y(1.4),1.7*k,y(-1.55)-y(1.4));ctx.restore();
     const path=(points:[number,number][],color:string)=>{ctx.beginPath();points.forEach(([a,b],i)=>i?ctx.lineTo(x(a),y(b)):ctx.moveTo(x(a),y(b)));ctx.closePath();ctx.fillStyle=color;ctx.fill();};
     for(const sign of [-1,1]) {
-      path([[sign*.89,.42],[sign*1.05,.20],[sign*1.05,-1.6],[sign*.64,-1.6],[sign*.63,-.18]],'#000000');
-      ctx.beginPath();ctx.moveTo(x(sign*.89),y(.42));
-      ctx.bezierCurveTo(x(sign*.69),y(.30),x(sign*.62),y(.27),x(sign*.63),y(-.18));
-      ctx.lineTo(x(sign*.63),y(-.98));ctx.quadraticCurveTo(x(sign*.63),y(-1.13),x(sign*.77),y(-1.13));
-      ctx.lineTo(x(sign*1.05),y(-1.13));ctx.lineTo(x(sign*1.05),y(.20));ctx.closePath();ctx.fillStyle='#FF7A00';ctx.fill();
       ctx.beginPath();ctx.moveTo(x(sign*.34),y(1.34));ctx.bezierCurveTo(x(sign*.54),y(1.21),x(sign*.65),y(.78),x(sign*.89),y(.42));ctx.lineWidth=5;ctx.strokeStyle='#0019FF';ctx.stroke();
       path([[sign*.99,.08],[sign*1.72,.595],[sign*1.72,-.2],[sign*.99,-.2]],'#000000');
       ctx.strokeStyle='#0019FF';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(x(sign*1.05),y(.025));ctx.lineTo(x(sign*1.72),y(.498));ctx.stroke();
@@ -38,10 +32,6 @@ export async function createKitArtwork() {
     if(!back){ctx.beginPath();ctx.moveTo(x(-.35),y(1.38));ctx.bezierCurveTo(x(-.26),y(1.06),x(.26),y(1.06),x(.35),y(1.38));ctx.lineWidth=35;ctx.strokeStyle='#0019FF';ctx.stroke();}
     const logo=(image:HTMLImageElement,sx:number,sy:number,sw:number,sh:number,cx:number,cy:number,w:number,h:number,angle=0)=>{ctx.save();ctx.translate(x(cx),y(cy));ctx.rotate(angle);ctx.globalCompositeOperation='multiply';ctx.drawImage(image,sx,sy,sw,sh,-w*k/2,-h*k/2,w*k,h*k);ctx.restore();};
     if(back){
-      logo(npe,36,140,375,170,1.06,.76,.31,.14);
-      logo(axis,105,90,290,405,1.16,.49,.19,.26);
-      logo(brindas,35,85,340,130,-1.06,.77,.31,.12);
-      logo(enermax,35,35,335,220,-1.17,.53,.34,.22);
       logo(stem,10,10,330,155,0,1.03,.34,.16);
     }else{
       logo(hive,93,109,410,183,-.36,.66,.43,.19);
