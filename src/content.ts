@@ -52,17 +52,17 @@ export const people: Person[] = [
   {
     id: "niteesh", name: "Niteesh Kumar", role: "Resource Lead", number: "12",
     image: "niteesh-portrait.jpg", supplied: true,
-    contribution: "Resource Lead, confirmed in the supplied team introduction.", source: "",
+    contribution: "Resource Lead, confirmed in the supplied team introduction.", source: "https://www.instagram.com/p/DclTLqAmk87/",
   },
   {
     id: "gayatri", name: "Gayatri Pandkar", role: "Designer", number: "10",
     image: "gayatri-portrait.jpg", supplied: true,
-    contribution: "Designer, confirmed in the supplied team introduction.", source: "",
+    contribution: "Designer, confirmed in the supplied team introduction.", source: "https://www.instagram.com/p/DclTDU0mnYR/",
   },
   {
     id: "ashmitha", name: "Ashmitha Pitani", role: "Outreach Lead", number: "25",
     image: "ashmitha-portrait.jpg", supplied: true,
-    contribution: "Outreach Lead, confirmed in the supplied team introduction.", source: "",
+    contribution: "Outreach Lead, confirmed in the supplied team introduction.", source: "https://www.instagram.com/p/DclS60Bmpn3/",
   },
 ];
 export const sponsors = [

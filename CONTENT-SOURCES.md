@@ -69,3 +69,7 @@ All six Team-page portraits now use the individual 1080 × 1350 JPEG graphics su
 Seven hotspot positions were selected directly on the supplied current-car.webp render. Copy distinguishes visible geometry and branding from general design considerations. No claimed measured performance, hidden geometry, material, safety certification or component-specific force is invented. The upper loop is described visually, not asserted to be a full-size driver-protection device.
 
 General explanatory references: NASA Glenn, What is Drag? (https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/what-is-drag/) and Factors That Affect Aerodynamics (https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/factors-that-affect-aerodynamics/); STEM Racing Singapore programme (https://stemracing.com.sg/programme/), for the miniature compressed-air racing format. These support general principles, not performance claims for this car.
+
+## Additional introduction links
+
+The user supplied the direct Instagram introduction links for Niteesh (https://www.instagram.com/p/DclTLqAmk87/), Gayatri (https://www.instagram.com/p/DclTDU0mnYR/) and Ashmitha (https://www.instagram.com/p/DclS60Bmpn3/). All six cards now display View introduction when a source URL exists. Tracking query parameters were omitted; post identifiers are unchanged.

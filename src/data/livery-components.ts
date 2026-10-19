@@ -31,7 +31,7 @@ export const liveryComponents = [
     headline: "The line that ties it all together.",
     paragraphs: [
       "The long central body connects the rear of the car to the narrower section ahead. Its curved upper surface carries the Hustle Hive mark, with Brinda’s further towards the rear. The dark finish lets the changing highlights describe the surface rather than relying on colour to show its shape.",
-      "Air resistance depends on pressure around a shape as well as friction along its surface. That makes the transitions between sections worth examining closely. For this miniature racing format, the design process combines the outer form with the practical needs of manufacturing, assembly and the competition’s compressed-air propulsion system."
+      "Air resistance depends on pressure around a shape as well as friction along its surface. That makes the transitions between sections worth examining closely. For STEM Racing, the design process combines the outer form with the practical needs of manufacturing, assembly and the competition’s compressed-air propulsion system."
     ],
     detail: "Follow the highlight along the upper body from the rear towards the nose."
   },
