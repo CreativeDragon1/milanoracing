@@ -67,10 +67,20 @@ export default function JerseyViewer() {
       {!ready&&!failed&&<div className="kit-loading" role="status">Preparing the team kit…</div>}
       {failed&&<div className="kit-fallback"><img src={asset(`jersey-${side}-recreated.png`)} alt={`Milano Racing jersey ${side}`}/>{side==='back'&&<div className="kit-fallback-personal"><strong>{personal.number}</strong><span>{personal.name}</span></div>}</div>}
       <div className="kit-studio-backdrop" aria-hidden="true">
-        <span className="kit-studio-orbit"/>
+        <svg className="kit-studio-wordmark" viewBox="0 0 1000 150" focusable="false">
+          <text x="500" y="118" textAnchor="middle" textLength="960" lengthAdjust="spacingAndGlyphs">MILANO</text>
+        </svg>
         <span className="kit-studio-floor"/>
         <svg className="kit-studio-signature" viewBox="25 230 555 185" focusable="false">
-          <image href={asset('milano-official.png')} width="648" height="648"/>
+          <defs><filter id={`${id}-silver`} colorInterpolationFilters="sRGB">
+            <feColorMatrix type="saturate" values="0"/>
+            <feComponentTransfer>
+              <feFuncR type="linear" slope=".42" intercept=".4"/>
+              <feFuncG type="linear" slope=".42" intercept=".4"/>
+              <feFuncB type="linear" slope=".42" intercept=".4"/>
+            </feComponentTransfer>
+          </filter></defs>
+          <image href={asset('milano-official.png')} width="648" height="648" filter={`url(#${id}-silver)`}/>
         </svg>
       </div>
     </div>

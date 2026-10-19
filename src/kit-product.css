@@ -58,29 +58,28 @@
 
 /* A quiet studio setting, behind the interactive garment and its controls. */
 .kit-display {
-  background: radial-gradient(ellipse at 48% 34%, #353943 0%, #20232c 48%, #12151d 100%);
+  background: radial-gradient(ellipse at 50% 0%, #414651 0%, #292d37 35%, #181b23 72%, #10131a 100%);
 }
 .kit-stage { overflow: hidden; }
 .kit-stage canvas { position: absolute; inset: 0; }
 .kit-studio-backdrop { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-.kit-studio-orbit {
-  position: absolute; width: 78%; height: 76%; left: 11%; top: 8%; border: 1px solid #ffffff12;
-  border-radius: 50%; transform: rotate(-24deg);
-  background: radial-gradient(ellipse at 50% 30%, #ffffff04, transparent 70%);
+.kit-studio-backdrop::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(112deg, transparent 10%, #ffffff03 10.1%, transparent 36%),
+    radial-gradient(ellipse at 50% 83%, #9faac00d, transparent 45%);
 }
-.kit-studio-orbit::after {
-  content: ''; position: absolute; inset: -1px; border-radius: inherit;
-  border: 1px solid transparent; border-top-color: #7080ff55; border-right-color: #ff7a0022;
-  mask-image: linear-gradient(135deg, #000, transparent 70%);
+.kit-studio-wordmark {
+  position: absolute; width: 94%; height: auto; left: 3%; top: 5%; overflow: visible;
+  font-family: Michroma, sans-serif; font-size: 124px; font-weight: 400;
+  fill: #c1c5cf; fill-opacity: .22; stroke: #d2d6e0; stroke-width: .6; stroke-opacity: .15;
 }
 .kit-studio-floor {
-  position: absolute; width: 68%; height: 10%; left: 16%; bottom: 8%; border-radius: 50%;
-  background: radial-gradient(ellipse, #05071055, #b9c5ed08 60%, transparent 72%);
-  border-bottom: 1px solid #ffffff0c;
+  position: absolute; width: 92%; height: 15%; left: 4%; bottom: 4%; border-radius: 50%;
+  background: radial-gradient(ellipse, #05071066, #b9c5ed06 58%, transparent 73%);
 }
 .kit-studio-signature {
-  position: absolute; width: clamp(64px, 13%, 105px); right: 5%; bottom: 4%;
-  filter: grayscale(1) brightness(0) invert(1); opacity: .32;
+  position: absolute; width: clamp(86px, 19%, 138px); height: auto; right: 4%; bottom: 3%;
+  opacity: .95;
 }
 .kit-loading { color: #d5d8e2; }
 .kit-fallback { z-index: 1; }
