@@ -1,64 +1,13 @@
+import publicEngineering from "./data/public-engineering.json";
 export const contact = {
   email: "milanoracing10@gmail.com",
   instagram: "https://www.instagram.com/milanoracing_/",
   linkedin: "https://www.linkedin.com/company/142975934/",
   youtube: "https://www.youtube.com/@MilanoRacing",
 };
-export type Car = {
-  id: string;
-  title: string;
-  drag: number | null;
-  note: string;
-  changes: string[];
-  image: string | null;
-  modelUrl: string | null;
-};
-// Add genuine version-specific renders and exported model links here as they arrive.
-export const cars: Car[] = [
-  {
-    id: "V04",
-    title: "The early benchmark",
-    drag: 0.5,
-    note: "An early recorded drag result in the development archive.",
-    changes: ["Design notes awaiting the original model and engineering log."],
-    image: null,
-    modelUrl: null,
-  },
-  {
-    id: "V05",
-    title: "A lower recorded drag",
-    drag: 0.449,
-    note: "The lowest supplied drag value among V04, V05 and V06.",
-    changes: [
-      "Geometry changes awaiting the original model and engineering log.",
-    ],
-    image: null,
-    modelUrl: null,
-  },
-  {
-    id: "V06",
-    title: "The next iteration",
-    drag: 0.455,
-    note: "A further recorded iteration in the car development process.",
-    changes: [
-      "Geometry changes awaiting the original model and engineering log.",
-    ],
-    image: null,
-    modelUrl: null,
-  },
-  {
-    id: "V10",
-    title: "Retaining rear inflow",
-    drag: null,
-    note: "This version retained rear inflow splitters.",
-    changes: [
-      "Rear inflow splitters retained.",
-      "Further changes and aerodynamic results awaiting source files.",
-    ],
-    image: null,
-    modelUrl: null,
-  },
-];
+// Public illustrative dataset. Competition evidence remains in the engineering portfolio.
+export const cars = publicEngineering.versions;
+export { publicEngineering };
 export type Person = {
   id: string;
   name: string;
@@ -134,7 +83,7 @@ export const posts = [
       "A closer look at the car’s livery and partner branding.",
     body: [
       "Our current livery brings the Milano Racing car and our partners’ branding together.",
-      "Explore the development history and recorded aerodynamic results in our Car Evolution archive.",
+      "Explore the car development process through the interactive charts in Car Evolution.",
     ],
   },
   {
@@ -152,15 +101,13 @@ export const posts = [
   {
     id: "drag-log",
     category: "Engineering",
-    title: "Three iterations. Three recorded values.",
-    image: null,
-    caption: "Team-supplied engineering notes",
-    excerpt:
-      "V04, V05 and V06 form the first entries in our aerodynamic record.",
+    title: "Understanding the airflow.",
+    image: "03_convergence.png",
+    caption: "Illustrative CFD convergence chart",
+    excerpt: "Drag, pressure and convergence: a look inside the design process.",
     body: [
-      "The team has supplied drag values of 0.500 N for V04, 0.449 N for V05 and 0.455 N for V06.",
-      "These values are preserved as supplied. Test speed, mesh settings, solver setup and uncertainty have not yet been provided. They should not be interpreted as a validated comparison under matched conditions.",
-      "The evolution page provides version selection and a side-by-side comparison. Original CAD models and test records can be attached as the archive grows.",
+      "Aerodynamic development connects shape, airflow and resistance. Our public charts illustrate how those relationships can be explored across a series of car versions.",
+      "Compare drag and mass, explore a wing-angle sweep, or follow how a simulation settles over its iterations. These are illustrative datasets; competition statistics and detailed design evidence are presented in our engineering portfolio.",
     ],
   },
 ];

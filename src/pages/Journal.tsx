@@ -40,21 +40,7 @@ export default function Journal() {
           <Reveal key={post.id}>
             <Link className="story-link" to={`/journal/${post.id}`}>
               <div className={`story-image ${post.id}`}>
-                {post.image ? (
-                  <img
-                    src={asset(post.image)}
-                    alt={post.caption}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="data-art">
-                    <span>V04 → V06</span>
-                    <strong>
-                      0.449<small>N</small>
-                    </strong>
-                    <span>V05 / RECORDED DRAG</span>
-                  </div>
-                )}
+                <img src={asset(post.image)} alt={post.caption} loading="lazy" />
                 <span className="round-arrow">
                   <ArrowUpRight />
                 </span>

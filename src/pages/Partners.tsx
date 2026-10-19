@@ -1,3 +1,4 @@
+import PartnershipPlans from "../components/PartnershipPlans";
 import { useState } from "react";
 import {
   ArrowUpRight,
@@ -123,17 +124,7 @@ export default function Partners() {
           </Reveal>
         ))}
       </div>
-      <section className="partner-note section">
-        <h2>
-          Help the next idea
-          <br />
-          become something real.
-        </h2>
-        <p>
-          We welcome conversations about practical support, resources and
-          expertise. Talk to the team about how you could contribute.
-        </p>
-      </section>
+      <PartnershipPlans />
       <Contact />
     </>
   );

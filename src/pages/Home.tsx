@@ -54,8 +54,8 @@ export default function Home() {
             meet in one small car.
           </p>
           <p>
-            Our archive makes that process visible: the versions, the recorded
-            results and the questions still to be answered.
+            Our archive makes that process visible: the versions, the design process
+            and the questions still to be answered.
           </p>
           <Link className="text-link" to="/team">
             The people behind the project <ArrowUpRight size={18} />
@@ -69,31 +69,29 @@ export default function Home() {
             <br />a paper trail.
           </h2>
           <p>
-            Follow the car from one iteration to the next. Explore the recorded
-            drag values and the design details behind each version.
+            Explore how drag, mass and airflow influence a design, with interactive charts that bring the engineering process into view.
           </p>
           <ArrowLink to="/evolution">Open the development archive</ArrowLink>
         </div>
         <div className="mini-chart">
           <div className="chart-heading">
-            <span>RECORDED DRAG</span>
+            <span>DRAG BY VERSION</span>
             <span>NEWTONS / N</span>
           </div>
-          {cars.slice(0, 3).map((car, i) => (
+          {cars.map((car, i) => (
             <div className="bar-row" key={car.id}>
               <span>{car.id}</span>
               <div className="bar-track">
                 <div
                   className={i === 1 ? "bar blue-bar" : "bar"}
-                  style={{ width: `${(car.drag! / 0.55) * 100}%` }}
+                  style={{ width: `${(car.dragN / 0.7) * 100}%` }}
                 />
               </div>
-              <strong>{car.drag!.toFixed(3)}</strong>
+              <strong>{car.dragN.toFixed(3)}</strong>
             </div>
           ))}
           <p className="data-note">
-            Team-supplied values. Matched test conditions awaiting
-            documentation.
+            Illustrative data
           </p>
         </div>
       </section>

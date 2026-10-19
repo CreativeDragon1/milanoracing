@@ -14,7 +14,7 @@
 - Mobile menu opening and route selection, with menu closed after navigation.
 - Email-copy success feedback and correct email/Instagram/LinkedIn/YouTube destinations. Email sending and external-account interaction were not performed.
 - Route-fragment contact navigation and page focus/scroll handling.
-- Car-version changes were checked for reserved panel height; V04/V05/V06/V10 returned the same panel height after the spacing correction.
+- Car-version changes were checked for reserved panel height; the earlier archive entries returned the same panel height after the spacing correction (superseded by the public dataset below).
 
 ## Performance and accessibility
 
@@ -83,3 +83,13 @@ Transparent back mark and direct side view were visually verified. Axis/NPE now 
 ## Decorative label removal
 
 Removed the hero car index and miniature-scale caption, livery badge, decorative section numbering/taglines, scroll instruction and repeated field-note labels. Primary headings, navigation, control labels, sponsor recognition and engineering units remain.
+
+
+## Public charts and prospectus packages
+
+- Imported the supplied illustrative V1–V4 data, all six supplied charts, selectable versions and drag/downforce/mass comparisons. Previous actual drag statistics and splitter detail are absent from the current public application.
+- Checked keyboard arrow selection, both comparison selectors and all six chart buttons in the live browser. Added original-resolution chart download links for small screens.
+- Matched all five plan names, prices and benefits to the prospectus page image. Enquiry links contain the correct team email and selected package subject; no email was sent.
+- Removed the proposed homepage portrait strip at the user's request. Section-specific photography remains pending.
+- Re-ran 36 route/width checks: no page overflow, broken loaded images or missing/duplicate main headings. Desktop package layout and 320 px mobile package layout visually inspected. No browser warnings/errors in the focused inspection.
+- This update does not revalidate physical garment accuracy, CFD results, real devices or sustained frame rate.

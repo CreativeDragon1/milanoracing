@@ -5,8 +5,6 @@ Reviewed on 19 October 2026.
 ## Supplied directly by the team
 
 - Official Milano logo, current miniature STEM Racing car livery render, front/back jersey photographs and all sponsor artwork.
-- Drag: V04 0.500 N; V05 0.449 N; V06 0.455 N. No test conditions or source reports were supplied. The site labels these as recorded team-supplied values, not independently verified matched-condition comparisons.
-- V10 retained rear inflow splitters. No additional V10 aerodynamic number is published.
 - Hustle Hive, NPE, Enermax, Brinda's and Axis were explicitly confirmed as sponsors in this conversation.
 - Contact email and Instagram, LinkedIn and YouTube links were explicitly supplied by the user.
 
@@ -49,3 +47,13 @@ Sponsorship status comes from the user. Business descriptions were researched se
 - **Brinda's:** https://www.brindas.com.sg/ . Official restaurant site identifies Bukit Merah, North/South Indian food, delivery and catering.
 - **Axis:** https://www.axiscontainerlines.com/ and https://www.axiscontainerlines.com/contact-1 . The official office list includes Axis Logistics & Services Pte Ltd in Singapore. The supplied globe/ship/aircraft/truck logo matches the Axis Container Lines directory listing at https://freightcue.com/companies/india/ludhiana-axis-container-lines-ludhiana-head-office-dc6a16 . Identity was matched using that exact logo and corroborated against the official group's Singapore office listing; the current corporate website uses a different wordmark.
 - **Enermax Synergy (SEA):** the supplied logo spells out the legal entity. https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD- identifies UEN 201818407R and engineering design/consultancy for energy management and clean-energy systems, corroborated by https://sgpgrid.com/company-details/enermax-synergy-sea-pte-ltd . No official business website was located. The site links the company profile and does not confuse this company with the unrelated PC hardware brand.
+
+## Public engineering charts — 19 October 2026
+
+Source: user-supplied website_charts.zip, containing website_data.json and six matching PNG/SVG charts. The JSON explicitly describes representative/illustrative data rather than competition results. The user clarified that detailed engineering information is reserved for the engineering portfolio. The current public build uses only this illustrative dataset and removes the earlier actual drag figures and splitter detail. The four public entries are V1 Arrow, V2 Teardrop, V3 Waist and V4 Apex. Model images remain unassigned. Earlier Git commits may still contain previous content; Git history was not rewritten.
+
+## Sponsorship packages — 19 October 2026
+
+Source: Milano Racing Prospectus.pdf, page 4, text extracted and visually checked against the rendered page. The printed pairing is Signature $100–350 (everything in Essence plus listed benefits), Essence $350–600, Aurum $600–850 (everything in Signature plus listed benefits), Legacy $850+ (everything in Prestige plus listed benefits), and Prestige in-kind support. These unusual cross-tier references and price order are preserved as printed, not silently corrected. The dollar sign is retained without assuming SGD; no currency code is specified. School references and unrelated roster details from the prospectus were not imported.
+
+The user withdrew the request to fill sparse image areas. No additional homepage portraits or decorative photographs were retained; section-specific photos will be supplied later.

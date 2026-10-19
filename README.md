@@ -41,15 +41,15 @@ src/
 public/assets/            Actual supplied brand assets and verified member graphics
 index.html                Metadata and HTML entry point
 vite.config.ts            Build configuration
-.openai/hosting.json      Private Sites identity and output directory
 ```
 
 ## Edit content
 
-All repeatable content lives in `src/content.ts`.
+Team, sponsor and journal content lives in `src/content.ts`; public engineering data and partnership plans have their own editable files below.
 
-- **Cars:** add entries to `cars`; `drag` is a number in newtons or `null`. Put a genuine render in `public/assets/`, then set `image: '/assets/v04.webp'`. Set `modelUrl` to a shareable Fusion model or downloadable export. Null values display explicitly labelled placeholders. The supplied current-livery image is deliberately not assigned to an unconfirmed car version.
-- **Models:** the archive currently reserves version-specific model/render areas. It does not pretend to display 3D CAD. Native Fusion files will need an appropriate web export or shareable viewer URL when supplied.
+- **Cars and charts:** `src/data/public-engineering.json` holds the illustrative public dataset supplied in `website_charts.zip`. `content.ts` exports its four versions. The six supplied chart images live in `public/assets/`; their selector is `components/EngineeringCharts.tsx`. Actual competition results are not included in the current public build. Replace chart images and JSON together when updating them.
+- **Models:** original CAD and version-specific renders remain pending. No render is assigned to a version without confirmation.
+- **Partnership plans:** edit `components/PartnershipPlans.tsx`. Prices, benefits and package inheritance match page 4 of the supplied prospectus, including its unusual Signature/Essence price order. Currency is shown as `$` because the document does not specify a currency code. Enquiry links open an email draft; they do not send or purchase anything.
 - **People:** `people` contains all six confirmed members. The latest three graphics were supplied directly by the team, with surnames and kit numbers from its shirt specification. Set optional `introduction` and `highlights` fields to replace the editable introduction placeholders. Member biographies and contributions remain editable until supplied.
 - **Sponsors:** the five supplied sponsors are confirmed by the user. No sponsorship tiers, amounts, services or contractual benefits are invented. Sponsor recognition does not imply website endorsement or a fabricated outbound URL.
 - **Journal:** add actual updates to `posts`. Current entries are undated notes based on supplied assets and results, not invented event reports. Add manufacturing/testing photographs and dates when available.
@@ -57,7 +57,7 @@ All repeatable content lives in `src/content.ts`.
 
 ## Motion and accessibility
 
-Central spring values are in `src/motion.tsx`. Press feedback uses springs; the same components support hover, tap and content reveals. Page changes fade gently and car images switch within a reserved area. Buttons also have a CSS pressed state.
+Central spring values are in `src/motion.tsx`. Press feedback uses springs; the same components support hover, tap and content reveals. Page changes fade gently and version details switch within a reserved area. Buttons also have a CSS pressed state.
 
 `MotionConfig reducedMotion="user"`, `useReducedMotion` and the CSS `prefers-reduced-motion` rule remove spatial animation for users who request it. Mobile navigation has an expanded state and Escape support. Car tabs support Left/Right/Home/End keys, roving focus, tab-panel labels and selected states. All pages include a skip link and visible keyboard focus.
 
