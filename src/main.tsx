@@ -20,3 +20,5 @@ import './kit-product.css';
 import "./refinements.css";
 
 import "./components/CarViewer.css";
+
+import "./theme.css";

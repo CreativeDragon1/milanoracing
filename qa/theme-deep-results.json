@@ -1,0 +1,84 @@
+[
+  {
+    "route": "/evolution",
+    "width": 1280,
+    "theme": "dark",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/evolution",
+    "width": 1280,
+    "theme": "dark",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": [],
+    "chart": "Drag by version",
+    "strokes": []
+  },
+  {
+    "route": "/evolution",
+    "width": 1280,
+    "theme": "dark",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": [],
+    "chart": "Drag breakdown",
+    "strokes": []
+  },
+  {
+    "route": "/evolution",
+    "width": 1280,
+    "theme": "dark",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": [],
+    "chart": "Convergence",
+    "strokes": [
+      "rgb(140, 156, 255)",
+      "rgb(255, 155, 77)",
+      "rgb(238, 241, 247)",
+      "rgb(165, 175, 195)"
+    ]
+  },
+  {
+    "route": "/evolution",
+    "width": 1280,
+    "theme": "dark",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": [],
+    "chart": "Wing angle",
+    "strokes": [
+      "rgb(140, 156, 255)",
+      "rgb(255, 155, 77)"
+    ]
+  },
+  {
+    "route": "/evolution",
+    "width": 1280,
+    "theme": "dark",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": [],
+    "chart": "Pressure",
+    "strokes": [
+      "rgb(140, 156, 255)",
+      "rgb(255, 155, 77)"
+    ]
+  },
+  {
+    "route": "/evolution",
+    "width": 1280,
+    "theme": "dark",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": [],
+    "chart": "Drag & mass",
+    "strokes": [
+      "rgb(140, 156, 255)",
+      "rgb(255, 155, 77)"
+    ]
+  }
+]

@@ -2,11 +2,13 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { useReducedMotion } from 'motion/react';
 import { RotateCcw, Plus, Minus, MoveHorizontal, Maximize, Minimize, ArrowLeft, ArrowRight, Download } from 'lucide-react';
 import { Press } from '../motion';
+import { useTheme } from '../theme';
 import { asset } from '../assets';
 import { people } from '../content';
 import type { JerseyScene } from '../lib/jerseyScene';
 
 export default function JerseyViewer() {
+  const {dark}=useTheme();
   const id=useId();
   const section=useRef<HTMLDivElement>(null),host=useRef<HTMLDivElement>(null),scene=useRef<JerseyScene|null>(null);
   const reduced=useReducedMotion();
@@ -80,7 +82,7 @@ export default function JerseyViewer() {
               <feFuncB type="linear" slope=".42" intercept=".4"/>
             </feComponentTransfer>
           </filter></defs>
-          <image href={asset('milano-official.png')} width="648" height="648" filter={`url(#${id}-silver)`}/>
+          {dark ? <image href={asset("milano-dark.svg")} x="25" y="230" width="555" height="185"/> : <image href={asset('milano-official.png')} width="648" height="648" filter={`url(#${id}-silver)`}/>}
         </svg>
       </div>
     </div>

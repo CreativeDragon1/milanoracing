@@ -1,0 +1,164 @@
+[
+  {
+    "route": "/",
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/evolution",
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/team",
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/journal",
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/partners",
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/journal/livery",
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/journal/jersey",
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/journal/drag-log",
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/not-a-page",
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/evolution",
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/team",
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/journal",
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/partners",
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/journal/livery",
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/journal/jersey",
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/journal/drag-log",
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/not-a-page",
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/",
+    "width": 1280,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [],
+    "contrastFailures": []
+  },
+  {
+    "route": "/evolution",
+    "width": 1280,
+    "theme": "light",
+    "overflow": false,
+    "brokenImages": [
+      "http://127.0.0.1:5173/assets/concept-v4.webp"
+    ],
+    "contrastFailures": []
+  }
+]

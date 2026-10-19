@@ -1,17 +1,21 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { RotateCcw } from "lucide-react";
+import { useTheme } from "../theme";
 import { asset } from "../assets";
 import { Press, teaserMotion } from "../motion";
 import "./SignatureReveal.css";
 
 export function MilanoSignature({ className = "" }: { className?: string }) {
+  const {dark}=useTheme();
   return <svg className={`teaser-signature ${className}`} viewBox="25 230 555 185" aria-hidden="true">
-    <image href={asset("milano-official.png")} width="648" height="648" />
+    {dark ? <image href={asset("milano-dark.svg")} x="25" y="230" width="555" height="185"/> : <image href={asset("milano-official.png")} width="648" height="648" />}
   </svg>;
 }
 
 export default function SignatureReveal({ variant, replay = false }: { variant: "car" | "livery"; replay?: boolean }) {
+  const {dark}=useTheme();
+  const logo=dark ? {href:asset("milano-dark.svg"),x:25,y:230,width:555,height:185} : {href:asset("milano-official.png"),width:648,height:648};
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: .4 });
   const reduced = useReducedMotion();
@@ -36,8 +40,8 @@ export default function SignatureReveal({ variant, replay = false }: { variant: 
       <motion.div className="signature-build" initial={{ scale: .93, opacity: 0 }} animate={active ? { scale: [ .93, 1, 1.025 ], opacity: [0, 1, 1] } : { opacity: 0 }} transition={{ duration: 2.6, times: [0,.35,1], ease: teaserMotion.ease }}>
         <svg className="signature-draw" viewBox="25 230 555 185">
           <defs><clipPath id={maskId}><motion.rect x="20" y="220" height="210" initial={{ width: 0 }} animate={active ? { width: 570 } : { width: 0 }} transition={{ duration: 1.35, delay: .45, ease: teaserMotion.ease }}/></clipPath></defs>
-          <image href={asset("milano-official.png")} width="648" height="648" opacity=".12" className="signature-ghost" />
-          <image href={asset("milano-official.png")} width="648" height="648" clipPath={`url(#${maskId})`} />
+          <image {...logo} opacity=".12" className="signature-ghost" />
+          <image {...logo} clipPath={`url(#${maskId})`} />
         </svg>
         <motion.span className="signature-message" initial={{ opacity: 0, y: 8 }} animate={active ? { opacity: 1, y: 0 } : { opacity: 0 }} transition={{ ...teaserMotion.text, delay: 1.6 }}>{variant === "car" ? "THE NEXT CHAPTER" : "A NEW SIGNATURE"}</motion.span>
       </motion.div>

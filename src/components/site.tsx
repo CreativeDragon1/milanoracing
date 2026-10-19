@@ -1,3 +1,4 @@
+import ThemeToggle, { ThemePreference } from "./ThemeToggle";
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -68,7 +69,7 @@ export function Header() {
       <div className="header-inner">
         <Link className="brand" to="/" aria-label="Milano Racing home">
           <span className="logo-window">
-            <img src={asset("milano-official.png")} alt="" />
+            <img className="logo-light" src={asset("milano-official.png")} alt="" /><img className="logo-dark" src={asset("milano-dark.svg")} alt="" />
           </span>
           <span>
             MILANO<span className="brand-sub">RACING</span>
@@ -88,6 +89,7 @@ export function Header() {
         <Link to="/partners#contact" className="header-contact">
           Let’s talk <ArrowUpRight size={16} />
         </Link>
+        <ThemeToggle/>
         <Press
           ref={toggle}
           className="menu-toggle icon-button"
@@ -168,6 +170,7 @@ export function Footer() {
           </div>
         </div>
       </Reveal>
+      <div className="footer-appearance"><ThemePreference/></div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Milano Racing</span>
         <span>Singapore <SingaporeFlag/></span>

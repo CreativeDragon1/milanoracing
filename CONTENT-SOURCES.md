@@ -80,3 +80,6 @@ The user supplied the direct Instagram introduction links for Niteesh (https://w
 User-provided STEP files: Concept V1 Arrow.step, Concept V2 Blade.step, Concept V3 Hoop.step, Concept V4 Apex.step. Display labels are MK 1, MK 2, MK 3 and MK 4 per the user's correction. The supplied colours and assemblies were retained using OpenCascade STEPCAF and glTF export, with 0.12 mm tessellation deflection and 0.35 rad angular deflection. Preview images were rendered from these meshes, not generated concept art. Browser meshes are under 1 MB each. MR 26 remains sealed, including in comparison, at the user's request.
 
 The six engineering chart SVGs are regenerated from the original illustrative dataset with MK labels; numeric data is unchanged. The original supplied PNGs remain source assets. CAD labels do not make the illustrative charts competition results.
+
+## Dark logo treatment
+The dark logo embeds the existing milano-official.png unchanged inside milano-dark.svg. A selective SVG filter changes only near-black ink to white while preserving original transparency and the orange/blue artwork. Used in the dark header, homepage logo, MR 26/livery signatures and animated reveal layers, and jersey studio signature. The generated redraws were rejected and are not included. No white backing plate.

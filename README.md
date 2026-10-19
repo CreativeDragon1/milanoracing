@@ -108,3 +108,6 @@ MR 26 and the livery use the shared `SignatureReveal` component and `teaserMotio
 Kit exports are rendered locally using a separate WebGL renderer, so output size does not depend on device pixel ratio or the viewer's zoom. PNG: 2400 x 3000. GIF: 960 x 1200, 360 frames at 50 fps, 7.2-second full rotation, infinite loop. GIF encoding runs in an inline bundled worker; frames are transferred one at a time to limit memory. Export progress, cancellation, error messages and object-URL cleanup are included. The PNG uses the current azimuth with a consistent product framing; GIF starts on the personalised back.
 
 MP4: 960 x 1200, 432 frames at exactly 60 fps, H.264, 7.2 seconds. Fixed timestamps preserve every frame independently of encoding speed. The encoder is loaded on demand; unsupported browsers show an actionable GIF fallback. Both animations start at the personalised back. Mediabunny is distributed unmodified under MPL 2.0, with notices and corresponding-source URL in licenses/.
+
+## Appearance
+Use the sun/moon button to switch themes. The footer Appearance selector also offers Device setting. Explicit choices are saved locally; device mode follows the system preference. Dedicated dark surfaces, chart colours, form controls and focus states preserve readable contrast without inverting portraits, sponsors or jersey artwork.
