@@ -2,10 +2,10 @@ import { Reveal } from "../motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
-// Transcribed from page 4, including its printed prices and cross-tier references.
+// Prospectus benefits; Essence/Signature tier order corrected at the team's request.
 export const partnershipPlans = [
-  { name: "Signature", price: "$100–350", includes: "Everything in Essence, plus", benefits: ["Logo placement on team apparel", "Logo inclusion on selected printed materials", "Placement on our pit display sponsor panel", "3+ sponsor acknowledgement posts or stories during the campaign"] },
-  { name: "Essence", price: "$350–600", includes: "", benefits: ["Logo placement on our website", "Recognition across our digital portfolio where applicable", "Social media acknowledgement", "Inclusion in our sponsor acknowledgement communications"] },
+  { name: "Essence", price: "$100–350", includes: "", benefits: ["Logo placement on our website", "Recognition across our digital portfolio where applicable", "Social media acknowledgement", "Inclusion in our sponsor acknowledgement communications"] },
+  { name: "Signature", price: "$350–600", includes: "Everything in Essence, plus", benefits: ["Logo placement on team apparel", "Logo inclusion on selected printed materials", "Placement on our pit display sponsor panel", "3+ sponsor acknowledgement posts or stories during the campaign"] },
   { name: "Aurum", price: "$600–850", includes: "Everything in Signature, plus", benefits: ["Prominent logo placement on our race car", "Priority placement across pit display materials", "Recognition in selected team presentations", "Inclusion in competition day and team photography", "Acknowledgement in our end-of-season performance summary"] },
   { name: "Legacy", price: "$850+", includes: "Everything in Prestige, plus", benefits: ["Largest available sponsor logo placement", "Priority branding across Milano Racing materials", "Recognition in major team announcements and presentations", "Dedicated feature highlighting your organisation", "Detailed end-of-season impact and performance report"] },
 ];
