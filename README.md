@@ -102,3 +102,5 @@ Sponsor artwork uses its original colours and aspect ratio. `SponsorLogo.tsx` no
 The homepage countdown targets 23 November 2026 at 00:00 Singapore time. Visitors see the event date in their browser locale and local time zone, with locale-formatted numbers. The deadline is a single global instant. Change `competitionStart` and the time element’s `dateTime` in `src/components/CompetitionCountdown.tsx` when a confirmed start time is available.
 
 The livery is currently sealed for release. `LiveryPreview.tsx` supplies the teaser on Home, Journal and the livery route. The previous explorer is retained in source for the team to reintroduce on release day.
+
+MR 26 and the livery use the shared `SignatureReveal` component and `teaserMotion` timings. Each sequence starts once on entering view and settles after 3.6 seconds; full teaser pages offer replay. Reduced-motion visitors see the final composition immediately. Linked previews have no nested replay buttons.

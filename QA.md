@@ -134,3 +134,5 @@ Singapore and its flag are grouped in a nonbreaking inline layout on Team. Regen
 ## Competition identity copy
 
 Home, Team and Partners now explicitly describe Milano Racing as competing in STEM Racing. Team location is on a separate block line, with Singapore and the flag kept together. Verified the three descriptions in the rendered browser and visually checked the Team line break.
+
+Signature teaser update: MR 26 and livery initial reveals and replay completion checked in the browser. Both return to the sealed composition with replay enabled. 36 route/viewport checks passed at 320, 390, 768 and 1280px with no horizontal overflow or broken images. At 320px the MR 26 comparison preview remains 221 x 129px and paired cards have equal 371px heights; signature and text visually fit. Reduced-motion fallback implemented through Motion and CSS; OS preference was not emulated. Production and standalone builds passed.

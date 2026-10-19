@@ -12,7 +12,7 @@ export default function Article() {
   if (post.id === "livery") return <article className="article livery-coming-article">
     <Link className="text-link" to="/journal">← Back to journal</Link>
     <Heading title="A new look. Under wraps." description={null} />
-    <LiveryPreview />
+    <LiveryPreview replay />
     <div className="livery-release-footer"><p>Our next livery. Revealed on release day.</p><ArrowLink to="/evolution">Explore the car archive</ArrowLink></div>
   </article>;
   return (

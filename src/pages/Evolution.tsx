@@ -116,7 +116,7 @@ export default function Evolution() {
           <option value="MR26">MR 26</option>
         </select></label>
         <div className="compare-preview">
-          {item ? <img src={asset(`concept-${item.id.toLowerCase()}.webp`)} alt={`${item.label} ${item.name} CAD model`} width="1200" height="700" loading="lazy"/> : <FinalCarPreview/>}
+          {item ? <img src={asset(`concept-${item.id.toLowerCase()}.webp`)} alt={`${item.label} ${item.name} CAD model`} width="1200" height="700" loading="lazy"/> : <FinalCarPreview compact/>}
         </div>
         <div className={`compare-summary ${item ? "" : "is-sealed"}`}>
           <h3>{item ? item.name : "MR 26"}</h3>

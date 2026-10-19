@@ -1,0 +1,27 @@
+.signature-sequence { position: absolute; inset: 0; z-index: 4; pointer-events: none; border-radius: inherit; overflow: hidden; container-type: inline-size; }
+.signature-curtain { position: absolute; inset: 0; background: #08090d; display: grid; place-items: center; overflow: hidden; }
+.signature-sequence-livery .signature-curtain { background: #060c36; }
+.signature-build { width: 55%; position: relative; z-index: 2; text-align: center; }
+.signature-draw, .teaser-signature { display: block; width: 100%; height: auto; filter: drop-shadow(0 1px 0 #ffffffa0) drop-shadow(0 -1px 0 #ffffff70); }
+.signature-ghost { filter: grayscale(1) brightness(3); }
+.signature-message { display: block; margin-top: 24px; font: 500 clamp(8px,1.1cqw,12px) 'DM Sans',sans-serif; color: #d5d5de; letter-spacing: .3em; }
+.signature-track { position: absolute; height: 2px; width: 76%; left: 12%; background: #0019ff; transform-origin: left; top: 27%; }
+.signature-track-orange { top: auto; bottom: 25%; background: #ff7a00; transform-origin: right; }
+.signature-sequence-livery .signature-track { height: 3px; width: 110%; left: -5%; rotate: -22deg; }
+.signature-pass { position: absolute; inset: 0; background: linear-gradient(110deg,transparent 44%,#ffffff20 50%,transparent 56%); z-index: 3; }
+.signature-replay { pointer-events: auto; position: absolute; right: 14px; top: 12px; min-height: 44px; padding: 10px 12px; display: flex; align-items: center; gap: 7px; border: 1px solid #ffffff30; border-radius: 9px; background: #08090dbb; color: #fff; font: 500 11px 'DM Sans',sans-serif; cursor: pointer; }
+.signature-replay:disabled { opacity: 0; pointer-events: none; }
+.signature-replay:focus-visible { outline: 2px solid #ff7a00; outline-offset: -4px; }
+.mr-sealed .teaser-signature { width: clamp(100px,18cqw,220px); margin: 0 auto 22px; }
+.mr-sealed { container-type: inline-size; }
+.livery-reveal .teaser-signature { position: absolute; width: 23%; top: 42%; right: 5%; }
+.livery-reveal.is-compact .teaser-signature { width: 25%; top: 43%; right: 4%; }
+.compare-preview .mr-sealed .teaser-signature { height: auto; width: 25%; margin-bottom: 12px; }
+@media(max-width:700px) {
+ .compare-preview .mr-sealed .teaser-signature { width: 22%; margin-bottom: 8px; }
+ .compare-preview .mr-sealed-content h2 { margin-bottom: 8px; }
+ .signature-message { margin-top: 14px; }
+ .signature-build { width: 62%; }
+ .signature-replay { right: 8px; top: 8px; }
+}
+@media(prefers-reduced-motion:reduce) { .signature-curtain, .signature-replay { display: none; } }
