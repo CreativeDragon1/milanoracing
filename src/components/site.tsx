@@ -1,0 +1,170 @@
+import React, { useEffect, useRef, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "motion/react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { contact } from "../content";
+import { Press, Reveal } from "../motion";
+
+import { asset } from "../assets";
+export { asset } from "../assets";
+export const nav = [
+  ["/", "Home"],
+  ["/evolution", "Car Evolution"],
+  ["/team", "Team"],
+  ["/journal", "Journal"],
+  ["/partners", "Partners"],
+];
+export function ArrowLink({
+  to,
+  children,
+  light = false,
+}: {
+  to: string;
+  children: React.ReactNode;
+  light?: boolean;
+}) {
+  return (
+    <Link className={`button ${light ? "secondary" : "primary"}`} to={to}>
+      {children}
+      <ArrowUpRight size={17} />
+    </Link>
+  );
+}
+export function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="eyebrow">
+      <span className="tiny-square" />
+      {children}
+    </div>
+  );
+}
+export function Heading({
+  label,
+  title,
+  description,
+}: {
+  label: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <Reveal className="page-heading">
+      <Eyebrow>{label}</Eyebrow>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </Reveal>
+  );
+}
+export function Header() {
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const toggle = useRef<HTMLButtonElement>(null);
+  useEffect(() => setOpen(false), [location.pathname]);
+  return (
+    <header className="header">
+      <div className="header-inner">
+        <Link className="brand" to="/" aria-label="Milano Racing home">
+          <span className="logo-window">
+            <img src={asset("milano-official.png")} alt="" />
+          </span>
+          <span>
+            MILANO<span className="brand-sub">RACING</span>
+          </span>
+        </Link>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {nav.map(([url, title]) => (
+            <NavLink end={url === "/"} to={url} key={url}>
+              {title}
+            </NavLink>
+          ))}
+        </nav>
+        <Link to="/partners#contact" className="header-contact">
+          Let’s talk <ArrowUpRight size={16} />
+        </Link>
+        <Press
+          ref={toggle}
+          className="menu-toggle icon-button"
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X /> : <Menu />}
+        </Press>
+      </div>
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            id="mobile-nav"
+            className="mobile-nav"
+            aria-label="Mobile navigation"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                setOpen(false);
+                toggle.current?.focus();
+              }
+            }}
+          >
+            {nav.map(([url, title]) => (
+              <NavLink end={url === "/"} key={url} to={url}>
+                {title}
+                <ArrowUpRight size={18} />
+              </NavLink>
+            ))}
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}
+export function Footer() {
+  const location = useLocation();
+  return (
+    <footer className="footer">
+      <div className="footer-top">
+        <div>
+          <Eyebrow>Milano Racing / Singapore</Eyebrow>
+          <h2>
+            Built by students.
+            <br />
+            Driven by curiosity.
+          </h2>
+          <a className="text-link" href={`mailto:${contact.email}`}>
+            {contact.email}
+            <ArrowUpRight size={18} />
+          </a>
+        </div>
+        <div className="footer-links">
+          <div>
+            <span className="small-label">Explore</span>
+            {nav.slice(1).map(([url, title]) => (
+              <Link key={url} to={url}>
+                {title}
+              </Link>
+            ))}
+          </div>
+          <div>
+            <span className="small-label">Stay in the loop</span>
+            <a href={contact.instagram} target="_blank" rel="noreferrer">
+              Instagram ↗
+            </a>
+            <a href={contact.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn ↗
+            </a>
+            <a href={contact.youtube} target="_blank" rel="noreferrer">
+              YouTube ↗
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <span>© {new Date().getFullYear()} Milano Racing</span>
+        <span>GIIS Punggol Smart Campus · STEM Racing</span>
+        <Link to={`${location.pathname}#top`}>Back to top ↑</Link>
+      </div>
+    </footer>
+  );
+}

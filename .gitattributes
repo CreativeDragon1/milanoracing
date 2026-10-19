@@ -1,0 +1,3 @@
+*.html text eol=lf
+downloads/*.html -diff -whitespace
+licenses/* -whitespace

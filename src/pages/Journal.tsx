@@ -1,0 +1,88 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, Plus } from "lucide-react";
+import { posts } from "../content";
+import { Press, Reveal } from "../motion";
+
+import { asset, nav, ArrowLink, Eyebrow, Heading } from "../components/site";
+export default function Journal() {
+  const [filter, setFilter] = useState("All");
+  const visible = posts.filter(
+    (p) => filter === "All" || p.category === filter,
+  );
+  return (
+    <>
+      <Heading
+        label="Notes from the team"
+        title="The work in progress."
+        description="Design details, engineering records and glimpses behind the scenes. An honest notebook of what we have so far."
+      />
+      <div
+        className="journal-filters segmented"
+        role="group"
+        aria-label="Filter journal"
+      >
+        {["All", "Engineering", "Design", "Team"].map((f) => (
+          <Press
+            key={f}
+            className={filter === f ? "selected" : ""}
+            aria-pressed={filter === f}
+            onClick={() => setFilter(f)}
+          >
+            {f}
+          </Press>
+        ))}
+      </div>
+      <div aria-live="polite" className="sr-only">
+        {visible.length} journal entries
+      </div>
+      <div className="journal-grid">
+        {visible.map((post) => (
+          <Reveal key={post.id}>
+            <Link className="story-link" to={`/journal/${post.id}`}>
+              <div className={`story-image ${post.id}`}>
+                {post.image ? (
+                  <img
+                    src={asset(post.image)}
+                    alt={post.caption}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="data-art">
+                    <span>V04 → V06</span>
+                    <strong>
+                      0.449<small>N</small>
+                    </strong>
+                    <span>V05 / RECORDED DRAG</span>
+                  </div>
+                )}
+                <span className="round-arrow">
+                  <ArrowUpRight />
+                </span>
+              </div>
+              <div className="story-meta">
+                {post.category}
+                <span>UNDATED FIELD NOTE</span>
+              </div>
+              <h2>{post.title}</h2>
+              <p>{post.excerpt}</p>
+            </Link>
+          </Reveal>
+        ))}
+      </div>
+      <div className="journal-empty recessed">
+        <Plus size={24} />
+        <div>
+          <h3>More from the workshop, soon.</h3>
+          <p>
+            Manufacturing updates, test sessions and milestones will appear here
+            when the team supplies the photographs and records.
+          </p>
+          <span className="placeholder-label">
+            Reserved for future journal entries
+          </span>
+        </div>
+      </div>
+    </>
+  );
+}
