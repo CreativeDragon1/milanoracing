@@ -7,7 +7,8 @@ import { asset } from '../assets';
 import { createKitArtwork, type KitPersonalisation } from './jerseyArtwork';
 import { addSleeveDecals } from './jerseyDecals';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-export type JerseyScene = { preset:(side:'front'|'back')=>void; zoom:(step:number)=>void; reset:()=>void; rotate:(x:number,y:number)=>void; capture:()=>string; personalise:(value:KitPersonalisation)=>void; dispose:()=>void };
+export type JerseyExport = { render:(angle?:number)=>HTMLCanvasElement; dispose:()=>void };
+export type JerseyScene = { preset:(side:'front'|'back')=>void; zoom:(step:number)=>void; reset:()=>void; rotate:(x:number,y:number)=>void; createExport:(width:number,height:number)=>JerseyExport; personalise:(value:KitPersonalisation)=>void; dispose:()=>void };
 export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChange:(angle:number,zoom:number)=>void):Promise<JerseyScene>{
   const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.75));
@@ -136,7 +137,18 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
     zoom:step=>move(Math.atan2(camera.position.x,camera.position.z),THREE.MathUtils.clamp(camera.position.distanceTo(controls.target)-step*baseDistance*.105,baseDistance*.62,baseDistance*1.2)),
     reset:()=>move(.18,baseDistance,Math.PI/2-.035),
     rotate:(x,y)=>{const polar=camera.position.clone().sub(controls.target).angleTo(new THREE.Vector3(0,1,0));move(Math.atan2(camera.position.x,camera.position.z)+x,camera.position.distanceTo(controls.target),THREE.MathUtils.clamp(polar+y,.22*Math.PI,.78*Math.PI));},
-    capture:()=>{const size=renderer.getSize(new THREE.Vector2()),ratio=renderer.getPixelRatio(),aspect=camera.aspect;renderer.setPixelRatio(1);renderer.setSize(1024,1024,false);camera.aspect=1;camera.updateProjectionMatrix();render();const png=renderer.domElement.toDataURL('image/png');renderer.setPixelRatio(ratio);renderer.setSize(size.x,size.y,false);camera.aspect=aspect;camera.updateProjectionMatrix();render();return png;},
+    createExport:(width,height)=>{
+      const output=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});
+      output.setPixelRatio(1);output.setSize(width,height,false);
+      output.outputColorSpace=renderer.outputColorSpace;output.toneMapping=renderer.toneMapping;output.toneMappingExposure=renderer.toneMappingExposure;
+      const lens=camera.clone();lens.aspect=width/height;lens.updateProjectionMatrix();
+      const start=Math.atan2(camera.position.x,camera.position.z);
+      return {render:(angle=start)=>{
+        if(disposed)throw new Error('Viewer closed');
+        lens.position.set(Math.sin(angle)*6.1,.08,Math.cos(angle)*6.1);lens.lookAt(0,-.03,0);
+        output.render(scene,lens);return output.domElement;
+      },dispose:()=>{output.dispose();output.forceContextLoss();}};
+    },
     dispose:()=>{disposed=true;cancelAnimationFrame(dampingFrame);animation?.stop();observer?.disconnect();controls.dispose();scene.traverse(object=>{if(object instanceof THREE.Mesh){object.geometry.dispose();const mats=Array.isArray(object.material)?object.material:[object.material];mats.forEach(material=>{if('map' in material)(material.map as THREE.Texture|null)?.dispose();material.dispose();});}});ownedTextures.forEach(texture=>texture.dispose());renderer.dispose();renderer.domElement.remove();},
   };
 }

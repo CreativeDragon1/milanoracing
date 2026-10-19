@@ -13,9 +13,25 @@ export default function JerseyViewer() {
   const [ready,setReady]=useState(false),[failed,setFailed]=useState(false);
   const [angle,setAngle]=useState(10),[zoom,setZoom]=useState(100),[full,setFull]=useState(false);
   const [side,setSide]=useState<'front'|'back'>('front');
-  const [snapshot,setSnapshot]=useState<string|null>(null);
+  const [snapshot,setSnapshot]=useState<{url:string;format:'png'|'gif'}|null>(null);
+  const [exporting,setExporting]=useState<'png'|'gif'|null>(null),[progress,setProgress]=useState(0),[exportError,setExportError]=useState('');
+  const exportAbort=useRef<AbortController|null>(null);
   const [draftName,setDraftName]=useState(''),[draftNumber,setDraftNumber]=useState('');
   const [personal,setPersonal]=useState({name:'',number:''});
+  useEffect(()=>()=>{exportAbort.current?.abort();},[]);
+  useEffect(()=>()=>{if(snapshot)URL.revokeObjectURL(snapshot.url);},[snapshot]);
+  async function downloadKit(format:'png'|'gif'){
+    if(!scene.current||exportAbort.current)return;
+    const controller=new AbortController();exportAbort.current=controller;
+    setExporting(format);setProgress(0);setExportError('');setSnapshot(null);
+    try{
+      const {exportKit}=await import('../lib/kitExport');
+      controller.signal.throwIfAborted();
+      const blob=await exportKit(scene.current,format,controller.signal,setProgress);
+      if(!controller.signal.aborted)setSnapshot({url:URL.createObjectURL(blob),format});
+    }catch(error){if(!controller.signal.aborted)setExportError(error instanceof Error?error.message:'Download could not be prepared. Please try again.');}
+    finally{if(exportAbort.current===controller){exportAbort.current=null;setExporting(null);}}
+  }
   useEffect(()=>{
     const el=host.current;if(!el)return;
     let cancelled=false,owned:JerseyScene|undefined;setReady(false);setFailed(false);
@@ -46,7 +62,7 @@ export default function JerseyViewer() {
   }
   return <div className="kit-viewer raised" ref={section}>
     <div className="kit-topline"><span className="small-label">THE MILANO KIT</span><span className="kit-edition">360° VIEW</span></div>
-    <div className="kit-product-layout"><div className="kit-display">
+    <div className="kit-product-layout"><div className="kit-display" inert={!!exporting}>
     <div className="kit-stage" ref={host} tabIndex={0} role="region" aria-label="Interactive Milano jersey. Drag to rotate. Arrow keys rotate and tilt, plus and minus zoom, R resets." onKeyDown={key}>
       {!ready&&!failed&&<div className="kit-loading" role="status">Preparing the team kit…</div>}
       {failed&&<div className="kit-fallback"><img src={asset(`jersey-${side}-recreated.png`)} alt={`Milano Racing jersey ${side}`}/>{side==='back'&&<div className="kit-fallback-personal"><strong>{personal.number}</strong><span>{personal.name}</span></div>}</div>}
@@ -69,7 +85,7 @@ export default function JerseyViewer() {
     </div>
     </div><div className="kit-custom-panel">
     <div className="kit-product-title"><h3>The team edition.</h3><p>Rotate the kit, choose a name and number, and save your view.</p></div>
-    <form className="kit-personalise" onSubmit={e=>{e.preventDefault();personalise(draftName,draftNumber);}}>
+    <form className="kit-personalise" inert={!!exporting} onSubmit={e=>{e.preventDefault();personalise(draftName,draftNumber);}}>
       <div className="kit-personalise-heading"><h4>Personalise your kit</h4><span>OPTIONAL</span></div>
       <div className="kit-fields">
         <label htmlFor={`${id}-name`}>Name on back<input id={`${id}-name`} value={draftName} maxLength={18} placeholder="YOUR NAME" autoComplete="off" onChange={e=>setDraftName(e.target.value)}/></label>
@@ -79,7 +95,17 @@ export default function JerseyViewer() {
       <label className="kit-preset-label" htmlFor={`${id}-preset`}>Or try a team kit<select aria-label="Choose a team kit" id={`${id}-preset`} value="" disabled={!ready&&!failed} onChange={e=>{const person=people.find(p=>p.id===e.target.value);if(person)personalise(person.name.split(' ')[0],person.number??'');}}><option value="">Choose a team member</option>{people.map(p=><option key={p.id} value={p.id}>{p.name} · {p.number}</option>)}</select></label>
       <p className="kit-personal-status" role="status">{personal.name||personal.number?`Previewing ${[personal.name,personal.number].filter(Boolean).join(' · ')}`:'Standard team kit · no name or number'}<span>Preview only. Your details stay on this device.</span></p>
     </form>
-    <div className="kit-downloads"><button className="kit-save" disabled={!ready} onClick={()=>{const url=scene.current?.capture();if(url)setSnapshot(url);}}><Download size={14}/>Save this view</button>{snapshot&&<a className="kit-save" href={snapshot} download="milano-personalised-kit.png">Download PNG <Download size={14}/></a>}</div>
+    <div className="kit-export-panel" aria-busy={!!exporting}>
+      <h4>Take your kit with you.</h4>
+      <p>A studio backdrop. Your kit. The Milano signature.</p>
+      <div className="kit-downloads">
+        <button className="kit-save" disabled={!ready||!!exporting} onClick={()=>downloadKit('png')}><Download size={14}/>Create PNG<span>2400 × 3000</span></button>
+        <button className="kit-save" disabled={!ready||!!exporting} onClick={()=>downloadKit('gif')}><RotateCcw size={14}/>Create rotating GIF<span>960 × 1200 · 360°</span></button>
+      </div>
+      {exporting&&<div className="kit-export-progress"><p role="status">{exporting==='gif'?'Creating your rotation':'Preparing your image'}… {progress}%</p><progress value={progress} max={100} aria-label="Download preparation"/><button type="button" className="text-link" onClick={()=>exportAbort.current?.abort()}>Cancel</button></div>}
+      {exportError&&<p role="alert" className="kit-export-error">{exportError}</p>}
+      {snapshot&&<div className="kit-export-result"><img src={snapshot.url} alt={`Your personalised Milano kit ${snapshot.format==='gif'?'rotating showcase':'poster'}`}/><a className="kit-save" href={snapshot.url} download={`milano-kit${personal.name?'-'+personal.name.replace(/[^A-Z0-9]+/g,'-'):''}.${snapshot.format}`}>Download {snapshot.format.toUpperCase()} <Download size={14}/></a></div>}
+    </div>
     </div></div>
   </div>;
 }

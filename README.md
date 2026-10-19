@@ -104,3 +104,5 @@ The homepage countdown targets 23 November 2026 at 00:00 Singapore time. Visitor
 The livery is currently sealed for release. `LiveryPreview.tsx` supplies the teaser on Home, Journal and the livery route. The previous explorer is retained in source for the team to reintroduce on release day.
 
 MR 26 and the livery use the shared `SignatureReveal` component and `teaserMotion` timings. Each sequence starts once on entering view and settles after 3.6 seconds; full teaser pages offer replay. Reduced-motion visitors see the final composition immediately. Linked previews have no nested replay buttons.
+
+Kit exports are rendered locally using a separate WebGL renderer, so output size does not depend on device pixel ratio or the viewer's zoom. PNG: 2400 x 3000. GIF: 960 x 1200, 90 frames, 7.2-second full rotation, infinite loop. GIF encoding runs in an inline bundled worker; frames are transferred one at a time to limit memory. Export progress, cancellation, error messages and object-URL cleanup are included. The PNG uses the current azimuth with a consistent product framing; GIF starts on the personalised back.

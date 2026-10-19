@@ -32,3 +32,5 @@ Michroma is the team wordmark font specified in the PDF. Arbitrary custom names 
 
 
 The four concept GLBs and WebP previews derive from the user-supplied STEP files. Their geometry and material colours are retained; no third-party car geometry was introduced.
+
+GIF downloads use gifenc by Matt DesLauriers (MIT): https://github.com/mattdesl/gifenc. License: licenses/gifenc-MIT.md.

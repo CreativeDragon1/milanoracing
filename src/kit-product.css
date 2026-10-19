@@ -40,3 +40,18 @@
 .kit-viewer:fullscreen .kit-product-layout{height:calc(100vh - 58px);min-height:0}.kit-viewer:fullscreen .kit-display{min-height:0}.kit-viewer:fullscreen .kit-stage{min-height:0}.kit-viewer:fullscreen .kit-custom-panel{overflow:auto}
 @media(max-width:760px){.kit-viewer:fullscreen .kit-product-layout{height:auto;min-height:0}.kit-viewer:fullscreen .kit-stage{height:460px;flex:none}.kit-viewer:fullscreen .kit-custom-panel{overflow:visible}}
 @media(max-width:480px){.kit-viewer:fullscreen .kit-stage{height:370px}}
+.kit-export-panel { border-top: 1px solid #dddde5; margin-top: 22px; padding-top: 24px; }
+.kit-export-panel h4 { margin: 0 0 8px; font-size: 20px; }
+.kit-export-panel > p { font-size: 13px; color: #666674; margin: 0 0 14px; line-height: 1.6; }
+.kit-export-panel .kit-downloads { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.kit-export-panel .kit-save { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; min-height: 62px; padding: 12px; border-radius: 12px; }
+.kit-export-panel .kit-save span { flex-basis: 100%; font-size: 11px; font-weight: 400; opacity: .7; }
+.kit-export-panel .kit-save:disabled { cursor: default; opacity: .45; }
+.kit-export-panel .kit-save:focus-visible { outline: 2px solid #0019ff; outline-offset: 3px; }
+.kit-export-progress { margin-top: 18px; }
+.kit-export-progress p { font-size: 13px; }
+.kit-export-progress progress { width: 100%; height: 7px; accent-color: #0019ff; display: block; margin: 12px 0; }
+.kit-export-error { color: #a52b12; font-size: 13px; }
+.kit-export-result { margin-top: 20px; }
+.kit-export-result img { display: block; width: 100%; max-height: 390px; object-fit: contain; border-radius: 14px; margin-bottom: 12px; background: #080c20; }
+@media(max-width:360px) { .kit-export-panel .kit-downloads { grid-template-columns: 1fr; } }

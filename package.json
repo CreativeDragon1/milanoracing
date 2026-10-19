@@ -10,6 +10,7 @@
     "build:html": "node scripts/build-html.mjs"
   },
   "dependencies": {
+    "gifenc": "^1.0.3",
     "lucide-react": "^0.468.0",
     "motion": "^12.23.12",
     "react": "^19.1.1",
