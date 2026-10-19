@@ -100,3 +100,5 @@ The livery article includes seven selectable component hotspots. Edit `src/data/
 Sponsor artwork uses its original colours and aspect ratio. `SponsorLogo.tsx` normalises transparent padding for balanced prominence. All five sponsors have identical card and logo slots at each breakpoint, with no featured sponsor or carousel.
 
 The homepage countdown targets 23 November 2026 at 00:00 Singapore time. Visitors see the event date in their browser locale and local time zone, with locale-formatted numbers. The deadline is a single global instant. Change `competitionStart` and the time element’s `dateTime` in `src/components/CompetitionCountdown.tsx` when a confirmed start time is available.
+
+The livery is currently sealed for release. `LiveryPreview.tsx` supplies the teaser on Home, Journal and the livery route. The previous explorer is retained in source for the team to reintroduce on release day.

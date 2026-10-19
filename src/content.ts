@@ -76,15 +76,11 @@ export const posts = [
   {
     id: "livery",
     category: "Design",
-    title: "A closer look at our current livery.",
-    image: "current-car.webp",
-    caption: "Milano Racing livery",
-    excerpt:
-      "A closer look at the car’s livery and partner branding.",
-    body: [
-      "Our current livery brings the Milano Racing car and our partners’ branding together.",
-      "Explore the car development process through the interactive charts in Car Evolution.",
-    ],
+    title: "A new look. Under wraps.",
+    image: "",
+    caption: "New Milano Racing livery. Coming soon.",
+    excerpt: "Our next livery. Revealed on release day.",
+    body: [],
   },
   {
     id: "jersey",

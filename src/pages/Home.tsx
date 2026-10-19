@@ -1,3 +1,4 @@
+import LiveryPreview from "../components/LiveryPreview";
 import CompetitionCountdown from "../components/CompetitionCountdown";
 import SponsorLogo from "../components/SponsorLogo";
 import { Link } from "react-router-dom";
@@ -32,13 +33,7 @@ export default function Home() {
           </div>
         </Reveal>
         <Reveal className="hero-visual">
-          <div className="hero-image">
-            <img
-              src={asset("current-car.webp")}
-              alt="Actual Milano Racing miniature STEM Racing car with current black livery and sponsor decals"
-              fetchPriority="high"
-            />
-          </div>
+          <Link to="/journal/livery" className="hero-livery-link" aria-label="Discover the upcoming Milano Racing livery"><LiveryPreview /></Link>
         </Reveal>
       </section>
       <CompetitionCountdown/>
@@ -119,11 +114,11 @@ export default function Home() {
               key={post.id}
             >
               <div className={`story-image ${post.id}`}>
-                <img
+                {post.id === "livery" ? <LiveryPreview compact /> : <img
                   src={asset(post.image!)}
                   loading="lazy"
                   alt={post.caption}
-                />
+                />}
                 <span className="round-arrow">
                   <ArrowUpRight />
                 </span>

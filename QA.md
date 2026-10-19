@@ -112,3 +112,10 @@ All seven hotspots were clicked in the running browser and showed their correspo
 - Countdown updates were observed in the browser. Boundary checks passed one day and one second before the deadline, at competition start and on the following day. Deadline is 2026-11-23T00:00:00+08:00; the visible date/time and digits use the visitor’s browser locale and local time zone. No location permission is requested. Hidden tabs pause scheduled updates and resume from the clock.
 - Repeated 36 route/width checks after adding the countdown: no horizontal page overflow, broken loaded images or missing/duplicate main headings.
 - Production and standalone builds checked separately. Standalone HTML assets are byte-validated; direct file URL interaction remains untested because the browser tool blocked file launch.
+
+
+## Livery release teaser
+
+Replaced the public livery explorer with a dedicated blue/orange sealed reveal, using existing dragon artwork. Home hero and Home/Journal story previews share the same teaser; no release date is invented. The old explorer source is retained for future release but is no longer imported into the public UI. Hover motion is decorative and disabled with reduced-motion preferences.
+
+Livery teaser verification: 36 route/width checks passed after correcting the compact card intrinsic sizing. Visually checked the 320 px release page and desktop Home/Journal previews. Home teaser navigation, Back to journal and the Design filter work. Production and standalone builds passed.
