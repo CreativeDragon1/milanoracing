@@ -66,7 +66,13 @@ export default function JerseyViewer() {
     <div className="kit-stage" ref={host} tabIndex={0} role="region" aria-label="Interactive Milano jersey. Drag to rotate. Arrow keys rotate and tilt, plus and minus zoom, R resets." onKeyDown={key}>
       {!ready&&!failed&&<div className="kit-loading" role="status">Preparing the team kit…</div>}
       {failed&&<div className="kit-fallback"><img src={asset(`jersey-${side}-recreated.png`)} alt={`Milano Racing jersey ${side}`}/>{side==='back'&&<div className="kit-fallback-personal"><strong>{personal.number}</strong><span>{personal.name}</span></div>}</div>}
-      <span className="kit-watermark" aria-hidden="true">MILANO</span>
+      <div className="kit-studio-backdrop" aria-hidden="true">
+        <span className="kit-studio-orbit"/>
+        <span className="kit-studio-floor"/>
+        <svg className="kit-studio-signature" viewBox="25 230 555 185" focusable="false">
+          <image href={asset('milano-official.png')} width="648" height="648"/>
+        </svg>
+      </div>
     </div>
     <div className="kit-inspect-hint"><MoveHorizontal size={16}/><span>{failed?'3D unavailable · front and back previews available':'Drag to explore · arrow keys to rotate'}</span><span className="kit-angle">{failed?side:`${angle}° / ${zoom}%`}</span></div>
     <div className="kit-controls">

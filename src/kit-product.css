@@ -55,3 +55,42 @@
 .kit-export-result { margin-top: 20px; }
 .kit-export-result img { display: block; width: 100%; max-height: 390px; object-fit: contain; border-radius: 14px; margin-bottom: 12px; background: #080c20; }
 @media(max-width:360px) { .kit-export-panel .kit-downloads { grid-template-columns: 1fr; } }
+
+/* A quiet studio setting, behind the interactive garment and its controls. */
+.kit-display {
+  background: radial-gradient(ellipse at 48% 34%, #353943 0%, #20232c 48%, #12151d 100%);
+}
+.kit-stage { overflow: hidden; }
+.kit-stage canvas { position: absolute; inset: 0; }
+.kit-studio-backdrop { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.kit-studio-orbit {
+  position: absolute; width: 78%; height: 76%; left: 11%; top: 8%; border: 1px solid #ffffff12;
+  border-radius: 50%; transform: rotate(-24deg);
+  background: radial-gradient(ellipse at 50% 30%, #ffffff04, transparent 70%);
+}
+.kit-studio-orbit::after {
+  content: ''; position: absolute; inset: -1px; border-radius: inherit;
+  border: 1px solid transparent; border-top-color: #7080ff55; border-right-color: #ff7a0022;
+  mask-image: linear-gradient(135deg, #000, transparent 70%);
+}
+.kit-studio-floor {
+  position: absolute; width: 68%; height: 10%; left: 16%; bottom: 8%; border-radius: 50%;
+  background: radial-gradient(ellipse, #05071055, #b9c5ed08 60%, transparent 72%);
+  border-bottom: 1px solid #ffffff0c;
+}
+.kit-studio-signature {
+  position: absolute; width: clamp(64px, 13%, 105px); right: 5%; bottom: 4%;
+  filter: grayscale(1) brightness(0) invert(1); opacity: .32;
+}
+.kit-loading { color: #d5d8e2; }
+.kit-fallback { z-index: 1; }
+.kit-stage:focus-visible { outline-color: #a4b0ff; }
+.kit-display .kit-inspect-hint { color: #c0c5d2; border-bottom-color: #ffffff18; }
+.kit-display .kit-angle { color: #b6bdce; }
+.kit-display .kit-controls .segmented { background: #ffffff09; box-shadow: none; border: 1px solid #ffffff14; }
+.kit-display .kit-controls .segmented button { color: #c5cbda; }
+.kit-display .kit-controls .segmented button[aria-pressed=true] { background: #f7f8fc; color: #0019ff; box-shadow: 0 2px 8px #0002; }
+.kit-display .kit-tools .icon-button { background: #ffffff09; color: #e5e8f1; border: 1px solid #ffffff18; box-shadow: none; }
+.kit-display .kit-tools .icon-button:hover { background: #ffffff18; color: #fff; }
+.kit-display button:focus-visible { outline: 2px solid #a4b0ff; outline-offset: 3px; }
+@media (forced-colors: active) { .kit-studio-backdrop { display: none; } }
