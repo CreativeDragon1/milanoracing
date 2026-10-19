@@ -80,7 +80,6 @@ export default function JerseyViewer() {
       <p className="kit-personal-status" role="status">{personal.name||personal.number?`Previewing ${[personal.name,personal.number].filter(Boolean).join(' · ')}`:'Standard team kit · no name or number'}<span>Preview only. Your details stay on this device.</span></p>
     </form>
     <div className="kit-downloads"><button className="kit-save" disabled={!ready} onClick={()=>{const url=scene.current?.capture();if(url)setSnapshot(url);}}><Download size={14}/>Save this view</button>{snapshot&&<a className="kit-save" href={snapshot} download="milano-personalised-kit.png">Download PNG <Download size={14}/></a>}</div>
-    <details className="kit-design-reference"><summary>Design sheet</summary><img src={asset('kit-design-sheet.jpg')} alt="Original front and back shirt artwork from the Milano Racing specification, including collar and sleeve details" loading="lazy"/></details>
     </div></div>
   </div>;
 }

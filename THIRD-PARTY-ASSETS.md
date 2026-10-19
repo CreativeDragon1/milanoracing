@@ -18,7 +18,6 @@ The user supplied `Milano Racing Merch (Shirt Specifics) (1) (1).pdf`.
 - `kit-dragon-original.png`: exact embedded textile image from page 9, retained unchanged.
 - `milano-official.png`: exact embedded logo from page 10.
 - `stem-racing-kit.png`: exact transparent, black-lettered STEM Racing mark embedded on page 2; used for the upper back. The original black-panel decal remains available for the car branding.
-- `kit-design-sheet.jpg`: original blank front/back garment illustration embedded on page 2. It does not contain the page's separate overlaid logos or personalisation objects.
 - Sponsor marks: original user-supplied files. Their placement follows the PDF: Hustle Hive and Milano on the front chest; Brinda's above Enermax and Axis above NPE on the outer sides of the sleeves (per the user's clarified placement); STEM Racing on the upper back.
 - The former generated dragon artwork is no longer used or distributed.
 - Member photographs/graphics are the actual supplied introductions, not generated portraits. The three-member composite is displayed as individual columns without modifying the source image.

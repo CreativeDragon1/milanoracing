@@ -30,7 +30,7 @@
 .kit-personalise-actions .text-link{font-size:10px;color:#62626b;min-height:38px;text-decoration:underline;text-underline-offset:3px}
 .kit-preset-label{margin-top:5px}.kit-preset-label select{font-size:12px;border-radius:6px;background:#fafafa}
 .kit-personal-status{font-size:10px;margin-top:16px}.kit-personal-status span{font-size:9px}
-.kit-downloads{gap:18px}.kit-save{margin:8px 0 0;font-size:11px}.kit-design-reference{font-size:10px;padding-top:12px;margin-top:8px}.kit-disclaimer{font-size:8px;margin-top:12px}
+.kit-downloads{gap:18px}.kit-save{margin:8px 0 0;font-size:11px}.kit-disclaimer{font-size:8px;margin-top:12px}
 .kit-viewer:fullscreen{display:block;padding:0;background:#f5f5f7}.kit-viewer:fullscreen .kit-product-layout{min-height:calc(100vh - 62px);grid-template-columns:minmax(0,1fr) 360px}
 .kit-viewer:fullscreen .kit-stage{height:auto;min-height:440px;flex:1}.kit-viewer:fullscreen .kit-watermark{font-size:clamp(60px,9vw,160px)}
 .kit-viewer:fullscreen .kit-custom-panel{padding-top:40px}.kit-viewer:fullscreen .kit-personalise{width:auto}.kit-viewer:fullscreen .kit-disclaimer{text-align:left}
