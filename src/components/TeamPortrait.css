@@ -1,0 +1,17 @@
+.quote-portrait { display: block; width: 100%; border: 0; padding: 0; text-align: left; cursor: pointer; color: #fff; font: inherit; isolation: isolate; container-type: inline-size; -webkit-tap-highlight-color: transparent; }
+.quote-portrait > img { transition: transform .65s cubic-bezier(.22,1,.36,1); }
+.quote-portrait.is-open > img { transform: scale(1.035); }
+.quote-portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,transparent 23%,#070b2580 45%,#070b25f5 80%); opacity: 0; transition: opacity .35s ease; pointer-events: none; }
+.quote-portrait.is-open::after { opacity: 1; }
+.quote-cue { position: absolute; right: 14px; top: 14px; z-index: 2; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #ffffff60; border-radius: 50%; color: #fff; background: #070b25b3; transition: background .25s, border-color .25s; }
+.quote-portrait.is-open .quote-cue { background: #0019ff; border-color: #0019ff; }
+.portrait-quote { position: absolute; inset: auto 0 0; z-index: 2; display: block; padding: 28px; opacity: 0; visibility: hidden; transform: translateY(16px); transition: opacity .25s, transform .45s cubic-bezier(.22,1,.36,1), visibility .45s; pointer-events: none; }
+.quote-portrait.is-open .portrait-quote { opacity: 1; visibility: visible; transform: translateY(0); }
+.quote-rule { display: block; width: 44px; height: 3px; margin-bottom: 18px; background: #ff7a00; transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.quote-portrait.is-open .quote-rule { transform: scaleX(1); }
+.quote-words { display: block; color: #fff; font: 500 clamp(17px,6.6cqw,27px)/1.4 'Manrope',sans-serif; letter-spacing: -.025em; }
+.quote-words > span { display: inline-block; white-space: pre; opacity: 0; transform: translateY(9px); transition: opacity .2s, transform .2s; }
+.quote-portrait.is-open .quote-words > span { opacity: 1; transform: translateY(0); transition-duration: .38s; transition-delay: var(--word-delay); }
+.quote-portrait:focus-visible { outline: 3px solid #0019ff; outline-offset: 4px; }
+@media(max-width:600px) { .portrait-quote { padding: 22px; } }
+@media(prefers-reduced-motion:reduce) { .quote-portrait > img, .quote-portrait::after, .portrait-quote, .quote-rule, .quote-words > span, .quote-cue { transition: none; } .quote-portrait.is-open > img, .portrait-quote, .quote-words > span { transform: none; } }

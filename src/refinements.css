@@ -73,8 +73,6 @@
 .partners-home { margin: 32px 0 48px; padding: 28px 0; }
 .competition-countdown { margin: 12px 0 0; }
 .person-copy { padding-top: 20px; }
-.person-quote { margin: 16px 0 18px; padding: 0 0 0 14px; border-left: 2px solid var(--blue); }
-.person-quote p { margin: 0; color: #26262e; font-size: 15px; line-height: 1.6; font-style: italic; overflow-wrap: anywhere; }
 @media (max-width:850px) {
  .hero { gap: 28px; }
  .kit-signature { gap: 28px; }
@@ -85,7 +83,6 @@
  .intro-team-logo { width: min(100%,300px); margin-top: 22px; }
  .kit-signature { margin-top: 40px; }
  .kit-signature-art { min-height: 300px; }
- .person-quote p { font-size: 14px; }
 }
 
 .person { display: flex; flex-direction: column; }

@@ -3,6 +3,7 @@ import { ArrowUpRight, Plus, Minus } from "lucide-react";
 import { contact, people } from "../content";
 import { Press, Reveal } from "../motion";
 import JerseyViewer from "../components/JerseyViewer";
+import TeamPortrait from "../components/TeamPortrait";
 
 import { asset, nav, ArrowLink, Eyebrow, Heading, SingaporeFlag } from "../components/site";
 export default function Team() {
@@ -14,16 +15,12 @@ export default function Team() {
         description={<>Six people working together to compete in STEM Racing.<span className="team-location">Based in <span className="location-inline">Singapore <SingaporeFlag/></span>.</span></>}
       />
       <div className="team-grid">
-        {people.map((person, i) => (
+        {people.map((person) => (
           <Reveal className="person raised" key={person.id}>
-            <div className="portrait">
-              <img src={asset(person.image)} alt={`${person.name} — ${person.role}`} loading="lazy" width="1080" height="1350" />
-              <span className="person-number">0{i + 1}</span>
-            </div>
+            <TeamPortrait person={person}/>
             <div className="person-copy">
               <span className="small-label">{person.role}</span>
               <h2>{person.name}</h2>
-              {person.quote && <blockquote className="person-quote"><p>“{person.quote}”</p></blockquote>}
               {person.source && <a
                 className="text-link"
                 href={person.source}
