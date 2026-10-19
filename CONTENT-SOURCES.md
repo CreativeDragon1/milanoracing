@@ -62,3 +62,10 @@ The user withdrew the request to fill sparse image areas. No additional homepage
 ## Team portraits — replacement supplied 19 October 2026
 
 All six Team-page portraits now use the individual 1080 × 1350 JPEG graphics supplied directly by the user: Raahi, Ajinkya, Geet, Niteesh, Gayatri and Ashmitha. Files are copied byte-for-byte, with names and role text preserved. Cards use the original 4:5 aspect ratio with contain sizing; the older composite positioning is removed. Other sections remain unchanged.
+
+
+## Interactive livery components
+
+Seven hotspot positions were selected directly on the supplied current-car.webp render. Copy distinguishes visible geometry and branding from general design considerations. No claimed measured performance, hidden geometry, material, safety certification or component-specific force is invented. The upper loop is described visually, not asserted to be a full-size driver-protection device.
+
+General explanatory references: NASA Glenn, What is Drag? (https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/what-is-drag/) and Factors That Affect Aerodynamics (https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/factors-that-affect-aerodynamics/); STEM Racing Singapore programme (https://stemracing.com.sg/programme/), for the miniature compressed-air racing format. These support general principles, not performance claims for this car.

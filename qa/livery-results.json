@@ -1,0 +1,72 @@
+{
+  "hotspots": [
+    {
+      "heading": "Front wing & nose",
+      "panelHeight": 600
+    },
+    {
+      "heading": "Front wheels",
+      "panelHeight": 600
+    },
+    {
+      "heading": "Side panels & livery",
+      "panelHeight": 600
+    },
+    {
+      "heading": "Main body",
+      "panelHeight": 600
+    },
+    {
+      "heading": "Upper loop",
+      "panelHeight": 600
+    },
+    {
+      "heading": "Rear wheels",
+      "panelHeight": 600
+    },
+    {
+      "heading": "Rear wing",
+      "panelHeight": 600
+    }
+  ],
+  "layouts": [
+    {
+      "route": "/journal/livery",
+      "width": 320,
+      "scrollWidth": 305,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "A closer look at our current livery.",
+      "links": 0
+    },
+    {
+      "route": "/journal/livery",
+      "width": 390,
+      "scrollWidth": 375,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "A closer look at our current livery.",
+      "links": 0
+    },
+    {
+      "route": "/journal/livery",
+      "width": 768,
+      "scrollWidth": 753,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "A closer look at our current livery.",
+      "links": 0
+    },
+    {
+      "route": "/journal/livery",
+      "width": 1280,
+      "scrollWidth": 1265,
+      "overflow": false,
+      "brokenImages": [],
+      "heading": "A closer look at our current livery.",
+      "links": 0
+    }
+  ],
+  "keyboardPreviousWrap": "Rear wing",
+  "componentListSelection": "Main body"
+}

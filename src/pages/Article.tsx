@@ -1,3 +1,4 @@
+import LiveryExplorer from "../components/LiveryExplorer";
 import { Link, useLocation } from "react-router-dom";
 import { posts } from "../content";
 
@@ -9,7 +10,7 @@ export default function Article() {
   const post = posts.find((p) => pathname === `/journal/${p.id}`);
   if (!post) return <NotFound />;
   return (
-    <article className="article">
+    <article className={`article ${post.id === "livery" ? "livery-article" : ""}`}>
       <Link className="text-link" to="/journal">
         ← Back to journal
       </Link>
@@ -18,7 +19,7 @@ export default function Article() {
         title={post.title}
         description={post.excerpt}
       />
-      {post.id === "jersey" ? <JerseyViewer /> : post.image && (
+      {post.id === "livery" ? <LiveryExplorer /> : post.id === "jersey" ? <JerseyViewer /> : post.image && (
         <img
           className={`article-image ${post.id}`}
           src={asset(post.image)}

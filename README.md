@@ -86,3 +86,8 @@ The HTML was checked for embedded asset completeness and JavaScript syntax. Dire
 The kit uses the original PDF dragon motif, original sponsor logos, blue neck/raglan trim, orange side panels and black sleeve cuffs. The viewer supports rotation, zoom, front/back presets, reset, fullscreen and PNG capture. A compact panel accepts an optional name and two-digit number, plus all six team presets. It starts with a blank back. Personalisation is in-memory only and is never submitted.
 
 The generic CC0 garment was adapted into this interactive visual preview; it is not a measured production pattern or manufacturing specification. Exact artwork is preserved, while custom names/numbers use bundled open-license fonts (see asset provenance).
+
+
+## Livery hotspots
+
+The livery article includes seven selectable component hotspots. Edit `src/data/livery-components.ts` for names, percentage-based image positions and explanations. `components/LiveryExplorer.tsx` supplies matching component buttons, previous/next navigation, live selection announcements and a stable-height explanation panel. Its scoped CSS respects reduced motion and keeps 44 px hotspot targets. The source render is unchanged.

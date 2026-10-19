@@ -97,3 +97,7 @@ Removed the hero car index and miniature-scale caption, livery badge, decorative
 ## Individual portrait replacement
 
 All six supplied 1080 x 1350 JPEGs were copied byte-for-byte and verified as loaded in the browser. The Team cards use 4:5 contain sizing. Both desktop rows were visually reviewed; the Team route at 320 px had no horizontal overflow or broken loaded images. Production build and standalone asset validation passed.
+
+## Livery component explorer
+
+All seven hotspots were clicked in the running browser and showed their corresponding explanation. The explanation container stayed at 600 px across desktop selections. Both cyclic next/previous controls and Enter activation were checked, as was selection from the component list. Targeted livery checks at 320, 390, 768 and 1280 px found no horizontal page overflow, broken loaded images or missing link destinations. Mobile uses a horizontally scrollable component list to bring the explanation closer to the image. Touch targets are 44 px; reduced-motion styling is implemented. Results are in qa/livery-results.json. This does not constitute physical-device or screen-reader certification.
