@@ -62,7 +62,6 @@ export default function Journal() {
               </div>
               <div className="story-meta">
                 {post.category}
-                <span>UNDATED FIELD NOTE</span>
               </div>
               <h2>{post.title}</h2>
               <p>{post.excerpt}</p>
@@ -70,19 +69,7 @@ export default function Journal() {
           </Reveal>
         ))}
       </div>
-      <div className="journal-empty recessed">
-        <Plus size={24} />
-        <div>
-          <h3>More from the workshop, soon.</h3>
-          <p>
-            Manufacturing updates, test sessions and milestones will appear here
-            when the team supplies the photographs and records.
-          </p>
-          <span className="placeholder-label">
-            Reserved for future journal entries
-          </span>
-        </div>
-      </div>
+
     </>
   );
 }

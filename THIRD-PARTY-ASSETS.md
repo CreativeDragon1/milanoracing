@@ -9,7 +9,7 @@ The garment topology is adapted from **Polo t-shirt by Namuhekam**, released und
 - Download: https://files2.makehumancommunity.org/asset_packs/shirts01/shirts01_cc0.zip
 - License: https://creativecommons.org/publicdomain/zero/1.0/
 
-Adaptations include subdivision, scale normalization, cloth thickness, a relaxed hollow torso with neutral chest/waist proportions, hanging cloth folds, a reshaped neckline, a separate curved neck binding and custom front/back artwork projection. Sleeve logos use individual outward-facing surface decals with preserved image proportions, with space above each cuff. The knit relief is a small procedural normal texture, independent of the supplied artwork. No mannequin mesh is included or rendered. The original polo collar/buttons are hidden. This is an interactive visual preview, not a measured digital twin or production pattern.
+Adaptations include subdivision, scale normalization, cloth thickness, a relaxed hollow torso with neutral chest/waist proportions, smooth cloth surfaces, a reshaped neckline, a separate curved neck binding and custom front/back artwork projection. Sleeve logos use individual outward-facing surface decals with preserved image proportions, with space above each cuff. The knit relief is a small procedural normal texture, independent of the supplied artwork. No mannequin mesh is included or rendered. The original polo collar/buttons are hidden. This is an interactive visual preview, not a measured digital twin or production pattern.
 
 ## Team artwork
 
@@ -17,8 +17,9 @@ The user supplied `Milano Racing Merch (Shirt Specifics) (1) (1).pdf`.
 
 - `kit-dragon-original.png`: exact embedded textile image from page 9, retained unchanged.
 - `milano-official.png`: exact embedded logo from page 10.
+- `stem-racing-kit.png`: exact transparent, black-lettered STEM Racing mark embedded on page 2; used for the upper back. The original black-panel decal remains available for the car branding.
 - `kit-design-sheet.jpg`: original blank front/back garment illustration embedded on page 2. It does not contain the page's separate overlaid logos or personalisation objects.
-- Sponsor marks: original user-supplied files. Their placement follows the PDF: Hustle Hive and Milano on the front chest; Brinda's/Enermax and NPE/Axis on the outer sides of the sleeves (per the user's clarified placement); STEM Racing on the upper back.
+- Sponsor marks: original user-supplied files. Their placement follows the PDF: Hustle Hive and Milano on the front chest; Brinda's above Enermax and Axis above NPE on the outer sides of the sleeves (per the user's clarified placement); STEM Racing on the upper back.
 - The former generated dragon artwork is no longer used or distributed.
 - Member photographs/graphics are the actual supplied introductions, not generated portraits. The three-member composite is displayed as individual columns without modifying the source image.
 

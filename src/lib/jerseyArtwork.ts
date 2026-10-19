@@ -8,7 +8,7 @@ async function load(name: string) {
 /** The textile is extracted unaltered from page 9 of the team's shirt specification. */
 export async function createKitArtwork() {
   const [dragon, mr, hive, stem] = await Promise.all([
-    'kit-dragon-original.png', 'milano-official.png', 'hustle-hive.png', 'stem-racing.png',
+    'kit-dragon-original.png', 'milano-official.png', 'hustle-hive.png', 'stem-racing-kit.png',
   ].map(load));
   await Promise.all([document.fonts.load('24px Michroma'), document.fonts.load('italic 500 100px "Kit Numbers"')]);
   const canvases = [false, true].map(back => {
@@ -30,7 +30,7 @@ export async function createKitArtwork() {
     }
     const logo=(image:HTMLImageElement,sx:number,sy:number,sw:number,sh:number,cx:number,cy:number,w:number,h:number,angle=0)=>{ctx.save();ctx.translate(x(cx),y(cy));ctx.rotate(angle);ctx.globalCompositeOperation='multiply';ctx.drawImage(image,sx,sy,sw,sh,-w*k/2,-h*k/2,w*k,h*k);ctx.restore();};
     if(back){
-      logo(stem,10,10,330,155,0,1.03,.34,.16);
+      logo(stem,0,0,173,58,0,1.03,.36,.36*58/173);
     }else{
       logo(hive,93,109,410,183,-.36,.66,.43,.19);
       logo(mr,60,240,510,180,.37,.66,.44,.155);

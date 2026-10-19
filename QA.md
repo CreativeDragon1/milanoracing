@@ -71,3 +71,10 @@ Final recheck: 36 route/viewport combinations (320, 390, 768, 1280 px), no horiz
 The user clarified a relaxed worn shape without a visible mannequin, plus sleeve marks facing outwards on the upper arms. The torso has neutral chest/waist depth, slight hem ease and shallow hanging folds; neckline adjustment is distributed into surrounding fabric. Sleeve decals project from left/right sides rather than from behind, with cuff clearance. This is a modeled garment preview, not a physically validated cloth simulation. The original artwork and optional personalisation remain intact.
 
 Focused verification for this refinement: TypeScript and production build passed; front and side inspected in the browser; source artwork retained and no mannequin mesh added. This geometry-only update keeps the previously checked page layouts.
+
+
+## Smooth kit and public-copy cleanup
+
+Replaced the black rectangular back badge with the PDF's exact transparent black-lettered STEM Racing mark. Sleeve stacks now use a shared orientation, centered on each outer arm: Brinda's above Enermax; Axis above NPE. Removed added cloth crease deformation and smoothed the upper fabric. Hid empty member-introduction controls and removed journal/editorial placeholder notes; technical limitations of the drag data remain available.
+
+Transparent back mark and direct side view were visually verified. Axis/NPE now have visible clearance from the cuff and share a center line. The empty team-introduction controls are absent from the rendered page.

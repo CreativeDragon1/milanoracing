@@ -8,10 +8,10 @@ export async function addSleeveDecals(model:THREE.Object3D, parent:THREE.Group){
   const meshes:THREE.Mesh[]=[];
   model.traverse(o=>{if(o instanceof THREE.Mesh && o.visible && o.material.name==='Milano cloth')meshes.push(o);});
   const definitions=[
-    {file:'brindas.png',crop:[35,85,340,130],side:1,y:.90,width:.32},
-    {file:'enermax.png',crop:[35,35,335,220],side:1,y:.65,width:.31},
-    {file:'npe.png',crop:[36,140,375,170],side:-1,y:.90,width:.32},
-    {file:'axis.png',crop:[105,90,290,405],side:-1,y:.65,width:.18},
+    {file:'brindas.png',crop:[35,85,340,130],side:1,y:.92,width:.30},
+    {file:'enermax.png',crop:[35,35,335,220],side:1,y:.66,width:.29},
+    {file:'axis.png',crop:[105,90,290,405],side:-1,y:.92,width:.16},
+    {file:'npe.png',crop:[36,140,375,170],side:-1,y:.66,width:.30},
   ];
   await Promise.all(definitions.map(async d=>{
     const image=new Image();image.src=asset(d.file);await image.decode();
@@ -24,7 +24,10 @@ export async function addSleeveDecals(model:THREE.Object3D, parent:THREE.Group){
     const ray=new THREE.Raycaster(new THREE.Vector3(d.side*3,d.y,.015),new THREE.Vector3(-d.side,0,0));
     const hit=ray.intersectObjects(meshes,false)[0];
     if(!hit?.face){texture.dispose();throw new Error(`Sleeve placement unavailable: ${d.file}`);}
-    const normal=hit.face.normal.clone().transformDirection(hit.object.matrixWorld);
+    // Both marks share one sleeve orientation so their baselines stay aligned.
+    const centreRay=new THREE.Raycaster(new THREE.Vector3(d.side*3,.79,.015),new THREE.Vector3(-d.side,0,0));
+    const centreHit=centreRay.intersectObjects(meshes,false)[0];
+    const normal=(centreHit?.face?.normal ?? hit.face.normal).clone().transformDirection(hit.object.matrixWorld);
     if(normal.x*d.side<0)normal.negate();
     const orientation=new THREE.Euler().setFromQuaternion(new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().lookAt(hit.point.clone().add(normal),hit.point,new THREE.Vector3(0,1,0))));
     const geometry=new DecalGeometry(hit.object as THREE.Mesh,hit.point,orientation,new THREE.Vector3(d.width,d.width*sh/sw,.23));

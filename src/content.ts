@@ -129,12 +129,12 @@ export const posts = [
     category: "Design",
     title: "A closer look at our current livery.",
     image: "current-car.webp",
-    caption: "Team-supplied car render",
+    caption: "Milano Racing livery",
     excerpt:
-      "The supplied render brings the miniature car and partner branding together.",
+      "A closer look at the car’s livery and partner branding.",
     body: [
-      "This is the current livery render supplied by Milano Racing. It shows the actual miniature STEM Racing car, including the team’s partner branding.",
-      "The render has not been assigned a version number. Version-specific models and renders will be added to the Car Evolution archive when the team supplies them.",
+      "Our current livery brings the Milano Racing car and our partners’ branding together.",
+      "Explore the development history and recorded aerodynamic results in our Car Evolution archive.",
     ],
   },
   {

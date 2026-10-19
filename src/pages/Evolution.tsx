@@ -20,7 +20,6 @@ function MissingModel({
       <Box size={compact ? 32 : 46} strokeWidth={1} />
       <strong>Original model goes here</strong>
       <span>Awaiting {car.id} CAD / render</span>
-      <small>Editable content placeholder</small>
     </div>
   );
 }

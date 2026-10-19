@@ -32,7 +32,7 @@ export default function Team() {
               >
                 View introduction <ArrowUpRight size={15} />
               </a>}
-              <Press
+              {person.introduction && <Press
                 className="profile-toggle"
                 aria-expanded={expanded === person.id}
                 aria-controls={`profile-${person.id}`}
@@ -46,28 +46,11 @@ export default function Team() {
                 ) : (
                   <Plus size={17} />
                 )}
-              </Press>
+              </Press>}
               {expanded === person.id && (
                 <div id={`profile-${person.id}`} className="profile-expanded">
-                  {person.introduction ? (
-                    <>
-                      <p>{person.introduction}</p>
-                      {person.highlights?.map((item) => (
-                        <p key={item}>{item}</p>
-                      ))}
-                    </>
-                  ) : (
-                    <>
-                      <strong>A little more to come.</strong>
-                      <p>
-                        Personal introduction and individual project highlights
-                        awaiting the team’s words.
-                      </p>
-                      <span className="placeholder-label">
-                        Editable introduction placeholder
-                      </span>
-                    </>
-                  )}
+                  <p>{person.introduction}</p>
+                  {person.highlights?.map(item => <p key={item}>{item}</p>)}
                 </div>
               )}
             </div>
