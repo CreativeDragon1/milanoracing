@@ -24,16 +24,6 @@ export type Person = {
 };
 export const people: Person[] = [
   {
-    id: "raahi",
-    quote: "Impossible is just a problem that hasn't met the right mind.",
-    name: "Raahi Chheda",
-    number: "01",
-    role: "Team Leader",
-    image: "raahi-portrait.jpg",
-    contribution: "Team introduction from Milano Racing’s Instagram.",
-    source: "https://www.instagram.com/milanoracing_/p/DclThrdmjCN/",
-  },
-  {
     id: "ajinkya",
     quote: "Fueled by caffeine and CFD",
     name: "Ajinkya Velukar",
@@ -42,6 +32,16 @@ export const people: Person[] = [
     image: "ajinkya-portrait.jpg",
     contribution: "Team introduction from Milano Racing’s Instagram.",
     source: "https://www.instagram.com/milanoracing_/p/DclTqZcmuvZ/",
+  },
+  {
+    id: "raahi",
+    quote: "Impossible is just a problem that hasn't met the right mind.",
+    name: "Raahi Chheda",
+    number: "01",
+    role: "Team Leader",
+    image: "raahi-portrait.jpg",
+    contribution: "Team introduction from Milano Racing’s Instagram.",
+    source: "https://www.instagram.com/milanoracing_/p/DclThrdmjCN/",
   },
   {
     id: "geet",
@@ -54,16 +54,16 @@ export const people: Person[] = [
     source: "https://www.instagram.com/milanoracing_/p/DclTXIkGi5F/",
   },
   {
-    id: "niteesh",
-    quote: "Built on earth, Bound for galaxies", name: "Niteesh Kumar", role: "Resource Lead", number: "12",
-    image: "niteesh-portrait.jpg", supplied: true,
-    contribution: "Resource Lead, confirmed in the supplied team introduction.", source: "https://www.instagram.com/p/DclTLqAmk87/",
-  },
-  {
     id: "gayatri",
     quote: "Chase both, the car and the vision", name: "Gayatri Pandkar", role: "Designer", number: "10",
     image: "gayatri-portrait.jpg", supplied: true,
     contribution: "Designer, confirmed in the supplied team introduction.", source: "https://www.instagram.com/p/DclTDU0mnYR/",
+  },
+  {
+    id: "niteesh",
+    quote: "Built on earth, Bound for galaxies", name: "Niteesh Kumar", role: "Resource Lead", number: "12",
+    image: "niteesh-portrait.jpg", supplied: true,
+    contribution: "Resource Lead, confirmed in the supplied team introduction.", source: "https://www.instagram.com/p/DclTLqAmk87/",
   },
   {
     id: "ashmitha", name: "Ashmitha Pitani", role: "Outreach Lead", number: "25",

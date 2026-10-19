@@ -1,0 +1,46 @@
+[
+  {
+    "route": "/team",
+    "width": 320,
+    "scrollWidth": 305,
+    "overflow": false,
+    "brokenImages": [],
+    "heading": "Different minds. One team.",
+    "carFrames": [],
+    "comparisonCards": [],
+    "links": 0
+  },
+  {
+    "route": "/team",
+    "width": 390,
+    "scrollWidth": 375,
+    "overflow": false,
+    "brokenImages": [],
+    "heading": "Different minds. One team.",
+    "carFrames": [],
+    "comparisonCards": [],
+    "links": 0
+  },
+  {
+    "route": "/team",
+    "width": 768,
+    "scrollWidth": 753,
+    "overflow": false,
+    "brokenImages": [],
+    "heading": "Different minds. One team.",
+    "carFrames": [],
+    "comparisonCards": [],
+    "links": 0
+  },
+  {
+    "route": "/team",
+    "width": 1280,
+    "scrollWidth": 1265,
+    "overflow": false,
+    "brokenImages": [],
+    "heading": "Different minds. One team.",
+    "carFrames": [],
+    "comparisonCards": [],
+    "links": 0
+  }
+]

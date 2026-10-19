@@ -169,3 +169,7 @@ Enhanced the cloth normal texture, added subtle roughness variation and two anti
 
 ## High-frame-rate kit exports — 20 October 2026
 Downloaded and decoded the actual browser exports: GIF 960 x 1200, 360 frames, all delays 20ms (50fps), 7200ms, infinite loop. MP4 H.264 960 x 1200, 432 decoded frames, both reported rates 60/1, duration 7.200000 seconds. MP4 cancellation at 1 percent restored the viewer and export controls. Production and standalone builds passed; embedded script syntax and asset integrity checked. Browser playback cadence depends on the device; file frame rates were verified directly. Evidence: qa/kit-framerate-export.json.
+
+
+## Team role layout — 20 October 2026
+Swapped Ajinkya and Raahi: desktop top row is Lead Engineer, Team Leader, Aerodynamicist; second row is Designer, Resource Lead, Outreach Lead. Equal cards preserve full 4:5 introduction artwork, with aligned role/name/link spacing. Reading order is shared by visual and keyboard navigation, flowing to two columns on tablet and one on phones. Browser layout checks at 320, 390, 768 and 1280px passed without horizontal overflow, broken loaded images or empty links. Desktop and phone appearance reviewed. Production and standalone builds passed. Evidence: qa/team-layout-results.json.

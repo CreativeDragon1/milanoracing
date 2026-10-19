@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { ArrowUpRight, Plus, Minus } from "lucide-react";
-import { contact, people } from "../content";
+import { people } from "../content";
 import { Press, Reveal } from "../motion";
 import JerseyViewer from "../components/JerseyViewer";
 import TeamPortrait from "../components/TeamPortrait";
 
-import { asset, nav, ArrowLink, Eyebrow, Heading, SingaporeFlag } from "../components/site";
+import { Heading, SingaporeFlag } from "../components/site";
+import "./Team.css";
+
 export default function Team() {
   const [expanded, setExpanded] = useState<string | null>(null);
   return (
@@ -14,13 +16,13 @@ export default function Team() {
         title="Different minds. One team."
         description={<>Six people working together to compete in STEM Racing.<span className="team-location">Based in <span className="location-inline">Singapore <SingaporeFlag/></span>.</span></>}
       />
-      <div className="team-grid">
+      <section className="team-grid" aria-label="Meet the Milano Racing team">
         {people.map((person, index) => (
-          <Reveal className="person raised" key={person.id} delay={(index % 3) * .055}>
+          <Reveal as="article" className="person raised" aria-labelledby={`member-${person.id}`} key={person.id} delay={(index % 3) * .055}>
             <TeamPortrait person={person}/>
             <div className="person-copy">
               <span className="small-label">{person.role}</span>
-              <h2>{person.name}</h2>
+              <h2 id={`member-${person.id}`}>{person.name}</h2>
               {person.source && <a
                 className="text-link"
                 href={person.source}
@@ -53,7 +55,7 @@ export default function Team() {
             </div>
           </Reveal>
         ))}
-      </div>
+      </section>
       <section className="jersey-section kit-section section" id="team-kit">
         <Reveal className="jersey-copy">
           <h2>Our identity.<br />From every angle.</h2>
