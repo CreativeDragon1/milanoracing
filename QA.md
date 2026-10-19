@@ -148,3 +148,5 @@ Rotation refinement: downloaded GIF decoded successfully at 960 x 1200 with 180 
 
 ## Contact links — 20 October 2026
 Contact buttons offer Gmail, another email app and a copyable address. All five partnership CTAs route to the contact panel and preserve the correct plan in both email URLs. Header and footer contact links reset to a general enquiry. Verified all five plan selections, generated URL parameters and copy feedback in the browser; no email was sent. Responsive sweep passed all 36 route/width combinations. Production build and embedded HTML validation passed. External social pages were not fully verifiable through automated fetching; their supplied destinations are retained.
+
+Email-provider follow-up: Gmail now explicitly targets the visitor default session at /mail/u/0/. The expandable alternative-service menu provides Outlook/Hotmail, Microsoft 365, Yahoo compose URLs and a default-app mailto. Verified generated recipient, subject and body parameters, menu expansion and 320px layout without overflow. Authenticated provider compose screens were not tested; no account discovery or email sending is performed.

@@ -21,5 +21,18 @@
     "brokenImages": 0,
     "headingFailures": 0
   },
-  "externalLinks": "Axis homepage verified in browser. NPE, Brindas, Hustle Hive and Enermax profile returned web content. Social destinations retained; automated fetch failures do not establish broken links."
+  "externalLinks": "Axis homepage verified in browser. NPE, Brindas, Hustle Hive and Enermax profile returned web content. Social destinations retained; automated fetch failures do not establish broken links.",
+  "providerFollowup": {
+    "gmailAccountPath": "/mail/u/0/",
+    "providerChoices": [
+      "Outlook / Hotmail",
+      "Microsoft 365",
+      "Yahoo Mail",
+      "Default email app"
+    ],
+    "expandedMenuMobileWidth": 320,
+    "mobileOverflow": false,
+    "providerHrefParametersVerified": true,
+    "authenticatedProviderComposeNotTested": true
+  }
 }

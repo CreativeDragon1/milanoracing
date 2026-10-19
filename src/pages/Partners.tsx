@@ -23,8 +23,15 @@ function Contact() {
   const body = plan
     ? `Hello Milano Racing,\n\nI'd like to discuss the ${plan} partnership.\n\nOrganisation:\nHow we would like to support the team:\n`
     : "Hello Milano Racing,\n\n";
-  const gmail = `https://mail.google.com/mail/?${new URLSearchParams({ view: "cm", fs: "1", to: contact.email, su: subject, body })}`;
+  // Account 0 is the visitor's default Google session, never the team's account.
+  const gmail = `https://mail.google.com/mail/u/0/?${new URLSearchParams({ view: "cm", fs: "1", to: contact.email, su: subject, body })}`;
   const mailto = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const messageParams = new URLSearchParams({ to: contact.email, subject, body }).toString();
+  const providers = [
+    { name: "Outlook / Hotmail", href: `https://outlook.live.com/mail/0/deeplink/compose?${messageParams}` },
+    { name: "Microsoft 365", href: `https://outlook.office.com/mail/deeplink/compose?${messageParams}` },
+    { name: "Yahoo Mail", href: `https://compose.mail.yahoo.com/?${messageParams}` },
+  ];
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
   async function copy() {
@@ -59,10 +66,16 @@ function Contact() {
           rel="noopener noreferrer"
         >
           <Mail size={18} />
-          Open Gmail
+          Compose in your Gmail
           <ArrowUpRight size={17} />
         </a>
-        <a className="button secondary contact-email-app" href={mailto}>Use another email app <ArrowUpRight size={17} /></a>
+        <details className="contact-email-options">
+          <summary>Use another email service</summary>
+          <div className="contact-provider-links">
+            {providers.map(provider => <a key={provider.name} href={provider.href} target="_blank" rel="noopener noreferrer">{provider.name}<ArrowUpRight size={15} aria-hidden="true" /></a>)}
+            <a href={mailto}>Default email app<ArrowUpRight size={15} aria-hidden="true" /></a>
+          </div>
+        </details>
         <div className="email-copy">
           <a href={mailto}>{contact.email}</a>
           <Press
