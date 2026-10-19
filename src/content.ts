@@ -45,7 +45,7 @@ export const people: Person[] = [
   },
   {
     id: "geet",
-    quote: "I'm honestly always tryna get faster even though its not a race",
+    quote: "I'm honestly always trying to get faster even though its not a race",
     name: "Geet Bathamsetty",
     number: "33",
     role: "Aerodynamicist",
