@@ -144,3 +144,7 @@ Kit export verification: personalised GEET / 33 PNG downloaded at 2400 x 3000. G
 Production preview: inline GIF worker completed all frames and the resulting 960 x 1200 GIF loaded in the browser. Production PNG downloaded successfully. The jersey article at 320px had no horizontal overflow, broken images or empty links. Production and standalone builds passed; standalone assets and script syntax verified.
 
 Rotation refinement: downloaded GIF decoded successfully at 960 x 1200 with 180 frames, every delay 40ms (25 fps), total duration 7200ms, infinite loop. Export caption visually verified as ALWAYS THE FASTEST; bottom label is MILANO RACING. Shared PNG/GIF composition uses the same captions. Production and standalone builds passed.
+
+
+## Contact links — 20 October 2026
+Contact buttons offer Gmail, another email app and a copyable address. All five partnership CTAs route to the contact panel and preserve the correct plan in both email URLs. Header and footer contact links reset to a general enquiry. Verified all five plan selections, generated URL parameters and copy feedback in the browser; no email was sent. Responsive sweep passed all 36 route/width combinations. Production build and embedded HTML validation passed. External social pages were not fully verifiable through automated fetching; their supplied destinations are retained.

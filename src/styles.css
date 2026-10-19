@@ -1187,6 +1187,14 @@ main,
 .contact-actions > .button {
   display: flex;
 }
+.contact-email-app {
+  margin-top: 12px;
+}
+.contact-section .contact-enquiry {
+  margin: 0 0 16px;
+  color: var(--blue);
+  font-weight: 600;
+}
 .email-copy {
   display: flex;
   align-items: center;

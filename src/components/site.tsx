@@ -140,10 +140,10 @@ export function Footer() {
             <br />
             See you on the track.
           </h2>
-          <a className="text-link" href={`mailto:${contact.email}`}>
+          <Link className="text-link" to="/partners#contact">
             {contact.email}
             <ArrowUpRight size={18} />
-          </a>
+          </Link>
         </div>
         <div className="footer-links">
           <div>

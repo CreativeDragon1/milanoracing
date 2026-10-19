@@ -1,4 +1,4 @@
-import { contact } from "../content";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
 // Transcribed from page 4, including its printed prices and cross-tier references.
@@ -9,7 +9,7 @@ export const partnershipPlans = [
   { name: "Legacy", price: "$850+", includes: "Everything in Prestige, plus", benefits: ["Largest available sponsor logo placement", "Priority branding across Milano Racing materials", "Recognition in major team announcements and presentations", "Dedicated feature highlighting your organisation", "Detailed end-of-season impact and performance report"] },
 ];
 const inKind = ["Manufacturing and machining support", "Materials and components", "Software licences", "Transportation and logistics", "Technical expertise and mentorship"];
-const enquiry = (name: string) => `mailto:${contact.email}?subject=${encodeURIComponent(`${name} partnership enquiry`)}&body=${encodeURIComponent(`Hello Milano Racing,\n\nI'd like to discuss the ${name} partnership.\n\nOrganisation:\nHow we would like to support the team:\n`)}`;
+const enquiry = (name: string) => `/partners?plan=${encodeURIComponent(name)}#contact`;
 
 export default function PartnershipPlans() {
   return <section className="partnership-plans section" id="partnerships">
@@ -18,10 +18,10 @@ export default function PartnershipPlans() {
       <h3>{plan.name}</h3><p className="plan-price">{plan.price}</p>
       {plan.includes && <p className="plan-includes">{plan.includes}</p>}
       <ul>{plan.benefits.map(benefit => <li key={benefit}>{benefit}</li>)}</ul>
-      <a className="button secondary" href={enquiry(plan.name)}>Discuss {plan.name}<ArrowUpRight size={17}/></a>
+      <Link className="button secondary" to={enquiry(plan.name)}>Discuss {plan.name}<ArrowUpRight size={17}/></Link>
     </article>)}</div>
     <article className="in-kind-plan">
-      <div><h3>Prestige</h3><p className="plan-price">In kind</p><p>Bring your resources, expertise or services to the project.</p><a className="text-link" href={enquiry("Prestige")}>Talk about in-kind support <ArrowUpRight size={18}/></a></div>
+      <div><h3>Prestige</h3><p className="plan-price">In kind</p><p>Bring your resources, expertise or services to the project.</p><Link className="text-link" to={enquiry("Prestige")}>Talk about in-kind support <ArrowUpRight size={18}/></Link></div>
       <ul>{inKind.map(item => <li key={item}>{item}</li>)}</ul>
     </article>
   </section>;

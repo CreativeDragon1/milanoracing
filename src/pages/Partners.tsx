@@ -1,5 +1,6 @@
 import PartnershipPlans from "../components/PartnershipPlans";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   ArrowUpRight,
   Mail,
@@ -15,6 +16,15 @@ import { Press } from "../motion";
 import { Heading } from "../components/site";
 import SponsorLogo from "../components/SponsorLogo";
 function Contact() {
+  const [searchParams] = useSearchParams();
+  const requestedPlan = searchParams.get("plan");
+  const plan = ["Signature", "Essence", "Aurum", "Legacy", "Prestige"].find(name => name === requestedPlan);
+  const subject = plan ? `${plan} partnership enquiry` : "Hello Milano Racing";
+  const body = plan
+    ? `Hello Milano Racing,\n\nI'd like to discuss the ${plan} partnership.\n\nOrganisation:\nHow we would like to support the team:\n`
+    : "Hello Milano Racing,\n\n";
+  const gmail = `https://mail.google.com/mail/?${new URLSearchParams({ view: "cm", fs: "1", to: contact.email, su: subject, body })}`;
+  const mailto = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
   async function copy() {
@@ -41,16 +51,20 @@ function Contact() {
         </p>
       </div>
       <div className="contact-actions">
+        {plan && <p className="contact-enquiry" role="status">Let’s talk about {plan}.</p>}
         <a
           className="button primary"
-          href={`mailto:${contact.email}?subject=Hello%20Milano%20Racing`}
+          href={gmail}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <Mail size={18} />
-          Email the team
+          Open Gmail
           <ArrowUpRight size={17} />
         </a>
+        <a className="button secondary contact-email-app" href={mailto}>Use another email app <ArrowUpRight size={17} /></a>
         <div className="email-copy">
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <a href={mailto}>{contact.email}</a>
           <Press
             className="icon-button"
             onClick={copy}

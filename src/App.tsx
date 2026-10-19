@@ -22,7 +22,7 @@ function RouteFocus() {
       window.scrollTo({ top: 0, behavior: "instant" });
     }
     document.getElementById("main")?.focus({ preventScroll: true });
-  }, [location.pathname, location.hash]);
+  }, [location.pathname, location.search, location.hash, location.key]);
   return null;
 }
 export default function App() {

@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-20",
+  "contact": {
+    "gmailRecipient": "milanoracing10@gmail.com",
+    "plansVerified": [
+      "Signature",
+      "Essence",
+      "Aurum",
+      "Legacy",
+      "Prestige"
+    ],
+    "genericContactResetsPlan": true,
+    "copyAddressFeedbackVerified": true,
+    "emailAppFallbackPresent": true,
+    "gmailComposeHrefChecked": true,
+    "gmailSendingTested": false
+  },
+  "responsive": {
+    "routesAndWidths": 36,
+    "overflow": 0,
+    "brokenImages": 0,
+    "headingFailures": 0
+  },
+  "externalLinks": "Axis homepage verified in browser. NPE, Brindas, Hustle Hive and Enermax profile returned web content. Social destinations retained; automated fetch failures do not establish broken links."
+}
