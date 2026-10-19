@@ -1,3 +1,4 @@
+import { Reveal } from "../motion";
 import { useEffect, useMemo, useState } from "react";
 
 export const competitionStart = Date.parse("2026-11-23T00:00:00+08:00");
@@ -25,7 +26,7 @@ export default function CompetitionCountdown() {
   const digits = useMemo(() => new Intl.NumberFormat(undefined, { minimumIntegerDigits: 2, useGrouping: false }), []);
   const clock = competitionClock(now);
   const parts = [[clock.days,"Days"],[clock.hours,"Hours"],[clock.minutes,"Minutes"],[clock.seconds,"Seconds"]] as const;
-  return <section className="competition-countdown raised" aria-labelledby="competition-title">
+  return <Reveal as="section" className="competition-countdown raised" aria-labelledby="competition-title">
     <div className="competition-heading">
       <h2 id="competition-title">Final Countdown</h2>
       <p>STEM Racing</p>
@@ -35,5 +36,5 @@ export default function CompetitionCountdown() {
       aria-label={`${clock.days} days, ${clock.hours} hours, ${clock.minutes} minutes and ${clock.seconds} seconds until STEM Racing`}>
       {parts.map(([value,label]) => <div className="countdown-unit" key={label} aria-hidden="true"><strong>{digits.format(value)}</strong><span>{label}</span></div>)}
     </div> : <p className="competition-arrived" role="status">{clock.phase === "today" ? "It's competition day." : "The countdown is complete."}</p>}
-  </section>;
+  </Reveal>;
 }

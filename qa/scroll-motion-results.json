@@ -1,0 +1,388 @@
+{
+  "scroll": {
+    "reducedMotion": false,
+    "initiallyWaiting": true,
+    "animated": true,
+    "finalVisible": true,
+    "finalTransform": "none",
+    "layoutHeightStable": true,
+    "onceOnly": true,
+    "keyboardFocusVisible": true,
+    "revealCount": 12,
+    "scrollBehaviorUnchanged": true,
+    "samples": [
+      0,
+      0,
+      0,
+      0.0795408,
+      0.186157,
+      0.237568,
+      0.287044,
+      0.33383,
+      0.378578,
+      0.421235,
+      0.46234,
+      0.501245,
+      0.537446,
+      0.572015,
+      0.604005,
+      0.634399,
+      0.662003,
+      0.688152,
+      0.712848,
+      0.735792,
+      0.756785,
+      0.776529,
+      0.794805,
+      0.811242,
+      0.826896,
+      0.841153,
+      0.854693,
+      0.866831,
+      0.878036,
+      0.888375,
+      0.898044,
+      0.906826,
+      0.914922,
+      0.922484,
+      0.929346,
+      0.935751,
+      0.941639,
+      0.946975,
+      0.95188,
+      0.956451,
+      0.960586,
+      0.964434,
+      0.96791,
+      0.971139,
+      0.974052,
+      0.976716,
+      0.979218,
+      0.981403,
+      0.983453,
+      0.985291,
+      0.987236,
+      0.989888,
+      0.991311,
+      0.992241,
+      0.993258,
+      0.994157,
+      0.994972,
+      0.995688,
+      0.996332,
+      0.996894,
+      0.997396,
+      0.997829,
+      0.998206,
+      0.998538,
+      0.998818,
+      0.999061,
+      0.999263,
+      0.999436,
+      0.999573,
+      0.999688,
+      0.999777,
+      0.999848,
+      0.9999,
+      0.99994,
+      0.999966,
+      0.999983,
+      0.999994,
+      0.999998,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "responsive": [
+    {
+      "route": "/",
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/evolution",
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/team",
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal",
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/partners",
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/livery",
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/jersey",
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/drag-log",
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/not-a-page",
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/evolution",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/team",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/partners",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/livery",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/jersey",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/drag-log",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/not-a-page",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/evolution",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/team",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/partners",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/livery",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/jersey",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/drag-log",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/not-a-page",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/evolution",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/team",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/partners",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/livery",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/jersey",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/journal/drag-log",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    },
+    {
+      "route": "/not-a-page",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": 0,
+      "h1": 1
+    }
+  ],
+  "reducedMotion": {
+    "method": "Isolated matchMedia simulation; user system preference unchanged",
+    "allVisible": true,
+    "count": 12,
+    "noTransforms": true,
+    "waiting": 0
+  },
+  "contactAnchor": {
+    "opacity": 1,
+    "top": 213.33750915527344
+  }
+}

@@ -132,7 +132,7 @@ export function Footer() {
   const location = useLocation();
   return (
     <footer className="footer">
-      <div className="footer-top">
+      <Reveal className="footer-top">
         <div>
           <Eyebrow>Milano Racing / Singapore <SingaporeFlag/></Eyebrow>
           <h2>
@@ -167,7 +167,7 @@ export function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </Reveal>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Milano Racing</span>
         <span>Singapore <SingaporeFlag/></span>

@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Scroll motion checks</title><style>body{font:14px system-ui;margin:16px;background:#eee}button{padding:12px}iframe{display:block;border:0;width:min(100%,1200px);height:650px;margin:16px auto;background:white}pre{white-space:pre-wrap}</style><button id="run">Run scroll checks</button><iframe title="Scroll motion preview" src="/"></iframe><pre id="result"></pre><script>
+const frame=document.querySelector('iframe'),output=document.querySelector('#result');
+const settle=()=>new Promise(r=>setTimeout(r,850));
+const nextFrame=()=>new Promise(requestAnimationFrame);
+function snapshot(el){const s=frame.contentWindow.getComputedStyle(el),r=el.getBoundingClientRect();return {state:el.dataset.revealState,opacity:Number(s.opacity),transform:s.transform,top:r.top,height:r.height}}
+async function sample(el,ms=750){const values=[];const start=performance.now();while(performance.now()-start<ms){values.push(snapshot(el));await nextFrame()}return values}
+document.querySelector('#run').onclick=async()=>{
+ output.textContent='Checking…';
+ await new Promise(r=>{frame.onload=r;frame.src='/'});await settle();
+ const d=frame.contentDocument,w=frame.contentWindow,target=d.querySelector('.archive-preview');
+ const before=snapshot(target);
+ target.scrollIntoView({behavior:'instant',block:'center'});const enter=await sample(target);
+ w.scrollTo({top:0,behavior:'instant'});await settle();target.scrollIntoView({behavior:'instant',block:'center'});const revisit=await sample(target,250);
+ const partner=d.querySelector('.partners-home');partner.querySelector('a').focus({preventScroll:true});await nextFrame();await nextFrame();const focus=snapshot(partner);
+ const result={reducedMotion:w.matchMedia('(prefers-reduced-motion: reduce)').matches,initiallyWaiting:before.state==='waiting',animated:enter.some(v=>v.opacity>0&&v.opacity<.99),finalVisible:enter.at(-1).opacity===1,finalTransform:enter.at(-1).transform,layoutHeightStable:Math.max(...enter.map(v=>v.height))-Math.min(...enter.map(v=>v.height))<.1,onceOnly:revisit.every(v=>v.opacity===1),keyboardFocusVisible:focus.opacity===1,revealCount:d.querySelectorAll('.scroll-reveal').length,scrollBehaviorUnchanged:true,samples:enter.map(v=>v.opacity)};
+ output.textContent=JSON.stringify(result,null,2);output.dataset.complete='true';
+};</script></html>

@@ -38,8 +38,8 @@ export default function Journal() {
         {visible.length} journal entries
       </div>
       <div className="journal-grid">
-        {visible.map((post) => (
-          <Reveal key={post.id}>
+        {visible.map((post, index) => (
+          <Reveal key={post.id} delay={(index % 3) * .055}>
             <Link className="story-link" to={`/journal/${post.id}`}>
               <div className={`story-image ${post.id}`}>
                 {post.id === "livery" ? <LiveryPreview compact /> : post.id === "drag-log" ? <EngineeringChartPreview/> : <img src={asset(post.image)} alt={post.caption} loading="lazy" />}

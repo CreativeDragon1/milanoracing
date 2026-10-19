@@ -94,3 +94,8 @@
 .location-inline .sg-flag { margin-left: 0; align-self: center; }
 
 .team-location { display: block; margin-top: 6px; }
+
+/* Scroll reveals never change layout, and keyboard focus reveals content immediately. */
+.scroll-reveal:focus-within { opacity: 1 !important; transform: none !important; }
+@media (prefers-reduced-motion: reduce) { .scroll-reveal { opacity: 1 !important; transform: none !important; } }
+@media print { .scroll-reveal { opacity: 1 !important; transform: none !important; } }

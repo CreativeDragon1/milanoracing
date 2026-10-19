@@ -1,3 +1,4 @@
+import { Reveal } from "../motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
@@ -13,16 +14,16 @@ const enquiry = (name: string) => `/partners?plan=${encodeURIComponent(name)}#co
 
 export default function PartnershipPlans() {
   return <section className="partnership-plans section" id="partnerships">
-    <div className="section-heading"><h2>Find your place<br/>on the team.</h2><p>Support the next stage of Milano Racing.</p></div>
-    <div className="plans-grid">{partnershipPlans.map(plan => <article className="plan-card raised" key={plan.name}>
+    <Reveal className="section-heading"><h2>Find your place<br/>on the team.</h2><p>Support the next stage of Milano Racing.</p></Reveal>
+    <div className="plans-grid">{partnershipPlans.map((plan, index) => <Reveal as="article" delay={(index % 2) * .06} className="plan-card raised" key={plan.name}>
       <h3>{plan.name}</h3><p className="plan-price">{plan.price}</p>
       {plan.includes && <p className="plan-includes">{plan.includes}</p>}
       <ul>{plan.benefits.map(benefit => <li key={benefit}>{benefit}</li>)}</ul>
       <Link className="button secondary" to={enquiry(plan.name)}>Discuss {plan.name}<ArrowUpRight size={17}/></Link>
-    </article>)}</div>
-    <article className="in-kind-plan">
+    </Reveal>)}</div>
+    <Reveal as="article" className="in-kind-plan">
       <div><h3>Prestige</h3><p className="plan-price">In kind</p><p>Bring your resources, expertise or services to the project.</p><Link className="text-link" to={enquiry("Prestige")}>Talk about in-kind support <ArrowUpRight size={18}/></Link></div>
       <ul>{inKind.map(item => <li key={item}>{item}</li>)}</ul>
-    </article>
+    </Reveal>
   </section>;
 }

@@ -15,8 +15,8 @@ export default function Team() {
         description={<>Six people working together to compete in STEM Racing.<span className="team-location">Based in <span className="location-inline">Singapore <SingaporeFlag/></span>.</span></>}
       />
       <div className="team-grid">
-        {people.map((person) => (
-          <Reveal className="person raised" key={person.id}>
+        {people.map((person, index) => (
+          <Reveal className="person raised" key={person.id} delay={(index % 3) * .055}>
             <TeamPortrait person={person}/>
             <div className="person-copy">
               <span className="small-label">{person.role}</span>

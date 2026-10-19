@@ -31,7 +31,7 @@ export default function Home() {
             Singapore <SingaporeFlag/>
           </div>
         </Reveal>
-        <Reveal className="hero-visual">
+        <Reveal className="hero-visual" delay={.08}>
           <Link to="/journal/livery" className="hero-livery-link" aria-label="Discover the upcoming Milano Racing livery"><LiveryPreview /></Link>
         </Reveal>
       </section>
@@ -46,7 +46,7 @@ export default function Home() {
             <image href={asset("milano-official.png")} width="648" height="648" />
           </svg>
         </Reveal>
-        <Reveal className="intro-copy">
+        <Reveal className="intro-copy" delay={.08}>
           <p className="large-copy">A miniature car. A whole team of ideas.</p>
           <p>
             We design and develop our car for STEM Racing, bringing together
@@ -61,7 +61,7 @@ export default function Home() {
           </Link>
         </Reveal>
       </section>
-      <section className="archive-preview raised">
+      <Reveal as="section" className="archive-preview raised">
         <div className="archive-copy">
           <h2>
             Progress has
@@ -93,23 +93,23 @@ export default function Home() {
             Illustrative data
           </p>
         </div>
-      </section>
-      <section className="kit-signature">
+      </Reveal>
+      <Reveal as="section" className="kit-signature">
         <div className="kit-signature-art" aria-hidden="true"><img src={asset("kit-dragon-original.png")} alt=""/><span>THE MILANO<br/>SIGNATURE.</span><i/><b/></div>
         <div className="kit-signature-copy"><h2>Made to stand<br/>for something.</h2><p>From the workshop to competition day, our kit brings the team together. Explore the details and make it your own.</p><ArrowLink to="/team#team-kit">Explore & personalise the kit</ArrowLink></div>
-      </section>
+      </Reveal>
       <section className="section journal-preview">
-        <div className="section-heading">
+        <Reveal className="section-heading">
           <div>
             <h2>The work behind the car.</h2>
           </div>
           <Link className="text-link" to="/journal">
             Visit the journal <ArrowUpRight size={18} />
           </Link>
-        </div>
+        </Reveal>
         <div className="home-story-grid">
-          {posts.slice(0, 2).map((post) => (
-            <Link
+          {posts.slice(0, 2).map((post, index) => (
+            <Reveal key={post.id} delay={index * .07}><Link
               to={`/journal/${post.id}`}
               className="story-link"
               key={post.id}
@@ -128,11 +128,11 @@ export default function Home() {
                 {post.category}
               </div>
               <h3>{post.title}</h3>
-            </Link>
+            </Link></Reveal>
           ))}
         </div>
       </section>
-      <section className="partners-home">
+      <Reveal as="section" className="partners-home">
         <div>
           <span className="small-label">Supported by</span>
           <Link to="/partners" className="text-link">
@@ -146,7 +146,7 @@ export default function Home() {
             </a>
           ))}
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

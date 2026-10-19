@@ -1,5 +1,5 @@
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
+import { useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 const MotionRouterLink = motion.create(Link);
 export const teaserMotion = {
@@ -16,21 +16,41 @@ export const physics = {
 export function Reveal({
   children,
   className = "",
+  as = "div",
+  delay = 0,
+  id,
+  "aria-labelledby": labelledBy,
+  "aria-label": label,
 }: {
   children: ReactNode;
   className?: string;
+  as?: "div" | "section" | "article";
+  delay?: number;
+  id?: string;
+  "aria-labelledby"?: string;
+  "aria-label"?: string;
 }) {
   const reduced = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "0px 0px -24px 0px", amount: "some" });
+  const [focused, setFocused] = useState(false);
+  const visible = !!reduced || inView || focused;
+  const Tag = as === "section" ? motion.section : as === "article" ? motion.article : motion.div;
   return (
-    <motion.div
-      className={className}
-      initial={reduced ? false : { opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-25px" }}
-      transition={physics.gentle}
+    <Tag
+      ref={ref}
+      id={id}
+      aria-labelledby={labelledBy}
+      aria-label={label}
+      className={`scroll-reveal ${className}`}
+      data-reveal-state={visible ? "visible" : "waiting"}
+      onFocusCapture={() => setFocused(true)}
+      initial={reduced ? false : { opacity: 0, y: 12 }}
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+      transition={{ duration: reduced || focused ? 0 : .55, delay: reduced || focused ? 0 : Math.min(.16, Math.max(0, delay)), ease: [.22, 1, .36, 1] }}
     >
       {children}
-    </motion.div>
+    </Tag>
   );
 }
 export function Press({

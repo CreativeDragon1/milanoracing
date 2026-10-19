@@ -11,7 +11,7 @@ import {
   Copy,
 } from "lucide-react";
 import { contact, sponsors } from "../content";
-import { Press } from "../motion";
+import { Press, Reveal } from "../motion";
 
 import { Heading } from "../components/site";
 import SponsorLogo from "../components/SponsorLogo";
@@ -45,7 +45,7 @@ function Contact() {
     }
   }
   return (
-    <section id="contact" className="contact-section raised">
+    <Reveal as="section" id="contact" className="contact-section raised">
       <div>
         <h2>
           A conversation
@@ -120,7 +120,7 @@ function Contact() {
           </a>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }
 export default function Partners() {
@@ -132,14 +132,14 @@ export default function Partners() {
       />
       <section className="partners-equal-grid" aria-label="Our sponsors">
         {sponsors.map((s) => (
-          <article className="partner-equal-card raised" key={s.name}>
+          <Reveal as="article" className="partner-equal-card raised" key={s.name}>
             <div className="partner-logo-stage"><SponsorLogo image={s.image} name={s.name} /></div>
             <h2>{s.name}</h2>
             <p>{s.description}</p>
             <a className="text-link" href={s.url} target="_blank" rel="noreferrer">
               {s.linkLabel} <ArrowUpRight size={17} aria-hidden="true" />
             </a>
-          </article>
+          </Reveal>
         ))}
       </section>
       <PartnershipPlans />

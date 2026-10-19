@@ -12,7 +12,7 @@ import { Plus, Minus } from "lucide-react";
 
 import { cars } from "../content";
 
-import { Press, physics } from "../motion";
+import { Press, Reveal, physics } from "../motion";
 
 import { Heading } from "../components/site";
 
@@ -74,7 +74,7 @@ export default function Evolution() {
 
         </div>}
 
-        {!final && <div className="public-version-panel">
+        {!final && <Reveal className="public-version-panel">
 
         <div className="version-plot">
 
@@ -100,7 +100,7 @@ export default function Evolution() {
 
         </motion.div></AnimatePresence>
 
-        </div>}
+        </Reveal>}
 
       </div>
 

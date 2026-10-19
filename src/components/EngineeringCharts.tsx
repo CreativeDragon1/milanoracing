@@ -1,3 +1,4 @@
+import { Reveal } from "../motion";
 import { useEffect, useId, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDownToLine, ArrowLeft, ArrowRight } from "lucide-react";
@@ -95,11 +96,11 @@ function ChartPanel({ chart }: { chart: ChartData }) {
 export default function EngineeringCharts({ initialChart = "drag" }: { initialChart?: string }) {
   const [selected, setSelected] = useState(initialChart);
   const chart = engineeringCharts.find(c => c.id === selected) ?? engineeringCharts[0];
-  return <section className="engineering-charts ec-section section" id="charts">
+  return <Reveal as="section" className="engineering-charts ec-section section" id="charts">
     <div className="section-heading"><h2>Inside the airflow.</h2><p>Explore the numbers.</p></div>
     <div className="ec-switcher" role="group" aria-label="Choose engineering chart">{engineeringCharts.map(item => <button key={item.id} type="button" aria-pressed={item.id === selected} onClick={() => setSelected(item.id)}>{item.name}</button>)}</div>
     <ChartPanel key={chart.id} chart={chart}/>
-  </section>;
+  </Reveal>;
 }
 export function EngineeringChartPreview() {
   const chart = engineeringCharts[2];

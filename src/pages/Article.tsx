@@ -1,3 +1,4 @@
+import { Reveal } from "../motion";
 import LiveryPreview from "../components/LiveryPreview";
 import { Link, useLocation } from "react-router-dom";
 import { posts } from "../content";
@@ -33,7 +34,7 @@ export default function Article() {
           alt={post.caption}
         />
       )}
-      <div className="article-body">
+      <Reveal className="article-body">
         {post.body.map((p) => (
           <p key={p}>{p}</p>
         ))}
@@ -44,7 +45,7 @@ export default function Article() {
               : "Explore the car archive"}
           </ArrowLink>
         </div>
-      </div>
+      </Reveal>
     </article>
   );
 }

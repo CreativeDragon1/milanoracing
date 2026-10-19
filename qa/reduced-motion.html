@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Reduced motion QA</title><body><div id="root"></div><script>
+// Isolated fixture: simulate the browser's reduced-motion preference for the React hooks.
+const nativeMatchMedia=window.matchMedia.bind(window);
+window.matchMedia=query=>query.includes('prefers-reduced-motion') ? Object.assign(new EventTarget(),{matches:query.includes('reduce'),media:query,onchange:null,addListener(){},removeListener(){}}) : nativeMatchMedia(query);
+window.__MILANO_OFFLINE__=true;
+</script><script type="module" src="/src/main.tsx"></script></body></html>
