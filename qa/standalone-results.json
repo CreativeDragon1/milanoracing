@@ -1,11 +1,11 @@
 {
-  "bytes": 20562599,
+  "bytes": 20559299,
   "embeddedAssets": 43,
   "compiledScripts": 2,
   "embeddedFontFaces": 4,
   "externalCssDependencies": 0,
   "assetByteMatches": true,
   "modelExternalResources": 0,
-  "sha256": "519b19f422a883ac01307497c2c633b561dd9e4df782e8eddcb53748514d6ac0",
+  "sha256": "c631c3e79b6e382222e088b8a9b7bf3c252e818eecf800dbf0e202ce72a972a8",
   "interactiveFileLaunch": "Not tested: file URL blocked by browser tool"
 }

@@ -124,3 +124,8 @@ Livery teaser verification: 36 route/width checks passed after correcting the co
 ## Spacing and team quotes
 
 Removed fixed hero minimum heights and tightened section/header spacing while preserving readable gaps. Kept the Every detail heading and added the existing Milano logo beneath it with a vector viewport around its transparent padding. Added the five user-supplied quotes verbatim, matched by member ID; no quote was invented for Ashmitha. Checked the quote/name pairs in the browser, desktop logo placement and all 36 route/width combinations with no overflow or broken loaded images.
+
+
+## Flag alignment and chart title cleanup
+
+Singapore and its flag are grouped in a nonbreaking inline layout on Team. Regenerated all six SVG charts without their embedded plot titles; data, axes, legends and illustrative-data labels remain. All six chart selectors were tested and their images loaded in the browser.

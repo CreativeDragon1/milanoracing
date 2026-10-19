@@ -92,3 +92,6 @@
 .person .portrait { flex-shrink: 0; }
 .person-copy { display: flex; flex-direction: column; flex: 1; }
 .person-copy > .text-link { margin-top: auto; align-self: flex-start; }
+
+.location-inline { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; vertical-align: baseline; }
+.location-inline .sg-flag { margin-left: 0; align-self: center; }
