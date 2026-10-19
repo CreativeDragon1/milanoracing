@@ -33,6 +33,19 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
   const fill=new THREE.DirectionalLight(0xe6eaff,1.4);fill.position.set(3,1,-4);scene.add(fill);
   const garment=new THREE.Group();scene.add(garment);
   const ownedTextures:THREE.Texture[]=[];
+  // Fine knit relief, independent of the printed artwork. Generated once,
+  // sampled by the material, and never animated.
+  const weavePixels=new Uint8Array(128*128*4);
+  for(let y=0;y<128;y++)for(let x=0;x<128;x++){
+    const i=(y*128+x)*4,a=x*Math.PI/4,b=y*Math.PI/4;
+    weavePixels[i]=128+30*Math.cos(a)*Math.sin(b);
+    weavePixels[i+1]=128+30*Math.sin(a)*Math.cos(b);
+    weavePixels[i+2]=255;weavePixels[i+3]=255;
+  }
+  const weave=new THREE.DataTexture(weavePixels,128,128);
+  weave.wrapS=weave.wrapT=THREE.RepeatWrapping;weave.repeat.set(32,32);
+  weave.minFilter=THREE.LinearMipmapLinearFilter;weave.magFilter=THREE.LinearFilter;
+  weave.generateMipmaps=true;weave.needsUpdate=true;ownedTextures.push(weave);
   let updateArtwork:((value:KitPersonalisation)=>void)|undefined;
   let disposed=false,observer:ResizeObserver|undefined,animation:ReturnType<typeof animate>|undefined;
   const render=()=>{if(!disposed)renderer.render(scene,camera);};
@@ -46,10 +59,10 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
     model.scene.traverse(object=>{
       if(!(object instanceof THREE.Mesh))return;
       const old=object.material as THREE.MeshStandardMaterial;
-      if(old.name==='Buttons'||old.name==='Collar'){object.visible=false;}
+      if(['Buttons','Collar','Inner buttons','Inner collar'].includes(old.name)){object.visible=false;}
       const collar=old.name==='Collar';
       const fabric=old.name==='Fabric'||old.name==='Hem';
-      const material=new THREE.MeshPhysicalMaterial({color:fabric?0xffffff:0x000000,roughness:.96,metalness:0,side:THREE.DoubleSide,sheen:.2,sheenColor:new THREE.Color(0xdad8d0),sheenRoughness:1});
+      const material=new THREE.MeshPhysicalMaterial({color:fabric?0xffffff:old.name.startsWith('Inner')?0x9da0a6:0x000000,roughness:.96,metalness:0,side:THREE.DoubleSide,sheen:.2,sheenColor:new THREE.Color(0xdad8d0),sheenRoughness:1,normalMap:weave,normalScale:new THREE.Vector2(.065,.065)});
       if(fabric){
         material.name="Milano cloth";
         material.onBeforeCompile=shader=>{
@@ -67,8 +80,8 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
             if(kitPosition.y < .38 && abs(kitPosition.x) > sideEdge && abs(kitPosition.x) < .89){
               diffuseColor.rgb = kitPosition.y < -1.18 ? vec3(0.0) : vec3(1.0,.1946,0.0);
             }
-            float neckEdge = .95 + .31 * (1.0 - sqrt(max(0.0, 1.0 - pow(kitPosition.x / .465, 2.0))));
-            if(kitPosition.z > .12 && abs(kitPosition.x) < .43 && kitPosition.y > neckEdge && kitPosition.y < neckEdge + .095) diffuseColor.rgb = vec3(0.0,.0097,1.0);
+            float neckEdge = 1.085 + .22 * (1.0 - sqrt(max(0.0, 1.0 - pow(kitPosition.x / .40, 2.0))));
+            if(kitPosition.z > .12 && abs(kitPosition.x) < .37 && kitPosition.y > neckEdge && kitPosition.y < neckEdge + .045) diffuseColor.rgb = vec3(0.0,.0097,1.0);
           `);
         };
         material.customProgramCacheKey=()=>'milano-kit-projected-v1';
@@ -91,8 +104,8 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
     for(let i=0;i<=collarSteps;i++){
       const theta=i/collarSteps*Math.PI*2,front=Math.max(0,Math.cos(theta));
       for(let j=0;j<=4;j++){
-        const t=j/4,rx=.355+t*.11,rz=.29+t*.085;
-        collarPosition.push(Math.sin(theta)*rx,1.35-.31*front-t*.065,.045+Math.cos(theta)*rz);
+        const t=j/4,rx=.345+t*.055,rz=.26+t*.05;
+        collarPosition.push(Math.sin(theta)*rx,1.34-.22*front-t*.035,.015+Math.cos(theta)*rz);
         const c=new THREE.Color(Math.cos(theta)>.55?0x0019ff:0x000000);
         collarColours.push(c.r,c.g,c.b);
       }

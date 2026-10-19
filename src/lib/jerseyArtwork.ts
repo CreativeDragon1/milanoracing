@@ -28,8 +28,6 @@ export async function createKitArtwork() {
       path([[sign*.99,.08],[sign*1.72,.595],[sign*1.72,-.2],[sign*.99,-.2]],'#000000');
       ctx.strokeStyle='#0019FF';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(x(sign*1.05),y(.025));ctx.lineTo(x(sign*1.72),y(.498));ctx.stroke();
     }
-    // Source palette: the front neck binding is electric blue.
-    if(!back){ctx.beginPath();ctx.moveTo(x(-.35),y(1.38));ctx.bezierCurveTo(x(-.26),y(1.06),x(.26),y(1.06),x(.35),y(1.38));ctx.lineWidth=35;ctx.strokeStyle='#0019FF';ctx.stroke();}
     const logo=(image:HTMLImageElement,sx:number,sy:number,sw:number,sh:number,cx:number,cy:number,w:number,h:number,angle=0)=>{ctx.save();ctx.translate(x(cx),y(cy));ctx.rotate(angle);ctx.globalCompositeOperation='multiply';ctx.drawImage(image,sx,sy,sw,sh,-w*k/2,-h*k/2,w*k,h*k);ctx.restore();};
     if(back){
       logo(stem,10,10,330,155,0,1.03,.34,.16);

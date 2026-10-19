@@ -64,3 +64,10 @@ Final recheck: 36 route/viewport combinations (320, 390, 768, 1280 px), no horiz
 - Repeated the 36 responsive checks after these changes: all passed. Visually reviewed the 320 px garment view, homepage and partner page, plus the final production viewer.
 - Verified Niteesh's preset, blank reset, front/back and rotation after the final rebuild. Production browser console returned no errors or warnings.
 - Vite reports a size advisory for the optional Three.js viewer chunk (170 KB gzip); it remains dynamically imported and renders only on interaction/resize.
+
+
+## Hollow worn-garment refinement
+
+The user clarified a relaxed worn shape without a visible mannequin, plus sleeve marks facing outwards on the upper arms. The torso has neutral chest/waist depth, slight hem ease and shallow hanging folds; neckline adjustment is distributed into surrounding fabric. Sleeve decals project from left/right sides rather than from behind, with cuff clearance. This is a modeled garment preview, not a physically validated cloth simulation. The original artwork and optional personalisation remain intact.
+
+Focused verification for this refinement: TypeScript and production build passed; front and side inspected in the browser; source artwork retained and no mannequin mesh added. This geometry-only update keeps the previously checked page layouts.
