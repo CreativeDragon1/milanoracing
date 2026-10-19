@@ -93,3 +93,7 @@ Removed the hero car index and miniature-scale caption, livery badge, decorative
 - Removed the proposed homepage portrait strip at the user's request. Section-specific photography remains pending.
 - Re-ran 36 route/width checks: no page overflow, broken loaded images or missing/duplicate main headings. Desktop package layout and 320 px mobile package layout visually inspected. No browser warnings/errors in the focused inspection.
 - This update does not revalidate physical garment accuracy, CFD results, real devices or sustained frame rate.
+
+## Individual portrait replacement
+
+All six supplied 1080 x 1350 JPEGs were copied byte-for-byte and verified as loaded in the browser. The Team cards use 4:5 contain sizing. Both desktop rows were visually reviewed; the Team route at 320 px had no horizontal overflow or broken loaded images. Production build and standalone asset validation passed.

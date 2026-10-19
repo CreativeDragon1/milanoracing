@@ -17,7 +17,7 @@ export default function Team() {
         {people.map((person, i) => (
           <Reveal className="person raised" key={person.id}>
             <div className="portrait">
-              <img src={asset(person.image)} alt={`${person.name} — ${person.role}`} loading="lazy" style={person.imagePosition ? {objectFit:"cover",objectPosition:person.imagePosition} : undefined} />
+              <img src={asset(person.image)} alt={`${person.name} — ${person.role}`} loading="lazy" width="1080" height="1350" />
               <span className="person-number">0{i + 1}</span>
             </div>
             <div className="person-copy">

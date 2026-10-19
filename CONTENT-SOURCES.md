@@ -57,3 +57,8 @@ Source: user-supplied website_charts.zip, containing website_data.json and six m
 Source: Milano Racing Prospectus.pdf, page 4, text extracted and visually checked against the rendered page. The printed pairing is Signature $100–350 (everything in Essence plus listed benefits), Essence $350–600, Aurum $600–850 (everything in Signature plus listed benefits), Legacy $850+ (everything in Prestige plus listed benefits), and Prestige in-kind support. These unusual cross-tier references and price order are preserved as printed, not silently corrected. The dollar sign is retained without assuming SGD; no currency code is specified. School references and unrelated roster details from the prospectus were not imported.
 
 The user withdrew the request to fill sparse image areas. No additional homepage portraits or decorative photographs were retained; section-specific photos will be supplied later.
+
+
+## Team portraits — replacement supplied 19 October 2026
+
+All six Team-page portraits now use the individual 1080 × 1350 JPEG graphics supplied directly by the user: Raahi, Ajinkya, Geet, Niteesh, Gayatri and Ashmitha. Files are copied byte-for-byte, with names and role text preserved. Cards use the original 4:5 aspect ratio with contain sizing; the older composite positioning is removed. Other sections remain unchanged.
