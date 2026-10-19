@@ -10,7 +10,6 @@ export default function Team() {
   return (
     <>
       <Heading
-        label="The people behind the project"
         title="Different minds. One team."
         description={<>Six people bringing design, engineering and communication together. Based in Singapore <SingaporeFlag/>.</>}
       />
@@ -59,7 +58,6 @@ export default function Team() {
       </div>
       <section className="jersey-section kit-section section" id="team-kit">
         <Reveal className="jersey-copy">
-          <Eyebrow>Made to be seen up close</Eyebrow>
           <h2>Our identity.<br />From every angle.</h2>
           <p>Turn the kit around. Look closer at the dragon motif, our team mark and the partner details that make it ours.</p>
         </Reveal>

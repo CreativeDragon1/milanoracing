@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, MoveUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { cars, posts, sponsors } from "../content";
 import { Reveal } from "../motion";
 
-import { asset, nav, ArrowLink, Eyebrow, Heading, SingaporeFlag } from "../components/site";
+import { asset, ArrowLink, SingaporeFlag } from "../components/site";
 export default function Home() {
   return (
     <>
       <section className="hero">
         <Reveal className="hero-copy">
-          <Eyebrow>MILANO RACING</Eyebrow>
           <h1>
             Small car.
             <br />
@@ -37,29 +36,11 @@ export default function Home() {
               alt="Actual Milano Racing miniature STEM Racing car with current black livery and sponsor decals"
               fetchPriority="high"
             />
-            <span className="image-label">MILANO / CURRENT LIVERY</span>
-            <span className="image-corner">
-              <MoveUpRight size={22} />
-            </span>
-          </div>
-          <div className="render-caption">
-            <span>
-              Designed at miniature scale.
-            </span>
-
-          </div>
-          <div className="visual-index" aria-hidden="true">
-            01 / THE CAR
           </div>
         </Reveal>
       </section>
-      <div className="section-rule">
-        <span>Curiosity. Precision. Progress.</span>
-        <span>SCROLL TO EXPLORE ↓</span>
-      </div>
       <section className="intro section">
         <Reveal>
-          <Eyebrow>01 / The way we work</Eyebrow>
           <h2>
             Every detail is
             <br />a decision.
@@ -83,7 +64,6 @@ export default function Home() {
       </section>
       <section className="archive-preview raised">
         <div className="archive-copy">
-          <Eyebrow>02 / An evolving idea</Eyebrow>
           <h2>
             Progress has
             <br />a paper trail.
@@ -119,12 +99,11 @@ export default function Home() {
       </section>
       <section className="kit-signature">
         <div className="kit-signature-art" aria-hidden="true"><img src={asset("kit-dragon-original.png")} alt=""/><span>THE MILANO<br/>SIGNATURE.</span><i/><b/></div>
-        <div className="kit-signature-copy"><Eyebrow>One team. One identity.</Eyebrow><h2>Made to stand<br/>for something.</h2><p>From the workshop to competition day, our kit brings the team together. Explore the details and make it your own.</p><ArrowLink to="/team#team-kit">Explore & personalise the kit</ArrowLink></div>
+        <div className="kit-signature-copy"><h2>Made to stand<br/>for something.</h2><p>From the workshop to competition day, our kit brings the team together. Explore the details and make it your own.</p><ArrowLink to="/team#team-kit">Explore & personalise the kit</ArrowLink></div>
       </section>
       <section className="section journal-preview">
         <div className="section-heading">
           <div>
-            <Eyebrow>03 / From the workshop</Eyebrow>
             <h2>The work behind the car.</h2>
           </div>
           <Link className="text-link" to="/journal">
@@ -150,7 +129,6 @@ export default function Home() {
               </div>
               <div className="story-meta">
                 {post.category}
-                <span>FIELD NOTES</span>
               </div>
               <h3>{post.title}</h3>
             </Link>

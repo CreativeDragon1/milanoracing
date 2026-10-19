@@ -13,7 +13,6 @@ export default function Journal() {
   return (
     <>
       <Heading
-        label="Notes from the team"
         title="The work in progress."
         description="Design details, engineering records and glimpses behind the scenes. An honest notebook of what we have so far."
       />

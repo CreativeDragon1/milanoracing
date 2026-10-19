@@ -56,7 +56,6 @@ export default function Evolution() {
   return (
     <>
       <Heading
-        label="The development archive"
         title="Built. Tested. Reconsidered."
         description="A record of the car’s evolution, with room for every model, every change and the evidence behind it."
       />
@@ -169,7 +168,6 @@ export default function Evolution() {
         <Reveal className="comparison section">
           <div className="section-heading">
             <div>
-              <Eyebrow>Side by side</Eyebrow>
               <h2>Compare the record.</h2>
             </div>
             <Press
@@ -223,7 +221,6 @@ export default function Evolution() {
       <section className="section">
         <div className="section-heading">
           <div>
-            <Eyebrow>The longer view</Eyebrow>
             <h2>A timeline with room to grow.</h2>
           </div>
           <p className="narrow-copy">

@@ -68,7 +68,7 @@ export default function JerseyViewer() {
       </div>
     </div>
     </div><div className="kit-custom-panel">
-    <div className="kit-product-title"><span className="small-label">MILANO RACING / TEAMWEAR</span><h3>The team edition.</h3><p>Rotate the kit, choose a name and number, and save your view.</p></div>
+    <div className="kit-product-title"><h3>The team edition.</h3><p>Rotate the kit, choose a name and number, and save your view.</p></div>
     <form className="kit-personalise" onSubmit={e=>{e.preventDefault();personalise(draftName,draftNumber);}}>
       <div className="kit-personalise-heading"><h4>Personalise your kit</h4><span>OPTIONAL</span></div>
       <div className="kit-fields">

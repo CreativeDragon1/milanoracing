@@ -14,7 +14,7 @@ export default function Article() {
         ← Back to journal
       </Link>
       <Heading
-        label={`${post.category} / Undated field note`}
+        label={post.category}
         title={post.title}
         description={post.excerpt}
       />

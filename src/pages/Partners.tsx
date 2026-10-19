@@ -28,7 +28,6 @@ function Contact() {
   return (
     <section id="contact" className="contact-section raised">
       <div>
-        <Eyebrow>Let’s build something together</Eyebrow>
         <h2>
           A conversation
           <br />
@@ -99,7 +98,6 @@ export default function Partners() {
   return (
     <>
       <Heading
-        label="The people who back the team"
         title="Good work takes support."
         description="The businesses supporting Milano Racing."
       />
@@ -126,7 +124,6 @@ export default function Partners() {
         ))}
       </div>
       <section className="partner-note section">
-        <Eyebrow>More than a logo</Eyebrow>
         <h2>
           Help the next idea
           <br />

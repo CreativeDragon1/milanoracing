@@ -78,3 +78,8 @@ Focused verification for this refinement: TypeScript and production build passed
 Replaced the black rectangular back badge with the PDF's exact transparent black-lettered STEM Racing mark. Sleeve stacks now use a shared orientation, centered on each outer arm: Brinda's above Enermax; Axis above NPE. Removed added cloth crease deformation and smoothed the upper fabric. Hid empty member-introduction controls and removed journal/editorial placeholder notes; technical limitations of the drag data remain available.
 
 Transparent back mark and direct side view were visually verified. Axis/NPE now have visible clearance from the cuff and share a center line. The empty team-introduction controls are absent from the rendered page.
+
+
+## Decorative label removal
+
+Removed the hero car index and miniature-scale caption, livery badge, decorative section numbering/taglines, scroll instruction and repeated field-note labels. Primary headings, navigation, control labels, sponsor recognition and engineering units remain.

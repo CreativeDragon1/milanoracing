@@ -45,13 +45,13 @@ export function Heading({
   title,
   description,
 }: {
-  label: string;
+  label?: string;
   title: string;
   description: React.ReactNode;
 }) {
   return (
     <Reveal className="page-heading">
-      <Eyebrow>{label}</Eyebrow>
+      {label && <Eyebrow>{label}</Eyebrow>}
       <h1>{title}</h1>
       <p>{description}</p>
     </Reveal>
