@@ -119,3 +119,8 @@ All seven hotspots were clicked in the running browser and showed their correspo
 Replaced the public livery explorer with a dedicated blue/orange sealed reveal, using existing dragon artwork. Home hero and Home/Journal story previews share the same teaser; no release date is invented. The old explorer source is retained for future release but is no longer imported into the public UI. Hover motion is decorative and disabled with reduced-motion preferences.
 
 Livery teaser verification: 36 route/width checks passed after correcting the compact card intrinsic sizing. Visually checked the 320 px release page and desktop Home/Journal previews. Home teaser navigation, Back to journal and the Design filter work. Production and standalone builds passed.
+
+
+## Spacing and team quotes
+
+Removed fixed hero minimum heights and tightened section/header spacing while preserving readable gaps. Kept the Every detail heading and added the existing Milano logo beneath it with a vector viewport around its transparent padding. Added the five user-supplied quotes verbatim, matched by member ID; no quote was invented for Ashmitha. Checked the quote/name pairs in the browser, desktop logo placement and all 36 route/width combinations with no overflow or broken loaded images.

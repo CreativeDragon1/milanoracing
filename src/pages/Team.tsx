@@ -23,6 +23,7 @@ export default function Team() {
             <div className="person-copy">
               <span className="small-label">{person.role}</span>
               <h2>{person.name}</h2>
+              {person.quote && <blockquote className="person-quote"><p>“{person.quote}”</p></blockquote>}
               {person.source && <a
                 className="text-link"
                 href={person.source}

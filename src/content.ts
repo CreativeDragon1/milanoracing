@@ -18,12 +18,14 @@ export type Person = {
   supplied?: boolean;
   number?: string;
   source: string;
+  quote?: string;
   introduction?: string;
   highlights?: string[];
 };
 export const people: Person[] = [
   {
     id: "raahi",
+    quote: "Impossible is just a problem that hasn't met the right mind.",
     name: "Raahi Chheda",
     number: "01",
     role: "Team Leader",
@@ -33,6 +35,7 @@ export const people: Person[] = [
   },
   {
     id: "ajinkya",
+    quote: "Fueled by caffeine and CFD",
     name: "Ajinkya Velukar",
     number: "16",
     role: "Lead Engineer",
@@ -42,6 +45,7 @@ export const people: Person[] = [
   },
   {
     id: "geet",
+    quote: "I'm honestly always tryna get faster even though its not a race",
     name: "Geet Bathamsetty",
     number: "33",
     role: "Aerodynamicist",
@@ -50,12 +54,14 @@ export const people: Person[] = [
     source: "https://www.instagram.com/milanoracing_/p/DclTXIkGi5F/",
   },
   {
-    id: "niteesh", name: "Niteesh Kumar", role: "Resource Lead", number: "12",
+    id: "niteesh",
+    quote: "Built on earth, Bound for galaxies", name: "Niteesh Kumar", role: "Resource Lead", number: "12",
     image: "niteesh-portrait.jpg", supplied: true,
     contribution: "Resource Lead, confirmed in the supplied team introduction.", source: "https://www.instagram.com/p/DclTLqAmk87/",
   },
   {
-    id: "gayatri", name: "Gayatri Pandkar", role: "Designer", number: "10",
+    id: "gayatri",
+    quote: "Chase both, the car and the vision", name: "Gayatri Pandkar", role: "Designer", number: "10",
     image: "gayatri-portrait.jpg", supplied: true,
     contribution: "Designer, confirmed in the supplied team introduction.", source: "https://www.instagram.com/p/DclTDU0mnYR/",
   },

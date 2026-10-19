@@ -43,6 +43,9 @@ export default function Home() {
             Every detail is
             <br />a decision.
           </h2>
+          <svg className="intro-team-logo" viewBox="25 230 555 185" role="img" aria-label="Milano Racing logo">
+            <image href={asset("milano-official.png")} width="648" height="648" />
+          </svg>
         </Reveal>
         <Reveal className="intro-copy">
           <p className="large-copy">A miniature car. A whole team of ideas.</p>

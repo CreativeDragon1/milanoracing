@@ -56,3 +56,39 @@
 .competition-arrived { font-size: 26px; color: var(--blue); margin: 0; }
 @media(max-width:850px) { .competition-countdown { flex-direction: column; align-items: stretch; gap: 24px; padding: 28px; } .competition-clock { min-width: 0; } }
 @media(max-width:480px) { .competition-countdown { padding: 24px 18px; margin-top: 20px; } .competition-clock { gap: 8px; } .countdown-unit { padding: 16px 4px 12px; border-radius: 8px; } .countdown-unit strong { font-size: 30px; } .countdown-unit span { font-size: 9px; } }
+
+/* Content-led spacing: remove oversized empty hero height and use a consistent section rhythm. */
+.hero { min-height: 0; padding: clamp(28px,4vw,52px) 0 32px; gap: 32px; }
+.hero-visual { padding-top: 0; }
+.section { padding: clamp(40px,5vw,64px) 0; }
+.page-heading { padding: clamp(32px,4vw,52px) 0 32px; }
+.page-heading > p { margin-top: 18px; }
+.article .page-heading { padding: 28px 0; }
+.page-heading > p:empty { display: none; }
+.intro { align-items: center; gap: clamp(28px,5vw,64px); }
+.intro-team-logo { display: block; width: min(100%,360px); height: auto; margin-top: 28px; }
+.intro-copy > p:last-of-type { margin-bottom: 12px; }
+.kit-signature { margin: 56px 0 0; min-height: 350px; gap: 48px; }
+.kit-signature-art { min-height: 350px; }
+.partners-home { margin: 32px 0 48px; padding: 28px 0; }
+.competition-countdown { margin: 12px 0 0; }
+.person-copy { padding-top: 20px; }
+.person-quote { margin: 16px 0 18px; padding: 0 0 0 14px; border-left: 2px solid var(--blue); }
+.person-quote p { margin: 0; color: #26262e; font-size: 15px; line-height: 1.6; font-style: italic; overflow-wrap: anywhere; }
+@media (max-width:850px) {
+ .hero { gap: 28px; }
+ .kit-signature { gap: 28px; }
+}
+@media (max-width:600px) {
+ .hero { padding-top: 28px; padding-bottom: 28px; }
+ .intro { align-items: start; gap: 28px; }
+ .intro-team-logo { width: min(100%,300px); margin-top: 22px; }
+ .kit-signature { margin-top: 40px; }
+ .kit-signature-art { min-height: 300px; }
+ .person-quote p { font-size: 14px; }
+}
+
+.person { display: flex; flex-direction: column; }
+.person .portrait { flex-shrink: 0; }
+.person-copy { display: flex; flex-direction: column; flex: 1; }
+.person-copy > .text-link { margin-top: auto; align-self: flex-start; }
