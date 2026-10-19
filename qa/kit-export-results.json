@@ -3,9 +3,10 @@
     960,
     1200
   ],
-  "frames": 90,
+  "frames": 180,
+  "fps": 25,
+  "frame_delay_ms": 40,
   "duration_ms": 7200,
   "loop": 0,
-  "bytes": 13200392,
-  "sampled_frames_unique": 5
+  "bytes": 26437329
 }

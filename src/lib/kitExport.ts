@@ -21,8 +21,8 @@ export async function exportKit(scene:JerseyScene,format:'png'|'gif',signal:Abor
   bg.save();bg.shadowColor='#ffffff';bg.shadowBlur=1.5;bg.drawImage(logo,25,230,555,185,62,62,210,70);bg.restore();
   bg.fillStyle='#ffffff';bg.font='500 13px "DM Sans"';bg.textAlign='right';bg.fillText('THE TEAM EDITION',898,94);
   bg.fillStyle='#9da6cb';bg.font='500 12px "DM Sans"';bg.fillText('MILANO RACING',898,116);
-  bg.textAlign='left';bg.fillStyle='#ffffff';bg.font='400 27px Michroma';bg.fillText('MADE YOURS.',62,1110);
-  bg.fillStyle='#9da6cb';bg.font='400 13px "DM Sans"';bg.fillText('MILANO RACING  /  SINGAPORE',64,1144);
+  bg.textAlign='left';bg.fillStyle='#ffffff';bg.font='400 27px Michroma';bg.fillText('ALWAYS THE FASTEST',62,1110,836);
+  bg.fillStyle='#9da6cb';bg.font='400 13px "DM Sans"';bg.fillText('MILANO RACING',64,1144);
   bg.fillStyle='#ff7a00';bg.fillRect(776,1135,60,4);bg.fillStyle='#0019ff';bg.fillRect(836,1135,62,4);
   const output=scene.createExport(width,Math.round(height*.85));
   let worker:Worker|undefined;
@@ -38,11 +38,11 @@ export async function exportKit(scene:JerseyScene,format:'png'|'gif',signal:Abor
       worker!.onerror=()=>{cleanup();reject(new Error('Could not create GIF. Try the PNG download.'));};
       signal.addEventListener('abort',cancelled,{once:true});worker!.postMessage(data,transfer);
     });
-    const frames=90;
+    const frames=180;
     for(let i=0;i<frames;i++){
       check();draw(Math.PI+i/frames*Math.PI*2);
       const rgba=ctx.getImageData(0,0,width,height).data;
-      await send({rgba,width,height,delay:80},[rgba.buffer]);
+      await send({rgba,width,height,delay:40},[rgba.buffer]);
       onProgress(Math.round((i+1)/frames*95));await nextPaint();
     }
     check();const result=await send({finish:true});check();
