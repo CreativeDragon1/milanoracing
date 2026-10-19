@@ -1,0 +1,12 @@
+{
+  "size": [
+    960,
+    1200
+  ],
+  "frames": 180,
+  "frameDurations": [
+    40
+  ],
+  "durationMs": 7200,
+  "loop": 0
+}

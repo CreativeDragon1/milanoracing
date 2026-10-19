@@ -14,8 +14,8 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.75));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.toneMapping=THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure=1.0;
-  renderer.shadowMap.enabled=false;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  renderer.toneMappingExposure=.95;
+  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   renderer.domElement.setAttribute('aria-hidden','true');
   host.appendChild(renderer.domElement);
   const scene=new THREE.Scene();
@@ -27,26 +27,36 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
   controls.rotateSpeed=.65;controls.minPolarAngle=.22*Math.PI;controls.maxPolarAngle=.78*Math.PI;
   renderer.domElement.style.touchAction='pan-y';
   controls.target.set(0,-.03,0);controls.update();
-  const ambient=new THREE.HemisphereLight(0xffffff,0xc8c5bc,1.5);scene.add(ambient);
-  const light=new THREE.DirectionalLight(0xffffff,3.0);light.position.set(-3,5,5);light.castShadow=true;
-  light.shadow.mapSize.set(1024,1024);light.shadow.camera.left=-3;light.shadow.camera.right=3;
-  light.shadow.camera.top=3;light.shadow.camera.bottom=-3;light.shadow.normalBias=.03;scene.add(light);
-  const fill=new THREE.DirectionalLight(0xe6eaff,1.4);fill.position.set(3,1,-4);scene.add(fill);
+  const ambient=new THREE.HemisphereLight(0xf4f6ff,0x555866,.45);scene.add(ambient);
+  const light=new THREE.DirectionalLight(0xfffaf3,2.6);light.position.set(-3,5,5);light.castShadow=true;
+  light.shadow.mapSize.set(2048,2048);light.shadow.camera.left=-2.2;light.shadow.camera.right=2.2;
+  light.shadow.camera.top=2.2;light.shadow.camera.bottom=-2.2;
+  light.shadow.camera.near=.5;light.shadow.camera.far=14;
+  light.shadow.normalBias=.025;light.shadow.bias=-.0003;light.shadow.radius=3;scene.add(light);
+  const fill=new THREE.DirectionalLight(0xe9edff,.35);fill.position.set(4,2,4);scene.add(fill);
+  const rim=new THREE.DirectionalLight(0xf5f7ff,1.2);rim.position.set(2,3,-4);scene.add(rim);
   const garment=new THREE.Group();scene.add(garment);
   const ownedTextures:THREE.Texture[]=[];
   // Fine knit relief, independent of the printed artwork. Generated once,
   // sampled by the material, and never animated.
-  const weavePixels=new Uint8Array(128*128*4);
+  const weavePixels=new Uint8Array(128*128*4),roughnessPixels=new Uint8Array(128*128*4);
   for(let y=0;y<128;y++)for(let x=0;x<128;x++){
     const i=(y*128+x)*4,a=x*Math.PI/4,b=y*Math.PI/4;
     weavePixels[i]=128+30*Math.cos(a)*Math.sin(b);
     weavePixels[i+1]=128+30*Math.sin(a)*Math.cos(b);
     weavePixels[i+2]=255;weavePixels[i+3]=255;
+    const thread=230+16*Math.cos(a)*Math.cos(b);
+    roughnessPixels[i]=roughnessPixels[i+1]=roughnessPixels[i+2]=thread;roughnessPixels[i+3]=255;
   }
   const weave=new THREE.DataTexture(weavePixels,128,128);
   weave.wrapS=weave.wrapT=THREE.RepeatWrapping;weave.repeat.set(32,32);
   weave.minFilter=THREE.LinearMipmapLinearFilter;weave.magFilter=THREE.LinearFilter;
   weave.generateMipmaps=true;weave.needsUpdate=true;ownedTextures.push(weave);
+  weave.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+  const clothRoughness=new THREE.DataTexture(roughnessPixels,128,128);
+  clothRoughness.wrapS=clothRoughness.wrapT=THREE.RepeatWrapping;clothRoughness.repeat.copy(weave.repeat);
+  clothRoughness.minFilter=THREE.LinearMipmapLinearFilter;clothRoughness.magFilter=THREE.LinearFilter;
+  clothRoughness.generateMipmaps=true;clothRoughness.anisotropy=weave.anisotropy;clothRoughness.needsUpdate=true;ownedTextures.push(clothRoughness);
   let updateArtwork:((value:KitPersonalisation)=>void)|undefined;
   let disposed=false,observer:ResizeObserver|undefined,animation:ReturnType<typeof animate>|undefined;
   const render=()=>{if(!disposed)renderer.render(scene,camera);};
@@ -63,7 +73,7 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
       if(['Buttons','Collar','Inner buttons','Inner collar'].includes(old.name)){object.visible=false;}
       const collar=old.name==='Collar';
       const fabric=old.name==='Fabric'||old.name==='Hem';
-      const material=new THREE.MeshPhysicalMaterial({color:fabric?0xffffff:old.name.startsWith('Inner')?0x9da0a6:0x000000,roughness:.96,metalness:0,side:THREE.DoubleSide,sheen:.2,sheenColor:new THREE.Color(0xdad8d0),sheenRoughness:1,normalMap:weave,normalScale:new THREE.Vector2(.065,.065)});
+      const material=new THREE.MeshPhysicalMaterial({color:fabric?0xffffff:old.name.startsWith('Inner')?0x858990:0x08090b,roughness:.94,roughnessMap:clothRoughness,metalness:0,side:THREE.DoubleSide,sheen:.12,sheenColor:new THREE.Color(0x606570),sheenRoughness:.85,normalMap:weave,normalScale:new THREE.Vector2(.16,.16)});
       if(fabric){
         material.name="Milano cloth";
         material.onBeforeCompile=shader=>{
@@ -83,9 +93,15 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
             }
             float neckEdge = 1.085 + .22 * (1.0 - sqrt(max(0.0, 1.0 - pow(kitPosition.x / .40, 2.0))));
             if(kitPosition.z > .12 && abs(kitPosition.x) < .37 && kitPosition.y > neckEdge && kitPosition.y < neckEdge + .045) diffuseColor.rgb = vec3(0.0,.0097,1.0);
+            // Two restrained rows of hem stitching; derivative smoothing avoids shimmer at distance.
+            float seamDistance=min(abs(kitPosition.y+1.395),abs(kitPosition.y+1.425));
+            float seamAA=max(fwidth(kitPosition.y),.0008);
+            float stitchRow=1.0-smoothstep(.001,.001+seamAA,seamDistance);
+            float stitchDash=1.0-smoothstep(.006,.009,abs(mod(kitPosition.x+.012,.024)-.012));
+            if(abs(kitPosition.x)<.87) diffuseColor.rgb*=1.0-.22*stitchRow*stitchDash;
           `);
         };
-        material.customProgramCacheKey=()=>'milano-kit-projected-v1';
+        material.customProgramCacheKey=()=>'milano-kit-cloth-v2';
       }
       if(collar){
         material.onBeforeCompile=shader=>{
@@ -95,7 +111,8 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
           shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\n if(collarPosition.z < -.05 && collarPosition.y>1.25) diffuseColor.rgb=vec3(0.0,.01,1.0);');
         };material.customProgramCacheKey=()=>'milano-blue-neck';
       }
-      old.dispose();object.material=material;object.castShadow=true;object.receiveShadow=true;
+      const inner=old.name.startsWith('Inner'),hem=old.name==='Hem';
+      old.dispose();object.material=material;object.castShadow=!inner&&!hem;object.receiveShadow=!hem;
     });
     garment.add(model.scene);
     await addSleeveDecals(model.scene,garment);
@@ -113,7 +130,8 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
       if(i<collarSteps)for(let j=0;j<4;j++){const a=i*5+j,b=a+5;collarIndices.push(a,b,a+1,b,b+1,a+1);}
     }
     const binding=new THREE.BufferGeometry();binding.setAttribute('position',new THREE.Float32BufferAttribute(collarPosition,3));binding.setAttribute('color',new THREE.Float32BufferAttribute(collarColours,3));binding.setIndex(collarIndices);binding.computeVertexNormals();
-    garment.add(new THREE.Mesh(binding,new THREE.MeshStandardMaterial({vertexColors:true,roughness:.95,side:THREE.DoubleSide})));
+    const neckBinding=new THREE.Mesh(binding,new THREE.MeshPhysicalMaterial({vertexColors:true,roughness:.92,sheen:.15,sheenRoughness:.9,side:THREE.DoubleSide}));
+    neckBinding.castShadow=false;neckBinding.receiveShadow=true;garment.add(neckBinding);
 
     const shadowCanvas=document.createElement('canvas');shadowCanvas.width=128;shadowCanvas.height=128;const shadowCtx=shadowCanvas.getContext('2d')!;const gradient=shadowCtx.createRadialGradient(64,64,0,64,64,64);gradient.addColorStop(0,'rgba(30,30,22,.18)');gradient.addColorStop(1,'rgba(30,30,22,0)');shadowCtx.fillStyle=gradient;shadowCtx.fillRect(0,0,128,128);const shadowMap=new THREE.CanvasTexture(shadowCanvas);const ground=new THREE.Mesh(new THREE.PlaneGeometry(3,1.3),new THREE.MeshBasicMaterial({map:shadowMap,transparent:true,depthWrite:false}));ground.rotation.x=-Math.PI/2;ground.position.y=-1.64;scene.add(ground);
     observer=new ResizeObserver(()=>{const {width,height}=host.getBoundingClientRect();if(!width||!height)return;renderer.setSize(width,height,false);camera.aspect=width/height;const nextDistance=Math.max(6.1,5.4/camera.aspect);camera.position.sub(controls.target).multiplyScalar(nextDistance/baseDistance).add(controls.target);baseDistance=nextDistance;camera.updateProjectionMatrix();controls.update();updateStatus();render();});observer.observe(host);
@@ -141,6 +159,7 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
       const output=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});
       output.setPixelRatio(1);output.setSize(width,height,false);
       output.outputColorSpace=renderer.outputColorSpace;output.toneMapping=renderer.toneMapping;output.toneMappingExposure=renderer.toneMappingExposure;
+      output.shadowMap.enabled=true;output.shadowMap.type=renderer.shadowMap.type;
       const lens=camera.clone();lens.aspect=width/height;lens.updateProjectionMatrix();
       const start=Math.atan2(camera.position.x,camera.position.z);
       return {render:(angle=start)=>{
@@ -149,6 +168,6 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
         output.render(scene,lens);return output.domElement;
       },dispose:()=>{output.dispose();output.forceContextLoss();}};
     },
-    dispose:()=>{disposed=true;cancelAnimationFrame(dampingFrame);animation?.stop();observer?.disconnect();controls.dispose();scene.traverse(object=>{if(object instanceof THREE.Mesh){object.geometry.dispose();const mats=Array.isArray(object.material)?object.material:[object.material];mats.forEach(material=>{if('map' in material)(material.map as THREE.Texture|null)?.dispose();material.dispose();});}});ownedTextures.forEach(texture=>texture.dispose());renderer.dispose();renderer.domElement.remove();},
+    dispose:()=>{disposed=true;cancelAnimationFrame(dampingFrame);animation?.stop();observer?.disconnect();controls.dispose();scene.traverse(object=>{if(object instanceof THREE.Mesh){object.geometry.dispose();const mats=Array.isArray(object.material)?object.material:[object.material];mats.forEach(material=>{if('map' in material)(material.map as THREE.Texture|null)?.dispose();material.dispose();});}});ownedTextures.forEach(texture=>texture.dispose());light.shadow.dispose();renderer.dispose();renderer.domElement.remove();},
   };
 }
