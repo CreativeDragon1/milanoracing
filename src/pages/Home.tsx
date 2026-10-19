@@ -55,8 +55,7 @@ export default function Home() {
             aerodynamics, engineering, communication and planning.
           </p>
           <p>
-            Our archive makes that process visible: the versions, the design process
-            and the questions still to be answered.
+            Explore how our car has evolved, from early concepts to our latest design.
           </p>
           <Link className="text-link" to="/team">
             The people behind the project <ArrowUpRight size={18} />
