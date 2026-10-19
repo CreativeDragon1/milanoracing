@@ -1,0 +1,72 @@
+{
+  "models": [
+    {
+      "label": "MK 1",
+      "name": "Arrow",
+      "viewer": "Interactive MK 1 Arrow car. Drag to rotate, left and right arrow keys rotate, plus and minus zoom, Home resets.",
+      "canvas": {
+        "height": 547,
+        "width": 1437
+      },
+      "stage": {
+        "height": 438,
+        "width": 1150
+      }
+    },
+    {
+      "label": "MK 2",
+      "name": "Blade",
+      "viewer": "Interactive MK 2 Blade car. Drag to rotate, left and right arrow keys rotate, plus and minus zoom, Home resets.",
+      "canvas": {
+        "height": 547,
+        "width": 1437
+      },
+      "stage": {
+        "height": 438,
+        "width": 1150
+      }
+    },
+    {
+      "label": "MK 3",
+      "name": "Hoop",
+      "viewer": "Interactive MK 3 Hoop car. Drag to rotate, left and right arrow keys rotate, plus and minus zoom, Home resets.",
+      "canvas": {
+        "height": 547,
+        "width": 1437
+      },
+      "stage": {
+        "height": 438,
+        "width": 1150
+      }
+    },
+    {
+      "label": "MK 4",
+      "name": "Apex",
+      "viewer": "Interactive MK 4 Apex car. Drag to rotate, left and right arrow keys rotate, plus and minus zoom, Home resets.",
+      "canvas": {
+        "height": 547,
+        "width": 1437
+      },
+      "stage": {
+        "height": 438,
+        "width": 1150
+      }
+    }
+  ],
+  "presets": [
+    "Perspective",
+    "Side",
+    "Top",
+    "Front"
+  ],
+  "controls": [
+    "rotate",
+    "zoom",
+    "reset",
+    "pointer drag",
+    "keyboard ArrowLeft",
+    "keyboard Home"
+  ],
+  "sourceGeometry": "Supplied STEP files",
+  "frameRateBenchmark": false
+}

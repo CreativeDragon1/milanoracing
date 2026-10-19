@@ -101,3 +101,14 @@ All six supplied 1080 x 1350 JPEGs were copied byte-for-byte and verified as loa
 ## Livery component explorer
 
 All seven hotspots were clicked in the running browser and showed their corresponding explanation. The explanation container stayed at 600 px across desktop selections. Both cyclic next/previous controls and Enter activation were checked, as was selection from the component list. Targeted livery checks at 320, 390, 768 and 1280 px found no horizontal page overflow, broken loaded images or missing link destinations. Mobile uses a horizontally scrollable component list to bring the explanation closer to the image. Touch targets are 44 px; reduced-motion styling is implemented. Results are in qa/livery-results.json. This does not constitute physical-device or screen-reader certification.
+
+
+## CAD archive, sponsor equality, motion and countdown
+
+- Loaded all four supplied STEP-derived GLBs in the browser; tested viewpoint buttons, rotation, zoom, reset and keyboard controls. The models preserve source geometry and colors, with display tessellation. This is not aerodynamic validation.
+- MK 1–MK 4 labels are consistent across the archive, comparisons and charts. MR 26 remains a sealed Coming soon panel with no livery or performance statistics. Comparison previews use the same 12:7 landscape ratio; rows use equal heights, including MR 26, with stacked phone layouts.
+- Checked all five sponsor slots at seven widths on Home and Partners (14 checks): equal dimensions, all visible, no horizontal overflow.
+- Centralized spring settings, reduced-motion handling, navigation feedback and comparison transitions. The 3D viewer renders on interaction rather than continuously; no sustained frame-rate benchmark or physical-device certification was performed.
+- Countdown updates were observed in the browser. Boundary checks passed one day and one second before the deadline, at competition start and on the following day. Deadline is 2026-11-23T00:00:00+08:00; the visible date/time and digits use the visitor’s browser locale and local time zone. No location permission is requested. Hidden tabs pause scheduled updates and resume from the clock.
+- Repeated 36 route/width checks after adding the countdown: no horizontal page overflow, broken loaded images or missing/duplicate main headings.
+- Production and standalone builds checked separately. Standalone HTML assets are byte-validated; direct file URL interaction remains untested because the browser tool blocked file launch.

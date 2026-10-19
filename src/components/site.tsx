@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { contact } from "../content";
-import { Press, Reveal } from "../motion";
+import { Press, Reveal, TactileLink, physics } from "../motion";
 
 import { asset } from "../assets";
 export { asset } from "../assets";
@@ -27,10 +27,10 @@ export function ArrowLink({
   light?: boolean;
 }) {
   return (
-    <Link className={`button ${light ? "secondary" : "primary"}`} to={to}>
+    <TactileLink className={`button ${light ? "secondary" : "primary"}`} to={to}>
       {children}
       <ArrowUpRight size={17} />
-    </Link>
+    </TactileLink>
   );
 }
 export function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -58,6 +58,7 @@ export function Heading({
   );
 }
 export function Header() {
+  const reduced = useReducedMotion();
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const toggle = useRef<HTMLButtonElement>(null);
@@ -76,7 +77,11 @@ export function Header() {
         <nav className="desktop-nav" aria-label="Main navigation">
           {nav.map(([url, title]) => (
             <NavLink end={url === "/"} to={url} key={url}>
-              {title}
+              {({ isActive }) => <>
+                {isActive && <motion.span className="nav-active-surface" layoutId="main-nav-active"
+                  transition={reduced ? { duration: 0 } : physics.spring} aria-hidden="true" />}
+                <span className="nav-title">{title}</span>
+              </>}
             </NavLink>
           ))}
         </nav>
@@ -100,9 +105,10 @@ export function Header() {
             id="mobile-nav"
             className="mobile-nav"
             aria-label="Mobile navigation"
-            initial={{ opacity: 0, height: 0 }}
+            initial={reduced ? false : { opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={reduced ? { duration: 0 } : { ...physics.gentle, opacity: physics.fade }}
             onKeyDown={(e) => {
               if (e.key === "Escape") {
                 setOpen(false);
@@ -111,7 +117,7 @@ export function Header() {
             }}
           >
             {nav.map(([url, title]) => (
-              <NavLink end={url === "/"} key={url} to={url}>
+              <NavLink end={url === "/"} key={url} to={url} onClick={() => setOpen(false)}>
                 {title}
                 <ArrowUpRight size={18} />
               </NavLink>

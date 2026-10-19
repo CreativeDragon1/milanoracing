@@ -10,9 +10,10 @@ import {
   Copy,
 } from "lucide-react";
 import { contact, sponsors } from "../content";
-import { Press, Reveal } from "../motion";
+import { Press } from "../motion";
 
-import { asset, nav, ArrowLink, Eyebrow, Heading } from "../components/site";
+import { Heading } from "../components/site";
+import SponsorLogo from "../components/SponsorLogo";
 function Contact() {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
@@ -102,28 +103,18 @@ export default function Partners() {
         title="Good work takes support."
         description="The businesses supporting Milano Racing."
       />
-      <section className="sponsor-feature raised">
-        <div className="featured-logo">
-          <img src={asset("hustle-hive.png")} alt="Hustle Hive" />
-        </div>
-        <div>
-          <h2>Hustle Hive</h2>
-          <p>{sponsors[0].description}</p>
-          <a className="text-link" href={sponsors[0].url} target="_blank" rel="noreferrer">{sponsors[0].linkLabel} ↗</a>
-        </div>
-      </section>
-      <div className="sponsor-grid">
-        {sponsors.slice(1).map((s) => (
-          <Reveal className="sponsor-card raised" key={s.name}>
-            <div>
-              <img src={asset(s.image)} alt={s.name} loading="lazy" />
-            </div>
-            <h3>{s.name}</h3>
+      <section className="partners-equal-grid" aria-label="Our sponsors">
+        {sponsors.map((s) => (
+          <article className="partner-equal-card raised" key={s.name}>
+            <div className="partner-logo-stage"><SponsorLogo image={s.image} name={s.name} /></div>
+            <h2>{s.name}</h2>
             <p>{s.description}</p>
-            <a className="text-link" href={s.url} target="_blank" rel="noreferrer">{s.linkLabel} ↗</a>
-          </Reveal>
+            <a className="text-link" href={s.url} target="_blank" rel="noreferrer">
+              {s.linkLabel} <ArrowUpRight size={17} aria-hidden="true" />
+            </a>
+          </article>
         ))}
-      </div>
+      </section>
       <PartnershipPlans />
       <Contact />
     </>

@@ -29,3 +29,6 @@ Team assets retain their respective owners' rights. The CC0 garment license does
 DM Sans, Manrope, Michroma and Playfair Display Italic are bundled from the official Google Fonts repository under the SIL Open Font License. Notices are in `licenses/`.
 
 Michroma is the team wordmark font specified in the PDF. Arbitrary custom names use DM Sans Bold and numbers use Playfair Display Italic. These are open-license substitutes for the specialty name/number fonts in the PDF, not an assertion that the source typefaces are identical.
+
+
+The four concept GLBs and WebP previews derive from the user-supplied STEP files. Their geometry and material colours are retained; no third-party car geometry was introduced.

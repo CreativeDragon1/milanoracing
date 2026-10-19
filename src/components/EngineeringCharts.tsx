@@ -3,12 +3,12 @@ import { asset } from "../assets";
 import { Press } from "../motion";
 
 const charts = [
-  { name: "Drag by version", image: "01_drag_by_version.png", caption: "Drag across the four illustrative versions, at an example airspeed of 20 m/s." },
-  { name: "Drag breakdown", image: "02_v4_drag_breakdown.png", caption: "How components contribute to the illustrative V4 drag total." },
-  { name: "Convergence", image: "03_convergence.png", caption: "An example of simulation results settling over successive iterations." },
-  { name: "Wing angle", image: "04_wing_sweep.png", caption: "An illustrative sweep from −4° to 6°, comparing drag and downforce." },
-  { name: "Pressure", image: "05_pressure_coefficient.png", caption: "Example pressure-coefficient distributions along the top centreline of V1 and V4." },
-  { name: "Drag & mass", image: "06_drag_and_mass.png", caption: "Drag and mass across the same illustrative version series." },
+  { name: "Drag by version", image: "01_drag_by_version.svg", caption: "Drag across the four illustrative versions, at an example airspeed of 20 m/s." },
+  { name: "Drag breakdown", image: "02_v4_drag_breakdown.svg", caption: "How components contribute to the illustrative MK 4 drag total." },
+  { name: "Convergence", image: "03_convergence.svg", caption: "An example of simulation results settling over successive iterations." },
+  { name: "Wing angle", image: "04_wing_sweep.svg", caption: "An illustrative sweep from −4° to 6°, comparing drag and downforce." },
+  { name: "Pressure", image: "05_pressure_coefficient.svg", caption: "Example pressure-coefficient distributions along the top centreline of MK 1 and MK 4." },
+  { name: "Drag & mass", image: "06_drag_and_mass.svg", caption: "Drag and mass across the same illustrative version series." },
 ];
 export default function EngineeringCharts() {
   const [index, setIndex] = useState(0);

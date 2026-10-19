@@ -1,0 +1,126 @@
+[
+  {
+    "route": "/evolution",
+    "width": 320,
+    "scrollWidth": 316,
+    "overflow": false,
+    "brokenImages": [],
+    "heading": "Built. Tested. Reconsidered.",
+    "carFrames": [
+      {
+        "width": 221,
+        "height": 129,
+        "ratio": 1.7131782945736433
+      },
+      {
+        "width": 221,
+        "height": 129,
+        "ratio": 1.7131782945736433
+      }
+    ],
+    "comparisonCards": [
+      {
+        "width": 257,
+        "height": 371
+      },
+      {
+        "width": 257,
+        "height": 371
+      }
+    ],
+    "links": 0
+  },
+  {
+    "route": "/evolution",
+    "width": 390,
+    "scrollWidth": 375,
+    "overflow": false,
+    "brokenImages": [],
+    "heading": "Built. Tested. Reconsidered.",
+    "carFrames": [
+      {
+        "width": 292,
+        "height": 170,
+        "ratio": 1.7176470588235293
+      },
+      {
+        "width": 292,
+        "height": 170,
+        "ratio": 1.7176470588235293
+      }
+    ],
+    "comparisonCards": [
+      {
+        "width": 328,
+        "height": 412
+      },
+      {
+        "width": 328,
+        "height": 412
+      }
+    ],
+    "links": 0
+  },
+  {
+    "route": "/evolution",
+    "width": 768,
+    "scrollWidth": 753,
+    "overflow": false,
+    "brokenImages": [],
+    "heading": "Built. Tested. Reconsidered.",
+    "carFrames": [
+      {
+        "width": 365,
+        "height": 213,
+        "ratio": 1.7136150234741785
+      },
+      {
+        "width": 365,
+        "height": 213,
+        "ratio": 1.7136150234741785
+      }
+    ],
+    "comparisonCards": [
+      {
+        "width": 681,
+        "height": 304
+      },
+      {
+        "width": 681,
+        "height": 304
+      }
+    ],
+    "links": 0
+  },
+  {
+    "route": "/evolution",
+    "width": 1280,
+    "scrollWidth": 1265,
+    "overflow": false,
+    "brokenImages": [],
+    "heading": "Built. Tested. Reconsidered.",
+    "carFrames": [
+      {
+        "width": 677,
+        "height": 395,
+        "ratio": 1.7139240506329114
+      },
+      {
+        "width": 677,
+        "height": 395,
+        "ratio": 1.7139240506329114
+      }
+    ],
+    "comparisonCards": [
+      {
+        "width": 1151,
+        "height": 443
+      },
+      {
+        "width": 1151,
+        "height": 443
+      }
+    ],
+    "links": 0
+  }
+]

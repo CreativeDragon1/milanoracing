@@ -1,0 +1,870 @@
+[
+  {
+    "route": "/",
+    "width": 320,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 123.4000015258789,
+        "height": 76.55000305175781,
+        "logoWidth": 121.80000305175781,
+        "logoHeight": 74.95000457763672,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 123.4000015258789,
+        "height": 76.55000305175781,
+        "logoWidth": 121.80000305175781,
+        "logoHeight": 74.95000457763672,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 123.4000015258789,
+        "height": 76.55000305175781,
+        "logoWidth": 121.80000305175781,
+        "logoHeight": 74.95000457763672,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 123.4000015258789,
+        "height": 76.55000305175781,
+        "logoWidth": 121.80000305175781,
+        "logoHeight": 74.95000457763672,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 123.4000015258789,
+        "height": 76.55000305175781,
+        "logoWidth": 121.80000305175781,
+        "logoHeight": 74.95000457763672,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/partners",
+    "width": 320,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 258.8000183105469,
+        "height": 544.7999877929688,
+        "logoWidth": 209.1999969482422,
+        "logoHeight": 128.7375030517578,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 258.8000183105469,
+        "height": 544.7999877929688,
+        "logoWidth": 209.1999969482422,
+        "logoHeight": 128.7375030517578,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 258.8000183105469,
+        "height": 544.7999877929688,
+        "logoWidth": 209.1999969482422,
+        "logoHeight": 128.7375030517578,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 258.8000183105469,
+        "height": 544.7999877929688,
+        "logoWidth": 209.1999969482422,
+        "logoHeight": 128.7375030517578,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 258.8000183105469,
+        "height": 544.7999877929688,
+        "logoWidth": 209.1999969482422,
+        "logoHeight": 128.7375030517578,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 158.60000610351562,
+        "height": 98.2125015258789,
+        "logoWidth": 157,
+        "logoHeight": 96.61250305175781,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 158.60000610351562,
+        "height": 98.2125015258789,
+        "logoWidth": 157,
+        "logoHeight": 96.61250305175781,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 158.60000610351562,
+        "height": 98.2125015258789,
+        "logoWidth": 157,
+        "logoHeight": 96.61250305175781,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 158.60000610351562,
+        "height": 98.2125015258789,
+        "logoWidth": 157,
+        "logoHeight": 96.61250305175781,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 158.60000610351562,
+        "height": 98.2125015258789,
+        "logoWidth": 157,
+        "logoHeight": 96.61250305175781,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/partners",
+    "width": 390,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 329.20001220703125,
+        "height": 519.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 329.20001220703125,
+        "height": 519.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 329.20001220703125,
+        "height": 519.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 329.20001220703125,
+        "height": 519.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 329.20001220703125,
+        "height": 519.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "width": 600,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 251.40000915527344,
+        "height": 155.3125,
+        "logoWidth": 249.8000030517578,
+        "logoHeight": 153.71250915527344,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 251.40000915527344,
+        "height": 155.3125,
+        "logoWidth": 249.8000030517578,
+        "logoHeight": 153.71250915527344,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 251.40000915527344,
+        "height": 155.3125,
+        "logoWidth": 249.8000030517578,
+        "logoHeight": 153.71250915527344,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 251.40000915527344,
+        "height": 155.3125,
+        "logoWidth": 249.8000030517578,
+        "logoHeight": 153.71250915527344,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 251.40000915527344,
+        "height": 155.3125,
+        "logoWidth": 249.8000030517578,
+        "logoHeight": 153.71250915527344,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/partners",
+    "width": 600,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 514.7999877929688,
+        "height": 439.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 514.7999877929688,
+        "height": 439.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 514.7999877929688,
+        "height": 439.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 514.7999877929688,
+        "height": 439.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 514.7999877929688,
+        "height": 439.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 216.9250030517578,
+        "height": 134.10000610351562,
+        "logoWidth": 215.3249969482422,
+        "logoHeight": 132.5,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 216.9250030517578,
+        "height": 134.10000610351562,
+        "logoWidth": 215.3249969482422,
+        "logoHeight": 132.5,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 216.9250030517578,
+        "height": 134.10000610351562,
+        "logoWidth": 215.3249969482422,
+        "logoHeight": 132.5,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 216.9250030517578,
+        "height": 134.10000610351562,
+        "logoWidth": 215.3249969482422,
+        "logoHeight": 132.5,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 216.9250030517578,
+        "height": 134.10000610351562,
+        "logoWidth": 215.3249969482422,
+        "logoHeight": 132.5,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/partners",
+    "width": 768,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 329.3999938964844,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 329.3999938964844,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 329.3999938964844,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 329.3999938964844,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 329.3999938964844,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "width": 1000,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 294.26251220703125,
+        "height": 161.60000610351562,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 294.26251220703125,
+        "height": 161.60000610351562,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 294.26251220703125,
+        "height": 161.60000610351562,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 294.26251220703125,
+        "height": 161.60000610351562,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 294.26251220703125,
+        "height": 161.60000610351562,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/partners",
+    "width": 1000,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 445.3999938964844,
+        "height": 477.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 445.3999938964844,
+        "height": 477.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 445.3999938964844,
+        "height": 477.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 445.3999938964844,
+        "height": 477.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 445.3999938964844,
+        "height": 477.20001220703125,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "width": 1280,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 217.75,
+        "height": 134.6125030517578,
+        "logoWidth": 216.15000915527344,
+        "logoHeight": 133.0124969482422,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 217.75,
+        "height": 134.6125030517578,
+        "logoWidth": 216.15000915527344,
+        "logoHeight": 133.0124969482422,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 217.75,
+        "height": 134.6125030517578,
+        "logoWidth": 216.15000915527344,
+        "logoHeight": 133.0124969482422,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 217.75,
+        "height": 134.6125030517578,
+        "logoWidth": 216.15000915527344,
+        "logoHeight": 133.0124969482422,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 217.75,
+        "height": 134.6125030517578,
+        "logoWidth": 216.15000915527344,
+        "logoHeight": 133.0124969482422,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/partners",
+    "width": 1280,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 368.26251220703125,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 368.26251220703125,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 368.2749938964844,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 368.2749938964844,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 368.26251220703125,
+        "height": 527.6000366210938,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "width": 1600,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 228.8000030517578,
+        "height": 141.41250610351562,
+        "logoWidth": 227.1999969482422,
+        "logoHeight": 139.8125,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 228.8000030517578,
+        "height": 141.41250610351562,
+        "logoWidth": 227.1999969482422,
+        "logoHeight": 139.8125,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 228.8000030517578,
+        "height": 141.41250610351562,
+        "logoWidth": 227.1999969482422,
+        "logoHeight": 139.8125,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 228.8000030517578,
+        "height": 141.41250610351562,
+        "logoWidth": 227.1999969482422,
+        "logoHeight": 139.8125,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 228.8000030517578,
+        "height": 141.41250610351562,
+        "logoWidth": 227.1999969482422,
+        "logoHeight": 139.8125,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  },
+  {
+    "route": "/partners",
+    "width": 1600,
+    "count": 5,
+    "equalWidths": true,
+    "equalHeights": true,
+    "equalLogoSlots": true,
+    "allVisible": true,
+    "overflow": false,
+    "sponsors": [
+      {
+        "name": "Hustle Hive",
+        "width": 386.6625061035156,
+        "height": 502.3999938964844,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://hustlehive.ai/"
+      },
+      {
+        "name": "NPE Print Communications",
+        "width": 386.6625061035156,
+        "height": 502.3999938964844,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://npeprint.com/"
+      },
+      {
+        "name": "Enermax Synergy (SEA)",
+        "width": 386.6750183105469,
+        "height": 502.3999938964844,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.companies.sg/business/201818407R/ENERMAX-SYNERGY-SEA-PTE-LTD-"
+      },
+      {
+        "name": "Brinda’s",
+        "width": 386.6750183105469,
+        "height": 502.3999938964844,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.brindas.com.sg/"
+      },
+      {
+        "name": "Axis",
+        "width": 386.6625061035156,
+        "height": 502.3999938964844,
+        "logoWidth": 260,
+        "logoHeight": 160,
+        "inside": true,
+        "visible": true,
+        "link": "https://www.axiscontainerlines.com/"
+      }
+    ]
+  }
+]

@@ -48,7 +48,7 @@ vite.config.ts            Build configuration
 Team, sponsor and journal content lives in `src/content.ts`; public engineering data and partnership plans have their own editable files below.
 
 - **Cars and charts:** `src/data/public-engineering.json` holds the illustrative public dataset supplied in `website_charts.zip`. `content.ts` exports its four versions. The six supplied chart images live in `public/assets/`; their selector is `components/EngineeringCharts.tsx`. Actual competition results are not included in the current public build. Replace chart images and JSON together when updating them.
-- **Models:** original CAD and version-specific renders remain pending. No render is assigned to a version without confirmation.
+- **Models:** MK 1 Arrow, MK 2 Blade, MK 3 Hoop and MK 4 Apex use web meshes converted directly from the supplied STEP assemblies, retaining their colours. MR 26 is a sealed Coming soon entry with no model, photograph or statistics.
 - **Partnership plans:** edit `components/PartnershipPlans.tsx`. Prices, benefits and package inheritance match page 4 of the supplied prospectus, including its unusual Signature/Essence price order. Currency is shown as `$` because the document does not specify a currency code. Enquiry links open an email draft; they do not send or purchase anything.
 - **People:** `people` contains all six confirmed members. The latest three graphics were supplied directly by the team, with surnames and kit numbers from its shirt specification. Set optional `introduction` and `highlights` fields to replace the editable introduction placeholders. Member biographies and contributions remain editable until supplied.
 - **Sponsors:** the five supplied sponsors are confirmed by the user. No sponsorship tiers, amounts, services or contractual benefits are invented. Sponsor recognition does not imply website endorsement or a fabricated outbound URL.
@@ -91,3 +91,12 @@ The generic CC0 garment was adapted into this interactive visual preview; it is 
 ## Livery hotspots
 
 The livery article includes seven selectable component hotspots. Edit `src/data/livery-components.ts` for names, percentage-based image positions and explanations. `components/LiveryExplorer.tsx` supplies matching component buttons, previous/next navigation, live selection announcements and a stable-height explanation panel. Its scoped CSS respects reduced motion and keeps 44 px hotspot targets. The source render is unchanged.
+
+
+## Model viewer and sponsor layout
+
+`src/components/CarViewer.tsx` and `src/lib/carScene.ts` provide the lazy-loaded, demand-rendered Three.js car viewer. Drag or use keyboard arrows to rotate; buttons offer perspective, side, top and front views, zoom and reset. Page scrolling remains native. The four `concept-v*.glb` files correspond to MK 1 through MK 4; `concept-v*.webp` are renders of those same meshes for comparisons and 3D fallbacks. Display names live in `src/data/public-engineering.json`. Source V identifiers are internal file keys only. All engineering figures remain illustrative; importing geometry does not validate those figures.
+
+Sponsor artwork uses its original colours and aspect ratio. `SponsorLogo.tsx` normalises transparent padding for balanced prominence. All five sponsors have identical card and logo slots at each breakpoint, with no featured sponsor or carousel.
+
+The homepage countdown targets 23 November 2026 at 00:00 Singapore time. Visitors see the event date in their browser locale and local time zone, with locale-formatted numbers. The deadline is a single global instant. Change `competitionStart` and the time element’s `dateTime` in `src/components/CompetitionCountdown.tsx` when a confirmed start time is available.

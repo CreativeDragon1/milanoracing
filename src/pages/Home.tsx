@@ -1,3 +1,5 @@
+import CompetitionCountdown from "../components/CompetitionCountdown";
+import SponsorLogo from "../components/SponsorLogo";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { cars, posts, sponsors } from "../content";
@@ -39,6 +41,7 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
+      <CompetitionCountdown/>
       <section className="intro section">
         <Reveal>
           <h2>
@@ -80,7 +83,7 @@ export default function Home() {
           </div>
           {cars.map((car, i) => (
             <div className="bar-row" key={car.id}>
-              <span>{car.id}</span>
+              <span>{car.label}</span>
               <div className="bar-track">
                 <div
                   className={i === 1 ? "bar blue-bar" : "bar"}
@@ -133,16 +136,20 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="partner-strip">
+      <section className="partners-home">
         <div>
           <span className="small-label">Supported by</span>
           <Link to="/partners" className="text-link">
             Our partners <ArrowUpRight size={16} />
           </Link>
         </div>
-        {sponsors.map((s) => (
-          <img key={s.name} src={asset(s.image)} alt={s.name} loading="lazy" />
-        ))}
+        <div className="partners-logo-grid" aria-label="Our sponsors">
+          {sponsors.map((s) => (
+            <a className="partner-logo-link" key={s.name} href={s.url} target="_blank" rel="noreferrer" aria-label={`Visit ${s.name}`}>
+              <SponsorLogo image={s.image} name={s.name} />
+            </a>
+          ))}
+        </div>
       </section>
     </>
   );

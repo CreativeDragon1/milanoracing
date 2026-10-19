@@ -1,0 +1,32 @@
+[
+  {
+    "locale": "en-SG",
+    "timeZone": "Asia/Singapore",
+    "date": "23 November 2026 at 12:00 am SGT",
+    "sameInstant": 1795363200000
+  },
+  {
+    "locale": "en-GB",
+    "timeZone": "Europe/London",
+    "date": "22 November 2026 at 16:00 GMT",
+    "sameInstant": 1795363200000
+  },
+  {
+    "locale": "en-US",
+    "timeZone": "America/New_York",
+    "date": "November 22, 2026 at 11:00 AM EST",
+    "sameInstant": 1795363200000
+  },
+  {
+    "locale": "en-IN",
+    "timeZone": "Asia/Kolkata",
+    "date": "22 November 2026 at 9:30 pm IST",
+    "sameInstant": 1795363200000
+  },
+  {
+    "locale": "ar-AE",
+    "timeZone": "Asia/Dubai",
+    "date": "22 نوفمبر 2026 في 8:00 م غرينتش+4",
+    "sameInstant": 1795363200000
+  }
+]

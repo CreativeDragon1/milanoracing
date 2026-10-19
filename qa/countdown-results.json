@@ -1,0 +1,11 @@
+{
+  "deadlineUtc": "2026-11-22T16:00:00.000Z",
+  "deadlineSingapore": "23 November 2026, 00:00 +08:00",
+  "boundaryChecks": [
+    "one day before",
+    "one second before",
+    "competition starts",
+    "next day"
+  ],
+  "passed": true
+}

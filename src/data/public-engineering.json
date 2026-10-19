@@ -12,28 +12,32 @@
    "name": "Arrow",
    "dragN": 0.618,
    "downforceN": 0.018,
-   "massG": 55.4
+   "massG": 55.4,
+   "label": "MK 1"
   },
   {
    "id": "V2",
-   "name": "Teardrop",
+   "name": "Blade",
    "dragN": 0.574,
    "downforceN": 0.026,
-   "massG": 53.1
+   "massG": 53.1,
+   "label": "MK 2"
   },
   {
    "id": "V3",
-   "name": "Waist",
+   "name": "Hoop",
    "dragN": 0.541,
    "downforceN": 0.034,
-   "massG": 51.2
+   "massG": 51.2,
+   "label": "MK 3"
   },
   {
    "id": "V4",
    "name": "Apex",
    "dragN": 0.509,
    "downforceN": 0.041,
-   "massG": 49.6
+   "massG": 49.6,
+   "label": "MK 4"
   }
  ],
  "v4_drag_breakdown_N": {

@@ -1,0 +1,58 @@
+/* Every sponsor gets the same slot; original aspect ratios and colours remain intact. */
+.partners-home { margin: 80px 0; padding: 36px 0; border-block: 1px solid var(--line); }
+.partners-home > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+.partners-logo-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.partner-logo-link { flex: 0 0 calc((100% - 64px) / 5); min-width: 0; display: grid; place-items: center; border-radius: 14px; background: #ffffffdc; border: 1px solid #e8e8ed; }
+.partner-logo { width: 100%; height: auto; display: block; max-width: 260px; }
+.partners-equal-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 24px; margin: 0 0 100px; }
+.partner-equal-card { grid-column: span 2; min-width: 0; padding: 28px; display: flex; flex-direction: column; background: #fffffff2; }
+.partner-equal-card:nth-child(4) { grid-column: 2 / span 2; }
+.partner-logo-stage { display: grid; place-items: center; height: 180px; margin-bottom: 20px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+.partner-equal-card h2 { font-size: 24px; line-height: 1.25; letter-spacing: -.6px; min-height: 60px; margin: 0; }
+.partner-equal-card p { font-size: 14px; line-height: 1.8; margin: 16px 0 24px; flex: 1; }
+.partner-equal-card .text-link { font-size: 13px; min-height: 44px; align-self: flex-start; }
+.desktop-nav a { position: relative; isolation: isolate; }
+.desktop-nav a.active { background: transparent; box-shadow: none; }
+.nav-active-surface { position: absolute; inset: 0; border-radius: inherit; background: #fff; box-shadow: 2px 3px 7px #00000012; z-index: -1; }
+.nav-title { position: relative; }
+/* Motion owns transforms on these controls; CSS only handles colour and depth. */
+.motion-control { transition: box-shadow 160ms ease, background-color 160ms ease, color 160ms ease; }
+.motion-control:hover, .motion-control:active { transform: none; }
+.partner-logo-link, .partner-equal-card { transition: border-color 180ms ease, box-shadow 180ms ease; }
+.partner-logo-link:focus-visible, .partner-equal-card:focus-within { border-color: var(--blue); }
+@media (hover: hover) and (pointer: fine) {
+  .partner-logo-link:hover { border-color: #0019ff55; box-shadow: 0 5px 16px #00000008; }
+  .partner-equal-card:hover { box-shadow: 0 8px 24px #00000009, inset 0 1px 0 #fff; }
+}
+@media (max-width: 1000px) {
+  .partners-equal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .partner-equal-card:nth-child(4) { grid-column: span 2; }
+  .partner-equal-card:last-child { grid-column: 2 / span 2; }
+  .partner-logo-link { flex-basis: calc((100% - 32px) / 3); }
+}
+@media (max-width: 600px) {
+  .partners-home { margin: 56px 0; padding: 26px 0; }
+  .partners-logo-grid { gap: 12px; }
+  .partner-logo-link { flex-basis: calc((100% - 12px) / 2); }
+  .partners-equal-grid { gap: 20px; margin-bottom: 64px; }
+  .partners-equal-grid { grid-template-columns: minmax(0, 1fr); }
+  .partner-equal-card, .partner-equal-card:nth-child(4), .partner-equal-card:last-child { grid-column: auto; padding: 24px; }
+  .partner-equal-card h2 { min-height: 0; }
+  .partner-logo-stage { height: 180px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-control, .partner-logo-link, .partner-equal-card { transition: none; }
+}
+
+.competition-countdown { display: flex; justify-content: space-between; align-items: center; gap: 36px; margin: 32px 0 20px; padding: 36px 40px; background: #fffffff5; border-left: 3px solid var(--orange); }
+.competition-heading h2 { font-size: clamp(24px,3vw,34px); margin: 0 0 12px; }
+.competition-heading p { margin: 0 0 6px; font-size: 15px; color: #17171b; }
+.competition-heading time { font-size: 12px; color: var(--muted); }
+.competition-clock { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; min-width: 360px; }
+.countdown-unit { text-align: center; background: #f4f4f7; border-radius: 12px; padding: 18px 10px 14px; box-shadow: inset 2px 2px 5px #00000006, inset -2px -2px 4px #fff; }
+.countdown-unit strong { display: block; font-size: clamp(30px,4vw,44px); font-variant-numeric: tabular-nums; font-weight: 600; line-height: 1; letter-spacing: -.04em; }
+.countdown-unit:first-child strong { color: var(--blue); }
+.countdown-unit span { display: block; margin-top: 12px; font-size: 10px; color: #62626c; }
+.competition-arrived { font-size: 26px; color: var(--blue); margin: 0; }
+@media(max-width:850px) { .competition-countdown { flex-direction: column; align-items: stretch; gap: 24px; padding: 28px; } .competition-clock { min-width: 0; } }
+@media(max-width:480px) { .competition-countdown { padding: 24px 18px; margin-top: 20px; } .competition-clock { gap: 8px; } .countdown-unit { padding: 16px 4px 12px; border-radius: 8px; } .countdown-unit strong { font-size: 30px; } .countdown-unit span { font-size: 9px; } }

@@ -102,7 +102,7 @@ export const posts = [
     id: "drag-log",
     category: "Engineering",
     title: "Understanding the airflow.",
-    image: "03_convergence.png",
+    image: "03_convergence.svg",
     caption: "Illustrative CFD convergence chart",
     excerpt: "Drag, pressure and convergence: a look inside the design process.",
     body: [
