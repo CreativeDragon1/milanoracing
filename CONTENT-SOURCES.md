@@ -85,3 +85,4 @@ The six engineering chart SVGs are regenerated from the original illustrative da
 The dark logo embeds the existing milano-official.png unchanged inside milano-dark.svg. A selective SVG filter changes only near-black ink to white while preserving original transparency and the orange/blue artwork. Used in the dark header, homepage logo, MR 26/livery signatures and animated reveal layers, and jersey studio signature. The generated redraws were rejected and are not included. No white backing plate.
 
 Team correction, 20 October 2026: Essence is now the $100–350 entry tier and Signature the $350–600 tier. Benefits retain their original named packages, so Signature includes Essence plus apparel, print, pit display and campaign acknowledgements. This supersedes the printed price order noted above; other tiers remain as supplied.
+Team correction, 20 October 2026: Legacy includes everything in Aurum, plus its listed benefits; supersedes the printed Prestige reference.
