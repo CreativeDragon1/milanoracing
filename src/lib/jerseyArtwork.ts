@@ -45,7 +45,7 @@ export async function createKitArtwork() {
     const ctx=canvases[1].getContext('2d')!;ctx.clearRect(0,0,1536,1536);ctx.drawImage(backBase,0,0);
     ctx.fillStyle='#000000';ctx.textAlign='center';ctx.textBaseline='middle';
     if(number){ctx.font='italic 500 420px "Kit Numbers", Georgia, serif';ctx.fillText(number,768,570,570);}
-    if(name){ctx.font='700 57px "DM Sans", sans-serif';ctx.fillText(name.toUpperCase(),768,875,590);}
+    if(name){ctx.font='700 72px "DM Sans", sans-serif';ctx.fillText(name.toUpperCase(),768,875,590);}
     textures[1].needsUpdate=true;
   }
   return {textures,personalise};
