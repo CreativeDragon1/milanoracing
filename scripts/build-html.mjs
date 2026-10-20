@@ -36,8 +36,9 @@ for(const pkg of ['react','react-dom','three','motion','lucide-react','react-rou
 }
 licenses['garment-provenance']=await readFile(resolve(root,'THIRD-PARTY-ASSETS.md'),'utf8');
 const themeInit=await readFile(resolve(root,"public/theme-init.js"),"utf8");
+const favicon=`data:image/svg+xml;base64,${(await readFile(resolve(root,"public/favicon.svg"))).toString('base64')}`;
 const html=`<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0019FF"><meta name="description" content="Milano Racing — the team, the car archive, and our personalised kit viewer."><title>Milano Racing</title><script>${themeInit}</script><style>${css}</style></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0019FF"><meta name="description" content="Milano Racing — the team, the car archive, and our personalised kit viewer."><link rel="icon" type="image/svg+xml" href="${favicon}" sizes="any"><title>Milano Racing</title><script>${themeInit}</script><style>${css}</style></head>
 <body><div id="root"></div><noscript>Please enable JavaScript to explore the interactive Milano Racing website.</noscript><script id="milano-assets" type="application/json">${JSON.stringify(runtimeAssets)}</script><script id="milano-licenses" type="application/json">${JSON.stringify(licenses).replace(/</g,'\\u003c')}</script><script>window.__MILANO_OFFLINE__=true;window.__MILANO_ASSETS__=JSON.parse(document.getElementById('milano-assets').textContent);</script><script>${script}</script></body></html>`;
 const output=resolve(root,'downloads/Milano-Racing.html');
 await mkdir(dirname(output), { recursive: true });
