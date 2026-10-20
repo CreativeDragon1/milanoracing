@@ -67,6 +67,7 @@ export const people: Person[] = [
   },
   {
     id: "ashmitha", name: "Ashmitha Pitani", role: "Outreach Lead", number: "25",
+    quote: "Making things happen, one pitstop at a time",
     image: "ashmitha-portrait.jpg", supplied: true,
     contribution: "Outreach Lead, confirmed in the supplied team introduction.", source: "https://www.instagram.com/p/DclS60Bmpn3/",
   },
