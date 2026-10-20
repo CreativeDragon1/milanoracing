@@ -11,11 +11,13 @@ export type JerseyExport = { render:(angle?:number)=>HTMLCanvasElement; dispose:
 export type JerseyScene = { preset:(side:'front'|'back')=>void; zoom:(step:number)=>void; reset:()=>void; rotate:(x:number,y:number)=>void; spin:(active:boolean)=>void; createExport:(width:number,height:number)=>JerseyExport; personalise:(value:KitPersonalisation)=>void; dispose:()=>void };
 export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChange:(angle:number,zoom:number)=>void,preview=false):Promise<JerseyScene>{
   const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.75));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,preview?1.25:1.75));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.toneMapping=THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure=.95;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  // Only the camera moves: the garment's shadow need not be rebuilt every frame.
+  renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;
   renderer.domElement.setAttribute('aria-hidden','true');
   host.appendChild(renderer.domElement);
   const scene=new THREE.Scene();
@@ -60,7 +62,18 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
   clothRoughness.generateMipmaps=true;clothRoughness.anisotropy=weave.anisotropy;clothRoughness.needsUpdate=true;ownedTextures.push(clothRoughness);
   let updateArtwork:((value:KitPersonalisation)=>void)|undefined;
   let disposed=false,observer:ResizeObserver|undefined,animation:ReturnType<typeof animate>|undefined;
-  const render=()=>{if(!disposed)renderer.render(scene,camera);};
+  let renderFrame=0, onScreen=true,dampingFrame=0,dragging=false,lastFrame=0;
+  const render=()=>{
+    if(disposed||renderFrame||!onScreen||document.hidden)return;
+    renderFrame=requestAnimationFrame(()=>{renderFrame=0;if(!disposed&&onScreen&&!document.hidden)renderer.render(scene,camera);});
+  };
+  const visibility=new IntersectionObserver(entries=>{
+    onScreen=entries.some(entry=>entry.isIntersecting);
+    if(onScreen){render();if(controls.autoRotate&&!dampingFrame)dampingFrame=requestAnimationFrame(tick);}
+  });
+  visibility.observe(host);
+  const show=()=>{if(!document.hidden){render();if(onScreen&&controls.autoRotate&&!dampingFrame)dampingFrame=requestAnimationFrame(tick);}};
+  document.addEventListener('visibilitychange',show);
   const updateStatus=()=>{const angle=((Math.atan2(camera.position.x,camera.position.z)*180/Math.PI)%360+360)%360;onChange(Math.round(angle)%360,Math.round(baseDistance/camera.position.distanceTo(controls.target)*100));};
   controls.addEventListener('change',render);controls.addEventListener('end',updateStatus);
   try{
@@ -137,7 +150,7 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
     const shadowCanvas=document.createElement('canvas');shadowCanvas.width=128;shadowCanvas.height=128;const shadowCtx=shadowCanvas.getContext('2d')!;const gradient=shadowCtx.createRadialGradient(64,64,0,64,64,64);gradient.addColorStop(0,'rgba(30,30,22,.18)');gradient.addColorStop(1,'rgba(30,30,22,0)');shadowCtx.fillStyle=gradient;shadowCtx.fillRect(0,0,128,128);const shadowMap=new THREE.CanvasTexture(shadowCanvas);const ground=new THREE.Mesh(new THREE.PlaneGeometry(3,1.3),new THREE.MeshBasicMaterial({map:shadowMap,transparent:true,depthWrite:false}));ground.rotation.x=-Math.PI/2;ground.position.y=-1.64;scene.add(ground);
     observer=new ResizeObserver(()=>{const {width,height}=host.getBoundingClientRect();if(!width||!height)return;renderer.setSize(width,height,false);camera.aspect=width/height;const nextDistance=Math.max(6.1,5.4/camera.aspect);camera.position.sub(controls.target).multiplyScalar(nextDistance/baseDistance).add(controls.target);baseDistance=nextDistance;camera.updateProjectionMatrix();controls.update();updateStatus();render();});observer.observe(host);
     updateStatus();render();
-  }catch(error){controls.dispose();renderer.dispose();renderer.domElement.remove();throw error;}
+  }catch(error){disposed=true;cancelAnimationFrame(renderFrame);visibility.disconnect();document.removeEventListener('visibilitychange',show);controls.dispose();renderer.dispose();renderer.domElement.remove();throw error;}
   function move(angle:number,distance:number,polar=camera.position.clone().sub(controls.target).angleTo(new THREE.Vector3(0,1,0))){
     animation?.stop();const from=camera.position.clone();
     const target=new THREE.Vector3(Math.sin(angle)*Math.sin(polar)*distance,Math.cos(polar)*distance,Math.cos(angle)*Math.sin(polar)*distance).add(controls.target);
@@ -146,8 +159,7 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
     animation=animate(0,1,{...(reduced?{duration:0}:physics.gentle),onUpdate:p=>{const a=startTheta+delta*p,d=THREE.MathUtils.lerp(fromDist,distance,p),phi=THREE.MathUtils.lerp(fromPolar,polar,p);camera.position.set(Math.sin(a)*Math.sin(phi)*d,Math.cos(phi)*d,Math.cos(a)*Math.sin(phi)*d).add(controls.target);controls.update();render();},onComplete:updateStatus});
     void target;
   }
-  let dampingFrame=0,dragging=false,lastFrame=0;
-  const tick=(time:number)=>{dampingFrame=0;if(disposed)return;const dt=lastFrame?Math.min((time-lastFrame)/1000,.05):1/60;lastFrame=time;const changed=controls.update(dt);render();if(controls.autoRotate)updateStatus();if(dragging||changed||controls.autoRotate)dampingFrame=requestAnimationFrame(tick);else {lastFrame=0;updateStatus();}};
+  const tick=(time:number)=>{dampingFrame=0;if(disposed||!onScreen||document.hidden){lastFrame=0;return;}const dt=lastFrame?Math.min((time-lastFrame)/1000,.05):1/60;lastFrame=time;const changed=controls.update(dt);render();if(controls.autoRotate)updateStatus();if(dragging||changed||controls.autoRotate)dampingFrame=requestAnimationFrame(tick);else {lastFrame=0;updateStatus();}};
   const cancel=()=>{animation?.stop();dragging=true;if(!dampingFrame)dampingFrame=requestAnimationFrame(tick);};
   controls.addEventListener('start',cancel);controls.addEventListener('end',()=>{dragging=false;});
   return {
@@ -168,6 +180,7 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
       output.setPixelRatio(1);output.setSize(width,height,false);
       output.outputColorSpace=renderer.outputColorSpace;output.toneMapping=renderer.toneMapping;output.toneMappingExposure=renderer.toneMappingExposure;
       output.shadowMap.enabled=true;output.shadowMap.type=renderer.shadowMap.type;
+      output.shadowMap.autoUpdate=false;output.shadowMap.needsUpdate=true;
       const lens=camera.clone();lens.aspect=width/height;lens.updateProjectionMatrix();
       const start=Math.atan2(camera.position.x,camera.position.z);
       return {render:(angle=start)=>{
@@ -176,6 +189,6 @@ export async function createJerseyScene(host:HTMLElement,reduced:boolean,onChang
         output.render(scene,lens);return output.domElement;
       },dispose:()=>{output.dispose();output.forceContextLoss();}};
     },
-    dispose:()=>{disposed=true;cancelAnimationFrame(dampingFrame);animation?.stop();observer?.disconnect();controls.dispose();scene.traverse(object=>{if(object instanceof THREE.Mesh){object.geometry.dispose();const mats=Array.isArray(object.material)?object.material:[object.material];mats.forEach(material=>{if('map' in material)(material.map as THREE.Texture|null)?.dispose();material.dispose();});}});ownedTextures.forEach(texture=>texture.dispose());light.shadow.dispose();renderer.dispose();renderer.domElement.remove();},
+    dispose:()=>{disposed=true;cancelAnimationFrame(renderFrame);visibility.disconnect();document.removeEventListener('visibilitychange',show);cancelAnimationFrame(dampingFrame);animation?.stop();observer?.disconnect();controls.dispose();scene.traverse(object=>{if(object instanceof THREE.Mesh){object.geometry.dispose();const mats=Array.isArray(object.material)?object.material:[object.material];mats.forEach(material=>{if('map' in material)(material.map as THREE.Texture|null)?.dispose();material.dispose();});}});ownedTextures.forEach(texture=>texture.dispose());light.shadow.dispose();renderer.dispose();renderer.domElement.remove();},
   };
 }

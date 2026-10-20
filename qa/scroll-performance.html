@@ -1,0 +1,31 @@
+<!doctype html><meta charset="utf-8"><title>Milano scroll performance check</title>
+<style>body{font:14px system-ui;background:#eee}iframe{display:block;width:1280px;height:720px;border:0}button,select{padding:10px;margin:8px}pre{white-space:pre-wrap}</style>
+<label>Route <select id="route"><option>/</option><option>/team</option><option>/evolution</option><option>/partners</option></select></label><button id="load">Load route</button><button id="run">Run 12-second scroll check</button><button id="motion">Check reverse motion</button><pre id="result">Ready</pre><iframe id="site" src="/"></iframe>
+<script>
+const site=document.querySelector('#site'),result=document.querySelector('#result'),run=document.querySelector('#run');
+run.disabled=true;site.addEventListener('load',()=>{site.contentWindow.document.fonts.ready.then(()=>{run.disabled=false;result.textContent='Ready';});});
+document.querySelector('#load').onclick=()=>{run.disabled=true;site.src=document.querySelector('#route').value};
+run.onclick=()=>{
+ const w=site.contentWindow,d=w.document;let reads=0,draws=0,start=0,last=0;const intervals=[],longTasks=[];
+ const proto=w.Element.prototype,original=proto.getBoundingClientRect;proto.getBoundingClientRect=function(...args){reads++;return original.apply(this,args)};
+ const restore=[];for(const kind of ['WebGLRenderingContext','WebGL2RenderingContext']){const p=w[kind]?.prototype;if(!p)continue;for(const method of ['drawElements','drawArrays']){const fn=p[method];p[method]=function(...args){draws++;return fn.apply(this,args)};restore.push(()=>p[method]=fn)}}
+ const observer=new w.PerformanceObserver(list=>longTasks.push(...list.getEntries().map(x=>x.duration)));observer.observe({type:'longtask'});
+ run.disabled=true;result.textContent='Running…';const distance=d.documentElement.scrollHeight-w.innerHeight;const samples=[];
+ function tick(t){if(!start)start=t;if(last)intervals.push(t-last);last=t;const p=Math.min((t-start)/12000,1);w.scrollTo({top:distance*(p<.5?p*2:2-p*2),behavior:'instant'});
+ if(p<1){w.requestAnimationFrame(tick);return}proto.getBoundingClientRect=original;restore.forEach(f=>f());observer.disconnect();run.disabled=false;
+ const sorted=[...intervals].sort((a,b)=>a-b);result.textContent=JSON.stringify({route:site.src,viewport:[w.innerWidth,w.innerHeight],scrollDistance:distance,samples:intervals.length,p95FrameMs:+sorted[Math.floor(sorted.length*.95)].toFixed(2),over25ms:intervals.filter(x=>x>25).length,maxFrameMs:+Math.max(...intervals).toFixed(2),layoutRectReads:reads,webglDrawCalls:draws,longTasks:longTasks.length,longTaskMs:Math.round(longTasks.reduce((a,b)=>a+b,0)),revealDrivers:[...d.querySelectorAll('.scroll-reveal')].map(e=>e.dataset.revealState)},null,2);
+ }w.requestAnimationFrame(tick);
+};
+</script>
+<script>
+document.querySelector('#motion').onclick=async()=>{
+ const w=site.contentWindow,d=w.document,el=d.querySelectorAll('.scroll-reveal')[3];
+ const pause=()=>new Promise(resolve=>w.requestAnimationFrame(()=>w.requestAnimationFrame(resolve)));
+ const target=el.offsetTop-w.innerHeight*.8;
+ const read=()=>({scrollY:w.scrollY,opacity:w.getComputedStyle(el).opacity,transform:w.getComputedStyle(el).transform,timeline:w.getComputedStyle(el).animationTimeline});
+ w.scrollTo({top:target,behavior:'instant'});await pause();const down=read();
+ w.scrollTo({top:target+300,behavior:'instant'});await pause();const middle=read();
+ w.scrollTo({top:target,behavior:'instant'});await pause();const up=read();
+ result.textContent=JSON.stringify({down,middle,up,reverses:down.opacity===up.opacity&&down.transform===up.transform},null,2);
+};
+</script>

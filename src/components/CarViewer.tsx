@@ -4,6 +4,7 @@ import { Minus, Plus, RotateCcw, ChevronLeft, ChevronRight } from "lucide-react"
 import { Press } from "../motion";
 import { asset } from "../assets";
 import type { CarScene, CarView } from "../lib/carScene";
+import { afterScrollIdle } from "../lib/scrollIdle";
 
 export default function CarViewer({ id, name }: { id: string; name: string }) {
   const label = `MK ${id.slice(1)}`;
@@ -13,17 +14,23 @@ export default function CarViewer({ id, name }: { id: string; name: string }) {
   const [failed, setFailed] = useState(false), [view, setView] = useState<CarView | null>("Perspective");
   useEffect(() => {
     if (!host.current) return;
-    let cancelled = false, owned: CarScene | undefined;
+    let cancelled = false, visible = false, owned: CarScene | undefined, cancelIdle = () => {};
     setAvailable(false); setLoaded(""); setFailed(false);
     const observer = new IntersectionObserver(entries => {
-      if (!entries.some(entry => entry.isIntersecting)) return; observer.disconnect();
+      visible = entries.some(entry => entry.isIntersecting); cancelIdle();
+      if (!visible) return;
       import("../lib/carScene").then(module => {
-        if (cancelled || !host.current) return;
-        owned = module.createCarScene(host.current, !!reduced); scene.current = owned; setAvailable(true);
+        if (cancelled || !visible) return;
+        cancelIdle();
+        cancelIdle = afterScrollIdle(() => {
+          if (!host.current) return; observer.disconnect();
+          try { owned = module.createCarScene(host.current, !!reduced); scene.current = owned; setAvailable(true); }
+          catch { if (!cancelled) setFailed(true); }
+        });
       }).catch(() => { if (!cancelled) setFailed(true); });
     }, {rootMargin:"200px"});
     observer.observe(host.current);
-    return () => { cancelled = true; observer.disconnect(); owned?.dispose(); scene.current = null; };
+    return () => { cancelled = true; cancelIdle(); observer.disconnect(); owned?.dispose(); scene.current = null; };
   }, [reduced]);
   useEffect(() => {
     if (!available || !scene.current) return;

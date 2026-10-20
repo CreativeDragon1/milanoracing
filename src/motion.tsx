@@ -13,7 +13,15 @@ export const physics = {
   fade: { duration: 0.18, ease: [0.22, 1, 0.36, 1] as const },
   exit: { duration: 0.09 },
 };
-export function Reveal({
+// Native view timelines keep scrolling independent of main-thread React work.
+// Older browsers retain the same reversible Motion fallback.
+const nativeScroll = typeof CSS !== "undefined" && CSS.supports("animation-timeline", "view()");
+export function Reveal(props: React.ComponentProps<typeof LegacyReveal>) {
+  if (!nativeScroll) return <LegacyReveal {...props}/>;
+  const { as: Tag = "div", className = "", children, delay: _delay, ...rest } = props;
+  return <Tag {...rest} className={`scroll-reveal native-reveal ${className}`} data-reveal-state="native-scroll">{children}</Tag>;
+}
+function LegacyReveal({
   children,
   className = "",
   as = "div",

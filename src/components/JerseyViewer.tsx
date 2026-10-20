@@ -6,6 +6,7 @@ import { useTheme } from '../theme';
 import { asset } from '../assets';
 import { people } from '../content';
 import type { JerseyScene } from '../lib/jerseyScene';
+import { afterScrollIdle } from '../lib/scrollIdle';
 import KitExportPanel, { type KitSnapshot } from './KitExportPanel';
 
 export default function JerseyViewer() {
@@ -37,17 +38,25 @@ export default function JerseyViewer() {
   }
   useEffect(()=>{
     const el=host.current;if(!el)return;
-    let cancelled=false,owned:JerseyScene|undefined;setReady(false);setFailed(false);
+    let cancelled=false,visible=false,owned:JerseyScene|undefined,cancelIdle=()=>{};setReady(false);setFailed(false);
     const observer=new IntersectionObserver(entries=>{
-      if(!entries.some(entry=>entry.isIntersecting))return;observer.disconnect();
-      import('../lib/jerseyScene').then(module=>module.createJerseyScene(el,!!reduced,(a,z)=>{
-        if(!cancelled){setAngle(a);setZoom(z);}
-      })).then(api=>{
-        if(cancelled){api.dispose();return;}owned=api;scene.current=api;setReady(true);
+      visible=entries.some(entry=>entry.isIntersecting);cancelIdle();
+      if(!visible)return;
+      import('../lib/jerseyScene').then(module=>{
+        if(cancelled||!visible)return;
+        cancelIdle();
+        cancelIdle=afterScrollIdle(()=>{
+          observer.disconnect();
+          module.createJerseyScene(el,!!reduced,(a,z)=>{
+            if(!cancelled){setAngle(a);setZoom(z);}
+          }).then(api=>{
+            if(cancelled){api.dispose();return;}owned=api;scene.current=api;setReady(true);
+          }).catch(()=>{if(!cancelled)setFailed(true);});
+        });
       }).catch(()=>{if(!cancelled)setFailed(true);});
     },{rootMargin:'200px'});
     observer.observe(el);
-    return()=>{cancelled=true;observer.disconnect();owned?.dispose();scene.current=null;};
+    return()=>{cancelled=true;cancelIdle();observer.disconnect();owned?.dispose();scene.current=null;};
   },[reduced]);
   useEffect(()=>{scene.current?.personalise(personal);},[personal,ready]);
   useEffect(()=>{

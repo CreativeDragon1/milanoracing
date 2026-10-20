@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useInView, useReducedMotion } from 'motion/react';
 import { asset } from '../assets';
 import type { JerseyScene } from '../lib/jerseyScene';
+import { afterScrollIdle } from '../lib/scrollIdle';
 import './KitShortcut.css';
 
 /** A decorative preview inside a normal link; tapping still navigates immediately. */
@@ -25,13 +26,18 @@ export default function KitShortcut() {
   },[]);
   useEffect(()=>{
     if(!inView||!host.current||scene.current)return;
-    let cancelled=false;
+    let cancelled=false, cancelIdle=()=>{};
     const el=host.current;
-    import('../lib/jerseyScene').then(module=>module.createJerseyScene(el,!!reduced,(angle)=>{el.dataset.angle=String(angle);},true)).then(owned=>{
-      if(cancelled){owned.dispose();return;}
-      scene.current=owned;setReady(true);owned.spin(activeRef.current);
+    import('../lib/jerseyScene').then(module=>{
+      if(cancelled)return;
+      cancelIdle=afterScrollIdle(()=>{
+        module.createJerseyScene(el,!!reduced,(angle)=>{el.dataset.angle=String(angle);},true).then(owned=>{
+          if(cancelled){owned.dispose();return;}
+          scene.current=owned;setReady(true);owned.spin(activeRef.current);
+        }).catch(()=>{if(!cancelled)setReady(false);});
+      });
     }).catch(()=>{if(!cancelled)setReady(false);});
-    return ()=>{cancelled=true;};
+    return ()=>{cancelled=true;cancelIdle();};
   },[inView,reduced]);
   useEffect(()=>{scene.current?.spin(active);},[active]);
   useEffect(()=>()=>{scene.current?.dispose();scene.current=null;},[]);

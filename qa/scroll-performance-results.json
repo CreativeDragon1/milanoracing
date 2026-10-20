@@ -1,0 +1,83 @@
+{
+  "baseline": {
+    "route": "http://127.0.0.1:5173/",
+    "viewport": [
+      1280,
+      720
+    ],
+    "samples": 1164,
+    "p95FrameMs": 20.8,
+    "over25ms": 26,
+    "maxFrameMs": 1013.9,
+    "layoutRectReads": 2,
+    "webglDrawCalls": 44,
+    "longTasks": 6,
+    "longTaskMs": 1976,
+    "revealDrivers": [
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked",
+      "scroll-linked"
+    ]
+  },
+  "after": {
+    "route": "http://127.0.0.1:5173/",
+    "viewport": [
+      1280,
+      720
+    ],
+    "scrollDistance": 2553,
+    "samples": 1673,
+    "p95FrameMs": 7.1,
+    "over25ms": 2,
+    "maxFrameMs": 48.7,
+    "layoutRectReads": 0,
+    "webglDrawCalls": 0,
+    "longTasks": 0,
+    "longTaskMs": 0,
+    "revealDrivers": [
+      "native-scroll",
+      "native-scroll",
+      "native-scroll",
+      "native-scroll",
+      "native-scroll",
+      "native-scroll",
+      "native-scroll",
+      "native-scroll",
+      "native-scroll",
+      "native-scroll",
+      "native-scroll",
+      "native-scroll"
+    ]
+  },
+  "reverse": {
+    "down": {
+      "scrollY": 222.39999389648438,
+      "opacity": "0.597942",
+      "transform": "matrix(0.983918, 0, 0, 0.983918, 0, 22.5152)",
+      "timeline": "view()"
+    },
+    "middle": {
+      "scrollY": 522.4000244140625,
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "timeline": "view()"
+    },
+    "up": {
+      "scrollY": 222.39999389648438,
+      "opacity": "0.597942",
+      "transform": "matrix(0.983918, 0, 0, 0.983918, 0, 22.5152)",
+      "timeline": "view()"
+    },
+    "reverses": true
+  },
+  "note": "Single local development-browser run per version at 1280 x 720; not a hardware-wide FPS guarantee."
+}

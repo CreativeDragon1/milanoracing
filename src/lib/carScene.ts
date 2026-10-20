@@ -20,6 +20,8 @@ export function createCarScene(host: HTMLElement, reduced: boolean): CarScene {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
+  renderer.shadowMap.autoUpdate = false;
+  renderer.shadowMap.needsUpdate = true;
   renderer.domElement.setAttribute("aria-hidden", "true");
   host.appendChild(renderer.domElement);
   const scene = new THREE.Scene();
@@ -81,6 +83,7 @@ export function createCarScene(host: HTMLElement, reduced: boolean): CarScene {
       if (disposed || token !== request) return;
       if (current) scene.remove(current); current = next; scene.add(next);
       floor.position.y = new THREE.Box3().setFromObject(next).min.y - .007;
+      renderer.shadowMap.needsUpdate = true;
       invalidate();
     },
     preset,

@@ -1,0 +1,32 @@
+/* Transform and opacity only: the browser drives these on its scroll timeline. */
+@supports (animation-timeline: view()) {
+  .native-reveal {
+    animation: milano-scroll-reveal 1s linear both;
+    animation-timeline: view();
+  }
+}
+@keyframes milano-scroll-reveal {
+  0% { opacity:0; transform:translateY(56px) scale(.96); }
+  28%,72% { opacity:1; transform:translateY(0) scale(1); }
+  100% { opacity:0; transform:translateY(-56px) scale(.96); }
+}
+.native-reveal:focus-within { animation:none; opacity:1; transform:none; }
+/* An opaque sticky surface avoids re-blurring everything passing underneath. */
+.header { background:#fff; }
+[data-theme="dark"] .header { background:#0c1017; backdrop-filter:none; }
+/* Same supplied artwork, pre-tinted once instead of filtering a page-tall layer. */
+[data-theme="dark"] body:before {
+  background-image:url('/assets/kit-dragon-dark.svg');
+  filter:none;
+}
+[data-theme="dark"] .hero:before,
+[data-theme="dark"] .page-heading:after,
+[data-theme="dark"] .footer:before {
+  background-image:url('/assets/kit-dragon-dark.svg');
+  filter:none;
+}
+@media(prefers-reduced-motion:reduce) {
+  .native-reveal { animation:none; opacity:1; transform:none; }
+  html { scroll-behavior:auto; }
+}
+@media print { .native-reveal { animation:none; opacity:1; transform:none; } }
