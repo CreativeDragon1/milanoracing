@@ -1,11 +1,12 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { useReducedMotion } from 'motion/react';
-import { RotateCcw, Plus, Minus, MoveHorizontal, Maximize, Minimize, ArrowLeft, ArrowRight, Download } from 'lucide-react';
+import { RotateCcw, Plus, Minus, MoveHorizontal, Maximize, Minimize, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Press } from '../motion';
 import { useTheme } from '../theme';
 import { asset } from '../assets';
 import { people } from '../content';
 import type { JerseyScene } from '../lib/jerseyScene';
+import KitExportPanel, { type KitSnapshot } from './KitExportPanel';
 
 export default function JerseyViewer() {
   const {dark}=useTheme();
@@ -15,7 +16,7 @@ export default function JerseyViewer() {
   const [ready,setReady]=useState(false),[failed,setFailed]=useState(false);
   const [angle,setAngle]=useState(10),[zoom,setZoom]=useState(100),[full,setFull]=useState(false);
   const [side,setSide]=useState<'front'|'back'>('front');
-  const [snapshot,setSnapshot]=useState<{url:string;format:'png'|'gif'|'mp4'}|null>(null);
+  const [snapshot,setSnapshot]=useState<KitSnapshot|null>(null);
   const [exporting,setExporting]=useState<'png'|'gif'|'mp4'|null>(null),[progress,setProgress]=useState(0),[exportError,setExportError]=useState('');
   const exportAbort=useRef<AbortController|null>(null);
   const [draftName,setDraftName]=useState(''),[draftNumber,setDraftNumber]=useState('');
@@ -30,7 +31,7 @@ export default function JerseyViewer() {
       const {exportKit}=await import('../lib/kitExport');
       controller.signal.throwIfAborted();
       const blob=await exportKit(scene.current,format,controller.signal,setProgress);
-      if(!controller.signal.aborted)setSnapshot({url:URL.createObjectURL(blob),format});
+      if(!controller.signal.aborted)setSnapshot({url:URL.createObjectURL(blob),format,bytes:blob.size,filename:`milano-kit${personal.name?'-'+personal.name.replace(/[^A-Z0-9]+/g,'-'):''}.${format}`});
     }catch(error){if(!controller.signal.aborted)setExportError(error instanceof Error?error.message:'Download could not be prepared. Please try again.');}
     finally{if(exportAbort.current===controller){exportAbort.current=null;setExporting(null);}}
   }
@@ -113,18 +114,8 @@ export default function JerseyViewer() {
       <label className="kit-preset-label" htmlFor={`${id}-preset`}>Or try a team kit<select aria-label="Choose a team kit" id={`${id}-preset`} value="" disabled={!ready&&!failed} onChange={e=>{const person=people.find(p=>p.id===e.target.value);if(person)personalise(person.name.split(' ')[0],person.number??'');}}><option value="">Choose a team member</option>{people.map(p=><option key={p.id} value={p.id}>{p.name} · {p.number}</option>)}</select></label>
       <p className="kit-personal-status" role="status">{personal.name||personal.number?`Previewing ${[personal.name,personal.number].filter(Boolean).join(' · ')}`:'Standard team kit · no name or number'}<span>Preview only. Your details stay on this device.</span></p>
     </form>
-    <div className="kit-export-panel" aria-busy={!!exporting}>
-      <h4>Take your kit with you.</h4>
-      <p>A studio backdrop. Your kit. The Milano signature.</p>
-      <div className="kit-downloads">
-        <button className="kit-save" disabled={!ready||!!exporting} onClick={()=>downloadKit('png')}><Download size={14}/>Create PNG<span>2400 × 3000</span></button>
-        <button className="kit-save" disabled={!ready||!!exporting} onClick={()=>downloadKit('gif')}><RotateCcw size={14}/>Create rotating GIF<span>960 × 1200 · 50 fps</span></button>
-        <button className="kit-save kit-video-save" disabled={!ready||!!exporting} onClick={()=>downloadKit('mp4')}><Download size={14}/>Create 60 fps video<span>960 × 1200 · MP4</span></button>
-      </div>
-      {exporting&&<div className="kit-export-progress"><p role="status">{exporting!=='png'?'Creating your rotation':'Preparing your image'}… {progress}%</p><progress value={progress} max={100} aria-label="Download preparation"/><button type="button" className="text-link" onClick={()=>exportAbort.current?.abort()}>Cancel</button></div>}
-      {exportError&&<p role="alert" className="kit-export-error">{exportError}</p>}
-      {snapshot&&<div className="kit-export-result">{snapshot.format==='mp4'?<video src={snapshot.url} controls loop muted playsInline preload="metadata" aria-label="Your personalised Milano kit at 60 frames per second"/>:<img src={snapshot.url} alt={`Your personalised Milano kit ${snapshot.format==='gif'?'rotating showcase':'poster'}`}/>}<a className="kit-save" href={snapshot.url} download={`milano-kit${personal.name?'-'+personal.name.replace(/[^A-Z0-9]+/g,'-'):''}.${snapshot.format}`}>Download {snapshot.format.toUpperCase()} <Download size={14}/></a></div>}
-    </div>
+    <KitExportPanel ready={ready} exporting={exporting} progress={progress} error={exportError} snapshot={snapshot}
+      onCreate={downloadKit} onCancel={()=>exportAbort.current?.abort()}/>
     </div></div>
   </div>;
 }
