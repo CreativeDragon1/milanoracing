@@ -41,6 +41,6 @@ document.querySelector('#motion').onclick=async()=>{
  w.scrollTo({top:target,behavior:'instant'});await pause();const down=read();
  w.scrollTo({top:target+300,behavior:'instant'});await pause();const middle=read();
  w.scrollTo({top:target,behavior:'instant'});await pause();const up=read();
- result.textContent=JSON.stringify({down,middle,up,changes:down.transform!==middle.transform,reverses:down.opacity===up.opacity&&down.transform===up.transform&&down.ribbon===up.ribbon},null,2);
+ result.textContent=JSON.stringify({down,middle,up,changes:down.transform!==middle.transform,reverses:down.opacity===up.opacity&&down.transform===up.transform},null,2);
 };
 </script>

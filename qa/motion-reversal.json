@@ -1,24 +1,24 @@
 {
   "down": {
-    "scrollY": 310.3999938964844,
-    "opacity": "0.620088",
-    "transform": "matrix(0.994301, 0, 0, 0.994301, 0, 33.4322)",
+    "scrollY": 348.79998779296875,
+    "opacity": "0.521753",
+    "transform": "matrix(0.966088, 0, 0, 0.966088, 0, 57.2163)",
     "timeline": "view()",
-    "ribbon": "matrix(1, 0, 0, 1, -446.093, 0)"
+    "ribbon": "matrix(1, 0, 0, 1, -412.018, 0)"
   },
   "middle": {
-    "scrollY": 610.4000244140625,
+    "scrollY": 648.7999877929688,
     "opacity": "1",
-    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "transform": "matrix(0.999211, 0, 0, 0.999211, 0, -1.41931)",
     "timeline": "view()",
-    "ribbon": "matrix(1, 0, 0, 1, -631.449, 0)"
+    "ribbon": "matrix(1, 0, 0, 1, -412.741, 0)"
   },
   "up": {
-    "scrollY": 310.3999938964844,
-    "opacity": "0.620088",
-    "transform": "matrix(0.994301, 0, 0, 0.994301, 0, 33.4322)",
+    "scrollY": 348.79998779296875,
+    "opacity": "0.521753",
+    "transform": "matrix(0.966088, 0, 0, 0.966088, 0, 57.2163)",
     "timeline": "view()",
-    "ribbon": "matrix(1, 0, 0, 1, -446.093, 0)"
+    "ribbon": "matrix(1, 0, 0, 1, -413.458, 0)"
   },
   "changes": true,
   "reverses": true

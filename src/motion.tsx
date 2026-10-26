@@ -42,11 +42,11 @@ function LegacyReveal({
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   // Position, rather than elapsed time, drives the effect in either direction.
-  // Keep the middle of the viewport still and readable; only its edges ease away.
-  const edge = .26 + Math.min(.025, Math.max(0, delay) * .15);
+  // Keep the centre readable while position and scale continue following the scroll.
+  const edge = .32 + Math.min(.025, Math.max(0, delay) * .15);
   const opacity = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [88, 0, 0, -64]);
-  const scale = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [.985, 1, 1, .985]);
+  const y = useTransform(scrollYProgress, [0, edge, .5, 1 - edge, 1], [100, 18, 0, -18, -100]);
+  const scale = useTransform(scrollYProgress, [0, edge, .5, 1 - edge, 1], [.94, .99, 1, .99, .94]);
   const [focused, setFocused] = useState(false);
   const staticContent = !!reduced || focused;
   const Tag = as === "section" ? motion.section : as === "article" ? motion.article : motion.div;

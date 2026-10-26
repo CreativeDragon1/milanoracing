@@ -1,0 +1,26 @@
+<!doctype html><meta charset="utf-8"><title>Banner motion checks</title>
+<style>body{font:14px system-ui}iframe{display:block;width:1280px;height:800px;border:0}pre{white-space:pre-wrap}button{padding:12px}</style>
+<button id="run" disabled>Check banner</button><pre id="result">Loading</pre><iframe id="site" src="/"></iframe>
+<script>
+const frame=document.querySelector('#site'),result=document.querySelector('#result'),button=document.querySelector('#run');
+frame.onload=async()=>{await frame.contentDocument.fonts.ready;button.disabled=false;result.textContent='Ready'};
+button.onclick=async()=>{
+ button.disabled=true;result.textContent='Running';
+ const w=frame.contentWindow,d=w.document,r=d.querySelector('.motion-ribbon'),track=d.querySelector('.motion-ribbon-track');
+ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+ const read=()=>({rate:track.getAnimations()[0]?.playbackRate,state:track.getAnimations()[0]?.playState,x:w.getComputedStyle(track).transform});
+ w.scrollTo({top:0,behavior:'instant'});await wait(800);
+ const before=read();await wait(250);const moving=read();
+ r.dispatchEvent(new w.PointerEvent('pointerover',{bubbles:true,pointerType:'mouse'}));
+ await wait(150);const slowing=read();await wait(650);const stopped=read();await wait(200);const held=read();
+ r.dispatchEvent(new w.PointerEvent('pointerout',{bubbles:true,pointerType:'mouse',relatedTarget:d.body}));
+ await wait(150);const resuming=read();await wait(650);const resumed=read();
+ const rect=r.getBoundingClientRect(),colours={banner:w.getComputedStyle(r).backgroundColor,tag:w.getComputedStyle(r.querySelector('.ribbon-outline')).color,tagBackground:w.getComputedStyle(r.querySelector('.ribbon-outline')).backgroundColor,text:w.getComputedStyle(r).color};
+ const desktop={left:rect.left,right:rect.right,width:d.documentElement.clientWidth,overflow:d.documentElement.scrollWidth>w.innerWidth};
+ frame.style.width='390px';await wait(300);const mr=r.getBoundingClientRect();
+ const mobile={left:mr.left,right:mr.right,width:d.documentElement.clientWidth,overflow:d.documentElement.scrollWidth>w.innerWidth};
+ w.scrollTo({top:1800,behavior:'instant'});await wait(300);const offscreen=read();
+ result.textContent=JSON.stringify({before,moving,slowing,stopped,held,resuming,resumed,desktop,mobile,colours,offscreen,pass:before.x!==moving.x&&slowing.rate>0&&slowing.rate<1&&stopped.rate===0&&stopped.x===held.x&&resuming.rate>0&&resuming.rate<1&&resumed.rate===1&&Math.abs(desktop.left)<1&&Math.abs(desktop.right-desktop.width)<1&&!desktop.overflow&&Math.abs(mobile.left)<1&&Math.abs(mobile.right-mobile.width)<1&&!mobile.overflow&&offscreen.state==='paused'},null,2);
+ button.disabled=false;
+};
+</script>

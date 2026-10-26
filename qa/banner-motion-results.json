@@ -1,0 +1,61 @@
+{
+  "before": {
+    "rate": 1,
+    "state": "running",
+    "x": "matrix(1, 0, 0, 1, -484.598, 0)"
+  },
+  "moving": {
+    "rate": 1,
+    "state": "running",
+    "x": "matrix(1, 0, 0, 1, -497.957, 0)"
+  },
+  "slowing": {
+    "rate": 0.4799072188557565,
+    "state": "running",
+    "x": "matrix(1, 0, 0, 1, -504.297, 0)"
+  },
+  "stopped": {
+    "rate": 0,
+    "state": "paused",
+    "x": "matrix(1, 0, 0, 1, -507.56, 0)"
+  },
+  "held": {
+    "rate": 0,
+    "state": "paused",
+    "x": "matrix(1, 0, 0, 1, -507.56, 0)"
+  },
+  "resuming": {
+    "rate": 0.5279707164673295,
+    "state": "running",
+    "x": "matrix(1, 0, 0, 1, -509.601, 0)"
+  },
+  "resumed": {
+    "rate": 1,
+    "state": "running",
+    "x": "matrix(1, 0, 0, 1, -540.36, 0)"
+  },
+  "desktop": {
+    "left": -0.10000000149011612,
+    "right": 1264.8999999985099,
+    "width": 1265,
+    "overflow": false
+  },
+  "mobile": {
+    "left": 0.10000000149011612,
+    "right": 375.1000000014901,
+    "width": 375,
+    "overflow": false
+  },
+  "colours": {
+    "banner": "rgb(0, 25, 255)",
+    "tag": "rgb(255, 122, 0)",
+    "tagBackground": "rgb(0, 0, 0)",
+    "text": "rgb(255, 255, 255)"
+  },
+  "offscreen": {
+    "rate": 1,
+    "state": "paused",
+    "x": "matrix(1, 0, 0, 1, -543.605, 0)"
+  },
+  "pass": true
+}
