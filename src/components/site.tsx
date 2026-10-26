@@ -64,10 +64,17 @@ export function Header() {
   const location = useLocation();
   const toggle = useRef<HTMLButtonElement>(null);
   useEffect(() => setOpen(false), [location.pathname]);
+  function handleBrandClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    // Stay on the current Home instance so RouteFocus cannot reset the scroll.
+    if (location.pathname !== "/" || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    setOpen(false);
+    window.scrollTo({ top: 0, behavior: reduced ? "instant" : "smooth" });
+  }
   return (
     <header className="header">
       <div className="header-inner">
-        <Link className="brand" to="/" aria-label="Milano Racing home">
+        <Link className="brand" to="/" aria-label="Milano Racing home" onClick={handleBrandClick}>
           <span className="logo-window">
             <img className="logo-light" src={asset("milano-official.png")} alt="" /><img className="logo-dark" src={asset("milano-dark.svg")} alt="" />
           </span>
