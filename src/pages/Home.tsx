@@ -83,7 +83,7 @@ export default function Home() {
               <span>{car.label}</span>
               <div className="bar-track">
                 <div
-                  className={i === cars.length - 1 ? "bar orange-bar" : "bar"}
+                  className={i % 2 === 1 ? "bar orange-bar" : "bar"}
                   style={{ width: `${(car.dragN / 0.7) * 100}%` }}
                 />
               </div>
