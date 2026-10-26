@@ -44,18 +44,19 @@
   .motion-control, .partner-logo-link, .partner-equal-card { transition: none; }
 }
 
-.competition-countdown { display: flex; justify-content: space-between; align-items: center; gap: 36px; margin: 32px 0 20px; padding: 36px 40px; background: #fffffff5; border-left: 3px solid var(--orange); }
-.competition-heading h2 { font-size: clamp(24px,3vw,34px); margin: 0 0 12px; }
-.competition-heading p { margin: 0 0 6px; font-size: 15px; color: #17171b; }
-.competition-heading time { font-size: 12px; color: var(--muted); }
-.competition-clock { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; min-width: 360px; }
-.countdown-unit { text-align: center; background: #f4f4f7; border-radius: 12px; padding: 18px 10px 14px; box-shadow: inset 2px 2px 5px #00000006, inset -2px -2px 4px #fff; }
-.countdown-unit strong { display: block; font-size: clamp(30px,4vw,44px); font-variant-numeric: tabular-nums; font-weight: 600; line-height: 1; letter-spacing: -.04em; }
-.countdown-unit:first-child strong { color: var(--blue); }
-.countdown-unit span { display: block; margin-top: 12px; font-size: 10px; color: #62626c; }
-.competition-arrived { font-size: 26px; color: var(--blue); margin: 0; }
-@media(max-width:850px) { .competition-countdown { flex-direction: column; align-items: stretch; gap: 24px; padding: 28px; } .competition-clock { min-width: 0; } }
-@media(max-width:480px) { .competition-countdown { padding: 24px 18px; margin-top: 20px; } .competition-clock { gap: 8px; } .countdown-unit { padding: 16px 4px 12px; border-radius: 8px; } .countdown-unit strong { font-size: 30px; } .countdown-unit span { font-size: 9px; } }
+/* Keep the heading and four equal time units in one balanced composition. */
+.competition-countdown { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); align-items:center; gap:clamp(24px,3vw,40px); width:100%; padding:clamp(24px,3vw,36px); background:#fffffff5; }
+.competition-heading { min-width:0; }
+.competition-heading h2 { font-size:clamp(22px,2.3vw,30px); font-weight:700; line-height:1.35; letter-spacing:-.035em; margin:0 0 12px; text-wrap:balance; }
+.competition-heading p { margin:0 0 10px; font-size:13px; line-height:1.6; color:inherit; }
+.competition-heading time { display:block; font-size:11px; line-height:1.8; color:var(--muted); text-wrap:pretty; }
+.competition-clock { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; min-width:0; }
+.countdown-unit { min-width:0; text-align:center; background:#f4f4f7; border:1px solid var(--line); border-radius:12px; padding:22px 6px 18px; }
+.countdown-unit strong { display:block; color:inherit; font-size:clamp(24px,2.8vw,36px); font-variant-numeric:tabular-nums; font-weight:700; line-height:1.2; letter-spacing:-.045em; }
+.countdown-unit span { display:block; margin-top:12px; font-size:9px; line-height:1.5; color:var(--muted); }
+.competition-arrived { font-size:22px; color:inherit; margin:0; }
+@media(max-width:850px) { .competition-countdown { grid-template-columns:minmax(0,1fr); gap:24px; } }
+@media(max-width:480px) { .competition-countdown { padding:24px 16px; } .competition-clock { gap:6px; } .countdown-unit { padding:18px 3px 14px; border-radius:8px; } .countdown-unit strong { font-size:clamp(20px,6vw,27px); } .countdown-unit span { font-size:8px; margin-top:10px; } }
 
 /* Content-led spacing: remove oversized empty hero height and use a consistent section rhythm. */
 .hero { min-height: 0; padding: clamp(28px,4vw,52px) 0 32px; gap: 32px; }

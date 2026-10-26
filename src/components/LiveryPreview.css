@@ -3,10 +3,10 @@
 .livery-reveal-panel { position: absolute; inset: 0; background: #0019ff; clip-path: polygon(0 0, 72% 0, 43% 100%, 0 100%); }
 .livery-reveal-dragon { position: absolute; inset: -16% 0 0 9%; width: 90%; height: 130%; object-fit: cover; opacity: .13; mix-blend-mode: screen; filter: invert(1); pointer-events: none; }
 .livery-reveal-seam { position: absolute; inset: 0; background: #ff7a00; clip-path: polygon(71.6% 0, 72% 0, 43% 100%, 42.6% 100%); }
-.livery-reveal-word { position: absolute; left: 7%; top: 12%; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17cqw; line-height: 1; letter-spacing: -.065em; color: transparent; -webkit-text-stroke: 1px #ffffff70; }
+.livery-reveal-word { position: absolute; left: 7%; top: 12%; font-family: Michroma, sans-serif; font-weight: 800; font-size: 17cqw; line-height: 1; letter-spacing: -.065em; color: transparent; -webkit-text-stroke: 1px #ffffff70; }
 .livery-reveal-copy { position: absolute; left: 8%; bottom: 17%; display: grid; gap: 12px; }
 .livery-reveal-copy > span { font-size: clamp(9px,1.3cqw,14px); letter-spacing: .22em; color: #ffffffbd; }
-.livery-reveal-copy strong { font-family: Manrope, sans-serif; font-weight: 500; font-size: clamp(24px,5.5cqw,64px); line-height: 1.1; letter-spacing: -.045em; }
+.livery-reveal-copy strong { font-family: Michroma, sans-serif; font-weight: 500; font-size: clamp(24px,5.5cqw,64px); line-height: 1.1; letter-spacing: -.045em; }
 .livery-reveal-signature { position: absolute; right: 5%; bottom: 7%; font-family: Michroma, sans-serif; font-size: clamp(7px,1cqw,11px); letter-spacing: .12em; }
 .livery-reveal.is-compact { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; border-radius: inherit; }
 .livery-reveal.is-compact .livery-reveal-signature { display: none; }

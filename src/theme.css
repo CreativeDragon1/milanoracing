@@ -47,7 +47,7 @@
 [data-theme="dark"] .footer { background:#10151ee6; }
 [data-theme="dark"] :is(.eyebrow,.small-label,.hero-location,.render-caption,.data-note,.footer-bottom,.source-note,.placeholder-label,.stage-caption,.version-bar small,.public-version-details dt,.plan-includes) { color:var(--muted); }
 [data-theme="dark"] :is(.intro-copy .large-copy,.render-caption > span:first-child,.competition-heading p) { color:var(--text); }
-[data-theme="dark"] :is(.blue,.hero-copy .blue,.visual-index,.story-meta,.competition-arrived,.countdown-unit:first-child strong,.kit-product-title .small-label) { color:var(--accent); }
+[data-theme="dark"] :is(.blue,.hero-copy .blue,.visual-index,.story-meta,.competition-arrived,.kit-product-title .small-label) { color:var(--accent); }
 [data-theme="dark"] :is(.text-link,.contact-provider-links a:hover,.kit-save) { color:var(--accent); }
 [data-theme="dark"] .orange { color:#ff9b4d; }
 [data-theme="dark"] :is(.raised,.archive-preview,.person,.sponsor-card,.sponsor-feature,.contact-section,.partner-equal-card,.plan-card,.competition-countdown) { background:var(--surface); border-color:var(--line); box-shadow:var(--shadow); }

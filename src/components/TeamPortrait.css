@@ -9,7 +9,7 @@
 .quote-portrait.is-open .portrait-quote { opacity: 1; visibility: visible; transform: translateY(0); }
 .quote-rule { display: block; width: 44px; height: 3px; margin-bottom: 18px; background: #ff7a00; transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.22,1,.36,1); }
 .quote-portrait.is-open .quote-rule { transform: scaleX(1); }
-.quote-words { display: block; color: #fff; font: 500 clamp(17px,6.6cqw,27px)/1.4 'Manrope',sans-serif; letter-spacing: -.025em; }
+.quote-words { display: block; color: #fff; font: 500 clamp(13px,5cqw,20px)/1.65 Michroma,sans-serif; letter-spacing: -.025em; }
 .quote-words > span { display: inline-block; white-space: pre; opacity: 0; transform: translateY(9px); transition: opacity .2s, transform .2s; }
 .quote-portrait.is-open .quote-words > span { opacity: 1; transform: translateY(0); transition-duration: .38s; transition-delay: var(--word-delay); }
 .quote-portrait:focus-visible { outline: 3px solid #0019ff; outline-offset: 4px; }

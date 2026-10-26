@@ -1,8 +1,8 @@
 :root {
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: Michroma, Arial, sans-serif;
   color: #20211f;
   background: #f4f3ef;
-  font-synthesis: none;
+  font-synthesis: weight;
   font-weight: 400;
   --paper: #f4f3ef;
   --blue: #0019ff;
@@ -59,7 +59,7 @@ p {
 h1,
 h2,
 h3 {
-  font-family: "Manrope", "DM Sans", Arial, sans-serif;
+  font-family: Michroma, Arial, sans-serif;
 }
 h1 {
   font-size: clamp(44px, 5.6vw, 80px);
@@ -120,7 +120,7 @@ main,
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: "Manrope", sans-serif;
+  font-family: Michroma, sans-serif;
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -713,7 +713,7 @@ main,
 }
 .model-version {
   position: absolute;
-  font-family: Manrope, sans-serif;
+  font-family: Michroma, sans-serif;
   font-size: 150px;
   letter-spacing: -0.09em;
   color: #d8d9cf80;
