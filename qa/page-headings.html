@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>Page heading checks</title>
+<style>body{font:14px system-ui}iframe{display:block;height:844px;border:0}pre{white-space:pre-wrap}button{padding:12px}</style>
+<button id="run">Check all page headings</button><pre id="result">Ready</pre><iframe id="site" src="about:blank"></iframe>
+<script>
+const frame=document.querySelector('#site'),result=document.querySelector('#result'),button=document.querySelector('#run');
+button.onclick=async()=>{
+ button.disabled=true;result.textContent='Running';const rows=[];
+ for(const width of [1280,390])for(const route of ['/evolution','/team','/journal','/partners','/journal/livery','/journal/jersey','/journal/drag-log']){
+  frame.style.width=width+'px';await new Promise(resolve=>{frame.onload=resolve;frame.src=route});const w=frame.contentWindow,d=w.document;await d.fonts.ready;await new Promise(resolve=>setTimeout(resolve,1000));
+  const heading=d.querySelector('.page-heading'),title=heading?.querySelector('h1'),copy=heading?.querySelector('p');
+  const style=title&&w.getComputedStyle(title),range=d.createRange();if(title)range.selectNodeContents(title);
+  const rects=title?[...range.getClientRects()]:[];const box=title?.getBoundingClientRect();
+  rows.push({route,width,title:title?.textContent,font:style?.fontSize,lines:Math.round(title?.offsetHeight/parseFloat(style?.lineHeight)),gap:copy&&copy.getBoundingClientRect().height>0?Math.round(copy.getBoundingClientRect().top-box.bottom):null,overflow:d.documentElement.scrollWidth>w.innerWidth,textFits:rects.every(r=>r.left>=-1&&r.right<=w.innerWidth+1),progressAbsent:w.getComputedStyle(d.body,'::after').content==='none'});
+ }
+ result.textContent=JSON.stringify({rows,pass:rows.every(r=>r.title&&!r.overflow&&r.textFits&&r.progressAbsent)},null,2);button.disabled=false;
+};
+</script>

@@ -1,0 +1,62 @@
+{
+  "desktop": {
+    "start": {
+      "background": "0px 10.9926px",
+      "dragon": "0px 6.48635px",
+      "lettering": "0px -5.55973px"
+    },
+    "down": {
+      "background": "0px 32.9291px",
+      "dragon": "0px 20.4615px",
+      "lettering": "0px -17.5384px"
+    },
+    "back": {
+      "background": "0px 10.9926px",
+      "dragon": "0px 6.48635px",
+      "lettering": "0px -5.55973px"
+    },
+    "changes": true,
+    "reverses": true,
+    "overflow": false
+  },
+  "mobile": {
+    "start": {
+      "background": "0px 3.17624px",
+      "dragon": "0px -1.50887px",
+      "lettering": "0px 1.50887px"
+    },
+    "down": {
+      "background": "0px 12.9061px",
+      "dragon": "0px 5.13756px",
+      "lettering": "0px -5.13756px"
+    },
+    "back": {
+      "background": "0px 3.17624px",
+      "dragon": "0px -1.50887px",
+      "lettering": "0px 1.50887px"
+    },
+    "changes": true,
+    "reverses": true,
+    "overflow": false
+  },
+  "tags": [
+    {
+      "text": "Milano Racing",
+      "color": "rgb(255, 122, 0)",
+      "background": "rgb(0, 0, 0)",
+      "padding": "8px 20px"
+    },
+    {
+      "text": "Always the fastest",
+      "color": "rgb(255, 122, 0)",
+      "background": "rgb(0, 0, 0)",
+      "padding": "8px 20px"
+    }
+  ],
+  "reduced": {
+    "background": "none",
+    "dragon": "none",
+    "lettering": "none"
+  },
+  "pass": true
+}

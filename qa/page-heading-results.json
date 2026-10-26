@@ -1,0 +1,159 @@
+{
+  "rows": [
+    {
+      "route": "/evolution",
+      "width": 1280,
+      "title": "Built. Tested. Reconsidered.",
+      "font": "64px",
+      "lines": 2,
+      "gap": 20,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/team",
+      "width": 1280,
+      "title": "Different minds. One team.",
+      "font": "64px",
+      "lines": 1,
+      "gap": 20,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/journal",
+      "width": 1280,
+      "title": "The work in progress.",
+      "font": "64px",
+      "lines": 1,
+      "gap": 20,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/partners",
+      "width": 1280,
+      "title": "Good work takes support.",
+      "font": "64px",
+      "lines": 1,
+      "gap": 20,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/journal/livery",
+      "width": 1280,
+      "title": "A new look. Under wraps.",
+      "font": "64px",
+      "lines": 1,
+      "gap": null,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/journal/jersey",
+      "width": 1280,
+      "title": "Our identity, in the details.",
+      "font": "64px",
+      "lines": 1,
+      "gap": 20,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/journal/drag-log",
+      "width": 1280,
+      "title": "Understanding the airflow.",
+      "font": "64px",
+      "lines": 1,
+      "gap": 20,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/evolution",
+      "width": 390,
+      "title": "Built. Tested. Reconsidered.",
+      "font": "35.136px",
+      "lines": 2,
+      "gap": 16,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/team",
+      "width": 390,
+      "title": "Different minds. One team.",
+      "font": "35.136px",
+      "lines": 2,
+      "gap": 16,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/journal",
+      "width": 390,
+      "title": "The work in progress.",
+      "font": "35.136px",
+      "lines": 1,
+      "gap": 15,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/partners",
+      "width": 390,
+      "title": "Good work takes support.",
+      "font": "35.136px",
+      "lines": 2,
+      "gap": 16,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/journal/livery",
+      "width": 390,
+      "title": "A new look. Under wraps.",
+      "font": "35.136px",
+      "lines": 2,
+      "gap": null,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/journal/jersey",
+      "width": 390,
+      "title": "Our identity, in the details.",
+      "font": "35.136px",
+      "lines": 2,
+      "gap": 16,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    },
+    {
+      "route": "/journal/drag-log",
+      "width": 390,
+      "title": "Understanding the airflow.",
+      "font": "35.136px",
+      "lines": 2,
+      "gap": 16,
+      "overflow": false,
+      "textFits": true,
+      "progressAbsent": true
+    }
+  ],
+  "pass": true
+}

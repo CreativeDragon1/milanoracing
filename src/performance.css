@@ -37,6 +37,33 @@
 
 /* Milano's motion layer: masked type, travelling typography and drawn rules. */
 :root { --motion-ease: cubic-bezier(.22,1,.36,1); }
+/* A shared editorial measure keeps page introductions readable at every width. */
+.page-heading, .article .page-heading {
+  padding:clamp(32px,4.4vw,56px) 0 clamp(32px,3.5vw,44px);
+}
+.page-heading h1, .article .page-heading h1 {
+  max-width:18ch;
+  font-size:clamp(36px,5vw,64px);
+  font-weight:600;
+  line-height:1.1;
+  letter-spacing:-.045em;
+  text-wrap:balance;
+  overflow-wrap:break-word;
+}
+.page-heading > p, .article .page-heading > p {
+  max-width:56ch;
+  margin:20px 0 0;
+  font-size:clamp(15px,1.4vw,18px);
+  line-height:1.65;
+  text-wrap:pretty;
+}
+.page-heading:before { content:none; }
+.page-heading:after { width:32%; opacity:.1; }
+[data-theme="dark"] .page-heading:after { opacity:.07; }
+@media(max-width:600px) {
+  .page-heading h1, .article .page-heading h1 { max-width:100%; font-size:clamp(32px,9vw,42px); }
+  .page-heading > p, .article .page-heading > p { margin-top:16px; }
+}
 .headline-mask { display:block; overflow:clip; padding-bottom:.12em; margin-bottom:-.12em; }
 .headline-mask > span { display:block; animation:headline-arrive 1.05s var(--motion-ease) both; }
 .headline-mask:nth-child(2) > span { animation-delay:120ms; }
@@ -82,11 +109,64 @@
   .intro { position:relative; view-timeline-name:--intro-motion; }
   .intro:after { content:""; position:absolute; inset:auto 0 0; height:1px; background:var(--line); transform-origin:left; animation:rule-draw 1s linear both; animation-timeline:--intro-motion; }
   .native-reveal .mini-chart .bar { transform-origin:left; animation:chart-grow 1s linear both; animation-timeline:--section-motion; }
-  body:after { content:""; position:fixed; inset:0 0 auto; height:3px; z-index:2000; pointer-events:none; background:linear-gradient(90deg,var(--blue) 0%,var(--blue) 75%,var(--orange) 100%); transform-origin:left; animation:reading-progress 1s linear both; animation-timeline:scroll(root block); }
 }
 @keyframes rule-draw { 0% { transform:scaleX(0); } 38%,100% { transform:scaleX(1); } }
 @keyframes chart-grow { 0% { transform:scaleX(.08); } 35%,100% { transform:scaleX(1); } }
-@keyframes reading-progress { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+
+/* Independent depth planes: artwork drifts behind the foreground typography.
+   Individual translate preserves the existing reveal and hover transforms. */
+@supports (animation-timeline: view()) {
+  .hero { view-timeline-name:--hero-depth; }
+  .hero:before {
+    --depth-travel:48px;
+    animation:depth-background 1s linear both;
+    animation-timeline:--hero-depth;
+  }
+  .livery-reveal, .mr-sealed, .kit-shortcut-preview { view-timeline-name:--art-depth; }
+  .livery-reveal .livery-reveal-dragon, .mr-sealed .mr-sealed-pattern {
+    --depth-travel:28px;
+    animation:depth-background 1s linear both;
+    animation-timeline:--art-depth;
+  }
+  .mr-sealed .mr-sealed-pattern { scale:1.2; }
+  :is(.mr-sealed,.livery-reveal):has(.signature-sequence) :is(.mr-sealed-pattern,.livery-reveal-dragon) {
+    animation:signature-art-drift 18s ease-in-out infinite alternate, depth-background 1s linear both;
+    animation-timeline:auto, --art-depth;
+    animation-play-state:paused, running;
+  }
+  :is(.mr-sealed,.livery-reveal):has(.signature-sequence[data-ambient="running"]) :is(.mr-sealed-pattern,.livery-reveal-dragon) {
+    animation-play-state:running, running;
+  }
+  .livery-reveal .livery-reveal-word, .kit-shortcut-preview .kit-shortcut-wordmark {
+    --depth-travel:24px;
+    animation:depth-foreground 1s linear both;
+    animation-timeline:--art-depth;
+  }
+  .intro .intro-team-logo {
+    --depth-travel:30px;
+    animation:depth-background 1s linear both;
+    animation-timeline:--intro-motion;
+  }
+  .mr-sealed .mr-sealed-content {
+    --depth-travel:16px;
+    animation:depth-foreground 1s linear both;
+    animation-timeline:--art-depth;
+  }
+}
+@keyframes depth-background {
+  from { translate:0 calc(0px - var(--depth-travel)); }
+  to { translate:0 var(--depth-travel); }
+}
+@keyframes depth-foreground {
+  from { translate:0 var(--depth-travel); }
+  to { translate:0 calc(0px - var(--depth-travel)); }
+}
+@media(max-width:700px) {
+  .hero:before { --depth-travel:24px; }
+  .livery-reveal .livery-reveal-dragon, .mr-sealed .mr-sealed-pattern,
+  .livery-reveal .livery-reveal-word, .kit-shortcut-preview .kit-shortcut-wordmark,
+  .intro .intro-team-logo, .mr-sealed .mr-sealed-content { --depth-travel:12px; }
+}
 
 /* The artwork remains intact; only the framing responds to interaction. */
 .story-image { overflow:hidden; }
@@ -116,9 +196,12 @@
   .motion-ribbon-track, .intro:after, .native-reveal .mini-chart .bar {
     animation:none; transform:none; opacity:1; clip-path:none;
   }
-  body:after { display:none; }
   .motion-ribbon-track { will-change:auto; transform:none!important; }
   .ribbon-control { display:none; }
+  .hero:before, .livery-reveal .livery-reveal-dragon, .mr-sealed .mr-sealed-pattern,
+  .livery-reveal .livery-reveal-word, .kit-shortcut-preview .kit-shortcut-wordmark,
+  .intro .intro-team-logo, .mr-sealed .mr-sealed-content { animation:none; translate:none; }
+  :is(.mr-sealed,.livery-reveal):has(.signature-sequence) :is(.mr-sealed-pattern,.livery-reveal-dragon) { animation:none; translate:none; }
   .story-image > .livery-reveal, .story-image > .kit-shortcut,
   .text-link svg, .button svg, .header-contact svg, .round-arrow { transition:none; transform:none!important; }
 }

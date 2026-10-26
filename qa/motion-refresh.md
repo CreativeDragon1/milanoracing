@@ -16,3 +16,10 @@
 - Desktop and phone bounds match the document width within 0.1 px; no horizontal overflow. Synthetic pointer-event checks verify intermediate deceleration, a stable stop and intermediate acceleration: banner-motion-results.json.
 - Section reveals continuously translate and scale through the viewport, with exact reversal confirmed separately from the independently moving banner.
 - Updated 12-second scroll check: p95 7.1 ms, max 21.1 ms, zero long tasks, layout-rectangle reads or WebGL drawing.
+
+## Parallax and introduction layout refinement
+
+- Native scroll timelines move dragon artwork and foreground lettering on separate depth planes, preserving the teaser's existing ambient drift. Hero artwork, intro logo, livery, MR 26 and kit-preview wordmarks have depth movement; phone distances are reduced. Desktop/phone reversal and reduced-motion style checks passed in parallax-results.json.
+- Both Milano Racing and Always the fastest banner labels now use identical orange-on-black treatment.
+- Removed the page progress line. All seven page introduction routes were checked at 1280 and 390 pixels: balanced heading measure, consistent description spacing, no horizontal clipping or page overflow; see page-heading-results.json. Null gaps indicate an absent description.
+- Production build passed. Final local 12-second homepage scroll: p95 13.8 ms, maximum 48.6 ms, no long tasks, no WebGL draws and no layout-rectangle reads during scrolling. Results are local browser measurements, not a universal FPS guarantee.

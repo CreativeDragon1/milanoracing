@@ -1,0 +1,19 @@
+<!doctype html><meta charset="utf-8"><title>Milano parallax checks</title>
+<style>body{font:14px system-ui}iframe{display:block;width:1280px;height:800px;border:0}pre{white-space:pre-wrap}button{padding:12px}</style>
+<button id="run" disabled>Check parallax</button><pre id="result">Loading</pre><iframe id="site" src="/"></iframe>
+<script>
+const frame=document.querySelector('#site'),result=document.querySelector('#result'),button=document.querySelector('#run');
+frame.onload=async()=>{await frame.contentDocument.fonts.ready;button.disabled=false;result.textContent='Ready'};
+button.onclick=async()=>{
+ button.disabled=true;result.textContent='Running';
+ const w=frame.contentWindow,d=w.document,wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+ const read=()=>({background:w.getComputedStyle(d.querySelector('.hero'),'::before').translate,dragon:w.getComputedStyle(d.querySelector('.hero .livery-reveal-dragon')).translate,lettering:w.getComputedStyle(d.querySelector('.hero .livery-reveal-word')).translate});
+ const run=async()=>{w.scrollTo({top:0,behavior:'instant'});await wait(150);const start=read();w.scrollTo({top:260,behavior:'instant'});await wait(150);const down=read();w.scrollTo({top:0,behavior:'instant'});await wait(150);const back=read();return {start,down,back,changes:start.dragon!==down.dragon&&start.lettering!==down.lettering,reverses:JSON.stringify(start)===JSON.stringify(back),overflow:d.documentElement.scrollWidth>w.innerWidth}};
+ await wait(1400);const desktop=await run();frame.style.width='390px';await wait(200);const mobile=await run();
+ const tags=[...d.querySelectorAll('.motion-ribbon-group:first-child .ribbon-outline')].map(e=>{const s=w.getComputedStyle(e);return {text:e.textContent,color:s.color,background:s.backgroundColor,padding:s.padding}});
+ const css=[];const collect=rules=>{for(const r of rules){if(r.conditionText?.includes('prefers-reduced-motion:reduce')||r.conditionText?.includes('prefers-reduced-motion: reduce'))css.push([...r.cssRules].map(x=>x.cssText).join('\n'));else if(r.cssRules)collect(r.cssRules)}};
+ for(const sheet of d.styleSheets){try{collect(sheet.cssRules)}catch{}}
+ const override=d.createElement('style');override.textContent=css.join('\n');d.head.append(override);await wait(100);const reduced=read();override.remove();
+ result.textContent=JSON.stringify({desktop,mobile,tags,reduced,pass:desktop.changes&&desktop.reverses&&!desktop.overflow&&mobile.changes&&mobile.reverses&&!mobile.overflow&&Object.values(reduced).every(x=>x==='none')&&tags.length===2&&tags.every(x=>x.color==='rgb(255, 122, 0)'&&x.background==='rgb(0, 0, 0)')},null,2);button.disabled=false;
+};
+</script>

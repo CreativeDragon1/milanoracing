@@ -27,7 +27,7 @@ document.querySelector('#reduced').onclick=async()=>{
  await new Promise(resolve=>w.requestAnimationFrame(()=>w.requestAnimationFrame(resolve)));
  const selectors=['.native-reveal','.headline-mask > span','.hero-livery-link','.motion-ribbon-track','.mini-chart .bar'];
  const states=selectors.map(selector=>{const e=d.querySelector(selector),s=e&&w.getComputedStyle(e);return {selector,animation:s?.animationName,transform:s?.transform,opacity:s?.opacity}});
- result.textContent=JSON.stringify({method:'Apply the existing reduced-motion CSS rules in this test iframe',states,progressHidden:w.getComputedStyle(d.body,'::after').display==='none',pass:states.every(s=>s.animation==='none'&&s.transform==='none'&&s.opacity==='1')},null,2);
+ result.textContent=JSON.stringify({method:'Apply the existing reduced-motion CSS rules in this test iframe',states,progressHidden:['none','normal'].includes(w.getComputedStyle(d.body,'::after').content),pass:states.every(s=>s.animation==='none'&&s.transform==='none'&&s.opacity==='1')},null,2);
  override.remove();
 };
 </script>

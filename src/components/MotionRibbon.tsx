@@ -69,7 +69,7 @@ export default function MotionRibbon() {
     onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false); }}>
     <div ref={track} className="motion-ribbon-track" aria-hidden="true">
       {[0, 1, 2].map(copy => <span className="motion-ribbon-group" key={copy}>
-        <span>Milano Racing</span><i/><span className="ribbon-outline">Always the fastest</span><i/><span>STEM Racing</span><i/>
+        <span className="ribbon-outline">Milano Racing</span><i/><span className="ribbon-outline">Always the fastest</span><i/><span>STEM Racing</span><i/>
       </span>)}
     </div>
     <button type="button" className="ribbon-control" aria-label={paused ? 'Resume banner' : 'Pause banner'} aria-pressed={paused} onClick={() => setPaused(value => !value)}>
