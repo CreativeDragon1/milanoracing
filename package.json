@@ -10,6 +10,7 @@
     "build:html": "node scripts/build-html.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "gifenc": "^1.0.3",
     "lucide-react": "^0.468.0",
     "mediabunny": "^1.61.6",

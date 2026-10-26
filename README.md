@@ -69,7 +69,13 @@ The build is suitable for static hosting; upload the **contents** of `dist/`. Co
 - **Netlify / Cloudflare Pages:** build command `npm run build`, output `dist`; `public/_redirects` is copied to the output.
 - **Other hosts:** configure the equivalent SPA fallback. A normal file server without a fallback will return 404 for deep links.
 
-The project bundles local open-license fonts; no font requests leave the site. Images are local; the main car render is an optimized WebP derivative. The jersey uses a shaped garment mesh, original supplied logos and the exact dragon artwork extracted from the shirt PDF; the personal jersey photographs are not displayed. Lazy loading is used below the fold. There are no analytics or social tracking embeds.
+The project bundles local open-license fonts; no font requests leave the site. Images are local; the main car render is an optimized WebP derivative. The jersey uses a shaped garment mesh, original supplied logos and the exact dragon artwork extracted from the shirt PDF; the personal jersey photographs are not displayed. Lazy loading is used below the fold. Vercel Web Analytics records public page views on the deployed HTTPS site. Local previews, offline exports and private-game builds are excluded; query strings, fragments and personalisation fields are not sent. There are no social tracking embeds.
+
+### Enable visitor analytics
+
+The Vercel account owner must open this project in the Vercel dashboard, select **Analytics**, click **Enable**, then redeploy the latest `main` deployment. Installation alone does not enable the service. After deployment, visit the public site and check Analytics for visitors and page views. Counts start when collection is enabled; historical visits cannot be recovered by this integration. Porkbun DNS needs no changes.
+
+Setup reference: https://vercel.com/docs/analytics/quickstart
 
 The garment viewer loads Three.js and its model only near the viewport. Rendering occurs during interaction or resize, not continuously while idle. Drag, keyboard arrows, front/back presets, zoom, reset, fullscreen and PNG capture are supported. Reduced motion removes the spring camera transition. Devices without WebGL receive front/back rendered posters. The model is a visual reconstruction rather than a measured digital twin. See `THIRD-PARTY-ASSETS.md` for the CC0 garment base.
 
