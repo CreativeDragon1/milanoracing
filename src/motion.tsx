@@ -45,7 +45,10 @@ function LegacyReveal({
   // Keep the centre readable while position and scale continue following the scroll.
   const edge = .32 + Math.min(.025, Math.max(0, delay) * .15);
   const opacity = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, edge, .5, 1 - edge, 1], [100, 18, 0, -18, -100]);
+  const editorial = /(?:page-heading|ec-section|plan-card|partner-equal-card|person)/.test(className);
+  const distance = editorial ? 24 : 100;
+  const midpoint = editorial ? 4 : 18;
+  const y = useTransform(scrollYProgress, [0, edge, .5, 1 - edge, 1], [distance, midpoint, 0, -midpoint, -distance]);
   const scale = useTransform(scrollYProgress, [0, edge, .5, 1 - edge, 1], [.94, .99, 1, .99, .94]);
   const [focused, setFocused] = useState(false);
   const staticContent = !!reduced || focused;
@@ -61,7 +64,7 @@ function LegacyReveal({
       onFocusCapture={() => setFocused(true)}
       onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false); }}
       initial={false}
-      style={{ opacity: staticContent ? 1 : opacity, y: staticContent ? 0 : y, scale:staticContent ? 1 : scale }}
+      style={{ opacity: staticContent || editorial ? 1 : opacity, y: staticContent ? 0 : y, scale:staticContent || editorial ? 1 : scale }}
     >
       {children}
     </Tag>
