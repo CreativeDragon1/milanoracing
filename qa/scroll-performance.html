@@ -17,15 +17,30 @@ run.onclick=()=>{
  }w.requestAnimationFrame(tick);
 };
 </script>
+<button id="reduced">Check reduced-motion styles</button>
+<script>
+document.querySelector('#reduced').onclick=async()=>{
+ const w=site.contentWindow,d=w.document,css=[];
+ const collect=rules=>{for(const rule of rules){if(rule.conditionText?.includes('prefers-reduced-motion:reduce')||rule.conditionText?.includes('prefers-reduced-motion: reduce'))css.push([...rule.cssRules].map(r=>r.cssText).join('\n'));else if(rule.cssRules)collect(rule.cssRules)}};
+ for(const sheet of d.styleSheets){try{collect(sheet.cssRules)}catch{}}
+ const override=d.createElement('style');override.textContent=css.join('\n');d.head.append(override);
+ await new Promise(resolve=>w.requestAnimationFrame(()=>w.requestAnimationFrame(resolve)));
+ const selectors=['.native-reveal','.headline-mask > span','.hero-livery-link','.motion-ribbon-track','.mini-chart .bar'];
+ const states=selectors.map(selector=>{const e=d.querySelector(selector),s=e&&w.getComputedStyle(e);return {selector,animation:s?.animationName,transform:s?.transform,opacity:s?.opacity}});
+ result.textContent=JSON.stringify({method:'Apply the existing reduced-motion CSS rules in this test iframe',states,progressHidden:w.getComputedStyle(d.body,'::after').display==='none',pass:states.every(s=>s.animation==='none'&&s.transform==='none'&&s.opacity==='1')},null,2);
+ override.remove();
+};
+</script>
 <script>
 document.querySelector('#motion').onclick=async()=>{
  const w=site.contentWindow,d=w.document,el=d.querySelectorAll('.scroll-reveal')[3];
  const pause=()=>new Promise(resolve=>w.requestAnimationFrame(()=>w.requestAnimationFrame(resolve)));
- const target=el.offsetTop-w.innerHeight*.8;
- const read=()=>({scrollY:w.scrollY,opacity:w.getComputedStyle(el).opacity,transform:w.getComputedStyle(el).transform,timeline:w.getComputedStyle(el).animationTimeline});
+ let documentTop=0;for(let node=el;node;node=node.offsetParent)documentTop+=node.offsetTop;
+ const target=Math.max(1,documentTop-w.innerHeight*.8);
+ const read=()=>({scrollY:w.scrollY,opacity:w.getComputedStyle(el).opacity,transform:w.getComputedStyle(el).transform,timeline:w.getComputedStyle(el).animationTimeline,ribbon:w.getComputedStyle(d.querySelector('.motion-ribbon-track')).transform});
  w.scrollTo({top:target,behavior:'instant'});await pause();const down=read();
  w.scrollTo({top:target+300,behavior:'instant'});await pause();const middle=read();
  w.scrollTo({top:target,behavior:'instant'});await pause();const up=read();
- result.textContent=JSON.stringify({down,middle,up,reverses:down.opacity===up.opacity&&down.transform===up.transform},null,2);
+ result.textContent=JSON.stringify({down,middle,up,changes:down.transform!==middle.transform,reverses:down.opacity===up.opacity&&down.transform===up.transform&&down.ribbon===up.ribbon},null,2);
 };
 </script>

@@ -33,7 +33,7 @@ export default function App() {
       (location.pathname.startsWith("/journal/")
         ? "Journal"
         : "Page not found");
-    document.title = `${title} — Milano Racing`;
+    document.title = `${title} | Milano Racing`;
   }, [location.pathname, location.hash]);
   return (
     <MotionConfig reducedMotion="user">

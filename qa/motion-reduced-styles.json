@@ -1,0 +1,37 @@
+{
+  "method": "Apply the existing reduced-motion CSS rules in this test iframe",
+  "states": [
+    {
+      "selector": ".native-reveal",
+      "animation": "none",
+      "transform": "none",
+      "opacity": "1"
+    },
+    {
+      "selector": ".headline-mask > span",
+      "animation": "none",
+      "transform": "none",
+      "opacity": "1"
+    },
+    {
+      "selector": ".hero-livery-link",
+      "animation": "none",
+      "transform": "none",
+      "opacity": "1"
+    },
+    {
+      "selector": ".motion-ribbon-track",
+      "animation": "none",
+      "transform": "none",
+      "opacity": "1"
+    },
+    {
+      "selector": ".mini-chart .bar",
+      "animation": "none",
+      "transform": "none",
+      "opacity": "1"
+    }
+  ],
+  "progressHidden": true,
+  "pass": true
+}

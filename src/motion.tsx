@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
-import { useRef, useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 const MotionRouterLink = motion.create(Link);
 export const teaserMotion = {
@@ -18,8 +18,8 @@ export const physics = {
 const nativeScroll = typeof CSS !== "undefined" && CSS.supports("animation-timeline", "view()");
 export function Reveal(props: React.ComponentProps<typeof LegacyReveal>) {
   if (!nativeScroll) return <LegacyReveal {...props}/>;
-  const { as: Tag = "div", className = "", children, delay: _delay, ...rest } = props;
-  return <Tag {...rest} className={`scroll-reveal native-reveal ${className}`} data-reveal-state="native-scroll">{children}</Tag>;
+  const { as: Tag = "div", className = "", children, delay = 0, ...rest } = props;
+  return <Tag {...rest} className={`scroll-reveal native-reveal ${className}`} style={{ '--reveal-offset': `${Math.min(5, delay * 30)}%` } as CSSProperties} data-reveal-state="native-scroll">{children}</Tag>;
 }
 function LegacyReveal({
   children,
@@ -45,8 +45,8 @@ function LegacyReveal({
   // Keep the middle of the viewport still and readable; only its edges ease away.
   const edge = .26 + Math.min(.025, Math.max(0, delay) * .15);
   const opacity = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [56, 0, 0, -56]);
-  const scale = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [.96, 1, 1, .96]);
+  const y = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [88, 0, 0, -64]);
+  const scale = useTransform(scrollYProgress, [0, edge, 1 - edge, 1], [.985, 1, 1, .985]);
   const [focused, setFocused] = useState(false);
   const staticContent = !!reduced || focused;
   const Tag = as === "section" ? motion.section : as === "article" ? motion.article : motion.div;
@@ -89,10 +89,10 @@ export function PageMotion({ children }: { children: ReactNode }) {
   const reduced = useReducedMotion();
   return (
     <motion.div
-      initial={reduced ? false : { opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={reduced ? false : { opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, transition: reduced ? { duration: 0 } : physics.exit }}
-      transition={reduced ? { duration: 0 } : physics.fade}
+      transition={reduced ? { duration: 0 } : { duration: .38, ease: teaserMotion.ease }}
     >
       {children}
     </motion.div>

@@ -1,0 +1,25 @@
+{
+  "down": {
+    "scrollY": 310.3999938964844,
+    "opacity": "0.620088",
+    "transform": "matrix(0.994301, 0, 0, 0.994301, 0, 33.4322)",
+    "timeline": "view()",
+    "ribbon": "matrix(1, 0, 0, 1, -446.093, 0)"
+  },
+  "middle": {
+    "scrollY": 610.4000244140625,
+    "opacity": "1",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "timeline": "view()",
+    "ribbon": "matrix(1, 0, 0, 1, -631.449, 0)"
+  },
+  "up": {
+    "scrollY": 310.3999938964844,
+    "opacity": "0.620088",
+    "transform": "matrix(0.994301, 0, 0, 0.994301, 0, 33.4322)",
+    "timeline": "view()",
+    "ribbon": "matrix(1, 0, 0, 1, -446.093, 0)"
+  },
+  "changes": true,
+  "reverses": true
+}

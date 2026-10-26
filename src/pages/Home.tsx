@@ -1,6 +1,7 @@
 import KitShortcut from "../components/KitShortcut";
 import LiveryPreview from "../components/LiveryPreview";
 import CompetitionCountdown from "../components/CompetitionCountdown";
+import MotionRibbon from "../components/MotionRibbon";
 import SponsorLogo from "../components/SponsorLogo";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
@@ -13,11 +14,9 @@ export default function Home() {
     <>
       <section className="hero">
         <Reveal className="hero-copy">
-          <h1>
-            Small car.
-            <br />
-            <span className="blue">Big thinking</span>
-            <span className="orange period">.</span>
+          <h1 className="hero-headline" aria-label="Small car. Big thinking.">
+            <span className="headline-mask" aria-hidden="true"><span>Small car.</span></span>
+            <span className="headline-mask" aria-hidden="true"><span><span className="blue">Big thinking</span><span className="orange period">.</span></span></span>
           </h1>
           <p>
             We’re Milano Racing, a team from Singapore competing in STEM Racing.
@@ -36,6 +35,7 @@ export default function Home() {
           <Link to="/journal/livery" className="hero-livery-link" aria-label="Discover the upcoming Milano Racing livery"><LiveryPreview /></Link>
         </Reveal>
       </section>
+      <MotionRibbon/>
       <CompetitionCountdown/>
       <section className="intro section">
         <Reveal>
