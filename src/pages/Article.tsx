@@ -11,11 +11,11 @@ export default function Article() {
   const { pathname } = useLocation();
   const post = posts.find((p) => pathname === `/journal/${p.id}`);
   if (!post) return <NotFound />;
-  if (post.id === "livery") return <article className="article livery-coming-article">
+  if (post.id === "livery") return <article className="article livery-unveiled-article">
     <Link className="text-link" to="/journal">← Back to journal</Link>
-    <Heading title="A new look. Under wraps." description={null} />
-    <LiveryPreview replay />
-    <div className="livery-release-footer"><p>Our next livery. Revealed on release day.</p><ArrowLink to="/evolution">Explore the car archive</ArrowLink></div>
+    <Heading title={post.title} description={post.excerpt} />
+    <LiveryPreview />
+    <div className="livery-release-footer"><p>Meet the finished Milano Racing livery: white bodywork, orange accents and our partners’ marks, brought together on the car.</p><ArrowLink to="/evolution">Explore the car archive</ArrowLink></div>
   </article>;
   return (
     <article className={`article ${post.id === "livery" ? "livery-article" : ""}`}>

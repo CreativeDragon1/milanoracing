@@ -32,7 +32,7 @@ export default function Home() {
           </div>
         </Reveal>
         <Reveal className="hero-visual" delay={.08}>
-          <Link to="/journal/livery" className="hero-livery-link" aria-label="Discover the upcoming Milano Racing livery"><LiveryPreview /></Link>
+          <Link to="/journal/livery" className="hero-livery-link" aria-label="Explore the unveiled Milano Racing livery"><LiveryPreview /></Link>
         </Reveal>
       </section>
       <MotionRibbon/>

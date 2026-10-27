@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "routes": [
+    {
+      "width": 390,
+      "route": "/",
+      "loaded": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "route": "/journal",
+      "loaded": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "route": "/journal/livery",
+      "loaded": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "loaded": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "route": "/journal",
+      "loaded": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "route": "/journal/livery",
+      "loaded": true,
+      "noOverflow": true
+    }
+  ],
+  "errors": []
+}
