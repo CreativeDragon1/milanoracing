@@ -8,7 +8,7 @@ import { ArrowUpRight } from "lucide-react";
 import { cars, posts, sponsors } from "../content";
 import { Reveal } from "../motion";
 
-import { asset, ArrowLink, SingaporeFlag } from "../components/site";
+import { asset, ArrowLink } from "../components/site";
 export default function Home() {
   return (
     <>
@@ -26,9 +26,6 @@ export default function Home() {
             <ArrowLink to="/team" light>
               Meet the team
             </ArrowLink>
-          </div>
-          <div className="hero-location">
-            Singapore <SingaporeFlag/>
           </div>
         </Reveal>
         <Reveal className="hero-visual" delay={.08}>
