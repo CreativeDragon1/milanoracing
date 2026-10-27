@@ -83,10 +83,10 @@ export const posts = [
   {
     id: "livery",
     category: "Design",
-    title: "The livery, unveiled.",
+    title: "The Milano livery, revealed.",
     image: "",
     caption: "Milano Racing’s white and orange livery, revealed in the garage.",
-    excerpt: "White and orange bodywork. Our identity and partners, on the car.",
+    excerpt: "Ready for Nationals.",
     body: [],
   },
   {

@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "width": 320,
+      "reducedMotion": "reduce",
+      "font": "Michroma, Arial, sans-serif",
+      "bg": "rgb(0, 25, 255)",
+      "opacity": "1",
+      "inside": true,
+      "orange": "rgb(255, 122, 0)",
+      "clip": "none",
+      "text": "MILANO LIVERY\n,\nREVEALED"
+    },
+    {
+      "width": 390,
+      "reducedMotion": "reduce",
+      "font": "Michroma, Arial, sans-serif",
+      "bg": "rgb(0, 25, 255)",
+      "opacity": "1",
+      "inside": true,
+      "orange": "rgb(255, 122, 0)",
+      "clip": "none",
+      "text": "MILANO LIVERY\n,\nREVEALED"
+    },
+    {
+      "width": 1440,
+      "reducedMotion": "reduce",
+      "font": "Michroma, Arial, sans-serif",
+      "bg": "rgb(0, 25, 255)",
+      "opacity": "1",
+      "inside": true,
+      "orange": "rgb(255, 122, 0)",
+      "clip": "none",
+      "text": "MILANO LIVERY\n,\nREVEALED"
+    },
+    {
+      "width": 320,
+      "reducedMotion": "no-preference",
+      "font": "Michroma, Arial, sans-serif",
+      "bg": "rgb(0, 25, 255)",
+      "opacity": "1",
+      "inside": true,
+      "orange": "rgb(255, 122, 0)",
+      "clip": "inset(0px 0% 0px 0px)",
+      "text": "MILANO LIVERY\n,\nREVEALED"
+    },
+    {
+      "width": 390,
+      "reducedMotion": "no-preference",
+      "font": "Michroma, Arial, sans-serif",
+      "bg": "rgb(0, 25, 255)",
+      "opacity": "1",
+      "inside": true,
+      "orange": "rgb(255, 122, 0)",
+      "clip": "inset(0px 0% 0px 0px)",
+      "text": "MILANO LIVERY\n,\nREVEALED"
+    },
+    {
+      "width": 1440,
+      "reducedMotion": "no-preference",
+      "font": "Michroma, Arial, sans-serif",
+      "bg": "rgb(0, 25, 255)",
+      "opacity": "1",
+      "inside": true,
+      "orange": "rgb(255, 122, 0)",
+      "clip": "inset(0px 0% 0px 0px)",
+      "text": "MILANO LIVERY\n,\nREVEALED"
+    }
+  ]
+}

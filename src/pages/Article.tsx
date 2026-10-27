@@ -15,7 +15,7 @@ export default function Article() {
     <Link className="text-link" to="/journal">← Back to journal</Link>
     <Heading title={post.title} description={post.excerpt} />
     <LiveryPreview />
-    <div className="livery-release-footer"><p>Meet the finished Milano Racing livery: white bodywork, orange accents and our partners’ marks, brought together on the car.</p><ArrowLink to="/evolution">Explore the car archive</ArrowLink></div>
+    <div className="livery-release-footer"><p>The Milano livery is revealed and ready for Nationals. Our colours, our partners and our identity — ready for the track.</p><ArrowLink to="/evolution">Explore the car archive</ArrowLink></div>
   </article>;
   return (
     <article className={`article ${post.id === "livery" ? "livery-article" : ""}`}>
