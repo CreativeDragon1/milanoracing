@@ -11,7 +11,11 @@
 .livery-reveal.is-compact { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; border-radius: inherit; }
 .hero-livery-link { display: block; width: 100%; border-radius: 22px; }
 .hero-livery-link:focus-visible { outline: 3px solid #ff7a00; outline-offset: 6px; }
-.livery-unveiled-article { max-width: 1160px; }
-.livery-unveiled-article .livery-reveal { margin: 16px 0 32px; }
-.livery-release-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin: 28px 0 64px; }
+.article.livery-unveiled-article { max-width: 840px; }
+.article.livery-unveiled-article .page-heading { padding-bottom: 24px; }
+.article.livery-unveiled-article .page-heading h1 { font-size: clamp(28px, 4vw, 46px); }
+.journal-grid .story-link .story-image { height: auto; aspect-ratio: 12 / 7; }
+.journal-grid .livery-reveal-photo { object-fit: contain; }
+.livery-unveiled-article .livery-reveal { margin: 8px 0 24px; }
+.livery-release-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin: 24px 0 48px; }
 .livery-release-footer p { margin: 0; max-width: 65ch; }
