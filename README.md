@@ -18,7 +18,7 @@ npm run build
 npm run preview
 ```
 
-The production output is `dist/`. No API keys, database, account or environment variables are needed. Contact links open the visitor's email application; the copy-email control copies the real team email. There is no pretend form submission.
+The production output is `dist/`. The public pages need no account or database. Contact links open the visitor's email application; the copy-email control copies the real team email. The separate `/admin` team workspace uses verified email sign-in and a protected Supabase database; see [ADMIN.md](ADMIN.md) for setup, access controls and verification.
 
 ## Project structure
 

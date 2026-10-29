@@ -19,7 +19,7 @@ export function filterPageview(event: BeforeSendEvent): BeforeSendEvent | null {
 export default function SiteAnalytics() {
   const { pathname } = useLocation();
   const localHost = /^(localhost|127(?:\.\d+){3}|\[::1\])$/.test(location.hostname);
-  if (!import.meta.env.PROD || import.meta.env.MODE === 'private-game' ||
+  if (pathname === '/admin' || pathname.startsWith('/admin/') || !import.meta.env.PROD || import.meta.env.MODE === 'private-game' ||
       window.__MILANO_OFFLINE__ || location.protocol !== 'https:' || localHost) return null;
 
   // Explicit routes count SPA navigation once, without counting anchor changes.

@@ -6,3 +6,8 @@ playwright-report/
 *.tsbuildinfo
 
 .standalone-build/
+.env
+.env.*
+!.env.example
+.vercel/
+*.private.sql

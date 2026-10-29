@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, MotionConfig } from "motion/react";
 import { PageMotion } from "./motion";
@@ -11,6 +11,7 @@ import Journal from "./pages/Journal";
 import Article from "./pages/Article";
 import Partners from "./pages/Partners";
 import NotFound from "./pages/NotFound";
+const Admin = lazy(() => import('./admin/Admin'));
 function RouteFocus() {
   const location = useLocation();
   useEffect(() => {
@@ -30,11 +31,12 @@ export default function App() {
   useEffect(() => {
     const title =
       nav.find(([p]) => p === location.pathname)?.[1] ??
-      (location.pathname.startsWith("/journal/")
+      (location.pathname === '/admin' || location.pathname.startsWith('/admin/') ? 'Team workspace' : location.pathname.startsWith("/journal/")
         ? "Journal"
         : "Page not found");
     document.title = `${title} | Milano Racing`;
   }, [location.pathname, location.hash]);
+  if (location.pathname === '/admin' || location.pathname.startsWith('/admin/')) return <Suspense fallback={<div role="status">Opening private workspace…</div>}><Admin /></Suspense>;
   return (
     <MotionConfig reducedMotion="user">
       <Link className="skip-link" to={`${location.pathname}#main`}>
