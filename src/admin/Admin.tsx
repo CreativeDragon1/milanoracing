@@ -8,13 +8,16 @@ const Dashboard = lazy(() => import('./Dashboard'));
 type Access = 'checking' | 'signed-out' | 'allowed' | 'denied' | 'error';
 export default function Admin() {
   const [access, setAccess] = useState<Access>('checking');
-  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
   const [preview, setPreview] = useState<Workspace | null>(null);
   useEffect(() => {
     document.title = 'Team workspace | Milano Racing';
     const meta = document.createElement('meta'); meta.name = 'robots'; meta.content = 'noindex, nofollow, noarchive'; document.head.append(meta);
+    if (new URLSearchParams(location.search).has('error')) {
+      setMessage('Sign-in was not completed. Choose an approved Google account and try again.');
+      history.replaceState(null, '', location.pathname);
+    }
     return () => meta.remove();
   }, []);
   useEffect(() => {
@@ -63,18 +66,15 @@ export default function Admin() {
       {access === 'checking' ? <p role="status">Checking your access…</p> : access === 'denied' ? <>
         <p>This account doesn’t have access to the team workspace.</p><button className="admin-primary" disabled={busy} onClick={signOut}>Use another account</button>
       </> : access === 'error' ? <><p role="alert">We couldn’t verify your access. Please try again.</p><button className="admin-primary" onClick={() => location.reload()}>Try again</button></> : !adminClient ? <p>The private workspace is being set up. Access is closed until setup is complete.</p> : <>
-        <p>Sign in with your approved email.<br/>Only invited team members can enter.</p>
-        <form onSubmit={async e => {
-          e.preventDefault(); if (busy) return; setBusy(true); setMessage('');
+        <p>Continue with your approved Google account.<br/>Only invited team members can enter.</p>
+        <div className="admin-login-actions"><button className="admin-primary" disabled={busy} onClick={async () => {
+          if (busy) return; setBusy(true); setMessage('');
           try {
-            const { error } = await adminClient!.auth.signInWithOtp({ email: email.trim().toLowerCase(), options: { shouldCreateUser: true, emailRedirectTo: `${location.origin}/admin` } });
-            setMessage(error ? 'Unable to send a sign-in link. Check your approved email or try again shortly.' : 'If your account is approved, a sign-in link is on its way. Open it in this browser.');
+            const { error } = await adminClient!.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${location.origin}/admin`, queryParams: { prompt: 'select_account' } } });
+            if (error) setMessage('Unable to start Google sign-in. Please try again shortly.');
           } catch { setMessage('Unable to connect. Please try again.'); }
           finally { setBusy(false); }
-        }}>
-          <label>Email address<input type="email" required autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@example.com" maxLength={254}/></label>
-          <button className="admin-primary" disabled={busy}>{busy ? 'Sending…' : 'Email me a sign-in link'}<ArrowUpRight size={18}/></button>
-        </form>
+        }}>{busy ? 'Connecting…' : 'Sign in with Google'}<ArrowUpRight size={18}/></button></div>
       </>}
       <p className="admin-message" role="status">{message}</p>
       <div className="admin-login-note"><LockKeyhole size={14}/> Private team workspace</div>
